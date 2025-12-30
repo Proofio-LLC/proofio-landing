@@ -29,7 +29,6 @@ const getImageUrl = (image?: BlogPost["mainImage"]) => {
     const imageSource = image.asset._ref ? image.asset : image.asset;
     return urlFor(imageSource).width(800).height(450).url();
   } catch (error) {
-    console.error("Error generating image URL:", error);
     // Fallback to direct URL if available
     if (image.asset.url) {
       return image.asset.url;
