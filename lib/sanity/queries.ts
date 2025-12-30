@@ -1,4 +1,7 @@
-import { groq } from 'next-sanity';
+// GROQ query helper (simple tagged template function)
+const groq = (strings: TemplateStringsArray, ...values: any[]): string => {
+  return strings.reduce((acc, str, i) => acc + str + (values[i] || ''), '');
+};
 
 export const blogPostsQuery = groq`
   *[_type == "post"] | order(publishedAt desc) [0...6] {
