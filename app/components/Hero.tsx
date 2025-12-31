@@ -44,10 +44,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <button className="btn btn-lg rounded-lg px-8 gap-2 shadow-lg hover:shadow-xl transition-all bg-primary text-white hover:bg-primary/90">
+            <a href="https://dash.proofio.app" className="btn btn-lg rounded-lg px-8 gap-2 shadow-lg hover:shadow-xl transition-all bg-primary text-white hover:bg-primary/90">
               Get started
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
             <button className="btn btn-outline btn-lg rounded-lg px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
               View documentation
             </button>

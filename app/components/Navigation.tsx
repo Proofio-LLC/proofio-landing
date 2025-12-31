@@ -97,10 +97,10 @@ export default function Navigation() {
 
           {/* Desktop Actions */}
           <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isBlogPage ? 'absolute right-4 lg:right-8' : ''}`}>
-            <button className="btn btn-ghost rounded-lg">Sign In</button>
-            <button className="btn rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
+            <a href="https://dash.proofio.app" className="btn btn-ghost rounded-lg">Sign In</a>
+            <a href="https://dash.proofio.app" className="btn rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
               Get Started
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -142,14 +142,14 @@ export default function Navigation() {
                 </li>
               ))}
               <li className="pt-4 border-t border-base-300 mt-2">
-                <button className="btn btn-ghost w-full justify-start rounded-lg">
+                <a href="https://dash.proofio.app" className="btn btn-ghost w-full justify-start rounded-lg">
                   Sign In
-                </button>
+                </a>
               </li>
               <li>
-                <button className="btn w-full rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
+                <a href="https://dash.proofio.app" className="btn w-full rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
                   Get Started
-                </button>
+                </a>
               </li>
             </ul>
           </motion.div>
