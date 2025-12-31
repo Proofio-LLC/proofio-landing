@@ -5,18 +5,18 @@ import { Smartphone, Globe, Code, Sparkles } from "lucide-react";
 
 const useCases = [
   {
-    title: "App-Entwickler",
-    description: "Sammle Bewertungen von Apple App Store und Google Play Store in einer zentralen API. Nutze Sentiment-Analyse und Clustering, um Feedback zu kategorisieren und Trends zu erkennen.",
+    title: "Apps & SaaS",
+    description: "Aggregate ratings from app stores and marketplaces into a single, trustworthy overview for your website.",
     icon: Smartphone,
   },
   {
-    title: "E-Commerce & SaaS",
-    description: "Konsolidiere Bewertungen von Trustpilot, Google Reviews und anderen Quellen zu einer einheitlichen Bewertung. Zeige aggregierte Reviews auf deiner Landing Page mit unserem Widget.",
+    title: "E-commerce & brands",
+    description: "Combine product and store reviews across platforms to present a consistent rating.",
     icon: Globe,
   },
   {
-    title: "Custom Integration",
-    description: "Nutze unsere REST API mit flexiblen Filtern (Datum, Rating, Sentiment, Source) für die Integration in CRMs, Dashboards oder eigene Anwendungen. API-First Architektur für maximale Flexibilität.",
+    title: "Custom & internal tools",
+    description: "Use the API to power dashboards, reports, or internal analytics with review data.",
     icon: Code,
   },
 ];
@@ -37,10 +37,10 @@ export default function UseCases() {
             <span className="text-sm font-medium">USE CASES</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Perfekt für jeden Anwendungsfall
+            Built for real-world use cases
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-            Proofio passt sich deinen spezifischen Anforderungen an
+            Proofio adapts to different products, teams, and technical setups.
           </p>
         </motion.div>
 

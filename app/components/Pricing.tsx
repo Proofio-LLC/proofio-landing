@@ -74,10 +74,10 @@ export default function Pricing() {
             <span className="text-sm font-medium">PRICING</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Choose the best plan for you
+            Choose the plan that fits your needs
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-8">
-            All prices include VAT. Per user per month.
+            All plans include daily updates and access to aggregated review data.
           </p>
           
           <div className="flex items-center justify-center gap-4 mb-12">
@@ -189,6 +189,15 @@ export default function Pricing() {
             </motion.div>
           ))}
         </div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center text-base-content/70 mt-8"
+        >
+          All prices are per user, billed monthly. VAT included where applicable.
+        </motion.p>
       </div>
     </section>
   );

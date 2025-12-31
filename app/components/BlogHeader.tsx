@@ -17,10 +17,10 @@ export default function BlogHeader() {
         <span className="text-sm font-medium">BLOG</span>
       </div>
       <h2 className="text-4xl md:text-5xl font-bold mb-4">
-        Latest Articles
+        Latest articles
       </h2>
-      <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-        Tips, guides, and insights about review management
+      <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-6">
+        Insights on review aggregation, analytics, and trust signals.
       </p>
     </motion.div>
   );

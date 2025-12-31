@@ -15,7 +15,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full"
           >
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">API-First Review Aggregation Platform</span>
+            <span className="text-sm font-medium">Review Aggregation Platform</span>
           </motion.div>
 
           <motion.h1
@@ -24,11 +24,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold mb-6 text-base-content"
           >
-            Sammle, normalisiere und analysiere
+            Collect, normalize, and analyze
             <br />
-            <span className="text-primary">Bewertungen aus allen Quellen</span>
-            <br />
-            automatisch
+            <span className="text-primary">reviews from every source</span>
           </motion.h1>
 
           <motion.p
@@ -37,7 +35,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-base-content/70 mb-8 max-w-2xl mx-auto"
           >
-            Proofio sammelt Bewertungen von Apple App Store, Google Play Store, Trustpilot und Google Reviews, normalisiert sie in ein einheitliches Format und stellt sie via REST API oder Framework-agnostischem Widget zur Verfügung.
+            Proofio automatically aggregates reviews across platforms, keeps them up to date, and turns fragmented ratings into a single, reliable signal.
           </motion.p>
 
           <motion.div
@@ -47,11 +45,11 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <button className="btn btn-lg rounded-lg px-8 gap-2 shadow-lg hover:shadow-xl transition-all bg-primary text-white hover:bg-primary/90">
-              Kostenlos starten
+              Get started
               <ArrowRight className="w-5 h-5" />
             </button>
             <button className="btn btn-outline btn-lg rounded-lg px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
-              Demo anfragen
+              View documentation
             </button>
           </motion.div>
         </div>

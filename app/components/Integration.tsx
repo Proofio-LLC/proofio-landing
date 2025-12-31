@@ -20,10 +20,10 @@ export default function Integration() {
             <span className="text-sm font-medium">INTEGRATION</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Einfache Integration, überall
+            Simple integration. Works everywhere.
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-            Integriere Bewertungen via REST API oder nutze unsere fertigen Widgets - funktioniert mit jedem Framework
+            Use Proofio via widgets or API. Integrate once and reuse across websites, apps, and internal tools.
           </p>
         </motion.div>
 
@@ -38,7 +38,7 @@ export default function Integration() {
               <div className="card-body">
                 <div className="flex items-center gap-3 mb-4">
                   <Layout className="w-6 h-6 text-primary" />
-                  <h3 className="card-title text-2xl">Widget Presets</h3>
+                  <h3 className="card-title text-2xl">Widget presets</h3>
                 </div>
                 <div className="bg-base-100 rounded-lg p-8 border-2 border-dashed border-base-300">
                   <div className="space-y-4">
@@ -69,9 +69,15 @@ export default function Integration() {
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-base-content/70 mt-4">
-                  Framework-agnostische Widgets für schnelle Integration - WordPress, Next.js, React, Vue, Shopify, Webflow und mehr
-                </p>
+                <div className="space-y-2 mt-4">
+                  <p className="text-sm font-semibold text-base-content">Ready-to-use widgets to display aggregated ratings and reviews with minimal setup.</p>
+                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
+                    <li>Unified rating</li>
+                    <li>Source attribution</li>
+                    <li>Filters and limits</li>
+                    <li>Lightweight embed</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -86,7 +92,7 @@ export default function Integration() {
               <div className="card-body">
                 <div className="flex items-center gap-3 mb-4">
                   <Code className="w-6 h-6 text-primary" />
-                  <h3 className="card-title text-2xl">API Integration</h3>
+                  <h3 className="card-title text-2xl">API integration</h3>
                 </div>
                 <div className="bg-base-100 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm">
@@ -112,9 +118,15 @@ export default function Integration() {
                     </code>
                   </pre>
                 </div>
-                <p className="text-sm text-base-content/70 mt-4">
-                  RESTful API mit Filter-Optionen (Datum, Rating, Sentiment, Source) für vollständige Kontrolle
-                </p>
+                <div className="space-y-2 mt-4">
+                  <p className="text-sm font-semibold text-base-content">Use the Proofio API to access reviews and analytics directly in your own applications.</p>
+                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
+                    <li>Reviews & aggregates</li>
+                    <li>Trend data</li>
+                    <li>Source breakdowns</li>
+                    <li>Full control via API keys</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -129,14 +141,14 @@ export default function Integration() {
         >
           <div className="mb-12">
             <p className="text-base-content/70 mb-6 text-lg font-semibold">
-              Review-Quellen
+              Review sources
             </p>
             <div className="flex flex-wrap justify-center gap-4 items-center">
               {[
-                { name: "Apple App Store", icon: "/appstore.png", description: "iOS App Reviews" },
-                { name: "Google Play Store", icon: "/googleplay.png", description: "Android App Reviews" },
-                { name: "Trustpilot", icon: "/Trustpilot.png", description: "Business Reviews" },
-                { name: "Google Reviews", icon: "/google.png", description: "Google Maps Bewertungen" },
+                { name: "App Store", icon: "/appstore.png", description: "iOS App Reviews" },
+                { name: "Google Play", icon: "/googleplay.png", description: "Android App Reviews" },
+                { name: "Shopify", icon: "/shopify.png", description: "E-commerce Reviews" },
+                { name: "Google Reviews", icon: "/google.png", description: "Google Maps Reviews" },
               ].map((source) => (
                 <div
                   key={source.name}
@@ -175,16 +187,16 @@ export default function Integration() {
 
           <div>
             <p className="text-base-content/70 mb-6 text-lg font-semibold">
-              Framework & Plattformen
+              Frameworks & platforms
             </p>
             <div className="flex flex-wrap justify-center gap-6 items-center">
               {[
-                { name: "Shopify", icon: "/shopify.png", description: "E-Commerce Platform" },
                 { name: "WordPress", icon: "/wordpress.png", description: "CMS Integration" },
+                { name: "Shopify", icon: "/shopify.png", description: "E-Commerce Platform" },
                 { name: "React", icon: "/react.png", description: "JavaScript Framework" },
                 { name: "Vue", icon: "/vuejs.svg", description: "JavaScript Framework" },
-                { name: "Webflow", icon: "/webgflow.svg", description: "No-Code Platform" },
-                { name: "REST API", icon: "/api.png", description: "API Integration" },
+                { name: "Static HTML", icon: "/api.png", description: "Static Sites" },
+                { name: "Custom setups", icon: "/api.png", description: "Custom Integration" },
               ].map((platform) => (
                 <div
                   key={platform.name}

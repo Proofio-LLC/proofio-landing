@@ -5,11 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Globe, Menu, X, ArrowLeft } from "lucide-react";
+import { Menu, X, ArrowLeft } from "lucide-react";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"en" | "de">("en");
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
   const pathname = usePathname();
@@ -97,40 +96,7 @@ export default function Navigation() {
           )}
 
           {/* Desktop Actions */}
-          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-2' : 'gap-3'} ${isBlogPage ? 'absolute right-4 lg:right-8' : ''}`}>
-            {!isBlogPage && !isScrolled && (
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-sm gap-2 rounded-lg"
-                >
-                  <Globe className="w-4 h-4" />
-                  <span className="uppercase text-xs">{language}</span>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-xl z-[1] w-32 p-2 shadow-lg border border-base-300 mt-2"
-                >
-                  <li>
-                    <button
-                      onClick={() => setLanguage("en")}
-                      className={language === "en" ? "active" : ""}
-                    >
-                      English
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => setLanguage("de")}
-                      className={language === "de" ? "active" : ""}
-                    >
-                      Deutsch
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
+          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isBlogPage ? 'absolute right-4 lg:right-8' : ''}`}>
             <button className="btn btn-ghost rounded-lg">Sign In</button>
             <button className="btn rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
               Get Started
@@ -139,39 +105,6 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <div className={`flex lg:hidden items-center gap-2 ${isBlogPage ? 'absolute right-4' : ''}`}>
-            {!isBlogPage && !isScrolled && (
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-sm gap-1 rounded-lg"
-                >
-                  <Globe className="w-4 h-4" />
-                  <span className="uppercase text-xs">{language}</span>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-xl z-[1] w-32 p-2 shadow-lg border border-base-300 mt-2"
-                >
-                  <li>
-                    <button
-                      onClick={() => setLanguage("en")}
-                      className={language === "en" ? "active" : ""}
-                    >
-                      English
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => setLanguage("de")}
-                      className={language === "de" ? "active" : ""}
-                    >
-                      Deutsch
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
             {!isBlogPage && (
               <button
                 className="btn btn-ghost btn-square"
@@ -187,7 +120,7 @@ export default function Navigation() {
             {isBlogPage && (
               <>
                 <button className="btn btn-ghost btn-sm rounded-lg">Sign In</button>
-                <button className="btn btn-sm rounded-lg shadow-md hover:shadow-lg transition-all px-4 bg-primary text-white hover:bg-primary/90">
+                <button className="btn btn-sm rounded-lg shadow-md hover:shadow-lg transition-all px-4 bg-primary text-white hover:bg-primary/90 ml-2">
                   Get Started
                 </button>
               </>

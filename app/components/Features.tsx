@@ -49,38 +49,38 @@ function FeatureImage({ staticImage, animatedImage, alt }: { staticImage: string
 
 const features = [
   {
-    title: "Multi-Source Integration",
-    description: "Sammle Bewertungen von Apple App Store, Google Play Store, Trustpilot und Google Reviews. Einfach erweiterbar für neue Quellen.",
+    title: "Multi-source integration",
+    description: "Connect multiple review platforms and collect all reviews in one centralized system.",
     staticImage: "/featureicons/integration-static.png",
     animatedImage: "/featureicons/Integration.gif",
   },
   {
-    title: "Smart Analytics",
-    description: "Automatische Sentiment-Analyse, Review-Clustering nach Keywords und intelligente Aggregationen für Durchschnittsbewertung und Trends.",
+    title: "Smart analytics",
+    description: "Understand trends, sentiment, and rating changes across platforms over time.",
     staticImage: "/featureicons/analytics-static.png",
     animatedImage: "/featureicons/analytics.gif",
   },
   {
-    title: "Daten-Normalisierung",
-    description: "Einheitliches Datenformat für alle Quellen - keine manuelle Anpassung nötig. Alle Bewertungen in einem konsistenten Format.",
+    title: "Data normalization",
+    description: "Ratings and reviews are standardized to ensure consistent comparison and aggregation.",
     staticImage: "/featureicons/normalize-static.png",
     animatedImage: "/featureicons/normalize.gif",
   },
   {
     title: "REST API",
-    description: "Sichere API mit Key-basierter Authentifizierung, CORS-ready, Rate Limiting und flexible Query-Filter nach Datum, Rating, Sentiment und Source.",
+    description: "Access all reviews, aggregates, and insights programmatically through a clean API.",
     staticImage: "/featureicons/api-static.png",
     animatedImage: "/featureicons/api.gif",
   },
   {
-    title: "Embed Widget",
-    description: "Framework-agnostisches Widget für jede Website. Responsive, Light & Dark Mode, vollständig anpassbar mit 20+ Konfigurations-Optionen.",
+    title: "Embeddable widgets",
+    description: "Display aggregated ratings and reviews anywhere with lightweight, framework-agnostic widgets.",
     staticImage: "/featureicons/widget-static.png",
     animatedImage: "/featureicons/widget.gif",
   },
   {
-    title: "Automatische Synchronisierung",
-    description: "Reviews werden automatisch stündlich synchronisiert. Optional manuelle Syncs via API für sofortige Updates.",
+    title: "Automatic synchronization",
+    description: "Reviews are fetched and updated daily — no manual work required.",
     staticImage: "/featureicons/sync-static.png",
     animatedImage: "/featureicons/sync.gif",
   },
@@ -99,13 +99,13 @@ export default function Features() {
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">FEATURES</span>
+            <span className="text-sm font-medium">CORE VALUE</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Alles was du für Review-Management brauchst
+            Everything you need for review aggregation
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-            Moderne Features zum Sammeln, Normalisieren und Analysieren von Bewertungen
+            A unified system to collect, normalize, and analyze reviews across platforms — built for modern products and teams.
           </p>
         </motion.div>
 

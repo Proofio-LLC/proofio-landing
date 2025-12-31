@@ -111,7 +111,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
         className="text-center mt-12"
       >
         <Link href="/blog" className="btn btn-outline btn-lg rounded-lg px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
-          View All Articles
+          View all articles
         </Link>
       </motion.div>
     </>

@@ -6,34 +6,29 @@ import { ChevronDown, Sparkles } from "lucide-react";
 
 const faqs = [
   {
-    question: "Von welchen Quellen sammelt Proofio Bewertungen?",
+    question: "Which review sources are supported?",
     answer:
-      "Proofio unterstützt Apple App Store (iOS App Reviews), Google Play Store (Android App Reviews), Trustpilot (Business Reviews) und Google Reviews (Google Maps Bewertungen). Das System ist einfach erweiterbar für neue Quellen.",
+      "Proofio currently supports App Store, Google Play, Shopify and Google Reviews, with additional sources planned.",
   },
   {
-    question: "Wie oft werden Bewertungen aktualisiert?",
+    question: "How often are reviews updated?",
     answer:
-      "Bewertungen werden automatisch stündlich synchronisiert. Du kannst auch manuelle Updates via API auslösen, wenn du sofortige Aktualisierungen benötigst.",
+      "Reviews are automatically synchronized and updated daily.",
   },
   {
-    question: "Kann ich Proofio nur mit der API nutzen, ohne Widgets?",
+    question: "Can I use Proofio without widgets?",
     answer:
-      "Ja, Proofio ist API-First designed. Du kannst die REST API exklusiv nutzen, ohne Widgets zu verwenden. Die API bietet vollständige Kontrolle über alle Features inklusive Filter nach Datum, Rating, Sentiment und Source.",
+      "Yes. All data is available through the REST API.",
   },
   {
-    question: "Was ist Sentiment-Analyse und Review-Clustering?",
+    question: "Does Proofio modify or filter reviews?",
     answer:
-      "Sentiment-Analyse klassifiziert Bewertungen automatisch als positiv, neutral oder negativ. Review-Clustering kategorisiert Bewertungen nach Keywords, um Themen und Trends zu identifizieren. Beide Features helfen dir, Feedback besser zu verstehen.",
+      "No. Reviews are stored and displayed as provided by the original sources.",
   },
   {
-    question: "Wie funktioniert die Integration?",
+    question: "Is Proofio suitable for international products?",
     answer:
-      "Integration erfolgt über unsere REST API mit Key-basierter Authentifizierung oder über unser Framework-agnostisches Widget. Das Widget funktioniert mit WordPress, Next.js, React, Vue, Shopify, Webflow und jeder anderen Website. Beide Optionen sind einfach zu implementieren.",
-  },
-  {
-    question: "Können Bewertungen manipuliert werden?",
-    answer:
-      "Nein. Proofio sammelt Bewertungen direkt von den offiziellen Plattformen. Wir filtern oder manipulieren keine Daten. Du hast jedoch die Option, bestimmte Bewertungen mit Filtern auszuschließen.",
+      "Yes. Reviews can be filtered and analyzed by language and platform.",
   },
 ];
 
@@ -55,11 +50,8 @@ export default function FAQ() {
             <span className="text-sm font-medium">FAQ</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Häufig gestellte Fragen
+            Frequently asked questions
           </h2>
-          <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-            Alles was du wissen musst
-          </p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-4">
