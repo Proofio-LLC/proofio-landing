@@ -17,7 +17,7 @@ NEXT_PUBLIC_SANITY_PROJECT_ID=deine-project-id
 NEXT_PUBLIC_SANITY_DATASET=production
 ```
 
-3. In Sanity Studio, erstelle ein Schema für Blog Posts:
+3. Erstelle in deinem Sanity-Projekt (über sanity.io) ein Schema für Blog Posts:
 
 - Type: `post`
 - Fields: `title`, `slug`, `excerpt`, `publishedAt`, `category`, `mainImage`, `author`, `body`
