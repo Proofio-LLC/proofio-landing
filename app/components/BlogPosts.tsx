@@ -25,14 +25,15 @@ const formatDate = (dateString: string) => {
 const getImageUrl = (image?: BlogPost["mainImage"]) => {
   if (!image?.asset) return "/blog-placeholder.jpg";
   try {
-    // Handle both asset reference and direct asset object
-    const imageSource = image.asset._ref ? image.asset : image.asset;
+    // Handle asset reference (_ref) or resolved asset object
+    const imageSource = image.asset._ref || image.asset._id || image.asset;
     return urlFor(imageSource).width(800).height(450).url();
   } catch (error) {
     // Fallback to direct URL if available
     if (image.asset.url) {
       return image.asset.url;
     }
+    console.warn('Failed to get image URL:', error);
     return "/blog-placeholder.jpg";
   }
 };

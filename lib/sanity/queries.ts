@@ -12,13 +12,21 @@ export const blogPostsQuery = groq`
     publishedAt,
     category,
     mainImage {
-      asset,
+      asset-> {
+        _id,
+        _type,
+        url
+      },
       alt
     },
     author-> {
       name,
       image {
-        asset
+        asset-> {
+          _id,
+          _type,
+          url
+        }
       }
     }
   }
@@ -34,13 +42,21 @@ export const blogPostBySlugQuery = groq`
     category,
     body,
     mainImage {
-      asset,
+      asset-> {
+        _id,
+        _type,
+        url
+      },
       alt
     },
     author-> {
       name,
       image {
-        asset
+        asset-> {
+          _id,
+          _type,
+          url
+        }
       }
     }
   }

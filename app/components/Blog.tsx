@@ -41,12 +41,19 @@ export default async function Blog() {
   if (sanityClient) {
     try {
       blogPosts = await sanityClient.fetch<BlogPost[]>(blogPostsQuery);
-    } catch (error) {
-      // Silently fail in production, log in development
+      // Debug logging
       if (process.env.NODE_ENV === 'development') {
-        console.error("Error fetching blog posts:", error);
+        console.log('Fetched blog posts:', blogPosts.length, blogPosts);
       }
+    } catch (error) {
+      // Log errors in both development and production
+      console.error("Error fetching blog posts:", error);
       // Fallback to empty array if Sanity is not configured or fails
+    }
+  } else {
+    // Log if Sanity client is not configured
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Sanity client is not configured. Check NEXT_PUBLIC_SANITY_PROJECT_ID in .env.local');
     }
   }
   

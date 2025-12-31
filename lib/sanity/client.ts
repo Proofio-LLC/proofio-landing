@@ -4,6 +4,10 @@ import { createClient } from '@sanity/client';
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
+if (projectId && process.env.NODE_ENV === 'development') {
+  console.log(`Sanity Client initialized with projectId: ${projectId}, dataset: ${dataset}`);
+}
+
 export const sanityClient = projectId
   ? createClient({
       projectId,

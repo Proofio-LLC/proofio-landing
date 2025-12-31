@@ -14,8 +14,10 @@ npm install
 
 ```
 NEXT_PUBLIC_SANITY_PROJECT_ID=deine-project-id
-NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_DATASET=dein-dataset-name
 ```
+
+**Wichtig:** Der Dataset-Name muss genau dem entsprechen, den du in deinem Sanity Studio verwendest. Standardmäßig heißt er oft "production", kann aber auch anders sein. Du findest den Dataset-Namen oben rechts im Sanity Studio oder in der `sanity.config.ts` deines Studio-Projekts.
 
 3. Erstelle in deinem Sanity-Projekt (über sanity.io) ein Schema für Blog Posts:
 
