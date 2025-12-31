@@ -4,17 +4,26 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Globe, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Globe, Menu, X, ArrowLeft } from "lucide-react";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<"en" | "de">("en");
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
   });
+
+  // Check if we're on a blog page
+  const isBlogPage = pathname?.startsWith("/blog");
+  const isBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
+
+  // Determine back button href
+  const backHref = isBlogPost ? "/blog" : "/";
 
   const navItems = [
     { label: "Features", href: "#features" },
@@ -40,9 +49,20 @@ export default function Navigation() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="bg-base-100/95 backdrop-blur-xl rounded-2xl shadow-lg border border-base-300/50"
       >
-        <div className={`flex items-center justify-between px-4 lg:px-6 h-16 lg:h-20 ${isScrolled ? 'lg:px-4' : ''}`}>
-          {/* Logo */}
-          <Link href="/" className="flex items-center group">
+        <div className={`flex items-center ${isBlogPage ? 'justify-center' : 'justify-between'} px-4 lg:px-6 h-16 lg:h-20 ${isScrolled ? 'lg:px-4' : ''}`}>
+          {/* Back Button (only on blog pages) */}
+          {isBlogPage && (
+            <Link
+              href={backHref}
+              className="absolute left-4 lg:left-8 flex items-center gap-2 text-base-content/70 hover:text-primary transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">Zurück</span>
+            </Link>
+          )}
+
+          {/* Logo - centered on blog pages */}
+          <Link href="/" className={`flex items-center group ${isBlogPage ? 'mx-auto' : ''}`}>
             <motion.div
               animate={{
                 height: isScrolled ? 32 : 40,
@@ -61,22 +81,24 @@ export default function Navigation() {
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation Items */}
-          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-0.5' : 'gap-1'}`}>
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`py-2 text-sm font-medium text-base-content/70 hover:text-primary transition-colors rounded-lg hover:bg-base-200/50 ${isScrolled ? 'px-3' : 'px-4'}`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          {/* Desktop Navigation Items (only on landing page) */}
+          {!isBlogPage && (
+            <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-0.5' : 'gap-1'}`}>
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`py-2 text-sm font-medium text-base-content/70 hover:text-primary transition-colors rounded-lg hover:bg-base-200/50 ${isScrolled ? 'px-3' : 'px-4'}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
 
           {/* Desktop Actions */}
-          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-2' : 'gap-3'}`}>
-            {!isScrolled && (
+          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-2' : 'gap-3'} ${isBlogPage ? 'absolute right-4 lg:right-8' : ''}`}>
+            {!isBlogPage && !isScrolled && (
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
@@ -116,8 +138,8 @@ export default function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-2">
-            {!isScrolled && (
+          <div className={`flex lg:hidden items-center gap-2 ${isBlogPage ? 'absolute right-4' : ''}`}>
+            {!isBlogPage && !isScrolled && (
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
@@ -150,21 +172,31 @@ export default function Navigation() {
                 </ul>
               </div>
             )}
-            <button
-              className="btn btn-ghost btn-square"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
+            {!isBlogPage && (
+              <button
+                className="btn btn-ghost btn-square"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </button>
+            )}
+            {isBlogPage && (
+              <>
+                <button className="btn btn-ghost btn-sm rounded-lg">Sign In</button>
+                <button className="btn btn-sm rounded-lg shadow-md hover:shadow-lg transition-all px-4 bg-primary text-white hover:bg-primary/90">
+                  Get Started
+                </button>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
+        {/* Mobile Menu (only on landing page) */}
+        {!isBlogPage && mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
