@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         primary: "#02BB7E",
       },
+      fontFamily: {
+        sans: ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [require("daisyui")],
