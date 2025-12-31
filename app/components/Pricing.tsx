@@ -175,15 +175,28 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
-                      plan.popular
-                        ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
-                        : "bg-primary text-white hover:bg-primary/90"
-                    }`}
-                  >
-                    {plan.cta}
-                  </button>
+                  {plan.cta === "Get Started" ? (
+                    <a
+                      href="https://dash.proofio.app"
+                      className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
+                        plan.popular
+                          ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
+                          : "bg-primary text-white hover:bg-primary/90"
+                      }`}
+                    >
+                      {plan.cta}
+                    </a>
+                  ) : (
+                    <button
+                      className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
+                        plan.popular
+                          ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
+                          : "bg-primary text-white hover:bg-primary/90"
+                      }`}
+                    >
+                      {plan.cta}
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>
