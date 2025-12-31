@@ -104,8 +104,8 @@ export default function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className={`flex lg:hidden items-center gap-2 ${isBlogPage ? 'absolute right-4' : ''}`}>
-            {!isBlogPage && (
+          {!isBlogPage && (
+            <div className="flex lg:hidden items-center gap-2">
               <button
                 className="btn btn-ghost btn-square"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -116,16 +116,8 @@ export default function Navigation() {
                   <Menu className="w-5 h-5" />
                 )}
               </button>
-            )}
-            {isBlogPage && (
-              <>
-                <button className="btn btn-ghost btn-sm rounded-lg">Sign In</button>
-                <button className="btn btn-sm rounded-lg shadow-md hover:shadow-lg transition-all px-4 bg-primary text-white hover:bg-primary/90 ml-2">
-                  Get Started
-                </button>
-              </>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Mobile Menu (only on landing page) */}
