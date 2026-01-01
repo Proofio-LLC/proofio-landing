@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import BackgroundPaths from "./FloatingPaths";
 
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-base-100 via-base-100 to-base-200 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-20">
+      <BackgroundPaths />
+      <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
