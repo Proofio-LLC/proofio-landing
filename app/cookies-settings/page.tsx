@@ -36,7 +36,7 @@ export default function CookiesSettingsPage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">2. How We Use Cookies</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio uses cookies and similar tracking technologies to:
+                  Proofio LLC uses cookies and similar tracking technologies to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>Remember your cookie preferences and consent choices</li>
@@ -59,7 +59,7 @@ export default function CookiesSettingsPage() {
                     <li><strong>Purpose:</strong> Stores your cookie consent preference (accepted/rejected)</li>
                     <li><strong>Type:</strong> Persistent cookie</li>
                     <li><strong>Duration:</strong> 1 year</li>
-                    <li><strong>Provider:</strong> Proofio</li>
+                    <li><strong>Provider:</strong> Proofio LLC</li>
                   </ul>
                 </div>
 
@@ -73,7 +73,7 @@ export default function CookiesSettingsPage() {
                     <li><strong>Purpose:</strong> Maintain session state and user preferences</li>
                     <li><strong>Type:</strong> Session cookie (temporary)</li>
                     <li><strong>Duration:</strong> Until browser is closed</li>
-                    <li><strong>Provider:</strong> Proofio</li>
+                    <li><strong>Provider:</strong> Proofio LLC</li>
                   </ul>
                 </div>
 
@@ -96,7 +96,7 @@ export default function CookiesSettingsPage() {
                   <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
                     <li><strong>Purpose:</strong> Loading and displaying review widgets</li>
                     <li><strong>Cookies:</strong> May use cookies for widget functionality and performance</li>
-                    <li><strong>Provider:</strong> Proofio</li>
+                    <li><strong>Provider:</strong> Proofio LLC</li>
                   </ul>
                 </div>
                 <p className="text-base-content/70 text-sm">
@@ -142,9 +142,17 @@ export default function CookiesSettingsPage() {
                 <p className="text-base-content/80 mb-4">
                   If you have any questions about our use of cookies or this Cookie Policy, please contact us:
                 </p>
-                <p className="text-base-content/80">
-                  Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
-                </p>
+                <div className="text-base-content/80 space-y-2">
+                  <p>
+                    <strong>Proofio LLC</strong>
+                  </p>
+                  <p>
+                    Delaware, United States
+                  </p>
+                  <p>
+                    Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
+                  </p>
+                </div>
               </section>
             </div>
           </div>

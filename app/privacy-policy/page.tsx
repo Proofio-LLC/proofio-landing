@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">1. Introduction</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services, including our website, API, and widgets (collectively, the "Service").
+                  Proofio LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services, including our website, API, and widgets (collectively, the "Service").
                 </p>
                 <p className="text-base-content/80">
                   By using the Service, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, do not use the Service.
@@ -141,9 +141,17 @@ export default function PrivacyPolicyPage() {
                 <p className="text-base-content/80 mb-4">
                   If you have any questions about this Privacy Policy, please contact us:
                 </p>
-                <p className="text-base-content/80">
-                  Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
-                </p>
+                <div className="text-base-content/80 space-y-2">
+                  <p>
+                    <strong>Proofio LLC</strong>
+                  </p>
+                  <p>
+                    Delaware, United States
+                  </p>
+                  <p>
+                    Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
+                  </p>
+                </div>
               </section>
             </div>
           </div>

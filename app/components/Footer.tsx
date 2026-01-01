@@ -25,10 +25,10 @@ export default function Footer() {
                 Proofio empowers teams to transform reviews from multiple platforms into clear, compelling insights — making feedback easier to collect, aggregate, and act on.
               </p>
               <div className="flex gap-4">
-                <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
+                <Link href="https://x.com/proofioapp" className="text-base-content/60 hover:text-primary transition-colors">
                   <Twitter className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
+                <Link href="https://instagram.com/proofio.app" className="text-base-content/60 hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5" />
                 </Link>
                 <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">

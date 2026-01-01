@@ -26,17 +26,17 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">1. Agreement to Terms</h2>
                 <p className="text-base-content/80 mb-4">
-                  By accessing or using Proofio's services, including our website, API, widgets, and related services (collectively, the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service.
+                  By accessing or using Proofio LLC's services, including our website, API, widgets, and related services (collectively, the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service.
                 </p>
                 <p className="text-base-content/80">
-                  These Terms constitute a legally binding agreement between you ("User," "you," or "your") and Proofio ("Company," "we," "us," or "our").
+                  These Terms constitute a legally binding agreement between you ("User," "you," or "your") and Proofio LLC ("Company," "we," "us," or "our").
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">2. Description of Service</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio provides a platform that aggregates, normalizes, and displays reviews from multiple sources, including but not limited to App Store, Google Play, Shopify, and Google Reviews. Our Service includes:
+                  Proofio LLC provides a platform that aggregates, normalizes, and displays reviews from multiple sources, including but not limited to App Store, Google Play, Shopify, and Google Reviews. Our Service includes:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>API access to aggregated review data</li>
@@ -94,7 +94,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">6. Intellectual Property</h2>
                 <p className="text-base-content/80 mb-4">
-                  The Service and its original content, features, and functionality are owned by Proofio and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+                  The Service and its original content, features, and functionality are owned by Proofio LLC and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
                 </p>
                 <p className="text-base-content/80 mb-4">
                   You are granted a limited, non-exclusive, non-transferable license to access and use the Service for your internal business purposes in accordance with these Terms.
@@ -104,7 +104,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">7. Data and Content</h2>
                 <p className="text-base-content/80 mb-4">
-                  The review data aggregated by Proofio is sourced from third-party platforms. We do not claim ownership of this content. By using our Service, you acknowledge that:
+                  The review data aggregated by Proofio LLC is sourced from third-party platforms. We do not claim ownership of this content. By using our Service, you acknowledge that:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>Review content belongs to the original platforms and reviewers</li>
@@ -119,14 +119,14 @@ export default function TermsOfServicePage() {
                   THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
                 </p>
                 <p className="text-base-content/80 mb-4">
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, PROOFIO SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES.
+                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, PROOFIO LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES.
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">9. Indemnification</h2>
                 <p className="text-base-content/80 mb-4">
-                  You agree to indemnify, defend, and hold harmless Proofio and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of or in any way connected with your use of the Service or violation of these Terms.
+                  You agree to indemnify, defend, and hold harmless Proofio LLC and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of or in any way connected with your use of the Service or violation of these Terms.
                 </p>
               </section>
 
@@ -147,7 +147,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">12. Governing Law</h2>
                 <p className="text-base-content/80 mb-4">
-                  These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.
+                  These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions.
                 </p>
               </section>
 
@@ -156,9 +156,17 @@ export default function TermsOfServicePage() {
                 <p className="text-base-content/80 mb-4">
                   If you have any questions about these Terms of Service, please contact us:
                 </p>
-                <p className="text-base-content/80">
-                  Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
-                </p>
+                <div className="text-base-content/80 space-y-2">
+                  <p>
+                    <strong>Proofio LLC</strong>
+                  </p>
+                  <p>
+                    Delaware, United States
+                  </p>
+                  <p>
+                    Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
+                  </p>
+                </div>
               </section>
             </div>
           </div>
