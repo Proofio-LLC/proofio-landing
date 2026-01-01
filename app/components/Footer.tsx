@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -34,9 +34,6 @@ export default function Footer() {
                 <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
-                  <Github className="w-5 h-5" />
-                </Link>
               </div>
               <p className="text-sm text-base-content/50">
                 © 2025 Proofio. All rights reserved.
@@ -63,11 +60,6 @@ export default function Footer() {
                       Integrations
                     </Link>
                   </li>
-                  <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Changelog
-                    </Link>
-                  </li>
                 </ul>
               </div>
 
@@ -75,24 +67,19 @@ export default function Footer() {
                 <h3 className="font-semibold text-base-content mb-4">Resources</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="https://docs.proofio.app" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Documentation
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Tutorials
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#blog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="/blog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link href="#faq" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <a href="mailto:support@proofio.app" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Support
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -101,22 +88,22 @@ export default function Footer() {
                 <h3 className="font-semibold text-base-content mb-4">Company</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="/about" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="/careers" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Careers
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <a href="mailto:support@proofio.app" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Contact
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="#" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="/partners" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Partners
                     </Link>
                   </li>
@@ -127,15 +114,18 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div className="pt-8 border-t border-base-300 flex flex-wrap justify-end gap-6">
-            <Link href="#" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+            <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+            <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
               Terms of Service
             </Link>
-            <Link href="#" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+            <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
               Cookies Settings
             </Link>
+            <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Legal Inquiries
+            </a>
           </div>
         </div>
       </div>

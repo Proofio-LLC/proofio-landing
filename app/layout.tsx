@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieBanner from "./components/CookieBanner";
 
 export const metadata: Metadata = {
   title: "Proofio - Automated Review Aggregation for Your Business",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en" data-theme="light">
       <body className="antialiased" suppressHydrationWarning>
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

@@ -26,11 +26,11 @@ export default function Navigation() {
 
   const navItems = [
     { label: "Features", href: "#features" },
-    { label: "Use Cases", href: "#use-cases" },
     { label: "Integration", href: "#integration" },
+    { label: "Use Cases", href: "#use-cases" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Blog", href: "#blog" },
     { label: "FAQ", href: "#faq" },
+    { label: "Blog", href: "#blog" },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Navigation() {
               className="absolute left-4 lg:left-8 flex items-center gap-2 text-base-content/70 hover:text-primary transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">Zurück</span>
+              <span className="hidden sm:inline">Back</span>
             </Link>
           )}
 

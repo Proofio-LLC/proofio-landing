@@ -7,51 +7,48 @@ import { Check, Sparkles } from "lucide-react";
 const plans = [
   {
     name: "Starter",
-    monthlyPrice: 29,
-    yearlyPrice: 24,
-    description: "Perfect for small businesses",
+    monthlyPrice: 0,
+    yearlyPrice: 0,
+    description: "Perfect for getting started",
     features: [
-      "Up to 3 platforms",
-      "1,000 API calls/month",
-      "Basic widgets",
-      "Email support",
-      "Daily updates",
+      "1 Project",
+      "2 Sources per project",
+      "500 Reviews/month",
+      "1,000 API Requests",
+      "Community Support",
     ],
     cta: "Get Started",
     popular: false,
+    isFree: true,
   },
   {
-    name: "Professional",
-    monthlyPrice: 99,
-    yearlyPrice: 79,
+    name: "Growth",
+    monthlyPrice: 29,
+    yearlyPrice: 24,
     description: "For growing businesses",
     features: [
-      "Unlimited platforms",
-      "50,000 API calls/month",
-      "All widget presets",
-      "Priority support",
-      "Custom branding",
-      "Real-time updates",
-      "Advanced filtering",
+      "5 Projects",
+      "20 Sources per project",
+      "10,000 Reviews/month",
+      "50,000 API Requests",
+      "Email Support",
     ],
     cta: "Get Started",
     popular: true,
   },
   {
-    name: "Enterprise",
-    monthlyPrice: 299,
-    yearlyPrice: 249,
-    description: "For large organizations",
+    name: "Scale",
+    monthlyPrice: 99,
+    yearlyPrice: 79,
+    description: "For scaling businesses",
     features: [
-      "Unlimited platforms",
-      "Unlimited API calls",
-      "White-label solution",
-      "Dedicated support",
-      "SLA guarantee",
-      "Custom integration",
-      "Advanced analytics",
+      "Unlimited Projects",
+      "Unlimited Sources",
+      "100,000 Reviews/month",
+      "Unlimited API Requests",
+      "Priority Support",
     ],
-    cta: "Contact Sales",
+    cta: "Get Started",
     popular: false,
   },
 ];
@@ -111,7 +108,7 @@ export default function Pricing() {
             >
               {plan.popular && (
                 <div className="badge badge-primary absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  Most Popular
+                  🔥 Most Popular
                 </div>
               )}
               <div
@@ -127,14 +124,20 @@ export default function Pricing() {
                     {plan.description}
                   </p>
                   <div className="mb-6">
-                    {billingCycle === "yearly" ? (
+                    {plan.isFree ? (
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold">
+                          Free
+                        </span>
+                      </div>
+                    ) : billingCycle === "yearly" ? (
                       <div className="flex items-baseline gap-3 flex-wrap">
                         <div className="flex items-baseline gap-2">
                           <span className={`text-2xl font-bold line-through ${plan.popular ? "opacity-60" : "opacity-50"}`}>
-                            €{plan.monthlyPrice}
+                            ${plan.monthlyPrice}
                           </span>
                           <span className="text-4xl font-bold">
-                            €{plan.yearlyPrice}
+                            ${plan.yearlyPrice}
                           </span>
                           <span className={`text-lg ${plan.popular ? "opacity-90" : "opacity-70"}`}>
                             / month
@@ -153,13 +156,13 @@ export default function Pricing() {
                           );
                         })()}
                         <div className="text-sm opacity-70 w-full">
-                          Billed annually (€{plan.yearlyPrice * 12}/year)
+                          Billed annually (${plan.yearlyPrice * 12}/year)
                         </div>
                       </div>
                     ) : (
                       <>
                         <span className="text-4xl font-bold">
-                          €{plan.monthlyPrice}
+                          ${plan.monthlyPrice}
                         </span>
                         <span className={`text-lg ml-2 ${plan.popular ? "opacity-90" : "opacity-70"}`}>
                           / month
@@ -175,28 +178,18 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  {plan.cta === "Get Started" ? (
-                    <a
-                      href="https://dash.proofio.app"
-                      className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
-                        plan.popular
-                          ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
-                          : "bg-primary text-white hover:bg-primary/90"
-                      }`}
-                    >
-                      {plan.cta}
-                    </a>
-                  ) : (
-                    <button
-                      className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
-                        plan.popular
-                          ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
-                          : "bg-primary text-white hover:bg-primary/90"
-                      }`}
-                    >
-                      {plan.cta}
-                    </button>
-                  )}
+                  <a
+                    href="https://dash.proofio.app"
+                    className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
+                      plan.isFree
+                        ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
+                        : plan.popular
+                        ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
+                        : "bg-primary text-white hover:bg-primary/90"
+                    }`}
+                  >
+                    {plan.cta}
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -209,8 +202,32 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-base-content/70 mt-8"
         >
-          All prices are per user, billed monthly. VAT included where applicable.
+          All prices are billed monthly. Taxes may apply.
         </motion.p>
+
+        {/* Enterprise Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="max-w-2xl mx-auto mt-12"
+        >
+          <div className="bg-base-100 rounded-xl shadow-lg border border-base-300 p-6 text-center">
+            <h3 className="text-xl font-semibold text-base-content mb-2">
+              Enterprise
+            </h3>
+            <p className="text-base-content/70 text-sm mb-4">
+              Custom solutions for large organizations with dedicated support and SLA guarantees.
+            </p>
+            <a
+              href="mailto:sales@proofio.app"
+              className="inline-flex items-center justify-center rounded-lg px-6 py-2.5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium text-sm"
+            >
+              Contact Sales
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Code, Layout, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
+import IntegrationCompact from "./IntegrationWidget";
 
 export default function Integration() {
   return (
@@ -28,96 +29,13 @@ export default function Integration() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="card bg-base-200 shadow-xl h-full">
-              <div className="card-body">
-                <div className="flex items-center gap-3 mb-4">
-                  <Layout className="w-6 h-6 text-primary" />
-                  <h3 className="card-title text-2xl">Widget presets</h3>
-                </div>
-                <div className="bg-base-100 rounded-lg p-8 border-2 border-dashed border-base-300 min-h-[200px] flex items-center justify-center">
-                  <div 
-                    data-proofio-widget 
-                    data-api-key="pk_66547cabd36d316a3f7daa708192ead01b0c8992c0089bfd3d0aaece00b2a63c" 
-                    data-widget-type="reviews-carousel" 
-                    data-limit="6"
-                  ></div>
-                </div>
-                <div className="space-y-2 mt-4">
-                  <p className="text-sm font-semibold text-base-content">Ready-to-use widgets to display aggregated ratings and reviews with minimal setup.</p>
-                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
-                    <li>Unified rating</li>
-                    <li>Source attribution</li>
-                    <li>Filters and limits</li>
-                    <li>Lightweight embed</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="card bg-base-200 shadow-xl h-full">
-              <div className="card-body">
-                <div className="flex items-center gap-3 mb-4">
-                  <Code className="w-6 h-6 text-primary" />
-                  <h3 className="card-title text-2xl">API integration</h3>
-                </div>
-                <div className="bg-base-100 rounded-lg p-4 overflow-x-auto">
-                  <pre className="text-sm">
-                    <code className="text-base-content">
-{`GET /api/v1/reviews
-
-{
-  "rating": 4.8,
-  "total": 1234,
-  "sources": [
-    {
-      "platform": "Google",
-      "rating": 4.9,
-      "count": 456
-    },
-    {
-      "platform": "Trustpilot",
-      "rating": 4.7,
-      "count": 778
-    }
-  ]
-}`}
-                    </code>
-                  </pre>
-                </div>
-                <div className="space-y-2 mt-4">
-                  <p className="text-sm font-semibold text-base-content">Use the Proofio API to access reviews and analytics directly in your own applications.</p>
-                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
-                    <li>Reviews & aggregates</li>
-                    <li>Trend data</li>
-                    <li>Source breakdowns</li>
-                    <li>Full control via API keys</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
+        {/* Mobile View - Grid Layout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center"
+          className="text-center lg:hidden"
         >
           <div className="mb-12">
             <p className="text-base-content/70 mb-6 text-lg font-semibold">
@@ -176,7 +94,7 @@ export default function Integration() {
                 { name: "React", icon: "/react.png", description: "JavaScript Framework" },
                 { name: "Vue", icon: "/vuejs.svg", description: "JavaScript Framework" },
                 { name: "Static HTML", icon: "/api.png", description: "Static Sites" },
-                { name: "Custom setups", icon: "/api.png", description: "Custom Integration" },
+                { name: "Custom setups", icon: "/webhooks.svg", description: "Custom Integration" },
               ].map((platform) => (
                 <div
                   key={platform.name}
@@ -213,6 +131,99 @@ export default function Integration() {
             </div>
           </div>
         </motion.div>
+
+        {/* Desktop View - Interactive Widget */}
+        <div className="hidden lg:block">
+          <IntegrationCompact />
+        </div>
+
+        {/* Widget and API Cards */}
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mt-16">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="card bg-base-200 shadow-xl h-full">
+              <div className="card-body">
+                <div className="flex items-center gap-3 mb-4">
+                  <Layout className="w-6 h-6 text-primary" />
+                  <h3 className="card-title text-2xl">Widget presets</h3>
+                </div>
+                <div className="bg-base-100 rounded-lg p-8 border-2 border-dashed border-base-300 min-h-[200px] flex items-center justify-center">
+                  <div 
+                    data-proofio-widget 
+                    data-api-key="pk_66547cabd36d316a3f7daa708192ead01b0c8992c0089bfd3d0aaece00b2a63c" 
+                    data-widget-type="reviews-carousel" 
+                    data-limit="6"
+                  ></div>
+                </div>
+                <div className="space-y-2 mt-4">
+                  <p className="text-sm font-semibold text-base-content">Ready-to-use widgets to display aggregated ratings and reviews with minimal setup.</p>
+                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
+                    <li>Unified rating</li>
+                    <li>Source attribution</li>
+                    <li>Filters and limits</li>
+                    <li>Lightweight embed</li>
+                  </ul>
+                  <p className="text-xs text-base-content/50 italic mt-3 pt-3 border-t border-base-300">
+                    This is a demo project. This is just one of multiple available widget designs you can choose from.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="card bg-base-200 shadow-xl h-full">
+              <div className="card-body">
+                <div className="flex items-center gap-3 mb-4">
+                  <Code className="w-6 h-6 text-primary" />
+                  <h3 className="card-title text-2xl">API integration</h3>
+                </div>
+                <div className="bg-base-100 rounded-lg p-4 overflow-x-auto">
+                  <pre className="text-sm">
+                    <code className="text-base-content">
+{`GET /api/v1/reviews
+
+{
+  "rating": 4.8,
+  "total": 1234,
+  "sources": [
+    {
+      "platform": "Google",
+      "rating": 4.9,
+      "count": 456
+    },
+    {
+      "platform": "Trustpilot",
+      "rating": 4.7,
+      "count": 778
+    }
+  ]
+}`}
+                    </code>
+                  </pre>
+                </div>
+                <div className="space-y-2 mt-4">
+                  <p className="text-sm font-semibold text-base-content">Use the Proofio API to access reviews and analytics directly in your own applications.</p>
+                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
+                    <li>Reviews & aggregates</li>
+                    <li>Trend data</li>
+                    <li>Source breakdowns</li>
+                    <li>Full control via API keys</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
       <Script
         src="https://widgets.proofio.app/widget.js"

@@ -48,9 +48,9 @@ export default function Hero() {
               Get started
               <ArrowRight className="w-5 h-5" />
             </a>
-            <button className="btn btn-outline btn-lg rounded-lg px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
+            <a href="https://docs.proofio.app" className="btn btn-outline btn-lg rounded-lg px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
               View documentation
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>
