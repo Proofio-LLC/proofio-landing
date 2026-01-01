@@ -46,7 +46,7 @@ export default function Navigation() {
           maxWidth: isScrolled ? "1200px" : "1400px",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="bg-base-100/95 backdrop-blur-xl rounded-2xl shadow-lg border border-base-300/50"
+        className="bg-base-100 rounded-2xl shadow-lg border border-base-300"
       >
         <div className={`flex items-center ${isBlogPage ? 'justify-center' : 'justify-between'} px-4 lg:px-6 h-16 lg:h-20 ${isScrolled ? 'lg:px-4' : ''}`}>
           {/* Back Button (only on blog pages) */}
