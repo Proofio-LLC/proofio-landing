@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Code, Layout, Sparkles } from "lucide-react";
 import Image from "next/image";
+import Script from "next/script";
 
 export default function Integration() {
   return (
@@ -40,34 +41,13 @@ export default function Integration() {
                   <Layout className="w-6 h-6 text-primary" />
                   <h3 className="card-title text-2xl">Widget presets</h3>
                 </div>
-                <div className="bg-base-100 rounded-lg p-8 border-2 border-dashed border-base-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4 p-4 bg-base-200 rounded-lg">
-                      <div className="avatar placeholder">
-                        <div className="bg-primary text-white rounded-full w-12">
-                          <span className="text-xl">⭐</span>
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-semibold text-lg">4.8 / 5.0</div>
-                        <div className="text-sm text-base-content/70">From 1,234 reviews</div>
-                      </div>
-                    </div>
-                    <div className="flex gap-2 flex-wrap items-center">
-                      <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 text-primary rounded-full">
-                        <Image src="/google.png" alt="Google" width={20} height={20} className="w-5 h-5 object-contain" />
-                        <span className="text-sm font-medium">Google</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 text-primary rounded-full">
-                        <Image src="/Trustpilot.png" alt="Trustpilot" width={20} height={20} className="w-5 h-5 object-contain" />
-                        <span className="text-sm font-medium">Trustpilot</span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 text-primary rounded-full">
-                        <Image src="/appstore.png" alt="App Store" width={20} height={20} className="w-5 h-5 object-contain" />
-                        <span className="text-sm font-medium">App Store</span>
-                      </div>
-                    </div>
-                  </div>
+                <div className="bg-base-100 rounded-lg p-8 border-2 border-dashed border-base-300 min-h-[200px] flex items-center justify-center">
+                  <div 
+                    data-proofio-widget 
+                    data-api-key="pk_66547cabd36d316a3f7daa708192ead01b0c8992c0089bfd3d0aaece00b2a63c" 
+                    data-widget-type="reviews-carousel" 
+                    data-limit="6"
+                  ></div>
                 </div>
                 <div className="space-y-2 mt-4">
                   <p className="text-sm font-semibold text-base-content">Ready-to-use widgets to display aggregated ratings and reviews with minimal setup.</p>
@@ -234,6 +214,10 @@ export default function Integration() {
           </div>
         </motion.div>
       </div>
+      <Script
+        src="https://widgets.proofio.app/widget.js"
+        strategy="lazyOnload"
+      />
     </section>
   );
 }
