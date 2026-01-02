@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import CookieBanner from "./components/CookieBanner";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Proofio - Automated Review Aggregation for Your Business",
@@ -36,8 +38,15 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className="antialiased" suppressHydrationWarning>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4446306494941060"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         {children}
         <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );
