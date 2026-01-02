@@ -37,6 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-4446306494941060" />
+      </head>
       <body className="antialiased" suppressHydrationWarning>
         <Script
           async
