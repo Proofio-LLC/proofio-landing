@@ -352,7 +352,7 @@ const features: FeatureRow[] = [
   {
     category: "Support",
     feature: "Basic Email Support",
-    starter: false,
+    starter: true,
     growth: true,
     scale: true,
     description: "✉️ | 3-6 business days",
