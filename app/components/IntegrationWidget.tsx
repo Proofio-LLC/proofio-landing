@@ -4,168 +4,133 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function IntegrationCompact() {
+export default function IntegrationRadial() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
-  const sources = [
-    { name: "App Store", icon: "/appstore.png" },
-    { name: "Google Play", icon: "/googleplay.png" },
+  const integrations = [
     { name: "Shopify", icon: "/shopify.png" },
-    { name: "Google", icon: "/google.png" },
-  ];
-
-  const platforms = [
+    { name: "Webflow", icon: "/webgflow.svg" },
     { name: "WordPress", icon: "/wordpress.png" },
-    { name: "Shopify", icon: "/shopify.png" },
     { name: "React", icon: "/react.png" },
     { name: "Vue", icon: "/vuejs.svg" },
-    { name: "HTML", icon: "/api.png" },
-    { name: "Custom", icon: "/webhooks.svg" },
+    { name: "API", icon: "/api.png" },
+    { name: "Webhooks", icon: "/webhooks.svg" },
   ];
 
-  // Separate Y-Berechnung für links (enger zusammen)
-  const getLeftYPos = (index: number, total: number) => {
-    const start = 25; // Erhöht von 15
-    const end = 75;   // Verringert von 85
-    return total > 1 ? start + (index * (end - start)) / (total - 1) : 50;
-  };
-
-  // Standard Y-Berechnung für rechts
-  const getRightYPos = (index: number, total: number) => {
-    const start = 15; 
-    const end = 85;
-    return total > 1 ? start + (index * (end - start)) / (total - 1) : 50;
-  };
-
   return (
-    <section className="py-12 bg-base-100 overflow-hidden">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="relative flex justify-between items-center min-h-[380px] gap-2">
+    <section className="py-24 bg-base-100 overflow-hidden">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="relative flex justify-center items-center min-h-[500px]">
           
-          {/* SVG Layer mit korrigierten Andockpunkten */}
+          {/* SVG Layer für die radialen Linien */}
           <div className="absolute inset-0 pointer-events-none z-0">
-            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              {/* LINKS: Engeres Alignment */}
-              {sources.map((source, i) => (
-                <ConnectionLine
-                  key={`src-${i}`}
-                  start="13" end="43" 
-                  startY={getLeftYPos(i, sources.length)}
-                  endY={50}
-                  isHovered={hoveredItem === `source-${source.name}`}
-                />
-              ))}
-              
-              {/* RECHTS: Standard Alignment */}
-              {platforms.map((platform, i) => (
-                <ConnectionLine
-                  key={`plt-${i}`}
-                  start="57" end="87"
-                  startY={50}
-                  endY={getRightYPos(i, platforms.length)}
-                  isHovered={hoveredItem === `platform-${platform.name}`}
-                />
-              ))}
+            <svg className="w-full h-full" viewBox="0 0 100 100">
+              {integrations.map((item, i) => {
+                const angle = (i * 360) / integrations.length;
+                const radius = 35; // Abstand vom Zentrum
+                // Berechne Endpunkte der Linien basierend auf Kreisbahn
+                const x2 = 50 + radius * Math.cos((angle * Math.PI) / 180);
+                const y2 = 50 + radius * Math.sin((angle * Math.PI) / 180);
+
+                return (
+                  <RadialLine
+                    key={i}
+                    x1="50" y1="50"
+                    x2={x2} y2={y2}
+                    isHovered={hoveredItem === item.name}
+                  />
+                );
+              })}
             </svg>
           </div>
 
-          {/* Left Column: Sources */}
-          <div className="flex flex-col gap-2 z-10 w-40">
-            {sources.map((source, i) => (
-              <CompactCard 
-                key={i} 
-                data={source} 
-                type="source" 
-                setHovered={setHoveredItem} 
-                hoveredItem={hoveredItem} 
-              />
-            ))}
-          </div>
-
-          {/* Center Column: Logo Hub */}
-          <div className="z-20 relative px-2">
-            <div className="absolute inset-0 bg-primary/5 blur-[30px] rounded-full" />
+          {/* Zentrum: Der Main Hub */}
+          <div className="z-20 relative">
+            <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full" />
             <motion.div 
-              className="relative bg-base-100 p-5 rounded-2xl shadow-lg border border-base-200 flex flex-col items-center min-w-[150px]"
+              whileHover={{ scale: 1.05 }}
+              className="relative bg-base-100 p-8 rounded-[2.5rem] shadow-2xl border border-base-200 flex flex-col items-center justify-center w-40 h-40"
             >
-              <Image src="/logo.svg" alt="Proofio" width={100} height={30} className="w-24 h-auto mb-1" />
-              <p className="text-[7px] font-black uppercase tracking-[0.2em] text-primary/40">Engine</p>
+              <Image src="/logo.svg" alt="Proofio" width={100} height={30} className="w-24 h-auto mb-2" />
+              <div className="h-px w-8 bg-primary/20 mb-2" />
+              <p className="text-[8px] font-black uppercase tracking-[0.3em] text-primary/60">Engine</p>
             </motion.div>
           </div>
 
-          {/* Right Column: Platforms */}
-          <div className="flex flex-col gap-2 z-10 w-40">
-            {platforms.map((platform, i) => (
-              <CompactCard 
-                key={i} 
-                data={platform} 
-                type="platform" 
-                align="right" 
-                setHovered={setHoveredItem} 
-                hoveredItem={hoveredItem} 
-              />
-            ))}
-          </div>
+          {/* Die kreisförmig angeordneten Icons */}
+          {integrations.map((item, i) => {
+            const angle = (i * 360) / integrations.length;
+            const radius = 180; // Pixel-Radius für das CSS-Layout
+            
+            return (
+              <motion.div
+                key={i}
+                onMouseEnter={() => setHoveredItem(item.name)}
+                onMouseLeave={() => setHoveredItem(null)}
+                className="absolute z-10"
+                style={{
+                  transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`,
+                }}
+              >
+                <div className={`
+                  relative group cursor-pointer p-3 rounded-full bg-white shadow-lg border transition-all duration-300
+                  ${hoveredItem === item.name ? "border-primary scale-110 shadow-primary/20" : "border-base-200"}
+                `}>
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <Image 
+                      src={item.icon} 
+                      alt={item.name} 
+                      width={24} 
+                      height={24} 
+                      className={`object-contain transition-all duration-300 ${hoveredItem === item.name ? "grayscale-0" : "grayscale opacity-70"}`}
+                    />
+                  </div>
+                  
+                  {/* Tooltip-artiges Label (erscheint bei Hover) */}
+                  <div className={`
+                    absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-[10px] rounded font-bold whitespace-nowrap transition-opacity
+                    ${hoveredItem === item.name ? "opacity-100" : "opacity-0"}
+                  `}>
+                    {item.name}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// --- Unterkomponenten ---
+// --- Hilfskomponente für die Linien ---
 
-function CompactCard({ data, type, align = "left", setHovered, hoveredItem }: any) {
-  const itemId = `${type}-${data.name}`;
-  const isHovered = hoveredItem === itemId;
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(itemId)}
-      onMouseLeave={() => setHovered(null)}
-      className={`flex items-center gap-2 bg-base-100 p-2 rounded-lg border transition-all duration-200 shadow-sm ${
-        isHovered ? "border-primary/50 bg-primary/[0.02]" : "border-base-200"
-      } ${align === "right" ? "flex-row-reverse text-right" : ""}`}
-    >
-      <div className={`w-7 h-7 rounded flex items-center justify-center p-1 transition-colors ${isHovered ? "bg-primary/10" : "bg-base-200"}`}>
-        <Image 
-          src={data.icon} 
-          alt={data.name} 
-          width={18} 
-          height={18} 
-          className={`object-contain transition-all ${isHovered ? "" : "grayscale opacity-50"}`} 
-        />
-      </div>
-      <p className={`text-[10px] font-bold truncate ${isHovered ? "text-primary" : "text-base-content/70"}`}>
-        {data.name}
-      </p>
-    </div>
-  );
-}
-
-function ConnectionLine({ start, end, startY, endY, isHovered }: any) {
-  const sX = parseFloat(start);
-  const eX = parseFloat(end);
-  const midX = (sX + eX) / 2;
-  const path = `M ${sX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${eX} ${endY}`;
-
+function RadialLine({ x1, y1, x2, y2, isHovered }: any) {
   return (
     <g>
-      <path 
-        d={path} 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="0.5" 
-        className={`${isHovered ? "text-primary opacity-100" : "text-base-content opacity-10"} transition-all duration-300`} 
+      <line
+        x1={x1} y1={y1} x2={x2} y2={y2}
+        stroke="currentColor"
+        strokeWidth="0.5"
+        className={`${isHovered ? "text-primary opacity-100" : "text-base-content opacity-10"} transition-all duration-500`}
       />
-      
-      <circle r="0.6" fill={isHovered ? "#02BB7E" : "currentColor"} className={isHovered ? "opacity-100" : "opacity-20"}>
-        <animateMotion dur={isHovered ? "1.5s" : "4s"} repeatCount="indefinite" path={path} />
-      </circle>
-
       {isHovered && (
-        <circle r="1.5" fill="#02BB7E" className="blur-[2px] opacity-40">
-          <animateMotion dur="1.5s" repeatCount="indefinite" path={path} />
-        </circle>
+        <>
+          <motion.line
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            x1={x1} y1={y1} x2={x2} y2={y2}
+            stroke="#02BB7E"
+            strokeWidth="1.5"
+          />
+          <circle r="0.8" fill="#02BB7E">
+            <animateMotion 
+              dur="1.5s" 
+              repeatCount="indefinite" 
+              path={`M ${x1} ${y1} L ${x2} ${y2}`} 
+            />
+          </circle>
+        </>
       )}
     </g>
   );
