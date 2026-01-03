@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const plans = [
   {
@@ -216,6 +217,22 @@ export default function Pricing() {
         >
           All prices are billed {billingCycle === "yearly" ? "yearly" : "monthly"}. Taxes may apply.
         </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="text-center mt-4"
+        >
+          <Link
+            href="/pricing"
+            className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors group"
+          >
+            <span>View detailed pricing comparison</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
 
         {/* Enterprise Container */}
         <motion.div
