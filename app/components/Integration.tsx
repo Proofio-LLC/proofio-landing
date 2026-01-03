@@ -25,16 +25,16 @@ export default function Integration() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
   return (
-    <section id="integration" className="py-20 bg-base-100">
+    <section id="integration" className="py-12 bg-base-100">
       <div className="container mx-auto px-4">
         {/* Desktop Layout: Text links, Widget rechts */}
-        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:mb-16">
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:mb-8 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-left"
+            className="text-left pl-8 lg:pl-12"
           >
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
               <Sparkles className="w-4 h-4" />
@@ -138,7 +138,7 @@ export default function Integration() {
 
 
         {/* Widget and API Cards */}
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mt-16">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mt-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -289,12 +289,12 @@ export default function Integration() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 max-w-6xl mx-auto"
+          className="mt-20 max-w-6xl mx-auto"
         >
           <div className="text-center mb-8">
             <h3 className="text-3xl md:text-4xl font-bold mb-2">
               All types of{" "}
-              <span className="underline decoration-primary decoration-2 underline-offset-4">
+              <span className="decoration-primary decoration-2">
                 review sources
               </span>
             </h3>

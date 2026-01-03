@@ -31,6 +31,7 @@ const plans = [
       "20 Sources per project",
       "10,000 Reviews/month",
       "50,000 API Requests",
+      "Team collaboration",
       "Email Support",
     ],
     cta: "Get Started",
@@ -46,6 +47,7 @@ const plans = [
       "Unlimited Sources",
       "100,000 Reviews/month",
       "Unlimited API Requests",
+      "Team collaboration",
       "Priority Support",
     ],
     cta: "Get Started",
@@ -107,8 +109,11 @@ export default function Pricing() {
               className="relative"
             >
               {plan.popular && (
-                <div className="badge badge-primary absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  🔥 Most Popular
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <div className="bg-gradient-to-r from-primary to-primary/80 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg border-2 border-white flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Most Popular</span>
+                  </div>
                 </div>
               )}
               <div
@@ -202,7 +207,7 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-base-content/70 mt-8"
         >
-          All prices are billed monthly. Taxes may apply.
+          All prices are billed {billingCycle === "yearly" ? "yearly" : "monthly"}. Taxes may apply.
         </motion.p>
 
         {/* Enterprise Container */}
