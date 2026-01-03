@@ -343,17 +343,27 @@ const features: FeatureRow[] = [
   // Support
   {
     category: "Support",
-    feature: "Community Support",
+    feature: "Documentation & Tutorials",
     starter: true,
-    growth: false,
-    scale: false,
+    growth: true,
+    scale: true,
+    description: "Have a look at our documentation.",
   },
   {
     category: "Support",
-    feature: "Email Support",
+    feature: "Basic Email Support",
     starter: false,
     growth: true,
-    scale: false,
+    scale: true,
+    description: "✉️ | 3-6 business days",
+  },
+  {
+    category: "Support",
+    feature: "Advanced Email Support",
+    starter: false,
+    growth: true,
+    scale: true,
+    description: "✉️ | up to 2 business days",
   },
   {
     category: "Support",
@@ -361,13 +371,7 @@ const features: FeatureRow[] = [
     starter: false,
     growth: false,
     scale: true,
-  },
-  {
-    category: "Support",
-    feature: "Documentation & Tutorials",
-    starter: true,
-    growth: true,
-    scale: true,
+    description: "📞 / ✉️ | 1 business days",
   },
 
   // InApp Ads
