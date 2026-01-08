@@ -12,6 +12,21 @@ export default function CTA() {
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl pointer-events-none" />
           
+          {/* Background Icon (Favicon white) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            whileInView={{ opacity: 0.1, scale: 1, rotate: -15 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="absolute -bottom-20 -right-20 pointer-events-none z-0"
+          >
+            <img 
+              src="/favicon.png" 
+              alt="" 
+              className="w-[400px] h-[400px] object-contain brightness-0 invert"
+            />
+          </motion.div>
+          
           <div className="relative z-10 max-w-3xl mx-auto text-center px-4 md:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

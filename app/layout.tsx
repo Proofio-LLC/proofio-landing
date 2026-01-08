@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import CookieBanner from "./components/CookieBanner";
 import { Analytics } from "@vercel/analytics/next";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Proofio - Automated Review Aggregation for Your Business",
@@ -30,11 +31,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Use cookies to determine consent on server side for Analytics component
+  const cookieStore = await cookies();
+  const consentCookie = cookieStore.get("cookieConsent")?.value;
+  let analyticsEnabled = false;
+
+  try {
+    if (consentCookie) {
+      const consent = JSON.parse(consentCookie);
+      analyticsEnabled = consent.analytics === true;
+    }
+  } catch (e) {
+    // Fallback for older string format
+    analyticsEnabled = consentCookie === "accepted";
+  }
+
   return (
     <html lang="en" data-theme="light">
       <head>
@@ -49,7 +65,7 @@ export default function RootLayout({
         />
         {children}
         <CookieBanner />
-        <Analytics />
+        {analyticsEnabled && <Analytics />}
       </body>
     </html>
   );

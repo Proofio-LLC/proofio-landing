@@ -111,7 +111,13 @@ export default function FAQ() {
     <section id="faq" className="py-20 bg-base-100 overflow-hidden" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
+        >
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
               <Sparkles className="w-4 h-4" />
@@ -140,10 +146,16 @@ export default function FAQ() {
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible"
+      >
         {/* FAQ Slider Row */}
         <div className="relative overflow-visible cursor-grab active:cursor-grabbing">
           <motion.div 
@@ -236,7 +248,7 @@ export default function FAQ() {
             })}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

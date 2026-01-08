@@ -22,41 +22,43 @@ export default function TermsOfServicePage() {
               Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
 
-            <div className="prose prose-lg max-w-none bg-base-100 rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="prose prose-lg max-w-none bg-base-100 rounded-[2rem] shadow-xl p-8 md:p-12">
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">1. Agreement to Terms</h2>
                 <p className="text-base-content/80 mb-4">
-                  By accessing or using Proofio LLC's services, including our website, API, widgets, and related services (collectively, the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service.
+                  By accessing or using Proofio LLC’s services, including our website, applications, APIs, widgets, and related services (collectively, the “Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree to these Terms, you may not access or use the Service.
                 </p>
                 <p className="text-base-content/80">
-                  These Terms constitute a legally binding agreement between you ("User," "you," or "your") and Proofio LLC ("Company," "we," "us," or "our").
+                  These Terms constitute a legally binding agreement between you (“User”, “you”, or “your”) and Proofio LLC (“Company”, “we”, “us”, or “our”).
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">2. Description of Service</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio LLC provides a platform that aggregates, normalizes, and displays reviews from multiple sources, including but not limited to App Store, Google Play, Shopify, and Google Reviews. Our Service includes:
+                  Proofio provides a software platform that aggregates, normalizes, analyzes, and displays publicly available reviews and feedback from third-party sources, including but not limited to app stores, e-commerce platforms, and review providers.
+                </p>
+                <p className="text-base-content/80 mb-4">
+                  The Service may include:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>API access to aggregated review data</li>
-                  <li>Widgets for displaying reviews on websites</li>
-                  <li>Data normalization and synchronization services</li>
-                  <li>Analytics and reporting features</li>
+                  <li>Widgets for displaying reviews</li>
+                  <li>Data synchronization and normalization</li>
+                  <li>Analytics, summaries, and reporting features</li>
                 </ul>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">3. User Accounts</h2>
                 <p className="text-base-content/80 mb-4">
-                  To access certain features of the Service, you must register for an account. You agree to:
+                  To access certain features of the Service, you must create an account. You agree to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
-                  <li>Provide accurate, current, and complete information</li>
-                  <li>Maintain and update your account information</li>
-                  <li>Maintain the security of your account credentials</li>
-                  <li>Accept responsibility for all activities under your account</li>
-                  <li>Notify us immediately of any unauthorized use</li>
+                  <li>Provide accurate and complete information</li>
+                  <li>Maintain the security of your credentials</li>
+                  <li>Be responsible for all activity under your account</li>
+                  <li>Notify us promptly of unauthorized use</li>
                 </ul>
               </section>
 
@@ -66,96 +68,116 @@ export default function TermsOfServicePage() {
                   You agree not to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
-                  <li>Use the Service for any illegal purpose or in violation of any laws</li>
-                  <li>Violate or infringe upon the rights of others</li>
-                  <li>Interfere with or disrupt the Service or servers</li>
-                  <li>Attempt to gain unauthorized access to any part of the Service</li>
-                  <li>Use automated systems to access the Service without authorization</li>
-                  <li>Modify, adapt, or hack the Service</li>
-                  <li>Reverse engineer or attempt to extract source code</li>
-                  <li>Use the Service to transmit viruses, malware, or harmful code</li>
+                  <li>Use the Service for unlawful purposes</li>
+                  <li>Violate third-party rights or platform terms</li>
+                  <li>Interfere with the operation or security of the Service</li>
+                  <li>Circumvent access controls or rate limits</li>
+                  <li>Reverse engineer, copy, or exploit the Service</li>
+                  <li>Introduce malware or harmful code</li>
                 </ul>
+                <p className="text-base-content/80">
+                  We reserve the right to suspend or restrict access if usage exceeds reasonable or documented limits.
+                </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">5. Payment Terms</h2>
+                <h2 className="text-3xl font-bold text-base-content mb-4">5. Subscriptions and Payments</h2>
                 <p className="text-base-content/80 mb-4">
                   If you purchase a paid subscription:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
-                  <li>You agree to pay all fees associated with your selected plan</li>
                   <li>Fees are billed in advance on a monthly or annual basis</li>
-                  <li>All fees are non-refundable except as required by law</li>
-                  <li>We reserve the right to change our pricing with 30 days' notice</li>
-                  <li>Failure to pay may result in suspension or termination of your account</li>
+                  <li>Prices are exclusive of taxes unless stated otherwise</li>
+                  <li>Payments are non-refundable except where required by law</li>
+                  <li>We may change pricing with reasonable prior notice</li>
+                  <li>Non-payment may result in suspension or termination</li>
                 </ul>
+                <p className="text-base-content/80">
+                  You may cancel your subscription at any time. Cancellation will take effect at the end of the current billing period.
+                </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">6. Intellectual Property</h2>
                 <p className="text-base-content/80 mb-4">
-                  The Service and its original content, features, and functionality are owned by Proofio LLC and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+                  The Service and all related software, design, and functionality are owned by Proofio LLC and protected by applicable intellectual property laws.
                 </p>
-                <p className="text-base-content/80 mb-4">
-                  You are granted a limited, non-exclusive, non-transferable license to access and use the Service for your internal business purposes in accordance with these Terms.
+                <p className="text-base-content/80">
+                  You are granted a limited, non-exclusive, non-transferable license to use the Service for internal business purposes in accordance with these Terms.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">7. Data and Content</h2>
+                <h2 className="text-3xl font-bold text-base-content mb-4">7. Data and Third-Party Content</h2>
                 <p className="text-base-content/80 mb-4">
-                  The review data aggregated by Proofio LLC is sourced from third-party platforms. We do not claim ownership of this content. By using our Service, you acknowledge that:
+                  The Service aggregates content from third-party platforms. Proofio does not own or control this content.
+                </p>
+                <p className="text-base-content/80 mb-4">
+                  You acknowledge that:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
-                  <li>Review content belongs to the original platforms and reviewers</li>
-                  <li>You are responsible for compliance with the terms of service of source platforms</li>
-                  <li>You must respect copyright and intellectual property rights</li>
+                  <li>Review content belongs to the original authors or platforms</li>
+                  <li>Data availability and accuracy depend on third-party sources</li>
+                  <li>Changes to external platforms may affect the Service</li>
                 </ul>
-              </section>
-
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">8. Disclaimers and Limitations of Liability</h2>
-                <p className="text-base-content/80 mb-4">
-                  THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-                </p>
-                <p className="text-base-content/80 mb-4">
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, PROOFIO LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES.
+                <p className="text-base-content/80">
+                  You are responsible for complying with applicable third-party terms.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">9. Indemnification</h2>
+                <h2 className="text-3xl font-bold text-base-content mb-4">8. Availability and Disclaimer</h2>
                 <p className="text-base-content/80 mb-4">
-                  You agree to indemnify, defend, and hold harmless Proofio LLC and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of or in any way connected with your use of the Service or violation of these Terms.
+                  The Service is provided “as is” and “as available”. We do not guarantee uninterrupted availability, uptime, or error-free operation.
+                </p>
+                <p className="text-base-content/80">
+                  We may modify, suspend, or discontinue parts of the Service at any time.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">10. Termination</h2>
+                <h2 className="text-3xl font-bold text-base-content mb-4">9. Limitation of Liability</h2>
                 <p className="text-base-content/80 mb-4">
-                  We may terminate or suspend your account and access to the Service immediately, without prior notice, for any reason, including breach of these Terms. Upon termination, your right to use the Service will cease immediately.
+                  To the maximum extent permitted by law, Proofio LLC shall not be liable for indirect, incidental, consequential, or special damages, including loss of data, profits, or business opportunities.
+                </p>
+                <p className="text-base-content/80">
+                  Our total liability shall not exceed the amount paid by you to Proofio in the twelve (12) months preceding the claim.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">11. Changes to Terms</h2>
-                <p className="text-base-content/80 mb-4">
-                  We reserve the right to modify these Terms at any time. We will notify users of material changes via email or through the Service. Your continued use of the Service after such modifications constitutes acceptance of the updated Terms.
+                <h2 className="text-3xl font-bold text-base-content mb-4">10. Indemnification</h2>
+                <p className="text-base-content/80">
+                  You agree to indemnify and hold harmless Proofio LLC and its affiliates from any claims arising out of your use of the Service or violation of these Terms.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">12. Governing Law</h2>
+                <h2 className="text-3xl font-bold text-base-content mb-4">11. Termination</h2>
                 <p className="text-base-content/80 mb-4">
-                  These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions.
+                  We may suspend or terminate access to the Service at any time for violation of these Terms or misuse of the Service.
+                </p>
+                <p className="text-base-content/80">
+                  Upon termination, your right to use the Service will immediately cease.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-3xl font-bold text-base-content mb-4">13. Contact Information</h2>
+                <h2 className="text-3xl font-bold text-base-content mb-4">12. Changes to Terms</h2>
                 <p className="text-base-content/80 mb-4">
-                  If you have any questions about these Terms of Service, please contact us:
+                  We may update these Terms from time to time. Material changes will be communicated via the Service or email. Continued use constitutes acceptance of the updated Terms.
                 </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-3xl font-bold text-base-content mb-4">13. Governing Law</h2>
+                <p className="text-base-content/80 mb-4">
+                  These Terms are governed by the laws of the State of Delaware, United States, without regard to conflict of law principles.
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-3xl font-bold text-base-content mb-4">14. Contact</h2>
                 <div className="text-base-content/80 space-y-2">
                   <p>
                     <strong>Proofio LLC</strong>

@@ -114,6 +114,9 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div className="pt-8 border-t border-base-300 flex flex-wrap justify-end gap-6">
+            <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Imprint
+            </Link>
             <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
               Privacy Policy
             </Link>
