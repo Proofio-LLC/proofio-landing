@@ -6,6 +6,7 @@ import UseCases from "./components/UseCases";
 import Pricing from "./components/Pricing";
 import FAQ from "./components/FAQ";
 import Blog from "./components/Blog";
+import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <Blog />
+      <CTA />
       <Footer />
     </main>
   );

@@ -59,7 +59,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
             transition={{ duration: 0.6, delay: index * 0.1 }}
           >
             <Link href={`/blog/${post.slug.current}`} className="block h-full">
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all h-full flex flex-col overflow-hidden group">
+              <div className="bg-white rounded-[2rem] shadow-lg hover:shadow-xl transition-all h-full flex flex-col overflow-hidden group">
                 {/* Image */}
                 <div className="relative w-full aspect-video overflow-hidden bg-base-200">
                   <Image
@@ -110,7 +110,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-center mt-12"
       >
-        <Link href="/blog" className="btn btn-outline btn-lg rounded-lg px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
+        <Link href="/blog" className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
           View all articles
         </Link>
       </motion.div>

@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
+import NewsletterCTA from "@/app/components/NewsletterCTA";
 
 // Blog post type for detail page
 interface BlogPostDetail {
@@ -54,7 +55,7 @@ const portableTextComponents = {
             alt={value.alt || "Blog image"}
             width={1200}
             height={675}
-            className="rounded-lg w-full"
+            className="rounded-[2rem] w-full shadow-lg"
           />
           {value.alt && (
             <p className="text-sm text-base-content/60 mt-2 text-center">
@@ -263,7 +264,7 @@ export default async function BlogPostPage({
         {/* Hero Image with Title Overlay */}
         <div className="container mx-auto px-4 pt-24 pb-12 max-w-4xl">
           {imageUrl ? (
-            <div className="relative w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden mb-8 shadow-xl">
+            <div className="relative w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden mb-8 shadow-xl">
               <Image
                 src={imageUrl}
                 alt={post.mainImage?.alt || post.title}
@@ -321,7 +322,7 @@ export default async function BlogPostPage({
       <div className="container mx-auto px-4 pb-12 max-w-4xl">
         {/* Excerpt Card */}
         {post.excerpt && (
-          <div className="bg-gradient-to-br from-base-200 to-base-300 rounded-xl p-6 md:p-8 mb-8 border border-base-300 shadow-lg">
+          <div className="bg-gradient-to-br from-base-200 to-base-300 rounded-[2rem] p-6 md:p-8 mb-8 border border-base-300 shadow-lg">
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 w-1 h-full min-h-[40px] bg-primary rounded-full"></div>
               <p className="text-lg md:text-xl text-base-content/90 leading-relaxed font-medium italic">
@@ -339,9 +340,10 @@ export default async function BlogPostPage({
         )}
       </div>
       </article>
+
+      <NewsletterCTA />
       
       <Footer />
     </main>
   );
 }
-

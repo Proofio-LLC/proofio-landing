@@ -107,7 +107,7 @@ export default function Integration() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
-                    className="w-32 h-20 bg-base-200 rounded-lg flex items-center justify-center border border-base-300 hover:border-primary transition-colors p-4 cursor-pointer"
+                    className="w-32 h-20 bg-base-200 rounded-xl flex items-center justify-center border border-base-300 hover:border-primary transition-colors p-4 cursor-pointer"
                   >
                     <Image
                       src={platform.icon}
@@ -178,7 +178,7 @@ export default function Integration() {
                   className="overflow-hidden lg:overflow-visible"
                 >
                   <div className="space-y-4">
-                    <div className="bg-base-100 rounded-lg p-8 border-2 border-dashed border-base-300 min-h-[200px] flex items-center justify-center">
+                    <div className="bg-base-100 rounded-xl p-8 border-2 border-dashed border-base-300 min-h-[200px] flex items-center justify-center">
                       <div 
                         data-proofio-widget 
                         data-api-key="pk_66547cabd36d316a3f7daa708192ead01b0c8992c0089bfd3d0aaece00b2a63c" 
@@ -243,7 +243,7 @@ export default function Integration() {
                   className="overflow-hidden lg:overflow-visible"
                 >
                   <div className="space-y-4">
-                    <div className="bg-base-100 rounded-lg p-4 overflow-x-auto">
+                    <div className="bg-base-100 rounded-xl p-4 overflow-x-auto">
                       <pre className="text-sm">
                         <code className="text-base-content">
 {`GET /api/v1/reviews
@@ -320,7 +320,7 @@ export default function Integration() {
                 whileHover={{ scale: 1.15, y: -8, zIndex: 10 }}
                 className="relative group -ml-4 md:-ml-6 first:ml-0"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-base-100 shadow-xl border-2 border-base-300 hover:border-primary hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center p-4 cursor-pointer overflow-hidden">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-[2rem] bg-base-100 shadow-xl border-2 border-base-300 hover:border-primary hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center p-4 cursor-pointer overflow-hidden">
                   {integration.icon ? (
                     <Image
                       src={integration.icon}

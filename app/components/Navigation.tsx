@@ -43,17 +43,17 @@ export default function Navigation() {
       <motion.div
         animate={{
           width: isScrolled ? "90%" : "95%",
-          maxWidth: isScrolled ? "1200px" : "1400px",
+          maxWidth: isBlogPage ? (isBlogPost ? "1000px" : "1280px") : (isScrolled ? "1200px" : "1280px"),
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="bg-base-100 rounded-2xl shadow-lg border border-base-300"
+        className="relative bg-base-100 rounded-[2rem] shadow-lg border border-base-300"
       >
-        <div className={`flex items-center ${isBlogPage ? 'justify-center' : 'justify-between'} px-4 lg:px-6 h-16 lg:h-20 ${isScrolled ? 'lg:px-4' : ''}`}>
+        <div className={`flex items-center ${isBlogPage ? 'justify-center' : 'justify-between'} px-6 lg:px-12 h-16 lg:h-20 ${isScrolled ? 'lg:px-8' : ''}`}>
           {/* Back Button (only on blog pages) */}
           {isBlogPage && (
             <Link
               href={backHref}
-              className="absolute left-4 lg:left-8 flex items-center gap-2 text-base-content/70 hover:text-primary transition-colors"
+              className="absolute left-6 lg:left-10 flex items-center gap-2 text-base-content/70 hover:text-primary transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Back</span>
@@ -87,7 +87,7 @@ export default function Navigation() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`py-2 text-sm font-medium text-base-content/70 hover:text-primary transition-colors rounded-lg hover:bg-base-200/50 ${isScrolled ? 'px-3' : 'px-4'}`}
+                  className={`py-2 text-sm font-medium text-base-content/70 hover:text-primary transition-colors rounded-xl hover:bg-base-200/50 ${isScrolled ? 'px-3' : 'px-4'}`}
                 >
                   {item.label}
                 </Link>
@@ -96,9 +96,9 @@ export default function Navigation() {
           )}
 
           {/* Desktop Actions */}
-          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isBlogPage ? 'absolute right-4 lg:right-8' : ''}`}>
-            <a href="https://dash.proofio.app" className="btn btn-ghost rounded-lg">Sign In</a>
-            <a href="https://dash.proofio.app" className="btn rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
+          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isBlogPage ? 'absolute right-6 lg:right-10' : ''}`}>
+            <a href="https://dash.proofio.app" className="btn btn-ghost rounded-xl">Sign In</a>
+            <a href="https://dash.proofio.app" className="btn rounded-xl shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
               Get Started
             </a>
           </div>
@@ -134,7 +134,7 @@ export default function Navigation() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-base-content/80 hover:text-primary transition-colors rounded-lg py-2"
+                    className="text-base-content/80 hover:text-primary transition-colors rounded-xl py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
@@ -142,12 +142,12 @@ export default function Navigation() {
                 </li>
               ))}
               <li className="pt-4 border-t border-base-300 mt-2">
-                <a href="https://dash.proofio.app" className="btn btn-ghost w-full justify-start rounded-lg">
+                <a href="https://dash.proofio.app" className="btn btn-ghost w-full justify-start rounded-xl">
                   Sign In
                 </a>
               </li>
               <li>
-                <a href="https://dash.proofio.app" className="btn w-full rounded-lg shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
+                <a href="https://dash.proofio.app" className="btn w-full rounded-xl shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
                   Get Started
                 </a>
               </li>

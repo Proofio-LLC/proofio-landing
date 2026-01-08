@@ -86,7 +86,7 @@ export default async function BlogPage() {
                   href={`/blog/${post.slug.current}`}
                   className="block h-full group"
                 >
-                  <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all h-full flex flex-col overflow-hidden">
+                  <div className="bg-white rounded-[2rem] shadow-lg hover:shadow-xl transition-all h-full flex flex-col overflow-hidden">
                     {/* Image */}
                     <div className="relative w-full aspect-video overflow-hidden bg-base-200">
                       <Image

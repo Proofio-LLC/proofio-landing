@@ -55,7 +55,7 @@ export default function UseCases() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow h-full">
+                <div className="card bg-base-100 rounded-[2rem] shadow-lg hover:shadow-xl transition-shadow h-full">
                   <div className="card-body">
                     <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon className="w-8 h-8 text-primary" />

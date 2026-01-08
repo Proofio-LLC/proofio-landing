@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="py-20 bg-base-200">
       <div className="container mx-auto px-4">
-        <div className="bg-base-100 rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="bg-base-100 rounded-[2rem] shadow-xl p-8 md:p-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             {/* Left Side - Company Info */}
             <div className="space-y-6">

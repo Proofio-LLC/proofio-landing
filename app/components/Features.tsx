@@ -124,7 +124,7 @@ export default function Features() {
                 className={colSpan}
               >
                 <div 
-                  className="bg-white rounded-xl shadow-md p-6 h-full flex flex-col group aspect-square"
+                  className="bg-white rounded-[2rem] shadow-md p-6 h-full flex flex-col group aspect-square"
                 >
                   {/* Image - 16:9 ratio inside the card */}
                   <FeatureImage 

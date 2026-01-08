@@ -127,7 +127,7 @@ export default function Pricing() {
                 </div>
               )}
               <div
-                className={`card shadow-xl h-full ${
+                className={`card rounded-[2rem] shadow-xl h-full ${
                   plan.popular
                     ? "bg-primary text-white border-2 border-primary"
                     : "bg-base-100"
@@ -195,7 +195,7 @@ export default function Pricing() {
                   </ul>
                   <a
                     href="https://dash.proofio.app"
-                    className={`btn btn-block rounded-lg shadow-md hover:shadow-lg transition-all px-6 ${
+                    className={`btn btn-block rounded-xl shadow-md hover:shadow-lg transition-all px-6 ${
                       plan.isFree
                         ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
                         : plan.popular
@@ -244,7 +244,7 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="max-w-2xl mx-auto mt-12"
         >
-          <div className="bg-base-100 rounded-xl shadow-lg border border-base-300 p-6 text-center">
+          <div className="bg-base-100 rounded-[2rem] shadow-lg border border-base-300 p-6 text-center">
             <h3 className="text-xl font-semibold text-base-content mb-2">
               Enterprise
             </h3>
@@ -253,7 +253,7 @@ export default function Pricing() {
             </p>
             <a
               href="mailto:sales@proofio.app"
-              className="inline-flex items-center justify-center rounded-lg px-6 py-2.5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium text-sm"
+              className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium text-sm"
             >
               Contact Sales
             </a>
