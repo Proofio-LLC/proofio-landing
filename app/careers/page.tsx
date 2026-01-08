@@ -115,14 +115,14 @@ export default function CareersPage() {
                 <div className="flex flex-col md:flex-row gap-4 items-stretch">
                   <div className="relative flex-grow">
                     <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-base-content/40" />
-                    <input
-                      type="text"
+                  <input
+                    type="text"
                       placeholder="Search for positions..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                       className="w-full pl-12 pr-4 py-5 rounded-2xl border-2 border-base-200 bg-base-100 text-lg text-base-content placeholder:text-base-content/40 focus:outline-none focus:border-primary transition-all shadow-inner"
-                    />
-                  </div>
+                  />
+                </div>
                   <button
                     onClick={() => setIsFiltersOpen(!isFiltersOpen)}
                     className={`flex items-center justify-center gap-2 px-8 py-5 rounded-2xl font-bold transition-all border-2 ${
@@ -288,14 +288,14 @@ export default function CareersPage() {
                 </h2>
                 <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
                   We’re always interested in connecting with talented people who share our passion for building calm, reliable, and product-focused software.
-                </p>
-                <a
+                  </p>
+                  <a
                   href="mailto:support@proofio.app?subject=Speculative Application"
                   className="inline-flex items-center gap-3 bg-white text-primary hover:bg-white/90 px-10 py-4 rounded-xl font-bold shadow-xl transition-all"
-                >
+                  >
                   Send a Speculative Application
                   <ArrowRightIcon className="w-5 h-5" />
-                </a>
+                  </a>
               </div>
               
               {/* Background Decoration */}

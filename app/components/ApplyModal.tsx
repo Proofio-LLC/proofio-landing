@@ -3,8 +3,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Upload, Check, ChevronRight, ChevronLeft, Loader2, FileText, Send } from "lucide-react";
-import { db, storage } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { storage } from "@/lib/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 interface ApplyModalProps {
@@ -69,20 +68,30 @@ export default function ApplyModal({ jobTitle, jobId, isOpen, onClose }: ApplyMo
         resumeUrl = await getDownloadURL(snapshot.ref);
       }
 
-      // 2. Save to Firestore
-      await addDoc(collection(db, "applications"), {
-        ...formData,
-        jobId,
-        jobTitle,
-        resumeUrl,
-        status: "new",
-        createdAt: serverTimestamp(),
+      // 2. Call our Backend API instead of saving directly to Firestore
+      const response = await fetch("/api/applications", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          jobId,
+          jobTitle,
+          resumeUrl,
+        }),
       });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit application");
+      }
 
       setIsSuccess(true);
     } catch (error) {
       console.error("Error submitting application:", error);
-      alert("Something went wrong. Please try again.");
+      alert(error instanceof Error ? error.message : "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
