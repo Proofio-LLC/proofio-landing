@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // ==========================================
+    // APPLICATIONS (Resumes)
+    // ==========================================
+    match /applications/{jobId}/{fileName} {
+      // Jeder kann seinen Lebenslauf hochladen
+      // Wir prüfen die Größe (10MB) und lassen gängige Dokumententypen zu
+      allow create: if request.resource.size < 10 * 1024 * 1024
+                    && (
+                      request.resource.contentType.matches('application/.*') ||
+                      request.resource.contentType.matches('text/.*')
+                    );
+      
+      // Nur authentifizierte Benutzer (Admins) können Bewerbungen lesen, löschen oder überschreiben
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // ==========================================
+    // Default: Alles andere verbieten
+    // ==========================================
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

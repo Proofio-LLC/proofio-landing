@@ -40,7 +40,12 @@ export default function ApplyModal({ jobTitle, jobId, isOpen, onClose }: ApplyMo
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+      const selectedFile = e.target.files[0];
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        alert("File is too large. Maximum size is 10MB.");
+        return;
+      }
+      setFile(selectedFile);
     }
   };
 
@@ -285,7 +290,12 @@ export default function ApplyModal({ jobTitle, jobId, isOpen, onClose }: ApplyMo
                             <FileText className="w-8 h-8" />
                           </div>
                           <p className="text-lg font-bold text-base-content mb-1">{file.name}</p>
-                          <p className="text-sm text-base-content/40">{(file.size / 1024 / 1024).toFixed(2)} MB • Click to change</p>
+                          <p className="text-sm text-base-content/40">
+                            {file.size < 1024 * 1024 
+                              ? `${(file.size / 1024).toFixed(1)} KB` 
+                              : `${(file.size / (1024 * 1024)).toFixed(2)} MB`
+                            } • Click to change
+                          </p>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center">

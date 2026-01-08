@@ -69,39 +69,39 @@ export default function CookieBanner() {
           <div className="container mx-auto max-w-6xl">
             <div className="bg-base-100 rounded-[2rem] shadow-2xl border border-base-300 p-6 md:p-10">
               {!showManage ? (
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                  <div className="flex items-center gap-4 flex-1">
-                    <div className="flex-shrink-0">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                         <Cookie className="w-6 h-6 text-primary" />
                       </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-base-content mb-1">
-                        We use cookies
-                      </h3>
-                      <p className="text-sm text-base-content/70 leading-relaxed">
-                        We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
-                        By clicking "Accept All", you consent to our use of cookies.{" "}
-                        <Link href="/cookies-settings" className="text-primary hover:underline font-medium">
-                          Learn more
-                        </Link>
-                      </p>
-                    </div>
                   </div>
+                  <div className="flex-1">
+                      <h3 className="text-xl font-bold text-base-content mb-1">
+                      We use cookies
+                    </h3>
+                      <p className="text-sm text-base-content/70 leading-relaxed">
+                      We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
+                      By clicking "Accept All", you consent to our use of cookies.{" "}
+                      <Link href="/cookies-settings" className="text-primary hover:underline font-medium">
+                        Learn more
+                      </Link>
+                    </p>
+                  </div>
+                </div>
                   <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                    <button
+                  <button
                       onClick={() => setShowManage(true)}
                       className="text-sm font-medium text-base-content/60 hover:text-base-content transition-colors px-4 py-2"
-                    >
+                  >
                       Manage Preferences
-                    </button>
-                    <button
+                  </button>
+                  <button
                       onClick={handleRejectAll}
                       className="btn rounded-xl border-2 border-base-300 text-base-content hover:bg-base-200 transition-all px-8 order-2 sm:order-1"
-                    >
-                      Reject All
-                    </button>
+                  >
+                    Reject All
+                  </button>
                     <button
                       onClick={handleAcceptAll}
                       className="btn rounded-xl shadow-lg shadow-primary/20 transition-all px-8 bg-primary text-white hover:bg-primary/90 order-1 sm:order-2"
@@ -115,9 +115,9 @@ export default function CookieBanner() {
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-bold text-base-content">Manage Cookie Preferences</h3>
                     <button onClick={() => setShowManage(false)} className="p-2 hover:bg-base-200 rounded-full transition-colors">
-                      <X className="w-5 h-5" />
-                    </button>
-                  </div>
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
                   
                   <div className="grid gap-4">
                     <div className="flex items-center justify-between p-4 bg-base-200 rounded-xl">

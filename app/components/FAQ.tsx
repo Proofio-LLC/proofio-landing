@@ -131,23 +131,23 @@ export default function FAQ() {
             </p>
           </div>
           <div className="flex gap-3">
-            <button 
-              onClick={prevSlide}
+              <button 
+                onClick={prevSlide}
               className="p-4 border-2 border-base-300 rounded-full hover:bg-base-200 transition-all hover:scale-105 active:scale-95"
               aria-label="Previous question"
-            >
+              >
               <ChevronLeft className="w-6 h-6 text-base-content" />
-            </button>
-            <button 
-              onClick={nextSlide}
+              </button>
+              <button 
+                onClick={nextSlide}
               className="p-4 bg-primary text-white rounded-full hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
               aria-label="Next question"
-            >
+              >
               <ChevronRight className="w-6 h-6" />
-            </button>
+              </button>
           </div>
         </motion.div>
-      </div>
+        </div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -167,21 +167,21 @@ export default function FAQ() {
             layout
             className="relative flex items-end gap-6 overflow-visible pb-4"
           >
-            {faqs.map((faq, index) => {
-              const isActive = index === activeIndex;
+          {faqs.map((faq, index) => {
+            const isActive = index === activeIndex;
 
-              return (
-                <motion.div
-                  key={index}
-                  layout
-                  initial={false}
-                  animate={{
+            return (
+              <motion.div
+                key={index}
+                layout
+                initial={false}
+                animate={{
                     width: isMobile 
                       ? (isActive ? "300px" : "220px") 
                       : (isActive ? "600px" : "350px"),
                     height: isMobile ? "320px" : "400px",
                     backgroundColor: isActive ? "#02BB7E" : "#FFFFFF",
-                  }}
+                }}
                   transition={{ 
                     type: "spring", 
                     stiffness: 200, 
@@ -191,8 +191,8 @@ export default function FAQ() {
                   className={`relative flex-shrink-0 rounded-[2rem] p-8 md:p-12 shadow-xl flex flex-col justify-end overflow-hidden select-none ${
                     !isActive ? "border border-base-200 hover:shadow-2xl" : "shadow-primary/20"
                   }`}
-                  onClick={() => setActiveIndex(index)}
-                >
+                onClick={() => setActiveIndex(index)}
+              >
                   <AnimatePresence>
                     {isActive && (
                       <motion.div
@@ -208,8 +208,8 @@ export default function FAQ() {
                   </AnimatePresence>
 
                   <div className="relative z-10 w-full">
-                    <motion.h3 
-                      layout="position"
+                  <motion.h3 
+                    layout="position"
                       animate={{
                         color: isActive ? "#FFFFFF" : "#1F2937",
                         opacity: isActive ? 1 : 0.6
@@ -221,31 +221,31 @@ export default function FAQ() {
                         mass: 0.5
                       }}
                       className={`font-bold mb-3 md:mb-4 ${isActive ? "text-xl md:text-2xl" : "text-lg md:text-xl"}`}
-                    >
-                      {faq.question}
-                    </motion.h3>
-                    
+                  >
+                    {faq.question}
+                  </motion.h3>
+                  
                     <AnimatePresence mode="wait">
-                      {isActive && (
-                        <motion.p
+                    {isActive && (
+                      <motion.p
                           initial={{ opacity: 0, height: 0, color: "#FFFFFF" }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3, ease: "easeOut" }}
                           className="text-sm md:text-lg leading-relaxed opacity-90 font-medium overflow-hidden text-white"
-                        >
-                          {faq.answer}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                      >
+                        {faq.answer}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
 
-                  {!isActive && (
+                {!isActive && (
                      <div className="absolute inset-0 bg-gradient-to-t from-base-200/30 to-transparent pointer-events-none rounded-[2rem]" />
-                  )}
-                </motion.div>
-              );
-            })}
+                )}
+              </motion.div>
+            );
+          })}
           </motion.div>
         </div>
       </motion.div>
