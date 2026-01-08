@@ -1,0 +1,248 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    function getOrganization(orgId) {
+      return get(/databases/$(database)/documents/organizations/$(orgId)).data;
+    }
+    
+    function isOrganizationOwner(orgId) {
+      let org = getOrganization(orgId);
+      return isAuthenticated() && org.ownerId == request.auth.uid;
+    }
+    
+    function isOrganizationMember(orgId) {
+      // Check if user is owner OR in members array
+      return isAuthenticated() && (
+        isOrganizationOwner(orgId) ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        getUserData().organizationId == orgId
+      );
+    }
+
+    // ==========================================
+    // USERS Collection
+    // ==========================================
+    match /users/{userId} {
+      // User kann eigene Daten lesen und schreiben
+      allow read: if isOwner(userId);
+      allow write: if isOwner(userId);
+      
+      // Bei Registration kann jeder schreiben (für Auto-User-Creation)
+      allow create: if isAuthenticated();
+    }
+
+    // ==========================================
+    // ORGANIZATIONS Collection
+    // ==========================================
+    match /organizations/{orgId} {
+      // Temporarily: Allow all authenticated users (for development)
+      // TODO: Re-enable proper access control later
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // PROJECTS Collection
+    // ==========================================
+    match /projects/{projectId} {
+      // Temporarily: Allow all authenticated users (for development)
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // SOURCES Collection
+    // ==========================================
+    match /sources/{sourceId} {
+      // Temporarily: Allow all authenticated users (for development)
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // REVIEWS Collection
+    // ==========================================
+    match /reviews/{reviewId} {
+      // Temporarily: Allow all authenticated users (for development)
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // PROJECTS Collection
+    // ==========================================
+    match /projects/{projectId} {
+      // Lesen: Nur Members der zugehörigen Organization
+      allow read: if isAuthenticated() && 
+                    isOrganizationMember(resource.data.organizationId);
+      
+      // Erstellen: Nur Members der Organization
+      allow create: if isAuthenticated() && 
+                      isOrganizationMember(request.resource.data.organizationId);
+      
+      // Update: Nur Members der Organization
+      allow update: if isAuthenticated() && 
+                      isOrganizationMember(resource.data.organizationId);
+      
+      // Löschen: Nur Owner
+      allow delete: if isAuthenticated() && 
+                      isOrganizationOwner(resource.data.organizationId);
+    }
+
+    // ==========================================
+    // SOURCES Collection
+    // ==========================================
+    match /sources/{sourceId} {
+      function getProject(projectId) {
+        return get(/databases/$(database)/documents/projects/$(projectId)).data;
+      }
+      
+      // Lesen: Members der Organization des Projects
+      allow read: if isAuthenticated() && 
+                    exists(/databases/$(database)/documents/projects/$(resource.data.projectId)) &&
+                    isOrganizationMember(getProject(resource.data.projectId).organizationId);
+      
+      // Erstellen: Members der Organization des Projects
+      allow create: if isAuthenticated() && 
+                      exists(/databases/$(database)/documents/projects/$(request.resource.data.projectId)) &&
+                      isOrganizationMember(getProject(request.resource.data.projectId).organizationId);
+      
+      // Update: Members der Organization
+      allow update: if isAuthenticated() && 
+                      isOrganizationMember(getProject(resource.data.projectId).organizationId);
+      
+      // Löschen: Nur Owner
+      allow delete: if isAuthenticated() && 
+                      isOrganizationOwner(getProject(resource.data.projectId).organizationId);
+    }
+
+    // ==========================================
+    // REVIEWS Collection
+    // ==========================================
+    match /reviews/{reviewId} {
+      function getProject(projectId) {
+        return get(/databases/$(database)/documents/projects/$(projectId)).data;
+      }
+      
+      // Lesen: 
+      // 1. Members der Organization (intern)
+      // 2. ODER: Öffentlich via Widget (wird via API mit API-Key geprüft)
+      allow read: if isAuthenticated() && 
+                    exists(/databases/$(database)/documents/projects/$(resource.data.projectId)) &&
+                    isOrganizationMember(getProject(resource.data.projectId).organizationId);
+      
+      // Erstellen: Nur Members der Organization (für Import/Sync)
+      allow create: if isAuthenticated() && 
+                      exists(/databases/$(database)/documents/projects/$(request.resource.data.projectId)) &&
+                      isOrganizationMember(getProject(request.resource.data.projectId).organizationId);
+      
+      // Update: Members der Organization
+      allow update: if isAuthenticated() && 
+                      isOrganizationMember(getProject(resource.data.projectId).organizationId);
+      
+      // Löschen: Nur Owner
+      allow delete: if isAuthenticated() && 
+                      isOrganizationOwner(getProject(resource.data.projectId).organizationId);
+    }
+
+    // ==========================================
+    // WIDGETS Collection
+    // ==========================================
+    match /widgets/{widgetId} {
+      function getProject(projectId) {
+        return get(/databases/$(database)/documents/projects/$(projectId)).data;
+      }
+      
+      // Lesen: Members der Organization des Projects
+      allow read: if isAuthenticated() && 
+                    exists(/databases/$(database)/documents/projects/$(resource.data.projectId)) &&
+                    isOrganizationMember(getProject(resource.data.projectId).organizationId);
+      
+      // Erstellen: Members der Organization des Projects
+      allow create: if isAuthenticated() && 
+                      exists(/databases/$(database)/documents/projects/$(request.resource.data.projectId)) &&
+                      isOrganizationMember(getProject(request.resource.data.projectId).organizationId);
+      
+      // Update: Members der Organization
+      allow update: if isAuthenticated() && 
+                      isOrganizationMember(getProject(resource.data.projectId).organizationId);
+      
+      // Löschen: Members der Organization
+      allow delete: if isAuthenticated() && 
+                      isOrganizationMember(getProject(resource.data.projectId).organizationId);
+    }
+
+    // ==========================================
+    // API KEYS Collection (Optional - für Key Management)
+    // ==========================================
+    match /apiKeys/{keyId} {
+      // Nur Owner der Organization kann API Keys verwalten
+      allow read, write: if isAuthenticated() && 
+                           isOrganizationOwner(resource.data.organizationId);
+    }
+
+    // ==========================================
+    // SUBSCRIPTIONS Collection (Optional - für Billing)
+    // ==========================================
+    match /subscriptions/{subId} {
+      // Lesen: Nur Members der Organization
+      allow read: if isAuthenticated() && 
+                    isOrganizationMember(resource.data.organizationId);
+      
+      // Schreiben: Nur Owner
+      allow write: if isAuthenticated() && 
+                     isOrganizationOwner(resource.data.organizationId);
+    }
+
+    // ==========================================
+    // NOTIFICATIONS Collection
+    // ==========================================
+    match /notifications/{notificationId} {
+      // Lesen: Nur der Benutzer selbst kann seine Benachrichtigungen lesen
+      allow read: if isAuthenticated() && 
+                    resource.data.userId == request.auth.uid;
+      
+      // Erstellen: Nur authentifizierte Benutzer (normalerweise vom Server/Function)
+      allow create: if isAuthenticated() && 
+                      request.resource.data.userId == request.auth.uid;
+      
+      // Update: Nur der Benutzer selbst kann seine Benachrichtigungen aktualisieren (z.B. als gelesen markieren)
+      allow update: if isAuthenticated() && 
+                      resource.data.userId == request.auth.uid &&
+                      request.resource.data.userId == request.auth.uid;
+      
+      // Löschen: Nur der Benutzer selbst kann seine Benachrichtigungen löschen
+      allow delete: if isAuthenticated() && 
+                      resource.data.userId == request.auth.uid;
+    }
+
+    // ==========================================
+    // APPLICATIONS Collection
+    // ==========================================
+    match /applications/{applicationId} {
+      // Jeder kann eine Bewerbung erstellen
+      allow create: if true;
+      
+      // Lesen/Löschen/Update: Nur authentifizierte Benutzer (Admins im Dashboard)
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // Default: Alles andere verbieten
+    // ==========================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
