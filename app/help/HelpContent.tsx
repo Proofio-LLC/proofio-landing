@@ -1,17 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import BackgroundPaths from "../components/FloatingPaths";
 import SupportForm from "../components/SupportForm";
-import { BookOpen, ArrowRight, MessageCircle, ShieldQuestion } from "lucide-react";
+import AIChatModal from "../components/AIChatModal";
+import { BookOpen, ArrowRight, ShieldQuestion } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 export default function HelpContent() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-base-100">
       <Navigation />
+      
+      {/* AI Chat Modal */}
+      <AnimatePresence>
+        {isChatOpen && (
+          <AIChatModal isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+        )}
+      </AnimatePresence>
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-base-100 via-base-100 to-base-200">
@@ -87,15 +98,23 @@ export default function HelpContent() {
               >
                 <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6 backdrop-blur-md">
-                    <MessageCircle className="w-6 h-6" />
+                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6 backdrop-blur-md p-2.5">
+                    <img 
+                      src="/oo.png" 
+                      alt="Proofy" 
+                      className="w-full h-full object-contain"
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Live Chat</h3>
+                  <h3 className="text-2xl font-bold mb-4">Instant Support with Proofy</h3>
                   <p className="opacity-80 mb-6">
-                    Our experts are also available via chat during business hours (Mon-Fri, 9am-6pm).
+                    Get immediate help with your questions about integrations, API access, or platform features—available 24/7.
                   </p>
-                  <button className="btn bg-white text-primary border-none hover:bg-white/90 w-full rounded-xl">
-                    Start Chat
+                  <button 
+                    onClick={() => setIsChatOpen(true)}
+                    className="btn bg-white text-primary border-none hover:bg-white/90 w-full rounded-xl"
+                  >
+                    Chat with Proofy
                   </button>
                 </div>
               </motion.div>

@@ -1,10 +1,24 @@
 import { NextResponse } from "next/server";
 import { supportDb, adminSdk } from "@/lib/firebase-admin";
+import filter from "leo-profanity";
+
+// Load default English list
+filter.loadDictionary("en");
+// Basic German bad words list
+filter.add(["arsch", "arschloch", "bastard", "wixe", "wixer", "hure", "hurensohn", "schlampe", "fick", "ficken", "pisser", "fotze", "miststück", "penner"]);
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, subject, message } = body;
+
+    // 0. Profanity Check
+    if (filter.check(message) || filter.check(subject) || filter.check(name)) {
+      return NextResponse.json(
+        { error: "Your message contains language that violates our community guidelines. Please rephrase your request." },
+        { status: 400 }
+      );
+    }
 
     // 1. Validation
     if (!email || !email.includes("@")) {
