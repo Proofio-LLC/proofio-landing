@@ -33,7 +33,6 @@ export default function Navigation() {
     { label: "Pricing", href: isSubPage ? "/#pricing" : "#pricing" },
     { label: "FAQ", href: isSubPage ? "/#faq" : "#faq" },
     { label: "Blog", href: "/blog" },
-    { label: "Help", href: "/help" },
   ];
 
   return (

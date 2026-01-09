@@ -127,7 +127,11 @@ export default function FAQ() {
               Commonly asked <br />questions
             </h2>
             <p className="text-xl text-base-content/70">
-              Everything you need to know about Proofio and how it can help you manage your online reputation.
+              Everything you need to know about Proofio and how it can help you manage your online reputation.<br />
+              Can&apos;t find what you&apos;re looking for? Visit our{" "}
+              <a href="/help" className="text-primary font-bold hover:underline">
+                Help Center
+              </a>.
             </p>
           </div>
           <div className="flex gap-3">
