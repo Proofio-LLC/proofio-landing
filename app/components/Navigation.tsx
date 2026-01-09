@@ -17,20 +17,23 @@ export default function Navigation() {
     setIsScrolled(latest > 50);
   });
 
-  // Check if we're on a blog page
+  // Check if we're on a blog or help page
   const isBlogPage = pathname?.startsWith("/blog");
+  const isHelpPage = pathname === "/help";
+  const isSubPage = isBlogPage || isHelpPage;
   const isBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
 
   // Determine back button href
   const backHref = isBlogPost ? "/blog" : "/";
 
   const navItems = [
-    { label: "Features", href: "#features" },
-    { label: "Integration", href: "#integration" },
-    { label: "Use Cases", href: "#use-cases" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Blog", href: "#blog" },
+    { label: "Features", href: isSubPage ? "/#features" : "#features" },
+    { label: "Integration", href: isSubPage ? "/#integration" : "#integration" },
+    { label: "Use Cases", href: isSubPage ? "/#use-cases" : "#use-cases" },
+    { label: "Pricing", href: isSubPage ? "/#pricing" : "#pricing" },
+    { label: "FAQ", href: isSubPage ? "/#faq" : "#faq" },
+    { label: "Blog", href: "/blog" },
+    { label: "Help", href: "/help" },
   ];
 
   return (
@@ -43,14 +46,14 @@ export default function Navigation() {
       <motion.div
         animate={{
           width: isScrolled ? "90%" : "95%",
-          maxWidth: isBlogPage ? (isBlogPost ? "1000px" : "1280px") : (isScrolled ? "1200px" : "1280px"),
+          maxWidth: isSubPage ? (isBlogPost ? "1000px" : "1280px") : (isScrolled ? "1200px" : "1280px"),
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="relative bg-base-100 rounded-[2rem] shadow-lg border border-base-300"
       >
-        <div className={`flex items-center ${isBlogPage ? 'justify-center' : 'justify-between'} px-6 lg:px-12 h-16 lg:h-20 ${isScrolled ? 'lg:px-8' : ''}`}>
-          {/* Back Button (only on blog pages) */}
-          {isBlogPage && (
+        <div className={`flex items-center ${isSubPage ? 'justify-center' : 'justify-between'} px-6 lg:px-12 h-16 lg:h-20 ${isScrolled ? 'lg:px-8' : ''}`}>
+          {/* Back Button (only on blog/help pages) */}
+          {isSubPage && (
             <Link
               href={backHref}
               className="absolute left-6 lg:left-10 flex items-center gap-2 text-base-content/70 hover:text-primary transition-colors"
@@ -60,8 +63,8 @@ export default function Navigation() {
             </Link>
           )}
 
-          {/* Logo - centered on blog pages */}
-          <Link href="/" className={`flex items-center group ${isBlogPage ? 'mx-auto' : ''}`}>
+          {/* Logo - centered on sub pages */}
+          <Link href="/" className={`flex items-center group ${isSubPage ? 'mx-auto' : ''}`}>
             <motion.div
               animate={{
                 height: isScrolled ? 32 : 40,
@@ -81,7 +84,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation Items (only on landing page) */}
-          {!isBlogPage && (
+          {!isSubPage && (
             <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-0.5' : 'gap-1'}`}>
               {navItems.map((item) => (
                 <Link
@@ -96,7 +99,7 @@ export default function Navigation() {
           )}
 
           {/* Desktop Actions */}
-          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isBlogPage ? 'absolute right-6 lg:right-10' : ''}`}>
+          <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isSubPage ? 'absolute right-6 lg:right-10' : ''}`}>
             <a href="https://dash.proofio.app" className="btn btn-ghost rounded-xl">Sign In</a>
             <a href="https://dash.proofio.app" className="btn rounded-xl shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
               Get Started
@@ -104,7 +107,7 @@ export default function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          {!isBlogPage && (
+          {!isSubPage && (
             <div className="flex lg:hidden items-center gap-2">
               <button
                 className="btn btn-ghost btn-square"
@@ -121,7 +124,7 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu (only on landing page) */}
-        {!isBlogPage && mobileMenuOpen && (
+        {!isSubPage && mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -157,6 +160,7 @@ export default function Navigation() {
       </motion.div>
     </motion.nav>
   );
+
 }
 
 

@@ -77,9 +77,9 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <a href="mailto:support@proofio.app" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="/help" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Support
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -98,9 +98,9 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <a href="mailto:support@proofio.app" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href="/help" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Contact
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link href="/partners" className="text-sm text-base-content/70 hover:text-primary transition-colors">
