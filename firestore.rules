@@ -157,33 +157,6 @@ service cloud.firestore {
     }
 
     // ==========================================
-    // WIDGETS Collection
-    // ==========================================
-    match /widgets/{widgetId} {
-      function getProject(projectId) {
-        return get(/databases/$(database)/documents/projects/$(projectId)).data;
-      }
-      
-      // Lesen: Members der Organization des Projects
-      allow read: if isAuthenticated() && 
-                    exists(/databases/$(database)/documents/projects/$(resource.data.projectId)) &&
-                    isOrganizationMember(getProject(resource.data.projectId).organizationId);
-      
-      // Erstellen: Members der Organization des Projects
-      allow create: if isAuthenticated() && 
-                      exists(/databases/$(database)/documents/projects/$(request.resource.data.projectId)) &&
-                      isOrganizationMember(getProject(request.resource.data.projectId).organizationId);
-      
-      // Update: Members der Organization
-      allow update: if isAuthenticated() && 
-                      isOrganizationMember(getProject(resource.data.projectId).organizationId);
-      
-      // Löschen: Members der Organization
-      allow delete: if isAuthenticated() && 
-                      isOrganizationMember(getProject(resource.data.projectId).organizationId);
-    }
-
-    // ==========================================
     // API KEYS Collection (Optional - für Key Management)
     // ==========================================
     match /apiKeys/{keyId} {
@@ -225,6 +198,51 @@ service cloud.firestore {
       // Löschen: Nur der Benutzer selbst kann seine Benachrichtigungen löschen
       allow delete: if isAuthenticated() && 
                       resource.data.userId == request.auth.uid;
+    }
+
+    // ==========================================
+    // COMPETITORS Collection
+    // ==========================================
+    match /competitors/{competitorId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // COMPETITOR_REVIEWS Collection
+    // ==========================================
+    match /competitor_reviews/{reviewId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // ==========================================
+    // SETTINGS Collection (Global App Settings)
+    // ==========================================
+    match /settings/{settingId} {
+      // Global settings (like maintenance mode) must be readable by everyone
+      // to show warnings on login/register pages.
+      allow read: if true;
+      
+      // Only admins can write settings (handled via Admin API, 
+      // but rules should also prevent client-side writes)
+      allow write: if isAuthenticated() && getUserData().admin == true;
+    }
+
+    // ==========================================
+    // MAINTENANCE, INCIDENTS, CHANGELOG Collections
+    // ==========================================
+    match /maintenance/{id} {
+      allow read: if true;
+      allow write: if isAuthenticated() && getUserData().admin == true;
+    }
+
+    match /incidents/{id} {
+      allow read: if true;
+      allow write: if isAuthenticated() && getUserData().admin == true;
+    }
+
+    match /changelog/{id} {
+      allow read: if true;
+      allow write: if isAuthenticated() && getUserData().admin == true;
     }
 
     // ==========================================

@@ -49,19 +49,27 @@ export default function StatusPage() {
   useEffect(() => {
     async function fetchData() {
       try {
+        console.log("Fetching status data from Firestore...");
+        
         // Fetch Maintenance
         const mq = query(
           collection(db, "maintenance"),
-          where("status", "in", ["scheduled", "in_progress"]),
-          orderBy("startTime", "asc"),
-          limit(3)
+          orderBy("startTime", "desc"),
+          limit(5)
         );
         const mSnapshot = await getDocs(mq);
-        const mData = mSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as Maintenance[];
-        setMaintenance(mData);
+        console.log(`Fetched ${mSnapshot.docs.length} maintenance entries`);
+        
+        const mData = mSnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            ...data,
+            startTime: data.startTime
+          };
+        }) as Maintenance[];
+        
+        setMaintenance(mData.filter(m => m.status !== 'completed').slice(0, 3));
 
         // Fetch Incidents
         const iq = query(
@@ -70,13 +78,27 @@ export default function StatusPage() {
           limit(10)
         );
         const iSnapshot = await getDocs(iq);
-        const iData = iSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as Incident[];
+        console.log(`Fetched ${iSnapshot.docs.length} incident entries`);
+        
+        const iData = iSnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            ...data,
+            date: data.date
+          };
+        }) as Incident[];
+        
+        console.log("Incidents data:", iData);
         setIncidents(iData);
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error fetching status data:", error);
+        // Add more context to the error log
+        if (error.code === 'permission-denied') {
+          console.error("Firestore permission denied. Check your security rules.");
+        } else if (error.code === 'failed-precondition') {
+          console.error("Firestore index missing. Check the link in the error message to create it.");
+        }
       } finally {
         setIsLoading(false);
       }
@@ -119,11 +141,32 @@ export default function StatusPage() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "operational": return <CheckCircle2 className="w-5 h-5 text-success" />;
-      case "degraded": return <AlertCircle className="w-5 h-5 text-warning" />;
-      case "outage": return <XCircle className="w-5 h-5 text-error" />;
-      default: return null;
+      case "operational": return <CheckCircle2 className="w-4 h-4 text-success" />;
+      case "degraded": return <AlertCircle className="w-4 h-4 text-warning" />;
+      case "outage": return <XCircle className="w-4 h-4 text-error" />;
+      default: return <Clock className="w-4 h-4 text-base-content/30" />;
     }
+  };
+
+  const formatStatus = (status: string) => {
+    if (!status) return "";
+    return status.replace(/_/g, ' ');
+  };
+
+  const formatDate = (date: any) => {
+    if (!date) return "";
+    if (typeof date.toDate === 'function') {
+      return date.toDate().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+    }
+    return new Date(date).toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
   };
 
   return (
@@ -224,10 +267,10 @@ export default function StatusPage() {
                       <span className="font-bold text-xl tracking-tight">{comp.name}</span>
                     </div>
                     <div className="flex items-center gap-4">
-                      <span className={`text-xs font-black uppercase tracking-widest ${getStatusColor(comp.status)}`}>
+                      <span className={`text-xs font-black uppercase tracking-widest whitespace-nowrap ${getStatusColor(comp.status)}`}>
                         {comp.status}
                       </span>
-                      <div className={`p-2 rounded-full ${comp.status === 'operational' ? 'bg-success/10' : 'bg-warning/10'}`}>
+                      <div className={`p-2 rounded-full shrink-0 ${comp.status === 'operational' ? 'bg-success/10' : 'bg-warning/10'}`}>
                         {getStatusIcon(comp.status)}
                       </div>
                     </div>
@@ -251,15 +294,17 @@ export default function StatusPage() {
                 ) : maintenance.length > 0 ? (
                   <div className="space-y-6">
                     {maintenance.map((m) => (
-                      <div key={m.id} className="bg-white rounded-2xl p-6 border border-primary/10 shadow-sm">
-                        <div className="flex items-center justify-between mb-4">
-                          <h4 className="font-bold text-primary">{m.title}</h4>
-                          <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase rounded-full tracking-widest">{m.status}</span>
+                      <div key={m.id} className="bg-white rounded-2xl p-6 border border-base-200 shadow-sm group hover:border-primary/20 transition-all duration-300">
+                        <div className="flex items-start justify-between gap-4 mb-4">
+                          <h4 className="font-bold text-primary leading-tight">{m.title}</h4>
+                          <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase rounded-full tracking-widest whitespace-nowrap shrink-0">
+                            {formatStatus(m.status)}
+                          </span>
                         </div>
-                        <p className="text-sm text-base-content/60 mb-4 line-clamp-2">{m.description}</p>
+                        <p className="text-sm text-base-content/60 mb-4 line-clamp-3 leading-relaxed">{m.description}</p>
                         <div className="text-[10px] font-bold text-base-content/40 uppercase tracking-widest flex items-center gap-2">
                           <Clock className="w-3 h-3" />
-                          {m.startTime?.toDate().toLocaleDateString()}
+                          {formatDate(m.startTime)}
                         </div>
                       </div>
                     ))}
@@ -272,7 +317,7 @@ export default function StatusPage() {
               {/* Incident History Widget */}
               <div className="bg-base-200/50 rounded-[2.5rem] p-8 border border-base-300">
                 <h3 className="text-xl font-black mb-6 flex items-center gap-3">
-                  <Activity className="w-5 h-5 text-success" />
+                  <Activity className="w-5 h-5 text-primary" />
                   Incident History
                 </h3>
                 {isLoading ? (
@@ -282,11 +327,11 @@ export default function StatusPage() {
                 ) : incidents.length > 0 ? (
                   <div className="space-y-6">
                     {incidents.map((incident) => (
-                      <div key={incident.id} className="bg-white rounded-2xl p-6 border border-success/10 shadow-sm group hover:border-success/30 transition-all">
-                        <div className="flex items-center justify-between mb-4">
-                          <h4 className="font-bold text-success">{incident.title}</h4>
-                          <span className="px-3 py-1 bg-success/10 text-success text-[10px] font-black uppercase rounded-full tracking-widest">
-                            {incident.status || "Resolved"}
+                      <div key={incident.id} className="bg-white rounded-2xl p-6 border border-base-200 shadow-sm group hover:border-primary/20 transition-all duration-300">
+                        <div className="flex items-start justify-between gap-4 mb-4">
+                          <h4 className="font-bold text-primary leading-tight">{incident.title}</h4>
+                          <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase rounded-full tracking-widest whitespace-nowrap shrink-0">
+                            {formatStatus(incident.status || "Resolved")}
                           </span>
                         </div>
                         <p className="text-sm text-base-content/60 mb-4 line-clamp-3 leading-relaxed">
@@ -294,7 +339,7 @@ export default function StatusPage() {
                         </p>
                         <div className="text-[10px] font-bold text-base-content/40 uppercase tracking-widest flex items-center gap-2">
                           <Clock className="w-3 h-3" />
-                          {incident.date?.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                          {formatDate(incident.date)}
                         </div>
                       </div>
                     ))}
