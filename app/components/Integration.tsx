@@ -34,11 +34,11 @@ export default function Integration() {
               <Sparkles className="w-4 h-4" />
               <span className="text-sm font-medium">INTEGRATION</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="text-3xl md:text-6xl font-bold mb-6">
               Simple integration. 
               <br />Works everywhere.
             </h2>
-            <p className="text-xl text-base-content/80 leading-relaxed mb-4">
+            <p className="text-lg md:text-xl text-base-content/80 leading-relaxed mb-4">
               Use Proofio via API or dashboard. Integrate once and reuse across products, applications and internal tools.
             </p>
           </motion.div>
@@ -50,8 +50,8 @@ export default function Integration() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-base-100 rounded-[2.5rem] p-8 shadow-xl border border-base-300 overflow-hidden relative group">
-              <div className="flex overflow-x-auto gap-6 snap-x no-scrollbar pb-4">
+            <div className="bg-base-100 rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-base-300 overflow-hidden relative group">
+              <div className="flex overflow-x-auto gap-4 md:gap-6 snap-x no-scrollbar pb-4">
                 {[
                   { name: "Proofio WebApp", desc: "Native dashboard for deep analysis and visualization.", icon: Layout },
                   { name: "Web Applications", desc: "Integrate intelligence directly into your user experience.", icon: Globe },
@@ -94,18 +94,18 @@ export default function Integration() {
             transition={{ duration: 0.6 }}
           >
             <div className="card bg-base-100 rounded-[2.5rem] shadow-xl overflow-hidden border border-base-300">
-              <div className="card-body p-8 lg:p-12">
+              <div className="card-body p-6 md:p-8 lg:p-12">
                 <button 
                   onClick={() => setIsApiExpanded(!isApiExpanded)}
                   className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 w-full text-left group"
                 >
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
-                      <Code className="w-8 h-8 text-primary" />
+                  <div className="flex items-center gap-4 md:gap-6">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <Code className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-3xl md:text-4xl font-bold">API ACCESS</h3>
-                      <p className="text-primary font-semibold text-lg">Built for developers and data driven teams</p>
+                      <h3 className="text-2xl md:text-4xl font-bold">API ACCESS</h3>
+                      <p className="text-primary font-semibold text-base md:text-lg">Built for developers and data driven teams</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 text-base-content/50 group-hover:text-primary transition-colors pr-4">
@@ -184,10 +184,11 @@ export default function Integration() {
                           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/20" />
                         </div>
                       </div>
-                      <div className="bg-[#0f172a] rounded-[2rem] p-8 shadow-2xl relative group">
-                        <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">JSON</div>
-                        <pre className="text-sm">
-                          <code className="text-blue-300 font-mono leading-relaxed">
+                            <div className="bg-[#0f172a] rounded-[2rem] p-6 md:p-8 shadow-2xl relative group overflow-hidden">
+                              <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">JSON</div>
+                              <div className="overflow-x-auto no-scrollbar">
+                                <pre className="text-sm">
+                                  <code className="text-blue-300 font-mono leading-relaxed whitespace-pre">
 {`GET /api/v1/reviews
 
 {
@@ -206,9 +207,10 @@ export default function Integration() {
     }
   ]
 }`}
-                          </code>
-                        </pre>
-                      </div>
+                                  </code>
+                                </pre>
+                              </div>
+                            </div>
                     </div>
                   </div>
                 </motion.div>
@@ -240,7 +242,7 @@ export default function Integration() {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center px-4">
+          <div className="flex flex-wrap justify-center items-center px-4 gap-y-8">
             {[
               { name: "Google", icon: "/google.png" },
               { name: "Trustpilot", icon: "/Trustpilot.png" },
@@ -255,9 +257,9 @@ export default function Integration() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 whileHover={{ scale: 1.15, y: -8, zIndex: 10 }}
-                className="relative group -ml-4 md:-ml-6 first:ml-0"
+                className="relative group -ml-2 sm:-ml-4 md:-ml-6 first:ml-0"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-[2rem] bg-base-100 shadow-xl border-2 border-base-300 hover:border-primary hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center p-4 cursor-pointer overflow-hidden">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[1.5rem] md:rounded-[2rem] bg-base-100 shadow-xl border-2 border-base-300 hover:border-primary hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center p-3 md:p-4 cursor-pointer overflow-hidden">
                   {integration.icon ? (
                     <Image
                       src={integration.icon}
