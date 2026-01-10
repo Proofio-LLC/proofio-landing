@@ -31,9 +31,9 @@ export default function Footer() {
                 <Link href="https://instagram.com/proofio.app" className="text-base-content/60 hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5" />
                 </Link>
-                {/* <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
+                <Link href="https://www.linkedin.com/company/proofio-app" className="text-base-content/60 hover:text-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
-                </Link> */}
+                </Link> 
               </div>
             </div>
 
