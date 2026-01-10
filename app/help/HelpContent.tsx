@@ -82,7 +82,7 @@ export default function HelpContent() {
                 </p>
                 <Link 
                   href="https://docs.proofio.app" 
-                  className="btn btn-outline btn-primary w-full rounded-xl gap-2 group"
+                  className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-primary text-white font-bold rounded-2xl hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20 group"
                 >
                   Go to Documentation
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -112,7 +112,7 @@ export default function HelpContent() {
                   </p>
                   <button 
                     onClick={() => setIsChatOpen(true)}
-                    className="btn bg-white text-primary border-none hover:bg-white/90 w-full rounded-xl"
+                    className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-white text-primary font-bold rounded-2xl hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-xl"
                   >
                     Chat with Proofy
                   </button>
@@ -148,7 +148,7 @@ export default function HelpContent() {
           <p className="text-base-content/60 mb-8 max-w-xl mx-auto">
             You might find the answer you&apos;re looking for in our frequently asked questions.
           </p>
-          <Link href="/#faq" className="btn btn-ghost gap-2 hover:bg-primary/10 hover:text-primary rounded-xl px-8">
+          <Link href="/#faq" className="inline-flex items-center justify-center gap-2 py-4 px-10 bg-primary/10 text-primary font-bold rounded-2xl hover:bg-primary/20 hover:scale-[1.05] active:scale-[0.95] transition-all duration-200">
             Go to FAQs
             <ArrowRight className="w-4 h-4" />
           </Link>

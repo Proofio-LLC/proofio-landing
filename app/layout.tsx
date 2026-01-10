@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import CookieBanner from "./components/CookieBanner";
+import ProofyFloatingButton from "./components/ProofyFloatingButton";
 import { Analytics } from "@vercel/analytics/next";
 import { cookies } from "next/headers";
 
@@ -65,6 +66,7 @@ export default async function RootLayout({
         />
         {children}
         <CookieBanner />
+        <ProofyFloatingButton />
         {analyticsEnabled && <Analytics />}
       </body>
     </html>

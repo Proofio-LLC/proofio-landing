@@ -377,7 +377,7 @@ function FeatureIcon({ value, isAi }: { value: string | boolean; isAi?: boolean 
   if (typeof value === "boolean") {
     return value ? (
       <div className="flex flex-col items-center justify-center gap-1">
-        <Check className="w-5 h-5 text-success" />
+      <Check className="w-5 h-5 text-success" />
         {isAi && <span className="text-[10px] font-bold text-primary uppercase tracking-wider">AI Powered</span>}
       </div>
     ) : (
@@ -500,64 +500,64 @@ export default function PricingPage() {
             <div className="overflow-x-auto">
               <div className="inline-block min-w-full align-middle">
                 <table className="min-w-full border-separate border-spacing-0">
-                  <thead>
+                <thead>
                     <tr>
                       <th className="sticky left-0 z-20 py-6 pl-8 pr-4 text-left text-sm font-bold text-base-content uppercase tracking-widest bg-white border-b border-base-200 rounded-tl-[2rem]">
                         Feature
-                      </th>
+                    </th>
                       <th className="py-6 px-4 text-center text-sm font-bold text-base-content uppercase tracking-widest bg-base-50/50 border-b border-base-200">
                         Starter
-                      </th>
+                    </th>
                       <th className="py-6 px-4 text-center text-sm font-bold text-primary uppercase tracking-widest bg-primary/5 border-b border-primary/20">
                         Growth
-                      </th>
+                    </th>
                       <th className="py-6 px-4 text-center text-sm font-bold text-base-content uppercase tracking-widest bg-base-50/50 border-b border-base-200 rounded-tr-[2rem]">
                         Scale
-                      </th>
-                    </tr>
-                  </thead>
+                    </th>
+                  </tr>
+                </thead>
                   <tbody className="bg-white">
-                    {Object.entries(groupedFeatures).map(([category, categoryFeatures], categoryIndex) => (
-                      <React.Fragment key={category}>
+                  {Object.entries(groupedFeatures).map(([category, categoryFeatures], categoryIndex) => (
+                    <React.Fragment key={category}>
                         <tr className="bg-base-200/80 backdrop-blur-sm">
                           <td colSpan={4} className="py-5 pl-8 pr-4 text-xs font-black text-primary uppercase tracking-[0.25em] border-y border-base-300">
-                            <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2">
                               <div className="w-1.5 h-4 bg-primary rounded-full" />
-                              {category}
-                            </div>
-                          </td>
-                        </tr>
-                        {categoryFeatures.map((row, rowIndex) => (
-                          <tr
-                            key={`${category}-${rowIndex}`}
+                            {category}
+                          </div>
+                        </td>
+                      </tr>
+                      {categoryFeatures.map((row, rowIndex) => (
+                        <tr
+                          key={`${category}-${rowIndex}`}
                             className="group transition-colors hover:bg-base-50/50"
-                          >
+                        >
                             <td className="sticky left-0 z-10 py-6 pl-8 pr-4 text-sm font-medium text-base-content border-b border-base-100 bg-white group-hover:bg-base-50/50">
                               <div className="flex flex-col gap-1">
                                 <span className="text-base font-bold">{row.feature}</span>
-                                {row.description && (
+                            {row.description && (
                                   <span className="text-xs text-base-content/50 font-medium">
-                                    {row.description}
+                                {row.description}
                                   </span>
                                 )}
                               </div>
-                            </td>
+                          </td>
                             <td className="py-6 px-4 text-center border-b border-base-100">
                               <FeatureIcon value={row.starter} isAi={row.isAi} />
-                            </td>
+                          </td>
                             <td className="py-6 px-4 text-center border-b border-primary/10 bg-primary/[0.02]">
                               <FeatureIcon value={row.growth} isAi={row.isAi} />
-                            </td>
+                          </td>
                             <td className="py-6 px-4 text-center border-b border-base-100">
                               <FeatureIcon value={row.scale} isAi={row.isAi} />
-                            </td>
-                          </tr>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
             </div>
 
             <div className="mt-32">
@@ -612,7 +612,7 @@ export default function PricingPage() {
                   >
                     <p className="text-xl md:text-2xl font-semibold text-white">
                       Start turning customer feedback into clear review intelligence with Proofio.
-                    </p>
+              </p>
                   </motion.div>
 
                   <motion.div
@@ -622,19 +622,19 @@ export default function PricingPage() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                   >
-                    <Link 
-                      href="https://dash.proofio.app" 
+                <Link
+                  href="https://dash.proofio.app"
                       className="btn btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
-                    >
+                >
                       Start analyzing today
                       <ArrowRight className="w-5 h-5" />
-                    </Link>
-                    <Link 
-                      href="mailto:sales@proofio.app" 
+                </Link>
+                <Link
+                  href="mailto:sales@proofio.app"
                       className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm w-full sm:w-auto"
-                    >
-                      Contact Enterprise
-                    </Link>
+                >
+                  Contact Enterprise
+                </Link>
                   </motion.div>
                 </div>
               </div>

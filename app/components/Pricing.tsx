@@ -122,7 +122,7 @@ export default function Pricing() {
                         </span>
                       </div>
                     ) : (
-                      <div className="flex items-baseline gap-2">
+                        <div className="flex items-baseline gap-2">
                         <span className="text-4xl font-bold">
                           {plan.price}
                         </span>

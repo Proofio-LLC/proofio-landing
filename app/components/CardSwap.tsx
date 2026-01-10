@@ -102,25 +102,32 @@ import React, {
     const tlRef = useRef<gsap.core.Timeline | null>(null);
     const intervalRef = useRef<number>(0);
     const container = useRef<HTMLDivElement>(null);
-  
+    const isAnimating = useRef(false);
+    const swapRef = useRef<() => void>(() => {});
+
     useEffect(() => {
       const total = refs.length;
       refs.forEach((r, i) => placeNow(r.current!, makeSlot(i, cardDistance, verticalDistance, total), skewAmount));
-  
+
       const swap = () => {
-        if (order.current.length < 2) return;
-  
+        if (order.current.length < 2 || isAnimating.current) return;
+        isAnimating.current = true;
+
         const [front, ...rest] = order.current;
         const elFront = refs[front].current!;
-        const tl = gsap.timeline();
+        const tl = gsap.timeline({
+          onComplete: () => {
+            isAnimating.current = false;
+          }
+        });
         tlRef.current = tl;
-  
+
         tl.to(elFront, {
           y: '+=500',
           duration: config.durDrop,
           ease: config.ease
         });
-  
+
         tl.addLabel('promote', `-=${config.durDrop * config.promoteOverlap}`);
         rest.forEach((idx, i) => {
           const el = refs[idx].current!;
@@ -138,7 +145,7 @@ import React, {
             `promote+=${i * 0.15}`
           );
         });
-  
+
         const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
         tl.addLabel('return', `promote+=${config.durMove * config.returnDelay}`);
         tl.call(
@@ -159,23 +166,23 @@ import React, {
           },
           'return'
         );
-  
+
         tl.call(() => {
           order.current = [...rest, front];
         });
       };
-  
-      swap();
+
+      swapRef.current = swap;
+
+      // Don't call swap immediately, wait for the first interval
       intervalRef.current = window.setInterval(swap, delay);
-  
+
       if (pauseOnHover) {
         const node = container.current!;
         const pause = () => {
-          tlRef.current?.pause();
           clearInterval(intervalRef.current);
         };
         const resume = () => {
-          tlRef.current?.play();
           intervalRef.current = window.setInterval(swap, delay);
         };
         node.addEventListener('mouseenter', pause);
@@ -188,16 +195,29 @@ import React, {
       }
       return () => clearInterval(intervalRef.current);
     }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
-  
+
+    const handleManualSwap = () => {
+      if (isAnimating.current) return;
+      
+      // Reset interval when manual swap happens
+      if (!pauseOnHover) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = window.setInterval(swapRef.current, delay);
+      }
+      
+      swapRef.current();
+    };
+
     const rendered = childArr.map((child, i) =>
       isValidElement<CardProps>(child)
         ? cloneElement(child, {
             key: i,
             ref: refs[i],
-            style: { width, height, ...(child.props.style ?? {}) },
+            style: { width, height, cursor: 'pointer', ...(child.props.style ?? {}) },
             onClick: e => {
               child.props.onClick?.(e as React.MouseEvent<HTMLDivElement>);
               onCardClick?.(i);
+              handleManualSwap();
             }
           } as CardProps & React.RefAttributes<HTMLDivElement>)
         : child

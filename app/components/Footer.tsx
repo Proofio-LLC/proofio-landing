@@ -78,6 +78,16 @@ export default function Footer() {
                       Support
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/status" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                      Status
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/changelog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                      Changelog
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
@@ -110,21 +120,21 @@ export default function Footer() {
               © 2026 Proofio. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-6">
-              <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-                Imprint
-              </Link>
-              <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-                Terms of Service
-              </Link>
-              <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-                Cookies Settings
-              </Link>
-              <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-                Legal Inquiries
-              </a>
+            <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Imprint
+            </Link>
+            <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Terms of Service
+            </Link>
+            <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Cookies Settings
+            </Link>
+            <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              Legal Inquiries
+            </a>
             </div>
           </div>
         </div>

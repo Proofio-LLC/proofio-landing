@@ -135,9 +135,9 @@ export default function PartnersPage() {
                   <div key={item} className="flex items-center gap-4 group">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       <CheckCircle2 className="w-4 h-4 text-primary group-hover:text-white" />
-                    </div>
+              </div>
                     <span className="text-lg font-medium text-base-content/70">{item}</span>
-                  </div>
+            </div>
                 ))}
               </div>
             </motion.div>
@@ -163,7 +163,7 @@ export default function PartnersPage() {
                     <Card key={item.title} className="bg-white rounded-[2rem] p-8 border border-base-200 shadow-2xl flex flex-col justify-center text-center">
                       <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-500`}>
                         <item.icon className="w-7 h-7" />
-                      </div>
+                </div>
                       <h3 className="text-xl md:text-2xl font-bold mb-3 text-base-content leading-tight">{item.title}</h3>
                       <p className="text-sm text-base-content/60 leading-relaxed font-medium">
                         {item.desc}
@@ -173,8 +173,8 @@ export default function PartnersPage() {
                 </CardSwap>
               </div>
             </motion.div>
-          </div>
-        </div>
+              </div>
+            </div>
       </section>
 
       {/* Apply Section */}
@@ -183,24 +183,24 @@ export default function PartnersPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-base-content mb-6">
               Ready to collaborate?
-            </h2>
+                </h2>
             <p className="text-xl text-base-content/60 mb-10 font-medium">
               Join our network and build sustainable review intelligence together.
-            </p>
+                </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a 
-                href="mailto:sales@proofio.app" 
+                  <a
+                    href="mailto:sales@proofio.app"
                 className="btn btn-lg bg-primary text-white border-none hover:bg-primary/90 rounded-2xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
-              >
+                  >
                 <Mail className="w-5 h-5" />
                 Apply for partnership
                 <ArrowRight className="w-5 h-5" />
-              </a>
+                  </a>
               <a 
                 href="mailto:sales@proofio.app?subject=Partnership Information Request" 
                 className="group flex items-center gap-2 text-primary font-bold hover:text-primary/80 transition-all"
-              >
+                  >
                 Request information
                 <ArrowRight className="w-4 h-4" />
               </a>
