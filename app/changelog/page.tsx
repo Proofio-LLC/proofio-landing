@@ -19,10 +19,12 @@ import { db } from "@/lib/firebase";
 interface ChangelogEntry {
   id: string;
   version: string;
+  title?: string;
+  description?: string;
   date: any; // Timestamp
-  added: string[];
-  improved: string[];
-  fixed: string[];
+  added?: string[];
+  improved?: string[];
+  fixed?: string[];
 }
 
 export default function ChangelogPage() {
@@ -116,7 +118,7 @@ export default function ChangelogPage() {
                         </div>
                         <div className="flex items-center gap-2 text-base-content/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-8">
                           <Calendar className="w-3.5 h-3.5" />
-                          {update.date?.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                          {update.date ? update.date.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'TBA'}
                         </div>
                       </div>
                     </div>
@@ -129,6 +131,22 @@ export default function ChangelogPage() {
                         </div>
                         
                         <div className="grid gap-12 relative z-10">
+                          {/* Title & Description */}
+                          {(update.title || update.description) && (
+                            <div className="space-y-4">
+                              {update.title && (
+                                <h2 className="text-3xl font-black tracking-tight text-base-content">
+                                  {update.title}
+                                </h2>
+                              )}
+                              {update.description && (
+                                <p className="text-lg text-base-content/60 leading-relaxed font-medium">
+                                  {update.description}
+                                </p>
+                              )}
+                            </div>
+                          )}
+
                           {/* Added */}
                           {update.added && update.added.length > 0 && (
                             <div className="space-y-6">

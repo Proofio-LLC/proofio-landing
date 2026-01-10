@@ -301,7 +301,7 @@ export default function StatusPage() {
                             {formatStatus(m.status)}
                           </span>
                         </div>
-                        <p className="text-sm text-base-content/60 mb-4 line-clamp-3 leading-relaxed">{m.description}</p>
+                        <p className="text-sm text-base-content/60 mb-4 leading-relaxed">{m.description}</p>
                         <div className="text-[10px] font-bold text-base-content/40 uppercase tracking-widest flex items-center gap-2">
                           <Clock className="w-3 h-3" />
                           {formatDate(m.startTime)}
@@ -334,7 +334,7 @@ export default function StatusPage() {
                             {formatStatus(incident.status || "Resolved")}
                           </span>
                         </div>
-                        <p className="text-sm text-base-content/60 mb-4 line-clamp-3 leading-relaxed">
+                        <p className="text-sm text-base-content/60 mb-4 leading-relaxed">
                           {incident.description}
                         </p>
                         <div className="text-[10px] font-bold text-base-content/40 uppercase tracking-widest flex items-center gap-2">
