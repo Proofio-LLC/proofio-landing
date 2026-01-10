@@ -72,7 +72,7 @@ export default function CTA() {
                 href="https://dash.proofio.app" 
                 className="btn btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95"
               >
-                Start analyzing reviews today
+                Start today!
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
