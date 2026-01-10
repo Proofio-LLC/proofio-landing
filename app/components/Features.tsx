@@ -49,38 +49,38 @@ function FeatureImage({ staticImage, animatedImage, alt }: { staticImage: string
 
 const features = [
   {
-    title: "Multi-source integration",
-    description: "Connect multiple review platforms and collect all reviews in one centralized system.",
+    title: "Multi source coverage",
+    description: "Connect all major review platforms and analyze your entire customer voice in one place.",
     staticImage: "/featureicons/integration-static.png",
     animatedImage: "/featureicons/Integration.gif",
   },
   {
     title: "Smart analytics",
-    description: "Understand trends, sentiment, and rating changes across platforms over time.",
+    description: "Track trends, sentiment shifts and rating movements across platforms over time.",
     staticImage: "/featureicons/analytics-static.png",
     animatedImage: "/featureicons/analytics.gif",
   },
   {
     title: "Data normalization",
-    description: "Ratings and reviews are standardized to ensure consistent comparison and aggregation.",
+    description: "All ratings and reviews are standardized for accurate comparison and reliable insights.",
     staticImage: "/featureicons/normalize-static.png",
     animatedImage: "/featureicons/normalize.gif",
   },
   {
-    title: "REST API",
-    description: "Access all reviews, aggregates, and insights programmatically through a clean API.",
-    staticImage: "/featureicons/api-static.png",
-    animatedImage: "/featureicons/api.gif",
-  },
-  {
-    title: "Embeddable widgets",
-    description: "Display aggregated ratings and reviews anywhere with lightweight, framework-agnostic widgets.",
+    title: "AI summaries and insights",
+    description: "Turn thousands of reviews into structured summaries, risks and opportunities.",
     staticImage: "/featureicons/widget-static.png",
     animatedImage: "/featureicons/widget.gif",
   },
   {
+    title: "Competitive comparison",
+    description: "See how your product performs against competitors directly from customer feedback.",
+    staticImage: "/featureicons/analytics-static.png",
+    animatedImage: "/featureicons/analytics.gif",
+  },
+  {
     title: "Automatic synchronization",
-    description: "Reviews are fetched and updated daily — no manual work required.",
+    description: "Reviews are updated daily and kept fully in sync with no manual work required.",
     staticImage: "/featureicons/sync-static.png",
     animatedImage: "/featureicons/sync.gif",
   },
@@ -102,16 +102,16 @@ export default function Features() {
             <span className="text-sm font-medium">CORE VALUE</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Everything you need for review aggregation
+            Everything you need to understand customer feedback
           </h2>
-          <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-            A unified system to collect, normalize, and analyze reviews across platforms — built for modern products and teams.
+          <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
+            Proofio is a unified review intelligence system that transforms reviews into clear and actionable business insights built for modern products and teams.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => {
-            // All 6 features: span 2 columns each (2/6 = 1/3 width)
+            // All features span 2 columns in a 6-column grid (making it 3 columns on desktop)
             const colSpan = "lg:col-span-2";
             
             return (

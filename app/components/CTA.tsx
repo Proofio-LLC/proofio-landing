@@ -36,7 +36,7 @@ export default function CTA() {
               className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-white/20 text-white rounded-full backdrop-blur-md border border-white/30"
             >
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium uppercase tracking-wider">Ready to grow?</span>
+              <span className="text-sm font-medium uppercase tracking-wider">Ready to move from reviews to insights?</span>
             </motion.div>
 
             <motion.h2
@@ -46,18 +46,20 @@ export default function CTA() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
             >
-              Start collecting better <br className="hidden md:block" />reviews with Proofio today.
+              Ready to move from reviews to insights?
             </motion.h2>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/90 mb-10 max-w-xl mx-auto leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="space-y-4 mb-10"
             >
-              Join hundreds of companies that trust Proofio to centralize their reputation and turn feedback into their strongest marketing asset.
-            </motion.p>
+              <p className="text-xl md:text-2xl font-semibold text-white">
+                Proofio helps teams transform customer feedback into trends, comparisons and decisions.
+              </p>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -70,14 +72,14 @@ export default function CTA() {
                 href="https://dash.proofio.app" 
                 className="btn btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95"
               >
-                Get started for free
+                Start analyzing reviews today
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
                 href="https://docs.proofio.app" 
                 className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm"
               >
-                Explore Docs
+                View live demo
               </a>
             </motion.div>
           </div>

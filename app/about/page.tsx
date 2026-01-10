@@ -1,12 +1,12 @@
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
 import { Metadata } from "next";
-import { Sparkles, Target, Users, Zap } from "lucide-react";
+import { Sparkles, Target, Users, Zap, Shield, BarChart3, Database, Globe, Smartphone, Code, Mail, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About | Proofio",
-  description: "Learn about Proofio - Our mission to simplify review aggregation and help businesses make data-driven decisions.",
+  description: "Learn about Proofio - Our mission to turn customer feedback into business intelligence.",
 };
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-12 bg-gradient-to-b from-base-100 to-base-200">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-2xl shadow-xl overflow-hidden min-h-[400px] md:min-h-[500px] flex items-center">
+            <div className="relative rounded-[2.5rem] shadow-xl overflow-hidden min-h-[400px] md:min-h-[500px] flex items-center">
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <Image
@@ -30,20 +30,20 @@ export default function AboutPage() {
                   quality={90}
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-base-100/80 backdrop-blur-[2px]"></div>
+                <div className="absolute inset-0 bg-primary/10 backdrop-blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
               
               {/* Content */}
-              <div className="relative z-10 w-full px-8 md:px-12 py-12 text-center">
+              <div className="relative z-10 w-full px-8 md:px-12 py-12 text-center md:text-left">
                 <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/20 text-white rounded-full backdrop-blur-sm border border-white/30">
                   <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-medium">ABOUT US</span>
+                  <span className="text-sm font-bold uppercase tracking-widest">About</span>
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                  About Proofio
-                </h1>
-                <p className="text-xl text-white/90 max-w-2xl mx-auto">
-                  Simplifying review aggregation for businesses worldwide
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                About Proofio                </h1>
+                <p className="text-xl text-white/90 max-w-2xl font-medium">
+                Turning customer feedback into business intelligence
                 </p>
               </div>
             </div>
@@ -51,141 +51,125 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-b from-base-200 to-base-100">
+      <section className="py-24 bg-base-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-
-            <div className="prose prose-lg max-w-none space-y-12">
-              <section className="bg-base-100 rounded-2xl shadow-xl p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-base-content mb-4">Our Mission</h2>
-                <p className="text-base-content/80 mb-4">
-                  At Proofio, we believe that customer feedback is one of the most valuable assets a business can have. 
-                  However, reviews are scattered across multiple platforms, making it difficult to get a complete picture 
-                  of customer sentiment.
+            
+            {/* Mission Statement */}
+            <div className="grid md:grid-cols-2 gap-12 mb-24 items-center">
+              <div>
+                <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em] mb-4">Our Mission</h2>
+                <p className="text-3xl md:text-4xl font-bold text-base-content mb-6 leading-tight">
+                  We believe customer feedback should drive better products.
                 </p>
-                <p className="text-base-content/80">
-                  Our mission is to empower businesses by aggregating reviews from all major platforms into a single, 
-                  unified view. We help companies collect, normalize, and analyze reviews efficiently, enabling them to 
-                  make data-driven decisions and improve their products and services.
-                </p>
-              </section>
-
-              <section className="bg-base-100 rounded-2xl shadow-xl p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-base-content mb-6">What We Do</h2>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Zap className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-base-content mb-2">Review Aggregation</h3>
-                      <p className="text-base-content/70">
-                        Automatically collect and synchronize reviews from App Store, Google Play, Shopify, Google Reviews, and more.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Target className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-base-content mb-2">Data Normalization</h3>
-                      <p className="text-base-content/70">
-                        Transform fragmented reviews into a consistent, structured format that's easy to work with.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Users className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-base-content mb-2">API & Widgets</h3>
-                      <p className="text-base-content/70">
-                        Provide flexible integration options through REST APIs and embeddable widgets for any platform.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Sparkles className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-base-content mb-2">Analytics & Insights</h3>
-                      <p className="text-base-content/70">
-                        Gain valuable insights with aggregated ratings, trends, and sentiment analysis across all sources.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section className="bg-base-100 rounded-2xl shadow-xl p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-base-content mb-4">Our Values</h2>
-                <ul className="space-y-4 text-base-content/80">
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold mt-1">•</span>
-                    <div>
-                      <strong className="text-base-content">Simplicity:</strong> We believe in making complex things simple. 
-                      Our platform is designed to be intuitive and easy to use, regardless of technical expertise.
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold mt-1">•</span>
-                    <div>
-                      <strong className="text-base-content">Reliability:</strong> We understand that your review data is critical. 
-                      That's why we prioritize uptime, data accuracy, and consistent synchronization.
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold mt-1">•</span>
-                    <div>
-                      <strong className="text-base-content">Flexibility:</strong> Every business is unique. Our API-first approach 
-                      ensures that Proofio can be integrated into any workflow or platform.
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary font-bold mt-1">•</span>
-                    <div>
-                      <strong className="text-base-content">Transparency:</strong> We believe in clear communication, honest pricing, 
-                      and straightforward terms. No hidden fees, no surprises.
-                    </div>
-                  </li>
-                </ul>
-              </section>
-
-              <section className="bg-base-100 rounded-2xl shadow-xl p-8 md:p-12 text-center">
-                <h2 className="text-3xl font-bold text-base-content mb-4">Get in Touch</h2>
-                <p className="text-lg text-base-content/70 mb-6">
-                  Have questions or want to learn more? We'd love to hear from you.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a
-                    href="mailto:support@proofio.app"
-                    className="inline-flex items-center justify-center rounded-lg px-8 py-3 bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg transition-all font-medium"
-                  >
-                    Contact Support
-                  </a>
-                  <a
-                    href="mailto:sales@proofio.app"
-                    className="inline-flex items-center justify-center rounded-lg px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all font-medium"
-                  >
-                    Sales Inquiry
-                  </a>
-                </div>
-              </section>
+              </div>
+              <div className="space-y-6">
+                <p className="text-lg text-base-content/70 leading-relaxed">
+                Reviews are one of the most valuable sources of insight for any business, yet they remain fragmented and difficult to compare. Proofio transforms reviews into structured intelligence teams can trust.
+                  </p>
+              </div>
             </div>
+
+            {/* What We Do */}
+            <div className="mb-24">
+              <div className="text-center mb-16">
+                <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em] mb-4">What We Do</h2>
+                <p className="text-3xl md:text-5xl font-bold">Review intelligence layer</p>
+              </div>
+              
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "Review intelligence",
+                    desc: "We collect and unify reviews from major platforms into a single, consistent intelligence layer.",
+                    icon: Target
+                  },
+                  {
+                    title: "Data normalization",
+                    desc: "All reviews are standardized to enable accurate comparison across sources.",
+                    icon: Zap
+                  },
+                  {
+                    title: "AI driven analysis",
+                    desc: "We turn large volumes of feedback into summaries, insights, trends, and competitive signals.",
+                    icon: Sparkles
+                  },
+                  {
+                    title: "API and platform access",
+                    desc: "Proofio provides both a powerful web platform and a full REST API to integrate review intelligence into any workflow.",
+                    icon: Code
+                  }
+                ].map((item) => (
+                  <div key={item.title} className="p-8 bg-base-200/50 rounded-[2rem] border border-base-200 hover:border-primary/20 transition-all group">
+                    <div className="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-base-content/60 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+                <div className="sm:col-span-2 p-8 bg-primary text-white rounded-[2rem] shadow-xl relative overflow-hidden">
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold mb-3">Decision support</h3>
+                    <p className="text-white/80 text-lg max-w-2xl">
+                      Our focus is not only on data, but on helping teams make better product, marketing, and business decisions based on real customer signals.
+                    </p>
+                  </div>
+                  <BarChart3 className="absolute right-[-20px] bottom-[-20px] w-48 h-48 opacity-10 rotate-12" />
+                </div>
+              </div>
+            </div>
+
+            {/* Values */}
+            <div className="mb-24">
+              <div className="text-center mb-16">
+                <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em] mb-4">Our Values</h2>
+                <p className="text-3xl md:text-5xl font-bold">Built on trust</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {[
+                  { name: "Simplicity", desc: "We turn complex feedback data into clear and understandable insights." },
+                  { name: "Reliability", desc: "We prioritize data accuracy, stable synchronization, and platform trust." },
+                  { name: "Flexibility", desc: "Proofio adapts to your workflows, tools, and technical environment." },
+                  { name: "Transparency", desc: "We believe in honest communication, clear pricing, and straightforward terms." }
+                ].map((value) => (
+                  <div key={value.name} className="flex gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">{value.name}</h3>
+                      <p className="text-base-content/60 leading-relaxed">{value.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div className="text-center bg-white rounded-[2.5rem] p-12 shadow-2xl border border-base-200">
+              <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em] mb-4">Get in touch</h2>
+              <p className="text-3xl font-bold mb-4">Want to learn more?</p>
+              <p className="text-lg text-base-content/60 mb-10">We are always happy to connect.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="mailto:support@proofio.app"
+                  className="btn btn-lg bg-primary text-white border-none hover:bg-primary/90 rounded-2xl px-10"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Contact support
+                </a>
+                <a
+                  href="mailto:sales@proofio.app"
+                  className="btn btn-lg btn-outline border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-2xl px-10"
+                >
+                  Sales inquiry
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -194,4 +178,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

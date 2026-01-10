@@ -2,34 +2,59 @@
 
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Sparkles, Activity, Layers, RefreshCcw, Layout, Code } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles, Activity, Layers, RefreshCcw, Layout, Code, BarChart3, Users, Shield, Download, Lock } from "lucide-react";
 
 const faqs = [
   {
-    question: "What is Proofio exactly?",
-    answer: "Proofio is a comprehensive review aggregation platform. We collect reviews from various sources like Google, Trustpilot, and App Store, normalize the data, and provide you with a single source of truth for your reputation management.",
+    question: "What is Proofio?",
+    answer: "Proofio is a review intelligence platform that helps teams understand customer feedback across platforms. It transforms reviews into structured insights, trends, and competitive comparisons for better business decisions.",
     icon: Activity
   },
   {
-    question: "Which platforms are supported?",
-    answer: "Currently, we support Google Business, Trustpilot, G2, Capterra, App Store, Google Play, and Shopify. We are constantly adding new integrations based on user feedback.",
+    question: "Which review sources are supported?",
+    answer: "Proofio currently supports Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify and Amazon. Additional sources are continuously added based on platform coverage and customer demand.",
     icon: Layers
   },
   {
-    question: "How often does the data sync?",
-    answer: "Synchronization frequency depends on your plan. Starter plans sync weekly, Growth plans sync daily, and Scale plans offer near real-time updates for most sources.",
+    question: "How often is review data updated?",
+    answer: "Review data is synchronized daily for all active sources. Higher plans may benefit from more frequent updates depending on source availability.",
     icon: RefreshCcw
   },
   {
-    question: "Can I embed the reviews on my website?",
-    answer: "Yes! We offer lightweight, customizable widgets that you can easily embed on any website to showcase your aggregated rating and latest reviews.",
-    icon: Layout
+    question: "Does Proofio use AI?",
+    answer: "Yes. Proofio uses AI to generate summaries, detect trends, analyze sentiment, compare competitors and highlight risks and opportunities from customer feedback.",
+    icon: Sparkles
   },
   {
-    question: "Is there an API for developers?",
-    answer: "Absolutely. We provide a full REST API that allows you to fetch your aggregated data, individual reviews, and sentiment analysis for use in your own applications.",
+    question: "Can I analyze competitors as well?",
+    answer: "Yes. You can add competitors using public identifiers such as App Store IDs or business profiles and compare performance, sentiment and topics directly against your own product.",
+    icon: BarChart3
+  },
+  {
+    question: "Is there an API available?",
+    answer: "Yes. Proofio provides a full REST API to access reviews, aggregates, trends, insights and competitive data for use in dashboards, reports and internal systems.",
     icon: Code
   },
+  {
+    question: "Who is Proofio built for?",
+    answer: "Proofio is built for product teams, SaaS companies, ecommerce brands, growth teams and decision makers who rely on customer feedback to improve products and strategy.",
+    icon: Users
+  },
+  {
+    question: "Do I own my data?",
+    answer: "Yes. All collected and processed review data belongs to you. Proofio only acts as a processing and intelligence layer.",
+    icon: Lock
+  },
+  {
+    question: "Is Proofio compliant with platform and data regulations?",
+    answer: "Proofio only processes publicly available review data and follows strict security and privacy standards to ensure responsible and compliant data handling.",
+    icon: Shield
+  },
+  {
+    question: "Can I export my data?",
+    answer: "Yes. You can export review data, insights and reports via API or supported export formats depending on your plan.",
+    icon: Download
+  }
 ];
 
 export default function FAQ() {

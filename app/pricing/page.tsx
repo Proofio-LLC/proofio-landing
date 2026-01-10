@@ -4,27 +4,24 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
-import { Sparkles, Check, X, Infinity, Zap, Info } from "lucide-react";
+import { Sparkles, Check, X, Infinity, Zap, Info, Shield, BarChart3, Database, Globe, Smartphone, Users, Code, Mail, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const plans = [
   {
     name: "Starter",
     monthlyPrice: 0,
-    yearlyPrice: 0,
     popular: false,
     isFree: true,
   },
   {
     name: "Growth",
     monthlyPrice: 29,
-    yearlyPrice: 24,
     popular: true,
   },
   {
     name: "Scale",
     monthlyPrice: 99,
-    yearlyPrice: 79,
     popular: false,
   },
 ];
@@ -36,6 +33,7 @@ interface FeatureRow {
   growth: string | boolean;
   scale: string | boolean;
   description?: string;
+  isAi?: boolean;
 }
 
 const features: FeatureRow[] = [
@@ -49,292 +47,286 @@ const features: FeatureRow[] = [
   },
   {
     category: "Limits",
-    feature: "Sources per Project",
+    feature: "Sources per project",
     starter: "2",
     growth: "20",
     scale: "Unlimited",
   },
   {
     category: "Limits",
-    feature: "Reviews per Month",
+    feature: "Reviews per month",
     starter: "500",
     growth: "10,000",
     scale: "100,000",
   },
   {
     category: "Limits",
-    feature: "API Requests per Month",
+    feature: "API requests per month",
     starter: "1,000",
     growth: "50,000",
     scale: "100,000",
   },
 
-  // Dashboard & Analytics
+  // Dashboard and analytics
   {
-    category: "Dashboard & Analytics",
-    feature: "Aggregations (Rating Distribution, Sentiment Distribution)",
+    category: "Dashboard and analytics",
+    feature: "Aggregations",
+    starter: "Rating & Sentiment",
+    growth: "Rating & Sentiment",
+    scale: "Rating & Sentiment",
+    description: "Rating distribution and sentiment distribution",
+  },
+  {
+    category: "Dashboard and analytics",
+    feature: "Trends and statistics",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Dashboard & Analytics",
-    feature: "Trends & Statistics",
+    category: "Dashboard and analytics",
+    feature: "Insights dashboard with charts",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Dashboard & Analytics",
-    feature: "Insights Page with Charts",
+    category: "Dashboard and analytics",
+    feature: "Time filters",
+    starter: "All time",
+    growth: "7d, 30d, 90d, All time",
+    scale: "7d, 30d, 90d, All time",
+  },
+  {
+    category: "Dashboard and analytics",
+    feature: "Source breakdown",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Dashboard & Analytics",
-    feature: "Time Filters (7d, 30d, 90d, all)",
+    category: "Dashboard and analytics",
+    feature: "Review volume analysis",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Dashboard & Analytics",
-    feature: "Source Breakdown",
+    category: "Dashboard and analytics",
+    feature: "Top topics",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Dashboard & Analytics",
-    feature: "Review Volume Analysis",
+    category: "Dashboard and analytics",
+    feature: "Key takeaways",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Dashboard & Analytics",
-    feature: "Top Topics",
+    category: "Dashboard and analytics",
+    feature: "Recent changes",
     starter: true,
     growth: true,
     scale: true,
-  },
-  {
-    category: "Dashboard & Analytics",
-    feature: "Key Takeaways",
-    starter: true,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "Dashboard & Analytics",
-    feature: "Recent Changes",
-    starter: true,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "Dashboard & Analytics",
-    feature: "Automatic Summaries",
-    starter: false,
-    growth: true,
-    scale: true,
-    description: "🤖 AI-powered",
-  },
-  {
-    category: "Dashboard & Analytics",
-    feature: "Automatic Key Insights",
-    starter: false,
-    growth: true,
-    scale: true,
-    description: "🤖 AI-powered",
-  },
-  {
-    category: "Dashboard & Analytics",
-    feature: "Automatic Trends & Signals",
-    starter: false,
-    growth: true,
-    scale: true,
-    description: "🤖 AI-powered",
-  },
-  {
-    category: "Dashboard & Analytics",
-    feature: "Automatic Topics",
-    starter: false,
-    growth: true,
-    scale: true,
-    description: "🤖 AI-powered",
   },
 
-  // Sources
+  // AI powered intelligence
   {
-    category: "Sources",
+    category: "AI powered intelligence",
+    feature: "Automatic summaries",
+    starter: false,
+    growth: true,
+    scale: true,
+    isAi: true,
+  },
+  {
+    category: "AI powered intelligence",
+    feature: "Automatic key insights",
+    starter: false,
+    growth: true,
+    scale: true,
+    isAi: true,
+  },
+  {
+    category: "AI powered intelligence",
+    feature: "Automatic trends and signals",
+    starter: false,
+    growth: true,
+    scale: true,
+    isAi: true,
+  },
+  {
+    category: "AI powered intelligence",
+    feature: "Automatic topic detection",
+    starter: false,
+    growth: true,
+    scale: true,
+    isAi: true,
+  },
+  {
+    category: "AI powered intelligence",
+    feature: "Competitive comparisons",
+    starter: false,
+    growth: true,
+    scale: true,
+    isAi: true,
+  },
+
+  // Supported sources
+  {
+    category: "Supported sources",
     feature: "Apple App Store",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Sources",
+    category: "Supported sources",
     feature: "Google Play Store",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Sources",
+    category: "Supported sources",
     feature: "Trustpilot",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Sources",
+    category: "Supported sources",
     feature: "Google Reviews",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Sources",
-    feature: "Automatic Daily Synchronization",
+    category: "Supported sources",
+    feature: "Automatic daily synchronization",
     starter: true,
     growth: true,
     scale: true,
   },
 
-  // Notifications
+  // Notifications and reports
   {
-    category: "Notifications",
-    feature: "Email for New Reviews",
-    starter: true,
-    growth: true,
-    scale: true,
-    description: "Optional configurable",
+    category: "Notifications and reports",
+    feature: "Email notifications for new reviews",
+    starter: "Basic",
+    growth: "Configurable",
+    scale: "Configurable",
   },
   {
-    category: "Notifications",
-    feature: "Email for Negative Reviews",
-    starter: true,
-    growth: true,
-    scale: true,
-    description: "Optional configurable",
+    category: "Notifications and reports",
+    feature: "Email notifications for negative reviews",
+    starter: false,
+    growth: "Configurable",
+    scale: "Configurable",
   },
   {
-    category: "Notifications",
-    feature: "Weekly Reports via Email",
-    starter: true,
-    growth: true,
-    scale: true,
-    description: "Automatically every Monday",
+    category: "Notifications and reports",
+    feature: "Weekly reports",
+    starter: "Every Monday",
+    growth: "Every Monday",
+    scale: "Every Monday",
   },
 
-  // Team Features
+  // Team features
   {
-    category: "Team Features",
-    feature: "Invite Team Members",
+    category: "Team features",
+    feature: "Invite team members",
     starter: false,
     growth: true,
     scale: true,
   },
   {
-    category: "Team Features",
-    feature: "Manage Roles (Admin, Member)",
+    category: "Team features",
+    feature: "Role management",
+    starter: false,
+    growth: "Admin & Member",
+    scale: "Admin & Member",
+  },
+  {
+    category: "Team features",
+    feature: "Project specific access control",
     starter: false,
     growth: true,
     scale: true,
   },
   {
-    category: "Team Features",
-    feature: "Project-Specific Access",
-    starter: false,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "Team Features",
-    feature: "Remove Team Members",
+    category: "Team features",
+    feature: "Remove team members",
     starter: false,
     growth: true,
     scale: true,
   },
 
-  // Widgets
+  // API features
   {
-    category: "Widgets",
-    feature: "Create Widget",
+    category: "API features",
+    feature: "Public API access",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Widgets",
-    feature: "Widget Types (Stars Badge, Reviews Grid, Carousel, Testimonials, Trust Badge)",
+    category: "API features",
+    feature: "Fetch reviews endpoint",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Widgets",
-    feature: "Widget Export (HTML, WordPress, Shopify, Next.js, React, Webflow, Wix)",
+    category: "API features",
+    feature: "Fetch aggregations endpoint",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Widgets",
-    feature: "Widget Configuration (Filter, Style, Layout)",
+    category: "API features",
+    feature: "Fetch review clusters endpoint",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Widgets",
-    feature: "Widget Preview",
+    category: "API features",
+    feature: "Fetch competitor comparisons endpoint",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "API features",
+    feature: "Query filters (Date, rating, sentiment, source)",
+    starter: true,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "API features",
+    feature: "Rate limit headers (X-RateLimit)",
     starter: true,
     growth: true,
     scale: true,
   },
 
-  // API Features
+  // Data ownership and access
   {
-    category: "API Features",
-    feature: "Public API Available",
+    category: "Data ownership and access",
+    feature: "Full ownership of review data",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "API Features",
-    feature: "API Endpoint: Fetch Reviews",
-    starter: true,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "API Features",
-    feature: "API Endpoint: Fetch Aggregations",
-    starter: true,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "API Features",
-    feature: "API Endpoint: Fetch Review Clusters",
-    starter: true,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "API Features",
-    feature: "Query Filters (Date, Rating, Sentiment, Source)",
-    starter: true,
-    growth: true,
-    scale: true,
-  },
-  {
-    category: "API Features",
-    feature: "Rate Limit Headers (X-RateLimit-*)",
+    category: "Data ownership and access",
+    feature: "Export via API and formats",
     starter: true,
     growth: true,
     scale: true,
@@ -343,41 +335,30 @@ const features: FeatureRow[] = [
   // Support
   {
     category: "Support",
-    feature: "Documentation & Tutorials",
-    starter: true,
-    growth: true,
-    scale: true,
-    description: "Have a look at our documentation.",
+    feature: "Documentation and tutorials",
+    starter: "Explore docs",
+    growth: "Explore docs",
+    scale: "Explore docs",
   },
   {
     category: "Support",
-    feature: "Basic Email Support",
-    starter: true,
-    growth: true,
-    scale: true,
-    description: "✉️ | 3-6 business days",
+    feature: "Email support",
+    starter: "3-6 business days",
+    growth: "Up to 2 business days",
+    scale: "Within 1 business day",
   },
   {
     category: "Support",
-    feature: "Advanced Email Support",
-    starter: false,
-    growth: true,
-    scale: true,
-    description: "✉️ | up to 2 business days",
-  },
-  {
-    category: "Support",
-    feature: "Priority Support",
+    feature: "Priority support",
     starter: false,
     growth: false,
     scale: true,
-    description: "📞 / ✉️ | 1 business days",
   },
 
-  // InApp Ads
+  // Experience
   {
-    category: "InApp Ads",
-    feature: "Ad-Free Experience",
+    category: "Experience",
+    feature: "Ad free experience",
     starter: false,
     growth: true,
     scale: true,
@@ -392,240 +373,270 @@ const groupedFeatures = features.reduce((acc, feature) => {
   return acc;
 }, {} as Record<string, FeatureRow[]>);
 
-function FeatureIcon({ value }: { value: string | boolean }) {
+function FeatureIcon({ value, isAi }: { value: string | boolean; isAi?: boolean }) {
   if (typeof value === "boolean") {
     return value ? (
-      <Check className="w-5 h-5 text-success" />
+      <div className="flex flex-col items-center justify-center gap-1">
+        <Check className="w-5 h-5 text-success" />
+        {isAi && <span className="text-[10px] font-bold text-primary uppercase tracking-wider">AI Powered</span>}
+      </div>
     ) : (
-      <X className="w-5 h-5 text-error" />
+      <div className="flex justify-center items-center">
+        <X className="w-5 h-5 text-error/30" />
+      </div>
     );
   }
   
   if (value === "Unlimited") {
     return (
-      <div className="flex items-center gap-1 text-primary font-semibold">
+      <div className="flex items-center gap-1 text-primary font-bold">
         <Infinity className="w-5 h-5" />
         <span className="text-sm">Unlimited</span>
       </div>
     );
   }
   
-  return <span className="text-sm font-medium">{value}</span>;
-}
-
-function CategoryTooltip({ text }: { text: string }) {
-  const [showTooltip, setShowTooltip] = React.useState(false);
-  
-  return (
-    <div 
-      className="relative"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
-    >
-      <Info className="w-4 h-4 text-base-content/60 hover:text-primary cursor-help transition-colors" />
-      {showTooltip && (
-        <div className="absolute bottom-full left-0 mb-2 w-64 p-3 bg-base-300 text-base-content text-xs rounded-lg shadow-lg z-50 border border-base-300">
-          {text}
-          <div className="absolute top-full left-4 -mt-1 w-2 h-2 bg-base-300 border-r border-b border-base-300 rotate-45"></div>
-        </div>
-      )}
-    </div>
-  );
+  return <span className="text-sm font-semibold text-base-content/80">{value}</span>;
 }
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-base-100">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-base-100 to-base-200">
+      <section className="pt-32 pb-20 bg-base-200/50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full"
+            >
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">PRICING</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Compare All Plans
-            </h1>
-            <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-8">
-              A detailed overview of all features and limits for each plan. Choose the perfect plan for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://dash.proofio.app"
-                className="inline-flex items-center justify-center rounded-lg px-8 py-3 bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg transition-all font-medium"
-              >
-                Get Started
-              </Link>
-              <Link
-                href="#pricing-table"
-                className="inline-flex items-center justify-center rounded-lg px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium"
-              >
-                View Table
-              </Link>
-            </div>
+              <span className="text-sm font-bold tracking-widest uppercase">Pricing</span>
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-bold mb-8 text-base-content"
+            >
+              Compare all plans
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-base-content/60 max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
+              Detailed feature comparison to help you choose the right review intelligence layer for your team.
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Pricing Cards Overview */}
-      <section className="py-12 bg-base-200">
+      <section className="py-12 -mt-16 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {plans.map((plan) => (
-              <div
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {plans.map((plan, index) => (
+              <motion.div
                 key={plan.name}
-                className={`card shadow-xl ${
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + index * 0.1 }}
+                className={`card rounded-[2.5rem] shadow-2xl border-2 ${
                   plan.popular
-                    ? "bg-primary text-white border-2 border-primary"
-                    : "bg-base-100"
+                    ? "bg-primary text-white border-primary"
+                    : "bg-white text-base-content border-base-200"
                 }`}
               >
-                <div className="card-body">
+                <div className="card-body p-8 md:p-10">
                   {plan.popular && (
-                    <div className="badge badge-secondary mb-2">Most Popular</div>
+                    <div className="badge bg-white text-primary border-none font-bold py-3 mb-4">Most Popular</div>
                   )}
-                  <h3 className="card-title text-2xl mb-2">{plan.name}</h3>
-                  <div className="mb-4">
+                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                  <div className="flex items-baseline gap-2 mb-8">
                     {plan.isFree ? (
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold">Free</span>
-                      </div>
+                      <span className="text-5xl font-bold">Free</span>
                     ) : (
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold">${plan.monthlyPrice}</span>
-                        <span className="text-lg opacity-70">/ month</span>
-                      </div>
+                      <>
+                        <span className="text-5xl font-bold">${plan.monthlyPrice}</span>
+                        <span className={`text-lg font-medium ${plan.popular ? "text-white/80" : "text-base-content/60"}`}>/ month</span>
+                      </>
                     )}
                   </div>
                   <Link
                     href="https://dash.proofio.app"
-                    className={`btn btn-block rounded-lg ${
-                      plan.isFree
-                        ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
-                        : plan.popular
-                        ? "bg-base-100 text-primary border-2 border-primary hover:bg-base-200"
-                        : "bg-primary text-white hover:bg-primary/90"
+                    className={`btn btn-lg rounded-2xl border-none transition-all ${
+                      plan.popular
+                        ? "bg-white text-primary hover:bg-white/90"
+                        : "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20"
                     }`}
                   >
                     Get Started
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Detailed Comparison Table */}
-      <section id="pricing-table" className="py-20 bg-base-100">
+      <section id="pricing-table" className="py-32 bg-base-100">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Detailed Feature Comparison
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Detailed feature comparison
               </h2>
-              <p className="text-xl text-base-content/70">
-                All features in direct comparison
+              <p className="text-xl text-base-content/50">
+                Compare all plans at a glance
               </p>
-            </motion.div>
+            </div>
 
             <div className="overflow-x-auto">
-              <table className="table w-full bg-base-100 shadow-xl rounded-lg overflow-hidden">
-                <thead>
-                  <tr className="bg-base-200">
-                    <th className="sticky left-0 z-10 bg-base-200 min-w-[250px]">
-                      <div className="font-semibold text-base-content">Feature</div>
-                    </th>
-                    <th className="text-center min-w-[150px]">
-                      <div className="font-semibold text-base-content">Starter</div>
-                      <div className="text-sm text-base-content/70 font-normal">Free</div>
-                    </th>
-                    <th className="text-center min-w-[150px] bg-primary/10">
-                      <div className="font-semibold text-base-content">Growth</div>
-                      <div className="text-sm text-base-content/70 font-normal">$29/month</div>
-                    </th>
-                    <th className="text-center min-w-[150px]">
-                      <div className="font-semibold text-base-content">Scale</div>
-                      <div className="text-sm text-base-content/70 font-normal">$99/month</div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.entries(groupedFeatures).map(([category, categoryFeatures], categoryIndex) => (
-                    <React.Fragment key={category}>
-                      <tr className="bg-base-300/50">
-                        <td colSpan={4} className="font-bold text-lg py-4 px-6">
-                          <div className="flex items-center gap-2">
-                            <Zap className="w-5 h-5 text-primary" />
-                            {category}
-                            {(category === "Widgets" || category === "API Features") && (
-                              <CategoryTooltip text="Widgets and API responses for Free users include Proofio branding" />
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                      {categoryFeatures.map((row, rowIndex) => (
-                        <tr
-                          key={`${category}-${rowIndex}`}
-                          className="hover:bg-base-200/50 transition-colors"
-                        >
-                          <td className="sticky left-0 z-10 bg-base-100 min-w-[250px] py-4 px-6">
-                            <div className="font-medium text-base-content">{row.feature}</div>
-                            {row.description && (
-                              <div className="text-xs text-base-content/60 mt-1">
-                                {row.description}
-                              </div>
-                            )}
-                          </td>
-                          <td className="text-center py-4 px-6">
-                            <div className="flex justify-center">
-                              <FeatureIcon value={row.starter} />
-                            </div>
-                          </td>
-                          <td className="text-center py-4 px-6 bg-primary/5">
-                            <div className="flex justify-center">
-                              <FeatureIcon value={row.growth} />
-                            </div>
-                          </td>
-                          <td className="text-center py-4 px-6">
-                            <div className="flex justify-center">
-                              <FeatureIcon value={row.scale} />
+              <div className="inline-block min-w-full align-middle">
+                <table className="min-w-full border-separate border-spacing-0">
+                  <thead>
+                    <tr>
+                      <th className="sticky left-0 z-20 py-6 pl-8 pr-4 text-left text-sm font-bold text-base-content uppercase tracking-widest bg-white border-b border-base-200 rounded-tl-[2rem]">
+                        Feature
+                      </th>
+                      <th className="py-6 px-4 text-center text-sm font-bold text-base-content uppercase tracking-widest bg-base-50/50 border-b border-base-200">
+                        Starter
+                      </th>
+                      <th className="py-6 px-4 text-center text-sm font-bold text-primary uppercase tracking-widest bg-primary/5 border-b border-primary/20">
+                        Growth
+                      </th>
+                      <th className="py-6 px-4 text-center text-sm font-bold text-base-content uppercase tracking-widest bg-base-50/50 border-b border-base-200 rounded-tr-[2rem]">
+                        Scale
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white">
+                    {Object.entries(groupedFeatures).map(([category, categoryFeatures], categoryIndex) => (
+                      <React.Fragment key={category}>
+                        <tr className="bg-base-200/80 backdrop-blur-sm">
+                          <td colSpan={4} className="py-5 pl-8 pr-4 text-xs font-black text-primary uppercase tracking-[0.25em] border-y border-base-300">
+                            <div className="flex items-center gap-2">
+                              <div className="w-1.5 h-4 bg-primary rounded-full" />
+                              {category}
                             </div>
                           </td>
                         </tr>
-                      ))}
-                    </React.Fragment>
-                  ))}
-                </tbody>
-              </table>
+                        {categoryFeatures.map((row, rowIndex) => (
+                          <tr
+                            key={`${category}-${rowIndex}`}
+                            className="group transition-colors hover:bg-base-50/50"
+                          >
+                            <td className="sticky left-0 z-10 py-6 pl-8 pr-4 text-sm font-medium text-base-content border-b border-base-100 bg-white group-hover:bg-base-50/50">
+                              <div className="flex flex-col gap-1">
+                                <span className="text-base font-bold">{row.feature}</span>
+                                {row.description && (
+                                  <span className="text-xs text-base-content/50 font-medium">
+                                    {row.description}
+                                  </span>
+                                )}
+                              </div>
+                            </td>
+                            <td className="py-6 px-4 text-center border-b border-base-100">
+                              <FeatureIcon value={row.starter} isAi={row.isAi} />
+                            </td>
+                            <td className="py-6 px-4 text-center border-b border-primary/10 bg-primary/[0.02]">
+                              <FeatureIcon value={row.growth} isAi={row.isAi} />
+                            </td>
+                            <td className="py-6 px-4 text-center border-b border-base-100">
+                              <FeatureIcon value={row.scale} isAi={row.isAi} />
+                            </td>
+                          </tr>
+                        ))}
+                      </React.Fragment>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
-            <div className="mt-12 text-center">
-              <p className="text-base-content/70 mb-6">
-                All prices are billed monthly. Annual billing with discount available.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="https://dash.proofio.app"
-                  className="inline-flex items-center justify-center rounded-lg px-8 py-3 bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg transition-all font-medium"
+            <div className="mt-32">
+              <div className="relative bg-primary rounded-[2.5rem] p-12 md:p-20 overflow-hidden shadow-2xl">
+                {/* Background Decorative Elements */}
+                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl pointer-events-none" />
+                
+                {/* Background Icon (Favicon white) */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                  whileInView={{ opacity: 0.1, scale: 1, rotate: -15 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="absolute -bottom-20 -right-20 pointer-events-none z-0"
                 >
-                  Start Free
-                </Link>
-                <Link
-                  href="mailto:sales@proofio.app"
-                  className="inline-flex items-center justify-center rounded-lg px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium"
-                >
-                  Contact Enterprise
-                </Link>
+                  <img 
+                    src="/favicon.png" 
+                    alt="" 
+                    className="w-[400px] h-[400px] object-contain brightness-0 invert"
+                  />
+                </motion.div>
+                
+                <div className="relative z-10 max-w-3xl mx-auto text-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-white/20 text-white rounded-full backdrop-blur-md border border-white/30"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span className="text-sm font-medium uppercase tracking-wider">Ready to move from reviews to insights?</span>
+                  </motion.div>
+
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+                  >
+                    Ready to understand your market?
+                  </motion.h2>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="space-y-4 mb-10"
+                  >
+                    <p className="text-xl md:text-2xl font-semibold text-white">
+                      Start turning customer feedback into clear review intelligence with Proofio.
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                  >
+                    <Link 
+                      href="https://dash.proofio.app" 
+                      className="btn btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
+                    >
+                      Start analyzing today
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
+                    <Link 
+                      href="mailto:sales@proofio.app" 
+                      className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm w-full sm:w-auto"
+                    >
+                      Contact Enterprise
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>
@@ -636,4 +647,3 @@ export default function PricingPage() {
     </main>
   );
 }
-

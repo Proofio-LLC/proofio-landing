@@ -1,23 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const plans = [
   {
     name: "Starter",
-    monthlyPrice: 0,
-    yearlyPrice: 0,
-    description: "Perfect for getting started",
+    price: "Free",
+    description: "For exploring Proofio",
     features: [
-      "1 Project",
-      "2 Sources per project",
-      "500 Reviews/month",
-      "1,000 API Requests",
-      "Weekly Reports",
-      "Basic Email Support",
+      "1 project",
+      "2 sources per project",
+      "500 reviews per month",
+      "1,000 API requests",
+      "Weekly reports",
+      "Basic email support",
     ],
     cta: "Get Started",
     popular: false,
@@ -25,40 +23,38 @@ const plans = [
   },
   {
     name: "Growth",
-    monthlyPrice: 29,
-    yearlyPrice: 24,
-    description: "For growing businesses",
+    price: "$29",
+    description: "For growing teams",
     features: [
-      "5 Projects",
-      "20 Sources per project",
-      "10,000 Reviews/month",
-      "50,000 API Requests",
+      "5 projects",
+      "20 sources per project",
+      "10,000 reviews per month",
+      "50,000 API requests",
       "Team collaboration",
-      "Advanced Insights",
-      "Automated Review Signals",
-      "Weekly Reports",
-      "No Ads",
-      "Advanced Email Support",
+      "Advanced insights",
+      "Automated review signals",
+      "Weekly reports",
+      "No ads",
+      "Advanced email support",
     ],
     cta: "Get Started",
     popular: true,
   },
   {
     name: "Scale",
-    monthlyPrice: 99,
-    yearlyPrice: 79,
+    price: "$99",
     description: "For scaling businesses",
     features: [
-      "Unlimited Projects",
-      "Unlimited Sources",
-      "100,000 Reviews/month",
-      "Unlimited API Requests",
+      "Unlimited projects",
+      "Unlimited sources",
+      "100,000 reviews per month",
+      "Unlimited API requests",
       "Team collaboration",
-      "Advanced Insights",
-      "Automated Review Signals",
-      "Weekly Reports",
-      "No Ads",
-      "Priority Support",
+      "Advanced insights",
+      "Automated review signals",
+      "Weekly reports",
+      "No ads",
+      "Priority support",
     ],
     cta: "Get Started",
     popular: false,
@@ -66,8 +62,6 @@ const plans = [
 ];
 
 export default function Pricing() {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
-
   return (
     <section id="pricing" className="py-20 bg-base-200">
       <div className="container mx-auto px-4">
@@ -83,29 +77,11 @@ export default function Pricing() {
             <span className="text-sm font-medium">PRICING</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Choose the plan that fits your needs
+            Flexible plans for every stage
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-8">
-            All plans include daily updates and access to aggregated review data.
+            All plans include daily synchronization and full access to review intelligence.
           </p>
-          
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className={billingCycle === "monthly" ? "font-semibold text-base-content" : "text-base-content/50"}>
-              Monthly
-            </span>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                className="sr-only peer"
-                checked={billingCycle === "yearly"}
-                onChange={(e) => setBillingCycle(e.target.checked ? "yearly" : "monthly")}
-              />
-              <div className="w-14 h-7 bg-base-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
-            </label>
-            <span className={billingCycle === "yearly" ? "font-semibold text-base-content" : "text-base-content/50"}>
-              Yearly
-            </span>
-          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -145,44 +121,15 @@ export default function Pricing() {
                           Free
                         </span>
                       </div>
-                    ) : billingCycle === "yearly" ? (
-                      <div className="flex items-baseline gap-3 flex-wrap">
-                        <div className="flex items-baseline gap-2">
-                          <span className={`text-2xl font-bold line-through ${plan.popular ? "opacity-60" : "opacity-50"}`}>
-                            ${plan.monthlyPrice}
-                          </span>
-                          <span className="text-4xl font-bold">
-                            ${plan.yearlyPrice}
-                          </span>
-                          <span className={`text-lg ${plan.popular ? "opacity-90" : "opacity-70"}`}>
-                            / month
-                          </span>
-                        </div>
-                        {(() => {
-                          const discount = Math.round(((plan.monthlyPrice - plan.yearlyPrice) / plan.monthlyPrice) * 100);
-                          return (
-                            <span className={`inline-flex items-center px-2 py-1 rounded-full text-sm font-medium ${
-                              plan.popular
-                                ? "bg-base-100 text-primary"
-                                : "bg-primary/10 text-primary"
-                            }`}>
-                              -{discount}%
-                            </span>
-                          );
-                        })()}
-                        <div className="text-sm opacity-70 w-full">
-                          Billed annually (${plan.yearlyPrice * 12}/year)
-                        </div>
-                      </div>
                     ) : (
-                      <>
+                      <div className="flex items-baseline gap-2">
                         <span className="text-4xl font-bold">
-                          ${plan.monthlyPrice}
+                          {plan.price}
                         </span>
-                        <span className={`text-lg ml-2 ${plan.popular ? "opacity-90" : "opacity-70"}`}>
+                        <span className={`text-lg ${plan.popular ? "opacity-90" : "opacity-70"}`}>
                           / month
                         </span>
-                      </>
+                      </div>
                     )}
                   </div>
                   <ul className="space-y-3 mb-6 flex-1">
@@ -217,7 +164,7 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-base-content/70 mt-8"
         >
-          All prices are billed {billingCycle === "yearly" ? "yearly" : "monthly"}. Taxes may apply.
+          All prices are billed monthly. Taxes may apply.
         </motion.p>
         
         <motion.div

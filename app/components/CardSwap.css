@@ -1,0 +1,40 @@
+.card-swap-container {
+  position: relative;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+  user-select: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(var(--p), 0.4) !important;
+  box-shadow: 0 25px 50px -12px rgba(var(--p), 0.15) !important;
+}
+
+@media (max-width: 768px) {
+  .card-swap-container {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-swap-container {
+    transform: scale(0.85);
+  }
+}

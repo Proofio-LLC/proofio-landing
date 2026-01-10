@@ -22,7 +22,7 @@ export default function Footer() {
                 />
               </div>
               <p className="text-base-content/70 max-w-md">
-                Proofio empowers teams to transform reviews from multiple platforms into clear, compelling insights — making feedback easier to collect, aggregate, and act on.
+                Proofio empowers teams to transform reviews from multiple platforms into clear and actionable insights, making customer feedback easier to understand and act on.
               </p>
               <div className="flex gap-4">
                 <Link href="https://x.com/proofioapp" className="text-base-content/60 hover:text-primary transition-colors">
@@ -31,13 +31,10 @@ export default function Footer() {
                 <Link href="https://instagram.com/proofio.app" className="text-base-content/60 hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
+                {/* <Link href="#" className="text-base-content/60 hover:text-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
-                </Link>
+                </Link> */}
               </div>
-              <p className="text-sm text-base-content/50">
-                © 2025 Proofio. All rights reserved.
-              </p>
             </div>
 
             {/* Right Side - Navigation Links */}
@@ -98,11 +95,6 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/help" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Contact
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/partners" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       Partners
                     </Link>
@@ -113,22 +105,27 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="pt-8 border-t border-base-300 flex flex-wrap justify-end gap-6">
-            <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Imprint
-            </Link>
-            <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Terms of Service
-            </Link>
-            <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Cookies Settings
-            </Link>
-            <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Legal Inquiries
-            </a>
+          <div className="pt-8 border-t border-base-300 flex flex-wrap justify-between items-center gap-6">
+            <p className="text-sm text-base-content/50">
+              © 2026 Proofio. All rights reserved.
+            </p>
+            <div className="flex flex-wrap gap-6">
+              <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                Imprint
+              </Link>
+              <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                Privacy Policy
+              </Link>
+              <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                Terms of Service
+              </Link>
+              <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                Cookies Settings
+              </Link>
+              <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                Legal Inquiries
+              </a>
+            </div>
           </div>
         </div>
       </div>
