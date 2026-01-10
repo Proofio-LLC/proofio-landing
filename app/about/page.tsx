@@ -7,6 +7,10 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "About | Proofio",
   description: "Learn about Proofio - Our mission to turn customer feedback into business intelligence.",
+  openGraph: {
+    title: "About Proofio - Our Mission and Values",
+    description: "Discover how we're building the infrastructure for review intelligence.",
+  },
 };
 
 export default function AboutPage() {

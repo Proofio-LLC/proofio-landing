@@ -12,6 +12,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog | Proofio",
   description: "Entdecke die neuesten Artikel, Best Practices und Insights rund um Review-Aggregation und Customer Feedback.",
+  openGraph: {
+    title: "Proofio Blog - Review Intelligence Insights",
+    description: "Latest articles and best practices for review management and customer feedback.",
+  },
 };
 
 // Format date helper

@@ -4,7 +4,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Imprint | Proofio",
-  description: "Proofio Imprint - Legal information about the company.",
+  description: "Proofio Imprint - Legal information about Proofio LLC.",
+  openGraph: {
+    title: "Imprint - Proofio",
+    description: "Legal disclosure and contact information for Proofio LLC.",
+  },
 };
 
 export default function ImprintPage() {

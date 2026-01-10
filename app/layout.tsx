@@ -9,6 +9,7 @@ import { cookies } from "next/headers";
 export const metadata: Metadata = {
   title: "Proofio - Automated Review Aggregation for Your Business",
   description: "Automatically aggregate reviews from multiple platforms. Proofio collects, updates, and presents reviews via API and platform-independent widgets.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://proofio.app'),
   icons: {
     icon: "/favicon.png",
   },
