@@ -57,8 +57,8 @@ const features = [
   {
     title: "Smart analytics",
     description: "Track trends, sentiment shifts and rating movements across platforms over time.",
-    staticImage: "/featureicons/analytics-static.png",
-    animatedImage: "/featureicons/analytics.gif",
+    staticImage: "/featureicons/analytical-skill-static.png",
+    animatedImage: "/featureicons/analytical-skill.gif",
   },
   {
     title: "Data normalization",
