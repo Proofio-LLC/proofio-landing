@@ -53,13 +53,13 @@ export default function Integration() {
     <section id="integration" className="py-24 bg-base-200">
       <div className="container mx-auto px-4">
         {/* Header and Carousel Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24 max-w-6xl mx-auto overflow-hidden">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-left"
+            className="text-left min-w-0"
           >
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
               <Sparkles className="w-4 h-4" />
@@ -79,16 +79,17 @@ export default function Integration() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative w-full overflow-hidden min-w-0"
           >
             <div className="bg-base-100 rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-base-300 overflow-hidden relative group">
-              <div className="relative overflow-visible cursor-grab active:cursor-grabbing">
+              <div className="relative overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y">
                 <motion.div 
                   ref={carouselRef}
                   drag="x"
                   dragConstraints={dragConstraints}
                   dragElastic={0.1}
                   className="flex gap-4 md:gap-6 pb-4"
+                  style={{ touchAction: 'pan-y' }}
                 >
                   {environments.map((env) => (
                     <div 
