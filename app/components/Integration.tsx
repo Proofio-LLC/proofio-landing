@@ -1,23 +1,54 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Integration() {
   const [isApiExpanded, setIsApiExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+      setIsMobile(window.innerWidth < 1024);
     };
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    
+    // Update drag constraints
+    const updateConstraints = () => {
+      if (carouselRef.current) {
+        const scrollWidth = carouselRef.current.scrollWidth;
+        const offsetWidth = carouselRef.current.offsetWidth;
+        setDragConstraints({
+          left: -(scrollWidth - offsetWidth),
+          right: 0
+        });
+      }
+    };
+    
+    updateConstraints();
+    const timer = setTimeout(updateConstraints, 500); // Wait for layout
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      clearTimeout(timer);
+    };
   }, []);
+
+  const environments = [
+    { name: "Proofio WebApp", desc: "Native dashboard for deep analysis and visualization.", icon: Layout },
+    { name: "Web Applications", desc: "Integrate intelligence directly into your user experience.", icon: Globe },
+    { name: "Internal Tools", desc: "Empower your team with structured feedback data.", icon: Wrench },
+    { name: "BI Dashboards", desc: "Power your reports with real-time review signals.", icon: BarChart3 },
+    { name: "Data Pipelines", desc: "Sync normalized data to your own warehouse.", icon: Database },
+    { name: "Custom Reporting", desc: "Build tailored reports for your business needs.", icon: FileText }
+  ];
+
   return (
     <section id="integration" className="py-24 bg-base-200">
       <div className="container mx-auto px-4">
@@ -32,7 +63,7 @@ export default function Integration() {
           >
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">INTEGRATION</span>
+              <span className="text-sm font-medium uppercase tracking-widest">Integration</span>
             </div>
             <h2 className="text-3xl md:text-6xl font-bold mb-6">
               Simple integration. 
@@ -51,33 +82,36 @@ export default function Integration() {
             className="relative"
           >
             <div className="bg-base-100 rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-base-300 overflow-hidden relative group">
-              <div className="flex overflow-x-auto gap-4 md:gap-6 snap-x no-scrollbar pb-4">
-                {[
-                  { name: "Proofio WebApp", desc: "Native dashboard for deep analysis and visualization.", icon: Layout },
-                  { name: "Web Applications", desc: "Integrate intelligence directly into your user experience.", icon: Globe },
-                  { name: "Internal Tools", desc: "Empower your team with structured feedback data.", icon: Wrench },
-                  { name: "BI Dashboards", desc: "Power your reports with real-time review signals.", icon: BarChart3 },
-                  { name: "Data Pipelines", desc: "Sync normalized data to your own warehouse.", icon: Database },
-                  { name: "Custom Reporting", desc: "Build tailored reports for your business needs.", icon: FileText }
-                ].map((env, index) => (
-                  <div 
-                    key={env.name}
-                    className="min-w-[280px] snap-center bg-base-200 rounded-3xl p-6 border border-base-300 flex flex-col gap-3 group/card"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-1 group-hover/card:bg-primary group-hover/card:text-white transition-all duration-300">
-                      <env.icon className="w-6 h-6" />
+              <div className="relative overflow-visible cursor-grab active:cursor-grabbing">
+                <motion.div 
+                  ref={carouselRef}
+                  drag="x"
+                  dragConstraints={dragConstraints}
+                  dragElastic={0.1}
+                  className="flex gap-4 md:gap-6 pb-4"
+                >
+                  {environments.map((env) => (
+                    <div 
+                      key={env.name}
+                      className="min-w-[260px] md:min-w-[280px] bg-base-200 rounded-3xl p-6 border border-base-300 flex flex-col gap-3 group/card transition-colors hover:border-primary/20 select-none"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-1 group-hover/card:bg-primary group-hover/card:text-white transition-all duration-300">
+                        <env.icon className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-bold text-primary text-lg transition-colors group-hover/card:text-base-content">{env.name}</h4>
+                      <p className="text-base-content/70 text-sm leading-relaxed">{env.desc}</p>
                     </div>
-                    <h4 className="font-bold text-primary text-lg transition-colors group-hover/card:text-base-content">{env.name}</h4>
-                    <p className="text-base-content/70 text-sm leading-relaxed">{env.desc}</p>
-                  </div>
-                ))}
+                  ))}
+                </motion.div>
               </div>
+              
               <div className="flex justify-between items-center mt-4 px-2">
-                <p className="text-xs font-bold text-base-content/30 uppercase tracking-[0.2em]">Supported environments</p>
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <div className="w-2 h-2 rounded-full bg-primary/20" />
-                  <div className="w-2 h-2 rounded-full bg-primary/20" />
+                <p className="text-xs font-bold text-base-content/30 uppercase tracking-[0.2em]">Swipe to explore</p>
+                <div className="flex gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
                 </div>
               </div>
             </div>
@@ -184,11 +218,11 @@ export default function Integration() {
                           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/20" />
                         </div>
                       </div>
-                            <div className="bg-[#0f172a] rounded-[2rem] p-6 md:p-8 shadow-2xl relative group overflow-hidden">
-                              <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">JSON</div>
-                              <div className="overflow-x-auto no-scrollbar">
-                                <pre className="text-sm">
-                                  <code className="text-blue-300 font-mono leading-relaxed whitespace-pre">
+                      <div className="bg-[#0f172a] rounded-[2rem] p-6 md:p-8 shadow-2xl relative group overflow-hidden">
+                        <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">JSON</div>
+                        <div className="overflow-x-auto no-scrollbar">
+                          <pre className="text-sm">
+                            <code className="text-blue-300 font-mono leading-relaxed whitespace-pre">
 {`GET /api/v1/reviews
 
 {
@@ -207,10 +241,10 @@ export default function Integration() {
     }
   ]
 }`}
-                                  </code>
-                                </pre>
-                              </div>
-                            </div>
+                            </code>
+                          </pre>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -289,6 +323,3 @@ export default function Integration() {
     </section>
   );
 }
-
-
-
