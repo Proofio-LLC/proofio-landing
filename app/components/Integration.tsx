@@ -5,6 +5,7 @@ import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone,
 import Image from "next/image";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
+import IntegrationWidget from "./IntegrationWidget";
 
 export default function Integration() {
   const [isApiExpanded, setIsApiExpanded] = useState(false);
@@ -81,7 +82,7 @@ export default function Integration() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative w-full overflow-hidden min-w-0"
           >
-            <div className="bg-base-100 rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-base-300 overflow-hidden relative group">
+            <div className="bg-base-100 rounded-[2.5rem] p-6 md:p-8 border border-base-300 overflow-hidden relative group">
               <div className="relative overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y">
                 <motion.div 
                   ref={carouselRef}
@@ -262,58 +263,27 @@ export default function Integration() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-32 max-w-6xl mx-auto"
         >
-          <div className="text-center mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold mb-4">
-              Review sources
-            </h3>
-            <p className="text-2xl font-bold text-primary mb-8">
-              All major review platforms in one place
-            </p>
-            <div className="max-w-3xl mx-auto">
-              <p className="text-xl text-base-content/70 leading-relaxed">
-                Proofio aggregates reviews from multiple platforms and unifies them into a single intelligence layer.
-                Connect the sources that matter to your business and analyze customer feedback without fragmentation.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Left Side: Widget */}
+            <div className="order-2 lg:order-1 -mx-4 lg:mx-0">
+              <IntegrationWidget />
             </div>
-          </div>
 
-          <div className="flex flex-wrap justify-center items-center px-4 gap-y-8">
-            {[
-              { name: "Google", icon: "/google.png" },
-              { name: "Trustpilot", icon: "/Trustpilot.png" },
-              { name: "App Store", icon: "/appstore.png" },
-              { name: "Google Play", icon: "/googleplay.png" },
-              { name: "More coming soon", icon: null },
-            ].map((integration, index) => (
-              <motion.div
-                key={integration.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ scale: 1.15, y: -8, zIndex: 10 }}
-                className="relative group -ml-2 sm:-ml-4 md:-ml-6 first:ml-0"
-              >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[1.5rem] md:rounded-[2rem] bg-base-100 shadow-xl border-2 border-base-300 hover:border-primary hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center p-3 md:p-4 cursor-pointer overflow-hidden">
-                  {integration.icon ? (
-                    <Image
-                      src={integration.icon}
-                      alt={integration.name}
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-contain"
-                    />
-                  ) : (
-                    <MoreHorizontal className="w-8 h-8 md:w-10 md:h-10 text-base-content/60" />
-                  )}
-                </div>
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                  <div className="bg-base-content text-base-100 text-xs font-medium px-3 py-1.5 rounded-md whitespace-nowrap shadow-lg">
-                    {integration.name}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {/* Right Side: Content */}
+            <div className="text-center lg:text-right order-1 lg:order-2">
+              <h3 className="text-4xl md:text-5xl font-bold mb-4">
+                Review sources
+              </h3>
+              <p className="text-2xl font-bold text-primary mb-8">
+                All major review platforms in one place
+              </p>
+              <div className="max-w-xl ml-auto">
+                <p className="text-xl text-base-content/70 leading-relaxed">
+                  Proofio aggregates reviews from multiple platforms and unifies them into a single intelligence layer.
+                  Connect the sources that matter to your business and analyze customer feedback without fragmentation.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

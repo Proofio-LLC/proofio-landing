@@ -8,26 +8,25 @@ export default function IntegrationRadial() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const integrations = [
-    { name: "Shopify", icon: "/shopify.png" },
-    { name: "Webflow", icon: "/webgflow.svg" },
-    { name: "WordPress", icon: "/wordpress.png" },
-    { name: "React", icon: "/react.png" },
-    { name: "Vue", icon: "/vuejs.svg" },
-    { name: "API", icon: "/api.png" },
-    { name: "Webhooks", icon: "/webhooks.svg" },
+    { name: "Google Reviews", icon: "/google.png" },
+    { name: "Trustpilot", icon: "/Trustpilot.png" },
+    { name: "Facebook", icon: "/facebook.png" },
+    { name: "G2", icon: "/g2.png" },
+    { name: "App Store", icon: "/appstore.png" },
+    { name: "Google Play", icon: "/googleplay.png" },
   ];
 
   return (
-    <section className="py-24 bg-base-100 overflow-hidden">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="relative flex justify-center items-center min-h-[500px]">
+    <div className="relative overflow-hidden py-12">
+      <div className="mx-auto max-w-4xl">
+        <div className="relative flex justify-center items-center min-h-[400px]">
           
           {/* SVG Layer für die radialen Linien */}
           <div className="absolute inset-0 pointer-events-none z-0">
             <svg className="w-full h-full" viewBox="0 0 100 100">
               {integrations.map((item, i) => {
                 const angle = (i * 360) / integrations.length;
-                const radius = 35; // Abstand vom Zentrum
+                const radius = 30; // Abstand vom Zentrum
                 // Berechne Endpunkte der Linien basierend auf Kreisbahn
                 const x2 = 50 + radius * Math.cos((angle * Math.PI) / 180);
                 const y2 = 50 + radius * Math.sin((angle * Math.PI) / 180);
@@ -49,9 +48,9 @@ export default function IntegrationRadial() {
             <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full" />
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="relative bg-base-100 p-8 rounded-[2.5rem] shadow-2xl border border-base-200 flex flex-col items-center justify-center w-40 h-40"
+              className="relative bg-base-100 p-6 rounded-[2rem] shadow-xl border border-base-200 flex flex-col items-center justify-center w-32 h-32"
             >
-              <Image src="/logo.svg" alt="Proofio" width={100} height={30} className="w-24 h-auto mb-2" />
+              <Image src="/logo.svg" alt="Proofio" width={80} height={24} className="w-20 h-auto mb-2" />
               <div className="h-px w-8 bg-primary/20 mb-2" />
               <p className="text-[8px] font-black uppercase tracking-[0.3em] text-primary/60">Engine</p>
             </motion.div>
@@ -60,7 +59,7 @@ export default function IntegrationRadial() {
           {/* Die kreisförmig angeordneten Icons */}
           {integrations.map((item, i) => {
             const angle = (i * 360) / integrations.length;
-            const radius = 180; // Pixel-Radius für das CSS-Layout
+            const radius = 140; // Pixel-Radius für das CSS-Layout
             
             return (
               <motion.div
@@ -99,7 +98,7 @@ export default function IntegrationRadial() {
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
