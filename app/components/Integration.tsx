@@ -225,21 +225,26 @@ export default function Integration() {
                         <div className="overflow-x-auto no-scrollbar">
                           <pre className="text-sm">
                             <code className="text-blue-300 font-mono leading-relaxed whitespace-pre">
-{`GET /api/v1/reviews
+{`GET /api/v1/public/aggregations
 
 {
-  "rating": 4.8,
-  "total": 1234,
+  "totalReviews": 1234,
+  "averageRating": 4.8,
+  "ratingDistribution": {
+    "1": 12, "2": 24, "3": 84, "4": 240, "5": 874
+  },
   "sources": [
     {
-      "platform": "Google",
-      "rating": 4.9,
-      "count": 456
+      "name": "Google Play",
+      "type": "GOOGLE_PLAY",
+      "total": 456,
+      "averageRating": 4.9
     },
     {
-      "platform": "Trustpilot",
-      "rating": 4.7,
-      "count": 778
+      "name": "App Store",
+      "type": "APP_STORE",
+      "total": 778,
+      "averageRating": 4.7
     }
   ]
 }`}
