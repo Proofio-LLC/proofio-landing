@@ -21,7 +21,8 @@ interface ChangelogEntry {
   version: string;
   title?: string;
   description?: string;
-  date: any; // Timestamp
+  date?: any; // Timestamp (optional)
+  underDevelopment?: boolean;
   added?: string[];
   improved?: string[];
   fixed?: string[];
@@ -34,15 +35,24 @@ export default function ChangelogPage() {
   useEffect(() => {
     async function fetchChangelog() {
       try {
-        const q = query(
-          collection(db, "changelog"),
-          orderBy("date", "desc")
-        );
-        const querySnapshot = await getDocs(q);
+        const querySnapshot = await getDocs(collection(db, "changelog"));
         const data = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         })) as ChangelogEntry[];
+        
+        // Sort: underDevelopment entries first, then by date desc
+        data.sort((a, b) => {
+          // Under development entries come first
+          if (a.underDevelopment && !b.underDevelopment) return -1;
+          if (!a.underDevelopment && b.underDevelopment) return 1;
+          
+          // If both have same underDevelopment status, sort by date
+          const dateA = a.date?.toDate?.() || a.date || new Date(0);
+          const dateB = b.date?.toDate?.() || b.date || new Date(0);
+          return dateB.getTime() - dateA.getTime();
+        });
+        
         setUpdates(data);
       } catch (error) {
         console.error("Error fetching changelog:", error);
@@ -116,10 +126,19 @@ export default function ChangelogPage() {
                           </div>
                           <span className="text-2xl font-black tracking-tighter">{update.version}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-base-content/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-8">
-                          <Calendar className="w-3.5 h-3.5" />
-                          {update.date ? update.date.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'TBA'}
-                        </div>
+                        {update.underDevelopment && (
+                          <div className="mb-4">
+                            <span className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-amber-600 bg-amber-50 dark:bg-amber-900/20 rounded-full uppercase tracking-wider">
+                              Under Development
+                            </span>
+                          </div>
+                        )}
+                        {update.date && (
+                          <div className="flex items-center gap-2 text-base-content/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-8">
+                            <Calendar className="w-3.5 h-3.5" />
+                            {update.date.toDate ? update.date.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : new Date(update.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                          </div>
+                        )}
                       </div>
                     </div>
 
