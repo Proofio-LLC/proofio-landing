@@ -102,7 +102,7 @@ export default function Features() {
             <span className="text-sm font-medium">CORE VALUE</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Everything you need to understand customer feedback
+          Review intelligence at a glance
           </h2>
           <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
             Proofio is a unified review intelligence system that transforms reviews into clear and actionable business insights built for modern products and teams.

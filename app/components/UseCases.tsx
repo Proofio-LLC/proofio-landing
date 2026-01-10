@@ -79,7 +79,7 @@ export default function UseCases() {
             <span className="text-sm font-bold uppercase tracking-widest">USE CASES</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-base-content tracking-tight">
-            Built for real <br className="hidden md:block" />business decisions
+            Built for real <br className="hidden md:block" /> decisions
           </h2>
           <p className="text-xl text-base-content/60 max-w-2xl mx-auto leading-relaxed font-medium">
             Proofio adapts to different products, teams and technical environments while keeping one focus clear: understanding customer feedback.

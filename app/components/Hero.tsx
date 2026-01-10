@@ -26,9 +26,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold mb-6 text-base-content"
           >
-            Understand your reviews.
+            Customer feedback,
             <br />
-            <span className="text-primary">Understand your market.</span>
+            <span className="text-primary">made useful.</span>
           </motion.h1>
 
           <motion.p
@@ -38,17 +38,6 @@ export default function Hero() {
             className="text-xl text-base-content/80 mb-4 max-w-3xl mx-auto"
           >
             Proofio collects, normalizes, and analyzes reviews from every platform and turns them into clear insights, trends, and competitive comparisons.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-lg text-base-content/60 mb-8 max-w-2xl mx-auto"
-          >
-            Stop looking at fragmented ratings.
-            <br />
-            Proofio transforms customer feedback into one reliable source of truth for product, marketing, and business decisions.
           </motion.p>
 
           <motion.div
