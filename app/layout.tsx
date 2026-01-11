@@ -56,15 +56,8 @@ export default async function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <head>
-        <meta name="google-adsense-account" content="ca-pub-4446306494941060" />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4446306494941060"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         {children}
         <CookieBanner />
         <ProofyFloatingButton />

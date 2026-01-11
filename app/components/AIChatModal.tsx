@@ -2,13 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Sparkles, User, Loader2, Bot } from "lucide-react";
+import { X, Send, User, Loader2, Bot } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 interface Message {
   id: string;
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system";
   content: string;
 }
 
@@ -50,14 +50,12 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
     setIsLoading(true);
 
     try {
-      // 1. Prepare history for the API (only sending relevant parts)
       const messageHistory = messages.map(m => ({
         role: m.role,
         content: m.content
       }));
       messageHistory.push({ role: "user", content: input });
 
-      // 2. Call our internal AI API
       const response = await fetch("/api/ai/chat", {
         method: "POST",
         headers: {
@@ -72,13 +70,56 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
         throw new Error(data.error || "Failed to get response from Proofy");
       }
 
-      const aiMessage: Message = {
-        id: Date.now().toString(),
-        role: "assistant",
-        content: data.message.content,
-      };
+      const aiMessage = data.message;
 
-      setMessages((prev) => [...prev, aiMessage]);
+      // Handle Tool Calls (for Ticket Creation)
+      if (aiMessage.tool_calls && aiMessage.tool_calls.length > 0) {
+        const toolCall = aiMessage.tool_calls[0];
+        if (toolCall.function.name === "create_support_ticket") {
+          const args = JSON.parse(toolCall.function.arguments);
+          
+          // 1. Show processing status
+          const processingMsg: Message = {
+            id: "ticket-loading-" + Date.now(),
+            role: "assistant",
+            content: "Creating your support ticket... One moment please.",
+          };
+          setMessages(prev => [...prev, processingMsg]);
+
+          // 2. Call the actual support API
+          const ticketResponse = await fetch("/api/support", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ...args,
+              source: "chatbot",
+              name: "User via Chatbot"
+            }),
+          });
+
+          const ticketData = await ticketResponse.json();
+
+          if (ticketResponse.ok) {
+            // 3. Success message
+            const successMsg: Message = {
+              id: "ticket-success-" + Date.now(),
+              role: "assistant",
+              content: `Great! I've created a support ticket for you. \n\n**Reference Number: #${ticketData.ticketId.substring(0, 8).toUpperCase()}**\n\nOur team will contact you at **${args.email}** as soon as possible. Is there anything else I can help you with?`,
+            };
+            setMessages(prev => [...prev.filter(m => !m.id.startsWith("ticket-loading")), successMsg]);
+          } else {
+            throw new Error(ticketData.error || "Failed to create ticket");
+          }
+        }
+      } else {
+        // Standard Text Response
+        const newMessage: Message = {
+          id: Date.now().toString(),
+          role: "assistant",
+          content: aiMessage.content || "I'm not sure how to respond to that. Please try again.",
+        };
+        setMessages((prev) => [...prev, newMessage]);
+      }
     } catch (error) {
       console.error("AI Chat Error:", error);
       const errorMessage: Message = {
@@ -232,4 +273,3 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
     </div>
   );
 }
-

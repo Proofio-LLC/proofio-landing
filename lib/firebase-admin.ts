@@ -1,32 +1,30 @@
 import * as admin from "firebase-admin";
 
-const supportFirebaseConfig = {
-  projectId: process.env.SUPPORT_FIREBASE_PROJECT_ID,
-  clientEmail: process.env.SUPPORT_FIREBASE_CLIENT_EMAIL,
-  privateKey: process.env.SUPPORT_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+// Configuration for the main Firebase project
+const mainFirebaseConfig = {
+  projectId: process.env.FIREBASE_ADMIN_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
+  privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, "\n"),
 };
 
-function getSupportAdminApp() {
-  const adminAppNames = admin.apps.map(app => app?.name);
-  
-  if (adminAppNames.includes("support")) {
-    return admin.app("support");
+function getAdminApp() {
+  const apps = admin.apps;
+  if (apps.length > 0) {
+    return apps[0]!;
   }
 
-  if (!supportFirebaseConfig.projectId || !supportFirebaseConfig.clientEmail || !supportFirebaseConfig.privateKey) {
-    // If config is missing, we'll try to use the default app if it's already initialized
-    // or return null to signal we can't connect yet.
-    return null;
+  // If we have explicit admin credentials, use them
+  if (mainFirebaseConfig.projectId && mainFirebaseConfig.clientEmail && mainFirebaseConfig.privateKey) {
+    return admin.initializeApp({
+      credential: admin.credential.cert(mainFirebaseConfig as any),
+    });
   }
 
-  return admin.initializeApp(
-    {
-      credential: admin.credential.cert(supportFirebaseConfig),
-    },
-    "support"
-  );
+  // Fallback for environments where Firebase Admin is pre-configured (like Vercel with some setups or local)
+  return admin.initializeApp();
 }
 
-export const supportDb = getSupportAdminApp() ? admin.firestore(getSupportAdminApp()!) : null;
+const app = getAdminApp();
+export const db = admin.firestore(app);
+export const supportDb = db; // For backward compatibility in this migration
 export { admin as adminSdk };
-
