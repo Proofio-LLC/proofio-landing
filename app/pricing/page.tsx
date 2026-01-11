@@ -13,11 +13,13 @@ const plans = [
     monthlyPrice: 0,
     popular: false,
     isFree: true,
+    trial: "Includes 7 days of Growth for free",
   },
   {
     name: "Growth",
     monthlyPrice: 29,
     popular: true,
+    trial: "7-day free trial (no card required)",
   },
   {
     name: "Scale",
@@ -457,7 +459,7 @@ export default function PricingPage() {
                     <div className="badge bg-white text-primary border-none font-bold py-3 mb-4">Most Popular</div>
                   )}
                   <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <div className="flex items-baseline gap-2 mb-8">
+                  <div className="flex items-baseline gap-2 mb-4">
                     {plan.isFree ? (
                       <span className="text-5xl font-bold">Free</span>
                     ) : (
@@ -467,6 +469,12 @@ export default function PricingPage() {
                       </>
                     )}
                   </div>
+                  {plan.trial && (
+                    <div className={`text-sm font-semibold mb-6 flex items-center gap-2 ${plan.popular ? "text-white/90" : "text-primary"}`}>
+                      <Zap className="w-4 h-4 fill-current" />
+                      {plan.trial}
+                    </div>
+                  )}
                   <Link
                     href="https://dash.proofio.app"
                     className={`btn btn-lg rounded-2xl border-none transition-all ${

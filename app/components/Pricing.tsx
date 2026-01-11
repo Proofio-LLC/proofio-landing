@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Check, Sparkles, ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
 
 const plans = [
@@ -80,7 +80,7 @@ export default function Pricing() {
             Flexible plans for every stage
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-8">
-            All plans include daily synchronization and full access to review intelligence.
+            All plans include daily synchronization and full access to review intelligence. <strong>Free plans start with a 7-day Growth trial.</strong>
           </p>
         </motion.div>
 
@@ -116,10 +116,14 @@ export default function Pricing() {
                   </p>
                   <div className="mb-6">
                     {plan.isFree ? (
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold">
-                          Free
-                        </span>
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-4xl font-bold">Free</span>
+                        </div>
+                        <div className="text-primary text-xs font-bold flex items-center gap-1 mt-1">
+                          <Zap className="w-3 h-3 fill-current" />
+                          Includes 7-day Growth Trial
+                        </div>
                       </div>
                     ) : (
                         <div className="flex items-baseline gap-2">
