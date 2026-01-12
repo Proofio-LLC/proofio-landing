@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
-import { useState } from "react";
+import { Sparkles, CheckCircle2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import Script from "next/script";
 
-function FeatureImage({ staticImage, animatedImage, alt }: { staticImage: string; animatedImage: string; alt: string }) {
+function FeatureImage({ staticImage, animatedImage, alt, small }: { staticImage: string; animatedImage: string; alt: string; small?: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
   const [animatedSrc, setAnimatedSrc] = useState<string | null>(null);
 
@@ -17,6 +18,36 @@ function FeatureImage({ staticImage, animatedImage, alt }: { staticImage: string
   const filterStyle = {
     filter: 'hue-rotate(-50deg) saturate(1.2)',
   };
+
+  if (small) {
+    return (
+      <div 
+        className="flex items-center justify-center relative overflow-hidden w-full h-full"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Static PNG */}
+        <img
+          src={staticImage}
+          alt={alt}
+          className={`w-full h-full object-contain transition-opacity duration-300 ${
+            isHovered && animatedSrc ? 'opacity-0' : 'opacity-100'
+          }`}
+          style={filterStyle}
+        />
+        {/* Animated GIF - overlays on hover */}
+        {animatedSrc && isHovered && (
+          <img
+            key={animatedSrc}
+            src={animatedSrc}
+            alt={alt}
+            className="absolute inset-0 w-full h-full object-contain opacity-100"
+            style={filterStyle}
+          />
+        )}
+      </div>
+    );
+  }
 
   return (
     <div 
@@ -144,7 +175,63 @@ export default function Features() {
               </motion.div>
             );
           })}
+          
+          {/* Proofio Verified Widget Card - Full width, 2 columns (image left, widget right) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: features.length * 0.1 }}
+            className="lg:col-span-6"
+          >
+            <div className="bg-white rounded-[2rem] shadow-md p-6 lg:p-8 h-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+                {/* Left Side: Icon + Text */}
+                <div className="order-2 lg:order-1 flex gap-4 lg:gap-6">
+                  {/* Small Icon */}
+                  <div className="flex-shrink-0 w-20 h-20 flex items-center justify-center">
+                    <FeatureImage 
+                      staticImage="/featureicons/shield-static.png" 
+                      animatedImage="/featureicons/shield.gif" 
+                      alt="Proofio Verified Widget"
+                      small
+                    />
+                  </div>
+                  {/* Text Content */}
+                  <div className="flex-1">
+                    <h3 className="text-xl lg:text-2xl font-bold text-base-content mb-2">
+                      Proofio Verified
+                    </h3>
+                    <p className="text-base-content/70 text-sm leading-relaxed">
+                      Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Right Side: Widget */}
+                <div className="order-1 lg:order-2 flex flex-col items-center justify-center">
+                  <div className="w-full flex items-center justify-center bg-gray-50 rounded-xl p-6 min-h-[150px]">
+                    <div 
+                      data-proofio-widget 
+                      data-api-key={"pk_2526c80e1b78a8c0c2b62ced0b877fb2e613b84fadecb79f79f5222a71bf23b8"}
+                    />
+                  </div>
+                  <p className="text-xs text-base-content/50 mt-4 text-center">
+                    <code className="bg-gray-100 px-2 py-1 rounded text-[10px] font-mono">
+                      &lt;div data-proofio-widget data-api-key="pk_18f468c2..."&gt;&lt;/div&gt;
+                    </code>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
+        
+        {/* Load Widget Script */}
+        <Script
+          src="https://proofio.app/widget.js"
+          strategy="lazyOnload"
+        />
       </div>
     </section>
   );
