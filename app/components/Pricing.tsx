@@ -161,7 +161,7 @@ export default function Pricing() {
                   <div className="mb-6">
                     {plan.isFree ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex items-baseline gap-2">
+                      <div className="flex items-baseline gap-2">
                           <span className="text-4xl font-bold">Free</span>
                         </div>
                         <div className="text-primary text-xs font-bold flex items-center gap-1 mt-1">

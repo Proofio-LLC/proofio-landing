@@ -50,7 +50,21 @@ export async function POST(request: Request) {
     };
 
     // 3. Save to Firestore in the OTHER project
-    const docRef = await supportDb.collection("support_tickets").add(ticketData);
+    let docRef;
+    try {
+      docRef = await supportDb.collection("support_tickets").add(ticketData);
+    } catch (dbError: any) {
+      console.error("Firestore Database Error:", dbError);
+      
+      // If we get the "Project ID" error, it means initialization failed
+      if (dbError.message?.includes("Project Id") || dbError.message?.includes("credentials")) {
+        return NextResponse.json(
+          { error: "Support system configuration error. Please contact the administrator." },
+          { status: 500 }
+        );
+      }
+      throw dbError;
+    }
     const ticketId = docRef.id;
     const referenceNumber = ticketId.substring(0, 8).toUpperCase();
 
