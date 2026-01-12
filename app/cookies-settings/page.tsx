@@ -5,6 +5,14 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Cookies Settings | Proofio",
   description: "Proofio Cookie Policy - Learn about how we use cookies and manage your cookie preferences.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function CookiesSettingsPage() {

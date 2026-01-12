@@ -5,6 +5,14 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Proofio",
   description: "Proofio Privacy Policy - Learn how we collect, use, and protect your personal information.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   openGraph: {
     title: "Privacy Policy - Proofio",
     description: "Our commitment to protecting your data and privacy.",

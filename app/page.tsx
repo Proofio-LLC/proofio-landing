@@ -11,14 +11,15 @@ import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
-  title: "Proofio - Automated Review Aggregation for Your Business",
-  description: "Proofio aggregates reviews from App Store, Google Play, Trustpilot and more. Gain deep insights with AI-powered review intelligence.",
+  title: "Proofio - Review Intelligence Platform | Automated Review Aggregation",
+  description: "Proofio aggregates reviews from App Store, Google Play, Trustpilot, Google Reviews and more. Gain deep insights with AI-powered review intelligence, competitive analysis, and embeddable widgets.",
   openGraph: {
-    title: "Proofio - Enterprise Review Intelligence Platform",
+    title: "Proofio - Automated Review Aggregation for Your Business",
     description: "The complete infrastructure for your review data. Collect, analyze and present reviews with one powerful API.",
     images: ["/opengraph.png"],
   },
 };
+
 
 export default function Home() {
   return (

@@ -5,6 +5,14 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Imprint | Proofio",
   description: "Proofio Imprint - Legal information about Proofio LLC.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   openGraph: {
     title: "Imprint - Proofio",
     description: "Legal disclosure and contact information for Proofio LLC.",
