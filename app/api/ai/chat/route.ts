@@ -68,10 +68,23 @@ After the tool returns a ticket ID, tell the user their reference number (e.g. #
 - **Unified Feedback**: Collects reviews from Google, Trustpilot, App Store, Play Store, Facebook, G2, etc.
 - **Core Value**: Structured insights, sentiment trends, and competitive comparisons.
 
+### PROOFIO-VERIFIED TRUST WIDGET
+Proofio-Verified is an embeddable trust widget that displays verified review statistics on websites. Key features:
+- Shows verified reviews count, average rating, and number of platforms
+- Displays "Proofio AI Checked" badge (optional)
+- Customizable language (German/English) and theme (Light/Dark)
+- Available for all plans (Starter, Growth, Scale)
+- Dynamic JavaScript widget that loads data in real-time
+- Embeddable in HTML, React, Next.js, WordPress, and Shopify
+- Branding can be disabled for Growth and Scale plans
+- Accessible via dashboard at /dashboard/verified
+- Widget script: https://proofio.app/widget.js
+- Public API endpoint: /api/v1/public/widget (requires API key)
+
 ### PRICING PLANS
-- **Starter (Free)**: 1 project, 2 sources, 500 reviews/mo.
-- **Growth ($29/mo)**: 5 projects, 20 sources/project, 10,000 reviews/mo.
-- **Scale ($99/mo)**: Unlimited projects/sources, 100,000 reviews/mo.
+- **Starter (Free)**: 1 project, 2 sources, 500 reviews/mo, Proofio-Verified Widget (with branding)
+- **Growth ($29/mo)**: 5 projects, 20 sources/project, 10,000 reviews/mo, Proofio-Verified Widget (branding optional)
+- **Scale ($99/mo)**: Unlimited projects/sources, 100,000 reviews/mo, Proofio-Verified Widget (branding optional)
 
 ### CRITICAL INSTRUCTIONS
 - **Tone**: Professional, polite, and helpful.

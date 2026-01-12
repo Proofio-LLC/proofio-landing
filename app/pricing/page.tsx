@@ -267,6 +267,16 @@ const features: FeatureRow[] = [
     scale: true,
   },
 
+  // Widgets
+  {
+    category: "Widgets",
+    feature: "Proofio-Verified Trust Widget",
+    starter: true,
+    growth: true,
+    scale: true,
+    description: "Embeddable trust widget showing verified reviews, ratings, and platforms",
+  },
+
   // API features
   {
     category: "API features",
