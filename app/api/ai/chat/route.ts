@@ -78,7 +78,7 @@ Proofio-Verified is an embeddable trust widget that displays verified review sta
 - Embeddable in HTML, React, Next.js, WordPress, and Shopify
 - Branding can be disabled for Growth and Scale plans
 - Accessible via dashboard at /dashboard/verified
-- Widget script: https://proofio.app/widget.js
+- Widget script: https://api.proofio.app/widget.js
 - Public API endpoint: /api/v1/public/widget (requires API key)
 
 ### PRICING PLANS

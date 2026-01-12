@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
@@ -412,6 +412,31 @@ function FeatureIcon({ value, isAi }: { value: string | boolean; isAi?: boolean 
 }
 
 export default function PricingPage() {
+  const [billingInterval, setBillingInterval] = useState<'monthly' | 'yearly'>('monthly');
+
+  const getPlanPrice = (plan: typeof plans[0]) => {
+    if (plan.monthlyPrice === 0) return 0;
+    if (billingInterval === 'yearly') {
+      if (plan.name === 'Growth') return 24; // $24/month billed annually
+      if (plan.name === 'Scale') return 79; // $79/month billed annually
+    }
+    return plan.monthlyPrice;
+  };
+
+  const getYearlySavings = (plan: typeof plans[0]) => {
+    if (plan.monthlyPrice === 0) return 0;
+    if (plan.name === 'Growth') return 17; // 17% savings
+    if (plan.name === 'Scale') return 20; // 20% savings
+    return 0;
+  };
+
+  const getYearlyTotal = (plan: typeof plans[0]) => {
+    if (plan.monthlyPrice === 0) return 0;
+    if (plan.name === 'Growth') return 288; // $288/year
+    if (plan.name === 'Scale') return 948; // $948/year
+    return 0;
+  };
+
   return (
     <main className="min-h-screen bg-base-100">
       <Navigation />
@@ -451,6 +476,35 @@ export default function PricingPage() {
       {/* Pricing Cards Overview */}
       <section className="py-12 -mt-16 relative z-10">
         <div className="container mx-auto px-4">
+          {/* Billing Interval Toggle */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-base-200 rounded-xl p-1">
+              <button
+                onClick={() => setBillingInterval('monthly')}
+                className={`px-6 py-2 rounded-lg font-semibold transition ${
+                  billingInterval === 'monthly'
+                    ? 'bg-base-100 text-base-content shadow-sm'
+                    : 'text-base-content/60'
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingInterval('yearly')}
+                className={`px-6 py-2 rounded-lg font-semibold transition relative ${
+                  billingInterval === 'yearly'
+                    ? 'bg-base-100 text-base-content shadow-sm'
+                    : 'text-base-content/60'
+                }`}
+              >
+                Yearly
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs px-1.5 py-0.5 rounded-full">
+                  Save
+                </span>
+              </button>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
               <motion.div
@@ -469,14 +523,31 @@ export default function PricingPage() {
                     <div className="badge bg-white text-primary border-none font-bold py-3 mb-4">Most Popular</div>
                   )}
                   <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <div className="flex items-baseline gap-2 mb-4">
-                    {plan.isFree ? (
-                      <span className="text-5xl font-bold">Free</span>
-                    ) : (
-                      <>
-                        <span className="text-5xl font-bold">${plan.monthlyPrice}</span>
-                        <span className={`text-lg font-medium ${plan.popular ? "text-white/80" : "text-base-content/60"}`}>/ month</span>
-                      </>
+                  <div className="flex flex-col items-center gap-1 mb-4">
+                    <div className="flex items-baseline justify-center gap-1">
+                      {plan.monthlyPrice > 0 && billingInterval === 'yearly' && (
+                        <span className={`text-lg font-medium line-through ${plan.popular ? "text-white/60" : "text-base-content/40"}`}>
+                          ${plan.monthlyPrice}
+                        </span>
+                      )}
+                      {plan.isFree ? (
+                        <span className="text-5xl font-bold">Free</span>
+                      ) : (
+                        <>
+                          <span className="text-5xl font-bold">${getPlanPrice(plan)}</span>
+                          <span className={`text-lg font-medium ${plan.popular ? "text-white/80" : "text-base-content/60"}`}>/ month</span>
+                        </>
+                      )}
+                    </div>
+                    {plan.monthlyPrice > 0 && billingInterval === 'yearly' && (
+                      <div className="flex flex-col items-center gap-0.5">
+                        <span className={`text-sm font-semibold ${plan.popular ? "text-white/90" : "text-primary"}`}>
+                          {getYearlySavings(plan)}% savings
+                        </span>
+                        <span className={`text-xs ${plan.popular ? "text-white/70" : "text-base-content/50"}`}>
+                          Billed annually (${getYearlyTotal(plan)}/year)
+                        </span>
+                      </div>
                     )}
                   </div>
                   {plan.trial && (

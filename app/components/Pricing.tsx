@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
@@ -7,7 +8,7 @@ import Link from "next/link";
 const plans = [
   {
     name: "Starter",
-    price: "Free",
+    monthlyPrice: 0,
     description: "For exploring Proofio",
     features: [
       "1 project",
@@ -24,13 +25,16 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$29",
+    monthlyPrice: 29,
+    yearlyPrice: 24,
+    yearlySavings: 17,
     description: "For growing teams",
     features: [
       "5 projects",
       "20 sources per project",
       "10,000 reviews per month",
       "50,000 API requests",
+      "Proofio-Verified Trust Widget",
       "Team collaboration",
       "Advanced insights",
       "Automated review signals",
@@ -43,7 +47,9 @@ const plans = [
   },
   {
     name: "Scale",
-    price: "$99",
+    monthlyPrice: 99,
+    yearlyPrice: 79,
+    yearlySavings: 20,
     description: "For scaling businesses",
     features: [
       "Unlimited projects",
@@ -64,6 +70,13 @@ const plans = [
 ];
 
 export default function Pricing() {
+  const [billingInterval, setBillingInterval] = useState<'monthly' | 'yearly'>('monthly');
+
+  const getPlanPrice = (plan: typeof plans[0]) => {
+    if (plan.isFree) return 0;
+    return billingInterval === 'yearly' ? plan.yearlyPrice! : plan.monthlyPrice;
+  };
+
   return (
     <section id="pricing" className="py-20 bg-base-200">
       <div className="container mx-auto px-4">
@@ -82,9 +95,38 @@ export default function Pricing() {
             Flexible plans for every stage
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-8">
-            All plans include daily synchronization and full access to review intelligence. <strong>Free plans start with a 7-day Growth trial.</strong>
+            All plans include daily synchronization and full access to review intelligence. <br /><strong>Free plans start with a 7-day Growth trial.</strong>
           </p>
         </motion.div>
+
+        {/* Billing Interval Toggle */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-base-100 rounded-xl p-1 shadow-sm">
+            <button
+              onClick={() => setBillingInterval('monthly')}
+              className={`px-6 py-2 rounded-lg font-semibold transition ${
+                billingInterval === 'monthly'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-base-content/60'
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingInterval('yearly')}
+              className={`px-6 py-2 rounded-lg font-semibold transition relative ${
+                billingInterval === 'yearly'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-base-content/60'
+              }`}
+            >
+              Yearly
+              <span className="absolute -top-1 -right-1 bg-white text-primary text-xs px-1.5 py-0.5 rounded-full font-bold">
+                Save
+              </span>
+            </button>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
@@ -128,13 +170,30 @@ export default function Pricing() {
                         </div>
                       </div>
                     ) : (
-                        <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold">
-                          {plan.price}
-                        </span>
-                        <span className={`text-lg ${plan.popular ? "opacity-90" : "opacity-70"}`}>
-                          / month
-                        </span>
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-baseline gap-1">
+                          {billingInterval === 'yearly' && (
+                            <span className={`text-lg font-medium line-through ${plan.popular ? "text-white/60" : "text-base-content/40"}`}>
+                              ${plan.monthlyPrice}
+                            </span>
+                          )}
+                          <span className="text-4xl font-bold">
+                            ${getPlanPrice(plan)}
+                          </span>
+                          <span className={`text-lg ${plan.popular ? "opacity-90" : "opacity-70"}`}>
+                            / month
+                          </span>
+                        </div>
+                        {billingInterval === 'yearly' && plan.yearlySavings && (
+                          <div className="flex flex-col gap-0.5 mt-1">
+                            <span className={`text-xs font-semibold ${plan.popular ? "text-white/90" : "text-primary"}`}>
+                              Save {plan.yearlySavings}%
+                            </span>
+                            <span className={`text-xs ${plan.popular ? "text-white/70" : "text-base-content/50"}`}>
+                              Billed annually
+                            </span>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
