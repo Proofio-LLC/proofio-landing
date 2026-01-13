@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import CookieBanner from "./components/CookieBanner";
 import ProofyFloatingButton from "./components/ProofyFloatingButton";
+import AffiliateTracking from "./components/AffiliateTracking";
 import { Analytics } from "@vercel/analytics/next";
 import { cookies } from "next/headers";
 import { StructuredData } from "./components/StructuredData";
@@ -110,6 +111,7 @@ export default async function RootLayout({
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
+        <AffiliateTracking />
         <CookieBanner />
         <ProofyFloatingButton />
         {analyticsEnabled && <Analytics />}
