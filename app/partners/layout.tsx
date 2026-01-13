@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Partners - Let's Work Together | Proofio",
-  description: "Join the Proofio partner program. Collaborate with us to build modern review intelligence solutions.",
+  title: "Partner Program | Proofio",
+  description: "Become a Proofio partner. Join our affiliate program with 10% recurring commission or explore other partnership opportunities including reseller programs and strategic partnerships.",
   openGraph: {
-    title: "Partner with Proofio",
-    description: "Join our network of technology partners, agencies, and resellers to transform review management.",
+    title: "Partner Program | Proofio",
+    description: "Become a Proofio partner. Join our affiliate program with 10% recurring commission or explore other partnership opportunities.",
+    images: ["/opengraph.png"],
   },
 };
 
@@ -14,5 +15,5 @@ export default function PartnersLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }
