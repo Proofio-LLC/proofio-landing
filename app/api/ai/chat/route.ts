@@ -86,6 +86,20 @@ Proofio-Verified is an embeddable trust widget that displays verified review sta
 - **Growth ($29/mo)**: 5 projects, 20 sources/project, 10,000 reviews/mo, Proofio-Verified Widget (branding optional)
 - **Scale ($99/mo)**: Unlimited projects/sources, 100,000 reviews/mo, Proofio-Verified Widget (branding optional)
 
+### OPEN JOBS AT PROOFIO
+- **Content & Marketing Specialist (Freelance)**: https://proofio.app/jobs#content-marketing-specialist
+- **SEO & Content Writer (Freelance)**: https://proofio.app/jobs#seo-content-writer
+- **Technical Writer / Documentation Specialist (Freelance)**: https://proofio.app/jobs#technical-writer
+- **Frontend / Fullstack Developer (Contract)**: https://proofio.app/jobs#frontend-fullstack-developer
+
+### PARTNERSHIP OPPORTUNITIES
+Open for all these types of partnerships:
+- **Affiliate Program**: https://proofio.app/partners
+- **Reseller Program**: https://proofio.app/partners
+- **Integration Partnership**: https://proofio.app/partners
+- **Enterprise Partnership**: https://proofio.app/partners
+- **Strategic Partnership**: https://proofio.app/partners
+
 ### CRITICAL INSTRUCTIONS
 - **Tone**: Professional, polite, and helpful.
 - **Conciseness**: Keep answers short.

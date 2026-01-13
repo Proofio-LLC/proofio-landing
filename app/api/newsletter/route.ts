@@ -11,35 +11,54 @@ export async function POST(request: Request) {
       );
     }
 
-    const API_KEY = process.env.MAILERLITE_API_KEY;
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    const API_KEY = process.env.MAILEROO_NEWSLETTER_API_KEY;
+    const LIST_ID = process.env.MAILEROO_NEWSLETTER_LIST_ID;
 
     if (!API_KEY) {
-      console.error("MAILERLITE_API_KEY is not defined");
+      console.error("MAILEROO_NEWSLETTER_API_KEY is not defined");
       return NextResponse.json(
         { error: "Newsletter service is currently unavailable" },
         { status: 500 }
       );
     }
 
-    // MailerLite API v2 endpoint (Subscribers)
-    // You can also use the newer API (v2) if needed
-    const response = await fetch("https://api.mailerlite.com/api/v2/subscribers", {
-      method: "POST",
+    if (!LIST_ID) {
+      console.error("MAILEROO_NEWSLETTER_LIST_ID is not defined");
+      return NextResponse.json(
+        { error: "Newsletter service is currently unavailable" },
+        { status: 500 }
+      );
+    }
+
+    // Maileroo Contacts API endpoint
+    // PUT request to add/update subscriber
+    const response = await fetch(`https://manage.maileroo.app/v1/contact/${LIST_ID}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "X-MailerLite-ApiKey": API_KEY,
+        "X-API-Key": API_KEY,
       },
       body: JSON.stringify({
-        email,
-        resubscribe: true, // Optional: auto-resubscribe if they were previously unsubscribed
+        subscriber_email: email,
+        subscriber_status: "UNCONFIRMED", // User will receive opt-in confirmation email from Maileroo
       }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
+      console.error("Maileroo API Error:", data);
       return NextResponse.json(
-        { error: data.error?.message || "Something went wrong" },
+        { error: data.error?.message || data.message || "Something went wrong" },
         { status: response.status }
       );
     }
