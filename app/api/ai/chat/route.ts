@@ -94,11 +94,13 @@ Proofio-Verified is an embeddable trust widget that displays verified review sta
 
 ### PARTNERSHIP OPPORTUNITIES
 Open for all these types of partnerships:
-- **Affiliate Program**: https://proofio.app/partners
-- **Reseller Program**: https://proofio.app/partners
-- **Integration Partnership**: https://proofio.app/partners
-- **Enterprise Partnership**: https://proofio.app/partners
-- **Strategic Partnership**: https://proofio.app/partners
+- **Affiliate Program**: with 10% commission on all payments
+- **Reseller Program**: for reselling Proofio
+- **Integration Partnership**: for custom integrations with Proofio
+- **Enterprise Partnership**: for enterprise customers
+- **Strategic Partnership**: for strategic partnerships
+More details: https://proofio.app/partners
+You can also contact us directly at sales@proofio.app
 
 ### CRITICAL INSTRUCTIONS
 - **Tone**: Professional, polite, and helpful.
