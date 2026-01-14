@@ -35,6 +35,27 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
     }
   }, [messages]);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Restore scroll position
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
@@ -149,7 +170,7 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="relative w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[600px] max-h-[80vh]"
+        className="relative w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[600px] max-h-[80vh] overflow-x-hidden"
       >
         {/* Header */}
         <div className="p-6 border-b border-base-200 flex items-center justify-between bg-primary text-white">
@@ -178,7 +199,7 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
         {/* Messages */}
         <div 
           ref={scrollRef}
-          className="flex-grow overflow-y-auto p-6 space-y-4 bg-base-50"
+          className="flex-grow overflow-y-auto p-6 space-y-4 bg-base-50 overflow-x-hidden"
         >
           {messages.map((msg) => (
             <motion.div
@@ -187,7 +208,7 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
             >
-              <div className={`flex gap-3 max-w-[85%] ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
+              <div className={`flex gap-3 max-w-[85%] min-w-0 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
                   msg.role === "user" ? "bg-primary text-white" : "bg-base-200 text-base-content/50"
                 }`}>
@@ -197,12 +218,12 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
                     <Bot size={18} />
                   )}
                 </div>
-                <div className={`p-4 rounded-2xl ${
+                <div className={`p-4 rounded-2xl min-w-0 flex-1 ${
                   msg.role === "user" 
                     ? "bg-primary text-white rounded-tr-none shadow-lg shadow-primary/20" 
                     : "bg-white text-base-content rounded-tl-none shadow-sm border border-base-200"
                 }`}>
-                  <div className="text-sm leading-relaxed">
+                  <div className="text-sm leading-relaxed break-words overflow-wrap-anywhere">
                     {msg.role === "assistant" ? (
                       <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
@@ -212,16 +233,22 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
                               {...props}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary underline font-bold hover:text-primary/80 transition-colors"
+                              className="text-primary underline font-bold hover:text-primary/80 transition-colors break-all"
                             />
                           ),
-                          p: ({ ...props }) => <p {...props} className="m-0 inline" />,
+                          p: ({ ...props }) => <p {...props} className="m-0 mb-2 last:mb-0 break-words" />,
+                          code: ({ ...props }) => (
+                            <code {...props} className="break-all whitespace-pre-wrap" />
+                          ),
+                          pre: ({ ...props }) => (
+                            <pre {...props} className="overflow-x-auto max-w-full break-words whitespace-pre-wrap" />
+                          ),
                         }}
                       >
                         {msg.content}
                       </ReactMarkdown>
                     ) : (
-                      <p>{msg.content}</p>
+                      <p className="break-words overflow-wrap-anywhere">{msg.content}</p>
                     )}
                   </div>
                 </div>
@@ -234,13 +261,13 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
               animate={{ opacity: 1, y: 0 }}
               className="flex justify-start"
             >
-              <div className="flex gap-3 max-w-[85%]">
+              <div className="flex gap-3 max-w-[85%] min-w-0">
                 <div className="w-8 h-8 rounded-lg bg-base-200 text-base-content/50 flex items-center justify-center flex-shrink-0">
                   <Bot size={18} />
                 </div>
-                <div className="bg-white p-4 rounded-2xl rounded-tl-none border border-base-200 flex items-center gap-2">
-                  <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                  <span className="text-sm text-base-content/50">Thinking...</span>
+                <div className="bg-white p-4 rounded-2xl rounded-tl-none border border-base-200 flex items-center gap-2 min-w-0 flex-1">
+                  <Loader2 className="w-4 h-4 animate-spin text-primary flex-shrink-0" />
+                  <span className="text-sm text-base-content/50 break-words">Thinking...</span>
                 </div>
               </div>
             </motion.div>
