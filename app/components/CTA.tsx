@@ -82,7 +82,7 @@ export default function CTA({ locale, messages }: CTAProps) {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
-                href="https://docs.proofio.app" 
+                href="https://dash.proofio.app/demo" 
                 className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm"
               >
                 {t.ctaSecondary || "View live demo"}
