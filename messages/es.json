@@ -22,7 +22,8 @@
     "description": "Proofio es un sistema unificado de inteligencia de reseñas que transforma las reseñas en insights comerciales claros y accionables construidos para productos y equipos modernos.",
     "verified": {
       "title": "Proofio Verificado",
-      "description": "Muestra reseñas verificadas con nuestro widget de confianza integrable. Genera confianza en los clientes con feedback real y verificado directamente en tu sitio web."
+      "description": "Muestra reseñas verificadas con nuestro widget de confianza integrable. Genera confianza en los clientes con feedback real y verificado directamente en tu sitio web.",
+      "demoNotice": "Nota: Este es un proyecto de demostración vinculado. Las reseñas mostradas no reflejan reseñas reales de Proofio o de nuestros clientes."
     },
     "items": [
       {

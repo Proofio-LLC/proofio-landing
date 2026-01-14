@@ -108,7 +108,8 @@
     "description": "Proofio is a unified review intelligence system that transforms reviews into clear and actionable business insights built for modern products and teams.",
     "verified": {
       "title": "Proofio Verified",
-      "description": "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."
+      "description": "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website.",
+      "demoNotice": "Note: This is a linked demo project. The displayed reviews do not reflect real reviews from Proofio or any of our customers."
     },
     "items": [
       {

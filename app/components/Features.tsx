@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Sparkles, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, CheckCircle2, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Script from "next/script";
 
@@ -125,6 +125,18 @@ interface FeaturesProps {
 export default function Features({ locale, messages }: FeaturesProps) {
   const t = messages?.features || {};
   const featureItems = t.items || features;
+  const [openModal, setOpenModal] = useState<'business' | 'customer' | null>(null);
+
+  const modalContent = {
+    business: {
+      title: "Why Proofio Verified matters for your business",
+      text: "Proofio Verified helps you build trust where it matters most: at the moment of decision.\n\nBy displaying verified, cross-platform review data, you show transparency, credibility, and consistency. Customers see that your ratings are not selected, filtered, or manipulated – they are aggregated and validated across multiple sources.\n\nThis increases confidence, reduces hesitation, and improves conversion rates.\n\nProofio Verified is not a marketing badge. It is a trust signal based on real, structured review data."
+    },
+    customer: {
+      title: "Why you can trust Proofio Verified",
+      text: "Proofio Verified exists to help you make better decisions.\n\nThe displayed reviews are collected from multiple independent platforms and analyzed using standardized validation and aggregation logic.\n\nThis means you are not seeing selected testimonials, but a transparent overview of real customer feedback.\n\nProofio does not modify, remove, or manipulate reviews. Our goal is not to make companies look better – but to make review data more honest, comparable, and useful."
+    }
+  };
 
   return (
     <section id="features" className="py-20 bg-base-100">
@@ -212,9 +224,23 @@ export default function Features({ locale, messages }: FeaturesProps) {
                     <h3 className="text-xl lg:text-2xl font-bold text-base-content mb-2">
                       {t.verified?.title || "Proofio Verified"}
                     </h3>
-                    <p className="text-base-content/70 text-sm leading-relaxed">
+                    <p className="text-base-content/70 text-sm leading-relaxed mb-3">
                       {t.verified?.description || "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."}
                     </p>
+                    <div className="flex flex-wrap gap-3">
+                      <button
+                        onClick={() => setOpenModal('business')}
+                        className="text-primary hover:text-primary/80 text-sm font-medium underline transition-colors"
+                      >
+                        Business Information
+                      </button>
+                      <button
+                        onClick={() => setOpenModal('customer')}
+                        className="text-primary hover:text-primary/80 text-sm font-medium underline transition-colors"
+                      >
+                        Customer Information
+                      </button>
+                    </div>
                   </div>
                 </div>
                 
@@ -226,10 +252,8 @@ export default function Features({ locale, messages }: FeaturesProps) {
                       data-api-key={"pk_2526c80e1b78a8c0c2b62ced0b877fb2e613b84fadecb79f79f5222a71bf23b8"}
                     />
                   </div>
-                  <p className="text-xs text-base-content/50 mt-4 text-center">
-                    <code className="bg-gray-100 px-2 py-1 rounded text-[10px] font-mono">
-                      &lt;div data-proofio-widget data-api-key="pk_18f468c2..."&gt;&lt;/div&gt;
-                    </code>
+                  <p className="text-xs text-base-content/50 mt-4 text-center max-w-md">
+                    {t.verified?.demoNotice || "Note: This is a linked demo project. The displayed reviews do not reflect real reviews from Proofio or any of our customers."}
                   </p>
                 </div>
               </div>
@@ -243,6 +267,56 @@ export default function Features({ locale, messages }: FeaturesProps) {
           strategy="lazyOnload"
         />
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {openModal && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpenModal(null)}
+              className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            >
+              {/* Modal Content */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <h3 className="text-2xl font-bold text-base-content pr-4">
+                    {modalContent[openModal].title}
+                  </h3>
+                  <button
+                    onClick={() => setOpenModal(null)}
+                    className="flex-shrink-0 p-2 hover:bg-gray-100 rounded-xl transition-colors text-base-content/60 hover:text-base-content"
+                    aria-label="Close modal"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                
+                {/* Content */}
+                <div className="p-6 overflow-y-auto flex-1">
+                  <div className="prose prose-lg max-w-none">
+                    {modalContent[openModal].text.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className="text-base-content/80 mb-4 last:mb-0 leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

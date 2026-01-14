@@ -22,7 +22,8 @@
     "description": "Proofio est un système unifié d'intelligence des avis qui transforme les avis en insights commerciaux clairs et exploitables conçus pour les produits et équipes modernes.",
     "verified": {
       "title": "Proofio Vérifié",
-      "description": "Affichez des avis vérifiés avec notre widget de confiance intégrable. Renforcez la confiance des clients avec des retours réels et vérifiés directement sur votre site web."
+      "description": "Affichez des avis vérifiés avec notre widget de confiance intégrable. Renforcez la confiance des clients avec des retours réels et vérifiés directement sur votre site web.",
+      "demoNotice": "Remarque : Il s'agit d'un projet de démonstration lié. Les avis affichés ne reflètent pas de vrais avis de Proofio ou de nos clients."
     },
     "items": [
       {

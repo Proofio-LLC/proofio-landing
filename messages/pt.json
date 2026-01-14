@@ -22,7 +22,8 @@
     "description": "O Proofio é um sistema unificado de inteligência de avaliações que transforma avaliações em insights comerciais claros e acionáveis construídos para produtos e equipes modernos.",
     "verified": {
       "title": "Proofio Verificado",
-      "description": "Exiba avaliações verificadas com nosso widget de confiança integrado. Construa confiança do cliente com feedback real e verificado diretamente em seu site."
+      "description": "Exiba avaliações verificadas com nosso widget de confiança integrado. Construa confiança do cliente com feedback real e verificado diretamente em seu site.",
+      "demoNotice": "Nota: Este é um projeto de demonstração vinculado. As avaliações exibidas não refletem avaliações reais da Proofio ou de nossos clientes."
     },
     "items": [
       {

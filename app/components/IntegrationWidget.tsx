@@ -17,9 +17,9 @@ export default function IntegrationRadial() {
   ];
 
   return (
-    <div className="relative overflow-hidden py-12">
-      <div className="mx-auto max-w-4xl">
-        <div className="relative flex justify-center items-center min-h-[400px]">
+    <div className="relative overflow-hidden py-4">
+      <div className="mx-auto max-w-5xl">
+        <div className="relative flex justify-center items-center min-h-[500px]">
           
           {/* SVG Layer für die radialen Linien */}
           <div className="absolute inset-0 pointer-events-none z-0">
@@ -48,7 +48,7 @@ export default function IntegrationRadial() {
             <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full" />
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="relative bg-base-100 p-6 rounded-[2rem] shadow-xl border border-base-200 flex flex-col items-center justify-center w-32 h-32"
+              className="relative bg-base-100 p-8 rounded-[2rem] shadow-xl border border-base-200 flex flex-col items-center justify-center w-40 h-40"
             >
               <Image src="/logo.svg" alt="Proofio" width={80} height={24} className="w-20 h-auto mb-2" />
               <div className="h-px w-8 bg-primary/20 mb-2" />
@@ -59,7 +59,7 @@ export default function IntegrationRadial() {
           {/* Die kreisförmig angeordneten Icons */}
           {integrations.map((item, i) => {
             const angle = (i * 360) / integrations.length;
-            const radius = 140; // Pixel-Radius für das CSS-Layout
+            const radius = 180; // Pixel-Radius für das CSS-Layout
             
             return (
               <motion.div

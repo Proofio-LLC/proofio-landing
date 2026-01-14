@@ -109,6 +109,7 @@
     "description": "Proofio ist ein einheitliches Review-Intelligence-System, das Bewertungen in klare und umsetzbare Geschäftseinblicke für moderne Produkte und Teams verwandelt.",
     "verified": {
       "title": "Proofio Verified",
+      "demoNotice": "Hinweis: Dies ist ein verknüpftes Demo-Projekt. Die angezeigten Bewertungen spiegeln keine realen Bewertungen von Proofio oder unseren Kunden wider.",
       "description": "Zeigen Sie verifizierte Bewertungen mit unserem einbettbaren Vertrauens-Widget. Stärken Sie das Kundenvertrauen mit echten, verifizierten Feedbacks direkt auf Ihrer Website."
     },
     "items": [

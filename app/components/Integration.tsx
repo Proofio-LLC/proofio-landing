@@ -310,7 +310,7 @@ const trends = await proofio.insights.trends();`}
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Side: Widget */}
-            <div className="order-2 lg:order-1 -mx-4 lg:mx-0">
+            <div className="order-2 lg:order-1 -mx-4 lg:-mx-8">
               <IntegrationWidget />
             </div>
 
