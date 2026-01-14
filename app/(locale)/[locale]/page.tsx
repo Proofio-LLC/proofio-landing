@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     openGraph: {
       title: baseMetadata.title as string,
-      description: baseMetadata.description,
+      description: baseMetadata.description || '',
       type: 'website',
       locale: ogLocaleMap[locale],
       url: canonicalUrl,
@@ -88,7 +88,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     twitter: {
       card: "summary_large_image",
       title: baseMetadata.title as string,
-      description: baseMetadata.description,
+      description: baseMetadata.description || '',
       images: ["/opengraph.png"],
     },
   };
