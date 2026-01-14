@@ -2,24 +2,35 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const integrations = [
+  { name: "Google Reviews", icon: "/google.png" },
+  { name: "Trustpilot", icon: "/Trustpilot.png" },
+  { name: "Facebook", icon: "/facebook.png" },
+  { name: "G2", icon: "/g2.png" },
+  { name: "App Store", icon: "/appstore.png" },
+  { name: "Google Play", icon: "/googleplay.png" },
+];
 
 export default function IntegrationRadial() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(true);
 
-  const integrations = [
-    { name: "Google Reviews", icon: "/google.png" },
-    { name: "Trustpilot", icon: "/Trustpilot.png" },
-    { name: "Facebook", icon: "/facebook.png" },
-    { name: "G2", icon: "/g2.png" },
-    { name: "App Store", icon: "/appstore.png" },
-    { name: "Google Play", icon: "/googleplay.png" },
-  ];
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <div className="relative overflow-hidden py-4">
       <div className="mx-auto max-w-5xl">
-        <div className="relative flex justify-center items-center min-h-[500px]">
+        <div className="relative flex justify-center items-center min-h-[300px] md:min-h-[500px]">
           
           {/* SVG Layer für die radialen Linien */}
           <div className="absolute inset-0 pointer-events-none z-0">
@@ -48,18 +59,17 @@ export default function IntegrationRadial() {
             <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full" />
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="relative bg-base-100 p-8 rounded-[2rem] shadow-xl border border-base-200 flex flex-col items-center justify-center w-40 h-40"
+              className="relative bg-base-100 p-4 md:p-8 rounded-[2rem] shadow-xl border border-base-200 flex flex-col items-center justify-center w-24 h-24 md:w-40 md:h-40"
             >
-              <Image src="/logo.svg" alt="Proofio" width={80} height={24} className="w-20 h-auto mb-2" />
-              <div className="h-px w-8 bg-primary/20 mb-2" />
-              <p className="text-[8px] font-black uppercase tracking-[0.3em] text-primary/60">Engine</p>
+              <Image src="/logo.svg" alt="Proofio" width={80} height={24} className="w-12 md:w-20 h-auto mb-1 md:mb-2" />
+              <div className="h-px w-4 md:w-8 bg-primary/20 mb-1 md:mb-2" />
+              <p className="text-[6px] md:text-[8px] font-black uppercase tracking-[0.3em] text-primary/60">Engine</p>
             </motion.div>
           </div>
 
           {/* Die kreisförmig angeordneten Icons */}
           {integrations.map((item, i) => {
             const angle = (i * 360) / integrations.length;
-            const radius = 180; // Pixel-Radius für das CSS-Layout
             
             return (
               <motion.div
@@ -68,20 +78,20 @@ export default function IntegrationRadial() {
                 onMouseLeave={() => setHoveredItem(null)}
                 className="absolute z-10"
                 style={{
-                  transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`,
+                  transform: `rotate(${angle}deg) translate(${isMobile ? 100 : 180}px) rotate(-${angle}deg)`,
                 }}
               >
                 <div className={`
-                  relative group cursor-pointer p-3 rounded-full bg-white shadow-lg border transition-all duration-300
+                  relative group cursor-pointer p-2 md:p-3 rounded-full bg-white shadow-lg border transition-all duration-300
                   ${hoveredItem === item.name ? "border-primary scale-110 shadow-primary/20" : "border-base-200"}
                 `}>
-                  <div className="w-8 h-8 flex items-center justify-center">
+                  <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
                     <Image 
                       src={item.icon} 
                       alt={item.name} 
                       width={24} 
                       height={24} 
-                      className={`object-contain transition-all duration-300 ${hoveredItem === item.name ? "grayscale-0" : "grayscale opacity-70"}`}
+                      className={`object-contain transition-all duration-300 w-4 h-4 md:w-6 md:h-6 ${hoveredItem === item.name ? "grayscale-0" : "grayscale opacity-70"}`}
                     />
                   </div>
                   
