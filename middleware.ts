@@ -7,6 +7,8 @@ const defaultLocale = 'en';
 // Paths that should not be localized (API routes, static files, etc.)
 const publicFilePattern = /\.(.*)$/;
 const excludedPaths = ['/api', '/_next', '/favicon', '/robots.txt', '/sitemap'];
+// Sub-pages that should remain in English (not localized)
+const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -17,6 +19,17 @@ export function middleware(request: NextRequest) {
     publicFilePattern.test(pathname)
   ) {
     return NextResponse.next();
+  }
+
+  // Check if pathname is a non-localized sub-page
+  const isNonLocalizedPath = nonLocalizedPaths.some(path => 
+    pathname === path || pathname.startsWith(`${path}/`)
+  );
+  
+  if (isNonLocalizedPath) {
+    const response = NextResponse.next();
+    response.headers.set('x-pathname', pathname);
+    return response;
   }
 
   // Check if pathname already has a locale
@@ -31,8 +44,10 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // Get locale from Accept-Language header or use default
-  const locale = getLocale(request) || defaultLocale;
+  // Get locale from cookie (user preference) first, then Accept-Language header, then default
+  const localeCookie = request.cookies.get('proofio_locale')?.value;
+  const localeFromCookie = localeCookie && locales.includes(localeCookie as any) ? localeCookie : null;
+  const locale = localeFromCookie || getLocale(request) || defaultLocale;
 
   // Redirect to localized path
   const newUrl = new URL(`/${locale}${pathname}`, request.url);

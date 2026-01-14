@@ -84,7 +84,13 @@ export default function LanguageSwitcher() {
                     ? 'bg-primary/10 text-primary font-medium'
                     : 'text-base-content/70 hover:text-primary hover:bg-base-200/50'
                 }`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  // Save locale preference to cookie
+                  const expiryDate = new Date();
+                  expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+                  document.cookie = `proofio_locale=${locale}; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`;
+                  setIsOpen(false);
+                }}
               >
                 <Flag className="w-5 h-4 rounded-md flex-shrink-0 overflow-hidden" />
                 <span className="flex-1">{localeNames[locale]}</span>

@@ -48,6 +48,8 @@ export default function CookiesSettingsPage() {
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>Store your cookie consent preferences</li>
+                  <li>Remember your language preference</li>
+                  <li>Track affiliate referrals for partner attribution</li>
                   <li>Maintain session state and user settings</li>
                   <li>Ensure security and prevent abuse</li>
                   <li>Improve performance and usability of the Service</li>
@@ -72,6 +74,26 @@ export default function CookiesSettingsPage() {
                     <li><strong>Duration:</strong> 1 year</li>
                     <li><strong>Provider:</strong> Proofio LLC</li>
                     <li><strong>Legal basis:</strong> Legitimate interest / legal obligation</li>
+                  </ul>
+                </div>
+                <div className="bg-base-200 rounded-xl p-6 mb-4 border border-base-300">
+                  <p className="text-sm font-semibold text-base-content mb-2">Cookie: proofio_locale</p>
+                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
+                    <li><strong>Purpose:</strong> Stores your language preference for the website</li>
+                    <li><strong>Type:</strong> Persistent</li>
+                    <li><strong>Duration:</strong> 1 year</li>
+                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Legal basis:</strong> Legitimate interest (user experience)</li>
+                  </ul>
+                </div>
+                <div className="bg-base-200 rounded-xl p-6 mb-4 border border-base-300">
+                  <p className="text-sm font-semibold text-base-content mb-2">Cookie: proofio_affiliate_ref</p>
+                  <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
+                    <li><strong>Purpose:</strong> Tracks affiliate referrals for partner attribution</li>
+                    <li><strong>Type:</strong> Persistent</li>
+                    <li><strong>Duration:</strong> 30 days</li>
+                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Legal basis:</strong> Legitimate interest (business operations)</li>
                   </ul>
                 </div>
 

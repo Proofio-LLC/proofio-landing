@@ -33,12 +33,11 @@ export function getPathWithoutLocale(pathname: string): string {
 export function getLocalizedPath(pathname: string, locale: Locale): string {
   const pathWithoutLocale = getPathWithoutLocale(pathname);
   
+  // Always include locale in path to prevent middleware redirects
   // Root path
   if (pathWithoutLocale === '/') {
-    return locale === defaultLocale ? '/' : `/${locale}`;
+    return `/${locale}`;
   }
   
-  return locale === defaultLocale 
-    ? pathWithoutLocale 
-    : `/${locale}${pathWithoutLocale}`;
+  return `/${locale}${pathWithoutLocale}`;
 }

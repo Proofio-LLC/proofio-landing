@@ -24,10 +24,15 @@ export default function Navigation({ locale, messages }: NavigationProps) {
     setIsScrolled(latest > 50);
   });
 
-  // Check if we're on a blog or help page
+  // List of non-localized sub-pages (English only)
+  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
+  
+  // Check if we're on a sub-page (non-localized)
+  const isSubPage = pathname ? nonLocalizedPaths.some(path => 
+    pathname === path || pathname.startsWith(`${path}/`)
+  ) : false;
+  
   const isBlogPage = pathname?.startsWith("/blog");
-  const isHelpPage = pathname === "/help";
-  const isSubPage = isBlogPage || isHelpPage;
   const isBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
 
   // Determine back button href
