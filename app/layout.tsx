@@ -5,8 +5,10 @@ import CookieBanner from "./components/CookieBanner";
 import ProofyFloatingButton from "./components/ProofyFloatingButton";
 import AffiliateTracking from "./components/AffiliateTracking";
 import { Analytics } from "@vercel/analytics/next";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { StructuredData } from "./components/StructuredData";
+import { isValidLocale } from "@/lib/i18n";
+import HreflangTags from "./components/HreflangTags";
 
 export const metadata: Metadata = {
   title: {
@@ -104,10 +106,20 @@ export default async function RootLayout({
     analyticsEnabled = consentCookie === "accepted";
   }
 
+  // Get locale from pathname header set by middleware
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '/en';
+  const locale = pathname.split('/')[1] || 'en';
+  const validLocale = isValidLocale(locale) ? locale : 'en';
+  
+  // For root path, ensure we have the locale
+  const finalPathname = pathname === '/' ? `/${validLocale}` : pathname;
+
   return (
-    <html lang="en" data-theme="light">
+    <html lang={validLocale} data-theme="light">
       <head>
         <StructuredData />
+        <HreflangTags pathname={finalPathname} />
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}

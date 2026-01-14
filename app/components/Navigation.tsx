@@ -6,8 +6,15 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowLeft } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Navigation() {
+interface NavigationProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function Navigation({ locale, messages }: NavigationProps) {
+  const t = messages?.nav || {};
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
@@ -27,12 +34,12 @@ export default function Navigation() {
   const backHref = isBlogPost ? "/blog" : "/";
 
   const navItems = [
-    { label: "Features", href: isSubPage ? "/#features" : "#features" },
-    { label: "Integration", href: isSubPage ? "/#integration" : "#integration" },
-    { label: "Use Cases", href: isSubPage ? "/#use-cases" : "#use-cases" },
-    { label: "Pricing", href: isSubPage ? "/#pricing" : "#pricing" },
-    { label: "FAQ", href: isSubPage ? "/#faq" : "#faq" },
-    { label: "Blog", href: "/blog" },
+    { label: t.features || "Features", href: isSubPage ? "/#features" : "#features" },
+    { label: t.integration || "Integration", href: isSubPage ? "/#integration" : "#integration" },
+    { label: t.useCases || "Use Cases", href: isSubPage ? "/#use-cases" : "#use-cases" },
+    { label: t.pricing || "Pricing", href: isSubPage ? "/#pricing" : "#pricing" },
+    { label: t.faq || "FAQ", href: isSubPage ? "/#faq" : "#faq" },
+    { label: t.blog || "Blog", href: "/blog" },
   ];
 
   return (
@@ -99,15 +106,17 @@ export default function Navigation() {
 
           {/* Desktop Actions */}
           <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isSubPage ? 'absolute right-6 lg:right-10' : ''}`}>
-            <a href="https://dash.proofio.app" className="btn btn-ghost rounded-xl">Sign In</a>
+            <a href="https://dash.proofio.app" className="btn btn-ghost rounded-xl">{t.login || "Sign In"}</a>
             <a href="https://dash.proofio.app" className="btn rounded-xl shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
               Get Started
             </a>
+            {!isSubPage && <LanguageSwitcher />}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button and Language Switcher */}
           {!isSubPage && (
             <div className="flex lg:hidden items-center gap-2">
+              <LanguageSwitcher />
               <button
                 className="btn btn-ghost btn-square"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

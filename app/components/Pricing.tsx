@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const plans = [
   {
+    id: "starter",
     name: "Starter",
     monthlyPrice: 0,
     description: "For exploring Proofio",
@@ -24,6 +25,7 @@ const plans = [
     isFree: true,
   },
   {
+    id: "growth",
     name: "Growth",
     monthlyPrice: 29,
     yearlyPrice: 24,
@@ -46,6 +48,7 @@ const plans = [
     popular: true,
   },
   {
+    id: "scale",
     name: "Scale",
     monthlyPrice: 99,
     yearlyPrice: 79,
@@ -69,7 +72,13 @@ const plans = [
   },
 ];
 
-export default function Pricing() {
+interface PricingProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function Pricing({ locale, messages }: PricingProps) {
+  const t = messages?.pricing || {};
   const [billingInterval, setBillingInterval] = useState<'monthly' | 'yearly'>('monthly');
 
   const getPlanPrice = (plan: typeof plans[0]) => {
@@ -89,13 +98,13 @@ export default function Pricing() {
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">PRICING</span>
+            <span className="text-sm font-medium">{t.badge || "PRICING"}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Flexible plans for every stage
+            {t.title || "Simple, transparent pricing"}
           </h2>
           <p className="text-xl text-base-content/70 max-w-2xl mx-auto mb-8">
-            All plans include daily synchronization and full access to review intelligence. <br /><strong>Free plans start with a 7-day Growth trial.</strong>
+            {t.description || "Choose the plan that fits your needs. All plans include our core features."}
           </p>
         </motion.div>
 
@@ -110,7 +119,7 @@ export default function Pricing() {
                   : 'text-base-content/60'
               }`}
             >
-              Monthly
+              {t.monthly || "Monthly"}
             </button>
             <button
               onClick={() => setBillingInterval('yearly')}
@@ -120,16 +129,18 @@ export default function Pricing() {
                   : 'text-base-content/60'
               }`}
             >
-              Yearly
+              {t.yearly || "Yearly"}
               <span className="absolute -top-1 -right-1 bg-white text-primary text-xs px-1.5 py-0.5 rounded-full font-bold">
-                Save
+                {t.save || "Save"}
               </span>
             </button>
           </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
+          {plans.map((plan, index) => {
+            const planData = t.plans?.[plan.id as keyof typeof t.plans] || plan;
+            return (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 20 }}
@@ -142,7 +153,7 @@ export default function Pricing() {
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                   <div className="bg-gradient-to-r from-primary to-primary/80 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg border-2 border-white flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
-                    <span>Most Popular</span>
+                    <span>{t.popular || "Most Popular"}</span>
                   </div>
                 </div>
               )}
@@ -154,19 +165,19 @@ export default function Pricing() {
                 }`}
               >
                 <div className="card-body">
-                  <h3 className="card-title text-2xl mb-2">{plan.name}</h3>
+                  <h3 className="card-title text-2xl mb-2">{planData.name || plan.name}</h3>
                   <p className={`text-sm mb-6 ${plan.popular ? "opacity-90" : "opacity-70"}`}>
-                    {plan.description}
+                    {planData.description || plan.description}
                   </p>
                   <div className="mb-6">
                     {plan.isFree ? (
                       <div className="flex flex-col gap-1">
                       <div className="flex items-baseline gap-2">
-                          <span className="text-4xl font-bold">Free</span>
+                          <span className="text-4xl font-bold">{t.free || "Free"}</span>
                         </div>
                         <div className="text-primary text-xs font-bold flex items-center gap-1 mt-1">
                           <Zap className="w-3 h-3 fill-current" />
-                          Includes 7-day Growth Trial
+                          {t.includesTrial || "Includes 7-day Growth Trial"}
                         </div>
                       </div>
                     ) : (
@@ -181,16 +192,16 @@ export default function Pricing() {
                             ${getPlanPrice(plan)}
                           </span>
                           <span className={`text-lg ${plan.popular ? "opacity-90" : "opacity-70"}`}>
-                            / month
+                            {t.perMonth || "/ month"}
                           </span>
                         </div>
                         {billingInterval === 'yearly' && plan.yearlySavings && (
                           <div className="flex flex-col gap-0.5 mt-1">
                             <span className={`text-xs font-semibold ${plan.popular ? "text-white/90" : "text-primary"}`}>
-                              Save {plan.yearlySavings}%
+                              {(t.savePercent || "Save {percent}%").replace("{percent}", plan.yearlySavings.toString())}
                             </span>
                             <span className={`text-xs ${plan.popular ? "text-white/70" : "text-base-content/50"}`}>
-                              Billed annually
+                              {t.billedAnnually || "Billed annually"}
                             </span>
                           </div>
                         )}
@@ -198,8 +209,8 @@ export default function Pricing() {
                     )}
                   </div>
                   <ul className="space-y-3 mb-6 flex-1">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
+                    {(planData.features || plan.features).map((feature: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-2">
                         <Check className="w-5 h-5 flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
@@ -215,12 +226,13 @@ export default function Pricing() {
                         : "bg-primary text-white hover:bg-primary/90"
                     }`}
                   >
-                    {plan.cta}
+                    {t.cta || plan.cta}
                   </a>
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -229,7 +241,7 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-base-content/70 mt-8"
         >
-          All prices are billed monthly. Taxes may apply.
+          {t.allPricesNote || "All prices are billed monthly. Taxes may apply."}
         </motion.p>
         
         <motion.div
@@ -243,7 +255,7 @@ export default function Pricing() {
             href="/pricing"
             className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors group"
           >
-            <span>View detailed pricing comparison</span>
+            <span>{t.viewDetailedPricing || "View detailed pricing comparison"}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
@@ -258,16 +270,16 @@ export default function Pricing() {
         >
           <div className="bg-base-100 rounded-[2rem] shadow-lg border border-base-300 p-6 text-center">
             <h3 className="text-xl font-semibold text-base-content mb-2">
-              Enterprise
+              {t.enterprise?.title || "Enterprise"}
             </h3>
             <p className="text-base-content/70 text-sm mb-4">
-              Custom solutions for large organizations with dedicated support and SLA guarantees.
+              {t.enterprise?.description || "Custom solutions for large organizations with dedicated support and SLA guarantees."}
             </p>
             <a
               href="mailto:sales@proofio.app"
               className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium text-sm"
             >
-              Contact Sales
+              {t.enterprise?.cta || "Contact Sales"}
             </a>
           </div>
         </motion.div>

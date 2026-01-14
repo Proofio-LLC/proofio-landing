@@ -4,7 +4,13 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import BackgroundPaths from "./FloatingPaths";
 
-export default function Hero() {
+interface HeroProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function Hero({ locale, messages }: HeroProps) {
+  const t = messages?.hero || {};
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-base-100 via-base-100 to-base-200 relative overflow-hidden">
       <BackgroundPaths />
@@ -17,7 +23,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full"
           >
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">Review Intelligence Platform</span>
+            <span className="text-sm font-medium">{t.badge || "Review Intelligence Platform"}</span>
           </motion.div>
 
           <motion.h1
@@ -26,9 +32,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold mb-6 text-base-content"
           >
-            Customer feedback,
+            {t.title || "Customer feedback,"}
             <br />
-            <span className="text-primary">made useful.</span>
+            <span className="text-primary">{t.titleHighlight || "made useful."}</span>
           </motion.h1>
 
           <motion.p
@@ -37,7 +43,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-base-content/80 mb-4 max-w-3xl mx-auto"
           >
-            Proofio collects, normalizes, and analyzes reviews from every platform and turns them into clear insights, trends, and competitive comparisons.
+            {t.description || "Proofio collects, normalizes, and analyzes reviews from every platform and turns them into clear insights, trends, and competitive comparisons."}
           </motion.p>
 
           <motion.div
@@ -47,11 +53,11 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a href="https://dash.proofio.app" className="btn btn-lg rounded-xl px-8 gap-2 shadow-lg hover:shadow-xl transition-all bg-primary text-white hover:bg-primary/90">
-              Start analyzing reviews
+              {t.ctaPrimary || "Start analyzing reviews"}
               <ArrowRight className="w-5 h-5" />
             </a>
             <a href="https://docs.proofio.app" className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
-              View live demo
+              {t.ctaSecondary || "View live demo"}
             </a>
           </motion.div>
         </div>

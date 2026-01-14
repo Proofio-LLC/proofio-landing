@@ -55,8 +55,15 @@ const useCases = [
   },
 ];
 
-export default function UseCases() {
-  const [selectedCase, setSelectedCase] = useState<typeof useCases[0] | null>(null);
+interface UseCasesProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function UseCases({ locale, messages }: UseCasesProps) {
+  const t = messages?.useCases || {};
+  const useCaseItems = t.items || useCases;
+  const [selectedCase, setSelectedCase] = useState<any | null>(null);
 
   return (
     <section id="use-cases" className="py-32 bg-base-100 relative overflow-hidden">
@@ -79,16 +86,26 @@ export default function UseCases() {
             <span className="text-sm font-bold uppercase tracking-widest">USE CASES</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-base-content tracking-tight">
-            Built for real <br className="hidden md:block" /> decisions
+            {t.title || "Built for teams that need more than just reviews"}
           </h2>
           <p className="text-xl text-base-content/60 max-w-2xl mx-auto leading-relaxed font-medium">
-            Proofio adapts to different products, teams and technical environments while keeping one focus clear: understanding customer feedback.
+            {t.description || "See how Proofio helps different teams turn feedback into action."}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {useCases.map((useCase, index) => {
-            const Icon = useCase.icon;
+          {useCaseItems.map((useCase: any, index: number) => {
+            // Use original useCase for icon and caseStudy if available
+            const originalCase = useCases.find(uc => uc.id === useCase.id) || useCases[index];
+            const Icon = originalCase?.icon || Smartphone;
+            
+            // Merge translated useCase with original data (icon, caseStudy)
+            const mergedCase = {
+              ...useCase,
+              icon: Icon,
+              caseStudy: originalCase?.caseStudy || useCase.caseStudy
+            };
+            
             return (
               <motion.div
                 key={useCase.title}
@@ -99,7 +116,7 @@ export default function UseCases() {
                 className="group"
               >
                 <div 
-                  onClick={() => setSelectedCase(useCase)}
+                  onClick={() => setSelectedCase(mergedCase)}
                   className="relative h-full bg-base-200/50 hover:bg-base-200 transition-all duration-500 rounded-[2.5rem] p-10 border border-base-300/50 hover:border-primary/20 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/5 cursor-pointer"
                 >
                   {/* Background Glow */}
@@ -121,7 +138,7 @@ export default function UseCases() {
                     </div>
 
                     <div className="mt-8 pt-8 border-t border-base-300/50 flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                      Read case study
+                      {t.readCaseStudy || "Read case study"}
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
@@ -159,53 +176,63 @@ export default function UseCases() {
                 </button>
 
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <selectedCase.icon className="w-6 h-6 text-primary" />
-                  </div>
+                  {selectedCase.icon && (
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      {typeof selectedCase.icon === 'function' ? (
+                        <selectedCase.icon className="w-6 h-6 text-primary" />
+                      ) : (
+                        <Smartphone className="w-6 h-6 text-primary" />
+                      )}
+                    </div>
+                  )}
                   <span className="text-sm font-bold text-primary uppercase tracking-widest">
                     {selectedCase.title}
                   </span>
                 </div>
 
-                <h3 className="text-3xl md:text-5xl font-bold mb-8 text-base-content leading-tight">
-                  {selectedCase.caseStudy.title}
-                </h3>
+                {selectedCase.caseStudy && (
+                  <>
+                    <h3 className="text-3xl md:text-5xl font-bold mb-8 text-base-content leading-tight">
+                      {selectedCase.caseStudy.title}
+                    </h3>
 
-                <div className="flex items-center gap-3 mb-10 p-6 bg-primary/5 rounded-3xl border border-primary/10">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Key Success Metric</p>
-                    <p className="text-xl md:text-2xl font-bold text-base-content">{selectedCase.caseStudy.metric}</p>
-                  </div>
-                </div>
+                    <div className="flex items-center gap-3 mb-10 p-6 bg-primary/5 rounded-3xl border border-primary/10">
+                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                        <TrendingUp className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">{t.caseStudy?.keySuccessMetric || "Key Success Metric"}</p>
+                        <p className="text-xl md:text-2xl font-bold text-base-content">{selectedCase.caseStudy.metric}</p>
+                      </div>
+                    </div>
 
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="text-xl font-bold mb-4">The Challenge & Solution</h4>
-                    <p className="text-lg text-base-content/70 leading-relaxed font-medium">
-                      {selectedCase.caseStudy.content}
-                    </p>
-                  </div>
+                    <div className="space-y-8">
+                      <div>
+                        <h4 className="text-xl font-bold mb-4">{t.caseStudy?.challengeSolution || "The Challenge & Solution"}</h4>
+                        <p className="text-lg text-base-content/70 leading-relaxed font-medium">
+                          {selectedCase.caseStudy.content}
+                        </p>
+                      </div>
 
-                  <div>
-                    <h4 className="text-xl font-bold mb-6">Key Results</h4>
-                    <ul className="grid gap-4">
-                      {selectedCase.caseStudy.results.map((result, i) => (
-                        <li key={i} className="flex items-start gap-4 p-4 bg-base-50 rounded-2xl border border-base-200 group/item hover:border-primary/30 transition-colors">
-                          <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                          <span className="text-base-content/80 font-medium">{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                      <div>
+                        <h4 className="text-xl font-bold mb-6">{t.caseStudy?.keyResults || "Key Results"}</h4>
+                        <ul className="grid gap-4">
+                          {selectedCase.caseStudy.results && selectedCase.caseStudy.results.map((result: string, i: number) => (
+                            <li key={i} className="flex items-start gap-4 p-4 bg-base-50 rounded-2xl border border-base-200 group/item hover:border-primary/30 transition-colors">
+                              <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
+                              <span className="text-base-content/80 font-medium">{result}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 <div className="mt-12 pt-6 border-t border-base-200">
                   <p className="text-xs text-base-content/40 italic flex items-center gap-2">
                     <Shield className="w-3.5 h-3.5" />
-                    To protect our customers' competitive advantage and privacy, names and sensitive details have been anonymized.
+                    {t.caseStudy?.privacyNote || "To protect our customers' competitive advantage and privacy, names and sensitive details have been anonymized."}
                   </p>
                 </div>
               </div>

@@ -1,0 +1,281 @@
+{
+  "nav": {
+    "features": "Características",
+    "integration": "Integración",
+    "useCases": "Casos de uso",
+    "pricing": "Precios",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "login": "Iniciar sesión"
+  },
+  "hero": {
+    "badge": "Plataforma de Inteligencia de Reseñas",
+    "title": "Feedback del cliente,",
+    "titleHighlight": "hecho útil.",
+    "description": "Proofio recopila, normaliza y analiza reseñas de todas las plataformas y las convierte en insights claros, tendencias y comparaciones competitivas.",
+    "ctaPrimary": "Comenzar a analizar reseñas",
+    "ctaSecondary": "Ver demo en vivo"
+  },
+  "features": {
+    "badge": "VALOR CENTRAL",
+    "title": "Inteligencia de reseñas de un vistazo",
+    "description": "Proofio es un sistema unificado de inteligencia de reseñas que transforma las reseñas en insights comerciales claros y accionables construidos para productos y equipos modernos.",
+    "verified": {
+      "title": "Proofio Verificado",
+      "description": "Muestra reseñas verificadas con nuestro widget de confianza integrable. Genera confianza en los clientes con feedback real y verificado directamente en tu sitio web."
+    },
+    "items": [
+      {
+        "title": "Cobertura multi-fuente",
+        "description": "Conecta todas las principales plataformas de reseñas y analiza toda la voz de tus clientes en un solo lugar."
+      },
+      {
+        "title": "Análisis inteligente",
+        "description": "Rastrea tendencias, cambios de sentimiento y movimientos de calificación en las plataformas a lo largo del tiempo."
+      },
+      {
+        "title": "Normalización de datos",
+        "description": "Todas las calificaciones y reseñas están estandarizadas para comparaciones precisas e insights confiables."
+      },
+      {
+        "title": "Resúmenes e insights de IA",
+        "description": "Convierte miles de reseñas en resúmenes estructurados, riesgos y oportunidades."
+      },
+      {
+        "title": "Comparación competitiva",
+        "description": "Ve cómo se desempeña tu producto frente a los competidores directamente desde el feedback del cliente."
+      },
+      {
+        "title": "Sincronización automática",
+        "description": "Las reseñas se actualizan diariamente y se mantienen completamente sincronizadas sin trabajo manual."
+      }
+    ]
+  },
+  "integration": {
+    "badge": "Integración",
+    "title": "Integra en minutos, no en días",
+    "description": "Accede a tus datos de reseñas mediante API o integra nuestros widgets directamente en tu sitio web.",
+    "whatYouCanAccess": "A qué puedes acceder",
+    "sdkTitle": "SDK npm oficial (proofio-sdk)",
+    "sdkDescription": "La forma más fácil de integrar Proofio en tu aplicación.",
+    "introTitle": "Integración simple. Funciona en todas partes.",
+    "introDescription": "Usa Proofio a través de API o panel de control. Integra una vez y reutiliza en productos, aplicaciones y herramientas internas.",
+    "swipeToExplore": "Desliza para explorar",
+    "environments": [
+      {
+        "name": "Aplicación Web Proofio",
+        "description": "Panel de control nativo para análisis profundo y visualización."
+      },
+      {
+        "name": "Aplicaciones Web",
+        "description": "Integra inteligencia directamente en tu experiencia de usuario."
+      },
+      {
+        "name": "Herramientas Internas",
+        "description": "Empodera a tu equipo con datos de feedback estructurados."
+      },
+      {
+        "name": "Paneles BI",
+        "description": "Alimenta tus informes con señales de reseñas en tiempo real."
+      },
+      {
+        "name": "Pipelines de Datos",
+        "description": "Sincroniza datos normalizados a tu propio almacén."
+      },
+      {
+        "name": "Informes Personalizados",
+        "description": "Crea informes adaptados a las necesidades de tu negocio."
+      }
+    ],
+    "apiAccess": {
+      "title": "ACCESO API",
+      "subtitle": "Construido para desarrolladores y equipos orientados a datos",
+      "showLess": "Mostrar menos",
+      "viewDetails": "Ver detalles de la API",
+      "description": "Usa el SDK de Proofio o la API para acceder a reseñas, agregaciones e inteligencia directamente dentro de tus propias aplicaciones y sistemas. El SDK oficial hace que la integración sea simple con soporte completo de TypeScript.",
+      "fullControl": {
+        "title": "Control total",
+        "description": "Autentica de forma segura con claves API y controla el acceso entre proyectos y equipos.",
+        "quote": "Usa Proofio como una capa de inteligencia de reseñas dentro de paneles, informes, productos y herramientas internas."
+      },
+      "accessItems": [
+        "Reseñas y agregaciones",
+        "Datos de tendencias",
+        "Desgloses por fuente",
+        "Insights de sentimiento",
+        "Comparaciones competitivas"
+      ],
+      "exampleCode": "Código de ejemplo",
+      "copyToClipboard": "Copiar al portapapeles"
+    },
+    "reviewSources": {
+      "title": "Fuentes de reseñas",
+      "subtitle": "Todas las principales plataformas de reseñas en un solo lugar",
+      "description": "Proofio agrega reseñas de múltiples plataformas y las unifica en una sola capa de inteligencia. Conecta las fuentes que importan para tu negocio y analiza el feedback del cliente sin fragmentación."
+    }
+  },
+  "useCases": {
+    "title": "Construido para equipos que necesitan más que solo reseñas",
+    "description": "Descubre cómo Proofio ayuda a diferentes equipos a convertir el feedback en acción.",
+    "readCaseStudy": "Leer estudio de caso",
+    "caseStudy": {
+      "keySuccessMetric": "Métrica de Éxito Clave",
+      "challengeSolution": "El Desafío y la Solución",
+      "keyResults": "Resultados Clave",
+      "privacyNote": "Para proteger la ventaja competitiva y la privacidad de nuestros clientes, los nombres y detalles sensibles han sido anonimizados."
+    },
+    "items": [
+      {
+        "id": "saas",
+        "title": "Aplicaciones y equipos SaaS",
+        "description": "Rastrea la percepción del producto, el impacto de las versiones y las señales de confiabilidad en las tiendas de aplicaciones y plataformas de reseñas. Convierte el feedback del cliente en insights de producto y crecimiento estructurados."
+      },
+      {
+        "id": "ecommerce",
+        "title": "E-commerce y marcas",
+        "description": "Comprende cómo los productos y marcas se desempeñan en los marketplaces y plataformas de reseñas. Identifica fortalezas, debilidades y brechas de confianza con claridad."
+      },
+      {
+        "id": "product",
+        "title": "Equipos de producto y experiencia",
+        "description": "Usa la inteligencia de reseñas para priorizar características, reducir fricción y mejorar la satisfacción del cliente."
+      },
+      {
+        "id": "analytics",
+        "title": "Herramientas internas y análisis",
+        "description": "Alimenta paneles, informes y sistemas de decisión con inteligencia de reseñas estructurada vía API. Obtén inteligencia de reseñas directamente dentro de tus propias aplicaciones y sistemas."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "PRECIOS",
+    "title": "Precios simples y transparentes",
+    "description": "Elige el plan que se adapte a tus necesidades. Todos los planes incluyen nuestras características principales.",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "save": "Ahorrar",
+    "cta": "Comenzar",
+    "popular": "Más Popular",
+    "free": "Gratis",
+    "includesTrial": "Incluye prueba de Growth de 7 días",
+    "perMonth": "/ mes",
+    "billedAnnually": "Facturado anualmente",
+    "savePercent": "Ahorra {percent}%",
+    "allPricesNote": "Todos los precios se facturan mensualmente. Pueden aplicarse impuestos.",
+    "viewDetailedPricing": "Ver comparación detallada de precios",
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Soluciones personalizadas para grandes organizaciones con soporte dedicado y garantías SLA.",
+      "cta": "Contactar ventas"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Para explorar Proofio",
+        "features": [
+          "1 proyecto",
+          "2 fuentes por proyecto",
+          "500 reseñas por mes",
+          "1,000 solicitudes API",
+          "Widget de confianza Proofio-Verified",
+          "Informes semanales",
+          "Soporte por email básico"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "description": "Para equipos en crecimiento",
+        "features": [
+          "5 proyectos",
+          "20 fuentes por proyecto",
+          "10,000 reseñas por mes",
+          "50,000 solicitudes API",
+          "Widget de confianza Proofio-Verified",
+          "Colaboración en equipo",
+          "Insights avanzados",
+          "Señales de reseñas automatizadas",
+          "Informes semanales",
+          "Sin anuncios",
+          "Soporte por email avanzado"
+        ]
+      },
+      "scale": {
+        "name": "Scale",
+        "description": "Para empresas en expansión",
+        "features": [
+          "Proyectos ilimitados",
+          "Fuentes ilimitadas",
+          "100,000 reseñas por mes",
+          "Solicitudes API ilimitadas",
+          "Widget de confianza Proofio-Verified",
+          "Colaboración en equipo",
+          "Insights avanzados",
+          "Señales de reseñas automatizadas",
+          "Informes semanales",
+          "Sin anuncios",
+          "Soporte prioritario"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Preguntas frecuentes",
+    "description": "Todo lo que necesitas saber sobre Proofio.",
+    "items": [
+      {
+        "question": "¿Qué es Proofio?",
+        "answer": "Proofio es una plataforma de inteligencia de reseñas que ayuda a los equipos a entender el feedback del cliente en todas las plataformas. Transforma las reseñas en insights estructurados, tendencias y comparaciones competitivas para mejores decisiones comerciales."
+      },
+      {
+        "question": "¿Qué fuentes de reseñas están soportadas?",
+        "answer": "Proofio actualmente soporta Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify y Amazon. Se agregan continuamente fuentes adicionales basadas en la cobertura de plataformas y la demanda del cliente."
+      },
+      {
+        "question": "¿Con qué frecuencia se actualizan los datos de reseñas?",
+        "answer": "Los datos de reseñas se sincronizan diariamente para todas las fuentes activas. Los planes superiores pueden beneficiarse de actualizaciones más frecuentes dependiendo de la disponibilidad de la fuente."
+      },
+      {
+        "question": "¿Proofio usa IA?",
+        "answer": "Sí. Proofio usa IA para generar resúmenes, detectar tendencias, analizar sentimiento, comparar competidores y resaltar riesgos y oportunidades del feedback del cliente."
+      },
+      {
+        "question": "¿Puedo analizar competidores también?",
+        "answer": "Sí. Puedes agregar competidores usando identificadores públicos como IDs de App Store o perfiles de negocio y comparar rendimiento, sentimiento y temas directamente contra tu propio producto."
+      },
+      {
+        "question": "¿Hay una API disponible?",
+        "answer": "Sí. Proofio proporciona una API REST completa para acceder a reseñas, agregados, tendencias, insights y datos competitivos para usar en paneles, informes y sistemas internos."
+      },
+      {
+        "question": "¿Para quién está construido Proofio?",
+        "answer": "Proofio está construido para equipos de producto, empresas SaaS, marcas de e-commerce, equipos de crecimiento y tomadores de decisiones que confían en el feedback del cliente para mejorar productos y estrategia."
+      },
+      {
+        "question": "¿Poseo mis datos?",
+        "answer": "Sí. Todos los datos de reseñas recolectados y procesados te pertenecen. Proofio solo actúa como una capa de procesamiento e inteligencia."
+      },
+      {
+        "question": "¿Es Proofio compatible con las regulaciones de plataformas y datos?",
+        "answer": "Proofio solo procesa datos de reseñas públicamente disponibles y sigue estándares estrictos de seguridad y privacidad para garantizar un manejo responsable y conforme de datos."
+      },
+      {
+        "question": "¿Puedo exportar mis datos?",
+        "answer": "Sí. Puedes exportar datos de reseñas, insights e informes vía API o formatos de exportación soportados dependiendo de tu plan."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "¿Listo para pasar de reseñas a insights?",
+    "title": "¿Listo para pasar de reseñas a insights?",
+    "description": "Proofio ayuda a los equipos a transformar el feedback del cliente en tendencias, comparaciones y decisiones.",
+    "ctaPrimary": "¡Comenzar hoy!",
+    "ctaSecondary": "Ver demo en vivo"
+  },
+  "footer": {
+    "product": "Producto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "resources": "Recursos"
+  }
+}

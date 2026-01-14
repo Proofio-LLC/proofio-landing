@@ -7,7 +7,13 @@ import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
 import IntegrationWidget from "./IntegrationWidget";
 
-export default function Integration() {
+interface IntegrationProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function Integration({ locale, messages }: IntegrationProps) {
+  const t = messages?.integration || {};
   const [isApiExpanded, setIsApiExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [npmCopied, setNpmCopied] = useState(false);
@@ -50,6 +56,8 @@ export default function Integration() {
     { name: "Data Pipelines", desc: "Sync normalized data to your own warehouse.", icon: Database },
     { name: "Custom Reporting", desc: "Build tailored reports for your business needs.", icon: FileText }
   ];
+  
+  const envItems = t.environments || environments;
 
   return (
     <section id="integration" className="py-24 bg-base-200">
@@ -65,14 +73,13 @@ export default function Integration() {
           >
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium uppercase tracking-widest">Integration</span>
+              <span className="text-sm font-medium uppercase tracking-widest">{t.badge || "Integration"}</span>
             </div>
             <h2 className="text-3xl md:text-6xl font-bold mb-6">
-              Simple integration. 
-              <br />Works everywhere.
+              {t.introTitle || "Simple integration. Works everywhere."}
             </h2>
             <p className="text-lg md:text-xl text-base-content/80 leading-relaxed mb-4">
-              Use Proofio via API or dashboard. Integrate once and reuse across products, applications and internal tools.
+              {t.introDescription || "Use Proofio via API or dashboard. Integrate once and reuse across products, applications and internal tools."}
             </p>
           </motion.div>
 
@@ -93,23 +100,27 @@ export default function Integration() {
                   className="flex gap-4 md:gap-6 pb-4"
                   style={{ touchAction: 'pan-y' }}
                 >
-                  {environments.map((env) => (
-                    <div 
-                      key={env.name}
-                      className="min-w-[260px] md:min-w-[280px] bg-base-200 rounded-3xl p-6 border border-base-300 flex flex-col gap-3 group/card transition-colors hover:border-primary/20 select-none"
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-1 group-hover/card:bg-primary group-hover/card:text-white transition-all duration-300">
-                        <env.icon className="w-6 h-6" />
+                  {envItems.map((env: any, index: number) => {
+                    const originalEnv = environments[index];
+                    const Icon = originalEnv?.icon || Layout;
+                    return (
+                      <div 
+                        key={env.name || originalEnv.name}
+                        className="min-w-[260px] md:min-w-[280px] bg-base-200 rounded-3xl p-6 border border-base-300 flex flex-col gap-3 group/card transition-colors hover:border-primary/20 select-none"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-1 group-hover/card:bg-primary group-hover/card:text-white transition-all duration-300">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <h4 className="font-bold text-primary text-lg transition-colors group-hover/card:text-base-content">{env.name || originalEnv.name}</h4>
+                        <p className="text-base-content/70 text-sm leading-relaxed">{env.description || env.desc || originalEnv.desc}</p>
                       </div>
-                      <h4 className="font-bold text-primary text-lg transition-colors group-hover/card:text-base-content">{env.name}</h4>
-                      <p className="text-base-content/70 text-sm leading-relaxed">{env.desc}</p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </motion.div>
               </div>
               
               <div className="flex justify-between items-center mt-4 px-2">
-                <p className="text-xs font-bold text-base-content/30 uppercase tracking-[0.2em]">Swipe to explore</p>
+                <p className="text-xs font-bold text-base-content/30 uppercase tracking-[0.2em]">{t.swipeToExplore || "Swipe to explore"}</p>
                 <div className="flex gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
@@ -141,12 +152,12 @@ export default function Integration() {
                       <Code className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-2xl md:text-4xl font-bold">API ACCESS</h3>
-                      <p className="text-primary font-semibold text-base md:text-lg">Built for developers and data driven teams</p>
+                      <h3 className="text-2xl md:text-4xl font-bold">{t.apiAccess?.title || "API ACCESS"}</h3>
+                      <p className="text-primary font-semibold text-base md:text-lg">{t.apiAccess?.subtitle || "Built for developers and data driven teams"}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 text-base-content/50 group-hover:text-primary transition-colors pr-4">
-                    <span className="text-sm font-bold uppercase tracking-widest">{isApiExpanded ? 'Show less' : 'View API details'}</span>
+                    <span className="text-sm font-bold uppercase tracking-widest">{isApiExpanded ? (t.apiAccess?.showLess || 'Show less') : (t.apiAccess?.viewDetails || 'View API details')}</span>
                     <div className={`p-2 rounded-full bg-base-200 group-hover:bg-primary group-hover:text-white transition-all duration-300 ${isApiExpanded ? 'rotate-180' : ''}`}>
                       <ChevronDown className="w-5 h-5" />
                     </div>
@@ -167,23 +178,25 @@ export default function Integration() {
                     {/* Left Side: Content */}
                     <div className="space-y-10">
                       <p className="text-xl text-base-content/80 leading-relaxed">
-                        Use the Proofio SDK or API to access reviews, aggregates and intelligence directly inside your own applications and systems. The official SDK makes integration simple with full TypeScript support.
+                        {t.apiAccess?.description || "Use the Proofio SDK or API to access reviews, aggregates and intelligence directly inside your own applications and systems. The official SDK makes integration simple with full TypeScript support."}
                       </p>
 
                       <div className="grid sm:grid-cols-2 gap-10">
                         <div>
                           <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
                             <span className="w-1.5 h-6 bg-primary rounded-full"></span>
-                            What you can access
+                            {t.whatYouCanAccess || "What you can access"}
                           </h4>
                           <ul className="space-y-3">
                             {[
-                              "Official npm SDK (proofio-sdk)",
-                              "Reviews and aggregates",
-                              "Trend data",
-                              "Source breakdowns",
-                              "Sentiment insights",
-                              "Competitive comparisons"
+                              t.sdkTitle || "Official npm SDK (proofio-sdk)",
+                              ...(t.apiAccess?.accessItems || [
+                                "Reviews and aggregates",
+                                "Trend data",
+                                "Source breakdowns",
+                                "Sentiment insights",
+                                "Competitive comparisons"
+                              ])
                             ].map((item) => (
                               <li key={item} className="flex items-center gap-3 text-base-content/70 font-medium">
                                 <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
@@ -197,15 +210,15 @@ export default function Integration() {
                           <div>
                             <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
                               <span className="w-1.5 h-6 bg-primary rounded-full"></span>
-                              Full control
+                              {t.apiAccess?.fullControl?.title || "Full control"}
                             </h4>
                             <p className="text-base-content/70 font-medium">
-                              Authenticate securely with API keys and control access across projects and teams.
+                              {t.apiAccess?.fullControl?.description || "Authenticate securely with API keys and control access across projects and teams."}
                             </p>
                           </div>
                           <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
                             <p className="text-base-content font-semibold italic text-sm leading-relaxed">
-                              "Use Proofio as a review intelligence layer inside dashboards, reports, products and internal tools."
+                              "{t.apiAccess?.fullControl?.quote || "Use Proofio as a review intelligence layer inside dashboards, reports, products and internal tools."}"
                             </p>
                           </div>
                         </div>
@@ -215,7 +228,7 @@ export default function Integration() {
                     {/* Right Side: Code Example */}
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
-                        <p className="text-xs font-bold text-base-content/40 uppercase tracking-[0.2em]">Example code</p>
+                        <p className="text-xs font-bold text-base-content/40 uppercase tracking-[0.2em]">{t.apiAccess?.exampleCode || "Example code"}</p>
                         <div className="flex gap-1.5">
                           <div className="w-2.5 h-2.5 rounded-full bg-red-400/20" />
                           <div className="w-2.5 h-2.5 rounded-full bg-amber-400/20" />
@@ -232,7 +245,7 @@ export default function Integration() {
                             setTimeout(() => setNpmCopied(false), 2000);
                           }}
                           className="absolute top-3 right-3 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors text-slate-400 hover:text-white"
-                          title="Copy to clipboard"
+                          title={t.apiAccess?.copyToClipboard || "Copy to clipboard"}
                         >
                           {npmCopied ? (
                             <Check className="w-4 h-4" />
@@ -304,15 +317,14 @@ const trends = await proofio.insights.trends();`}
             {/* Right Side: Content */}
             <div className="text-center lg:text-right order-1 lg:order-2">
               <h3 className="text-4xl md:text-5xl font-bold mb-4">
-                Review sources
+                {t.reviewSources?.title || "Review sources"}
               </h3>
               <p className="text-2xl font-bold text-primary mb-8">
-                All major review platforms in one place
+                {t.reviewSources?.subtitle || "All major review platforms in one place"}
               </p>
               <div className="max-w-xl ml-auto">
                 <p className="text-xl text-base-content/70 leading-relaxed">
-                  Proofio aggregates reviews from multiple platforms and unifies them into a single intelligence layer.
-                  Connect the sources that matter to your business and analyze customer feedback without fragmentation.
+                  {t.reviewSources?.description || "Proofio aggregates reviews from multiple platforms and unifies them into a single intelligence layer. Connect the sources that matter to your business and analyze customer feedback without fragmentation."}
                 </p>
               </div>
             </div>

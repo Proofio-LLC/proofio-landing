@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-export default function CTA() {
+interface CTAProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function CTA({ locale, messages }: CTAProps) {
+  const t = messages?.cta || {};
   return (
     <section className="py-20 bg-base-100">
       <div className="container mx-auto px-4">
@@ -36,7 +42,7 @@ export default function CTA() {
               className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-white/20 text-white rounded-full backdrop-blur-md border border-white/30"
             >
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium uppercase tracking-wider">Ready to move from reviews to insights?</span>
+              <span className="text-sm font-medium uppercase tracking-wider">{t.badge || "Ready to move from reviews to insights?"}</span>
             </motion.div>
 
             <motion.h2
@@ -46,7 +52,7 @@ export default function CTA() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
             >
-              Ready to move from reviews to insights?
+              {t.title || "Ready to move from reviews to insights?"}
             </motion.h2>
 
             <motion.div
@@ -57,7 +63,7 @@ export default function CTA() {
               className="space-y-4 mb-10"
             >
               <p className="text-xl md:text-2xl font-semibold text-white">
-                Proofio helps teams transform customer feedback into trends, comparisons and decisions.
+                {t.description || "Proofio helps teams transform customer feedback into trends, comparisons and decisions."}
               </p>
             </motion.div>
 
@@ -72,14 +78,14 @@ export default function CTA() {
                 href="https://dash.proofio.app" 
                 className="btn btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95"
               >
-                Start today!
+                {t.ctaPrimary || "Start today!"}
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
                 href="https://docs.proofio.app" 
                 className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm"
               >
-                View live demo
+                {t.ctaSecondary || "View live demo"}
               </a>
             </motion.div>
           </div>

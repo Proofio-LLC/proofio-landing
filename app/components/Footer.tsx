@@ -4,7 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 
-export default function Footer() {
+interface FooterProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function Footer({ locale, messages }: FooterProps) {
+  const t = messages?.footer || {};
   return (
     <footer className="py-20 bg-base-200">
       <div className="container mx-auto px-4">
@@ -22,7 +28,7 @@ export default function Footer() {
                 />
               </div>
               <p className="text-base-content/70 max-w-md">
-                Proofio empowers teams to transform reviews from multiple platforms into clear and actionable insights, making customer feedback easier to understand and act on.
+                {t.description || "Proofio empowers teams to transform reviews from multiple platforms into clear and actionable insights, making customer feedback easier to understand and act on."}
               </p>
               <div className="flex gap-4">
                 <Link href="https://x.com/proofioapp" className="text-base-content/60 hover:text-primary transition-colors">
@@ -40,73 +46,73 @@ export default function Footer() {
             {/* Right Side - Navigation Links */}
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <h3 className="font-semibold text-base-content mb-4">Product</h3>
+                <h3 className="font-semibold text-base-content mb-4">{t.product || "Product"}</h3>
                 <ul className="space-y-3">
                   <li>
                     <Link href="#features" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Features
+                      {t.features || "Features"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/pricing" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Pricing
+                      {t.pricing || "Pricing"}
                     </Link>
                   </li>
                   <li>
                     <Link href="#integration" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Integrations
+                      {t.integrations || "Integrations"}
                     </Link>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="font-semibold text-base-content mb-4">Resources</h3>
+                <h3 className="font-semibold text-base-content mb-4">{t.resources || "Resources"}</h3>
                 <ul className="space-y-3">
                   <li>
                     <Link href="https://docs.proofio.app" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Documentation
+                      {t.documentation || "Documentation"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Blog
+                      {t.blog || "Blog"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/help" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Support
+                      {t.support || "Support"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/status" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Status
+                      {t.status || "Status"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/changelog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Changelog
+                      {t.changelog || "Changelog"}
                     </Link>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="font-semibold text-base-content mb-4">Company</h3>
+                <h3 className="font-semibold text-base-content mb-4">{t.company || "Company"}</h3>
                 <ul className="space-y-3">
                   <li>
                     <Link href="/about" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      About
+                      {t.about || "About"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/careers" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Careers
+                      {t.careers || "Careers"}
                     </Link>
                   </li>
                   <li>
                     <Link href="/partners" className="text-sm text-base-content/70 hover:text-primary transition-colors">
-                      Partners
+                      {t.partners || "Partners"}
                     </Link>
                   </li>
                 </ul>
@@ -117,23 +123,23 @@ export default function Footer() {
           {/* Legal Links */}
           <div className="pt-8 border-t border-base-300 flex flex-wrap justify-between items-center gap-6">
             <p className="text-sm text-base-content/50">
-              © 2026 Proofio. All rights reserved.
+              {t.copyright || "© 2026 Proofio. All rights reserved."}
             </p>
             <div className="flex flex-wrap gap-6">
             <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Imprint
+              {t.imprint || "Imprint"}
             </Link>
             <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Privacy Policy
+              {t.privacyPolicy || "Privacy Policy"}
             </Link>
             <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Terms of Service
+              {t.termsOfService || "Terms of Service"}
             </Link>
             <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Cookies Settings
+              {t.cookiesSettings || "Cookies Settings"}
             </Link>
             <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              Legal Inquiries
+              {t.legalInquiries || "Legal Inquiries"}
             </a>
             </div>
           </div>

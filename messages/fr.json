@@ -1,0 +1,281 @@
+{
+  "nav": {
+    "features": "Fonctionnalités",
+    "integration": "Intégration",
+    "useCases": "Cas d'usage",
+    "pricing": "Tarifs",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "login": "Connexion"
+  },
+  "hero": {
+    "badge": "Plateforme d'Intelligence des Avis",
+    "title": "Les avis clients,",
+    "titleHighlight": "rendus utiles.",
+    "description": "Proofio collecte, normalise et analyse les avis de toutes les plateformes et les transforme en insights clairs, tendances et comparaisons concurrentielles.",
+    "ctaPrimary": "Commencer l'analyse",
+    "ctaSecondary": "Voir la démo"
+  },
+  "features": {
+    "badge": "VALEUR CENTRALE",
+    "title": "Intelligence des avis en un coup d'œil",
+    "description": "Proofio est un système unifié d'intelligence des avis qui transforme les avis en insights commerciaux clairs et exploitables conçus pour les produits et équipes modernes.",
+    "verified": {
+      "title": "Proofio Vérifié",
+      "description": "Affichez des avis vérifiés avec notre widget de confiance intégrable. Renforcez la confiance des clients avec des retours réels et vérifiés directement sur votre site web."
+    },
+    "items": [
+      {
+        "title": "Couverture multi-sources",
+        "description": "Connectez toutes les principales plateformes d'avis et analysez toute la voix de vos clients en un seul endroit."
+      },
+      {
+        "title": "Analyses intelligentes",
+        "description": "Suivez les tendances, les changements de sentiment et les mouvements de notation sur les plateformes au fil du temps."
+      },
+      {
+        "title": "Normalisation des données",
+        "description": "Toutes les notes et avis sont standardisés pour des comparaisons précises et des insights fiables."
+      },
+      {
+        "title": "Résumés et insights IA",
+        "description": "Transformez des milliers d'avis en résumés structurés, risques et opportunités."
+      },
+      {
+        "title": "Comparaison concurrentielle",
+        "description": "Voyez comment votre produit se comporte face aux concurrents directement à partir des retours clients."
+      },
+      {
+        "title": "Synchronisation automatique",
+        "description": "Les avis sont mis à jour quotidiennement et restent entièrement synchronisés sans travail manuel."
+      }
+    ]
+  },
+  "integration": {
+    "badge": "Intégration",
+    "title": "Intégrez en minutes, pas en jours",
+    "description": "Accédez à vos données d'avis via l'API ou intégrez nos widgets directement sur votre site web.",
+    "whatYouCanAccess": "Ce à quoi vous pouvez accéder",
+    "sdkTitle": "SDK npm officiel (proofio-sdk)",
+    "sdkDescription": "Le moyen le plus simple d'intégrer Proofio dans votre application.",
+    "introTitle": "Intégration simple. Fonctionne partout.",
+    "introDescription": "Utilisez Proofio via l'API ou le tableau de bord. Intégrez une fois et réutilisez dans tous vos produits, applications et outils internes.",
+    "swipeToExplore": "Faites glisser pour explorer",
+    "environments": [
+      {
+        "name": "Application Web Proofio",
+        "description": "Tableau de bord natif pour une analyse approfondie et la visualisation."
+      },
+      {
+        "name": "Applications Web",
+        "description": "Intégrez l'intelligence directement dans votre expérience utilisateur."
+      },
+      {
+        "name": "Outils Internes",
+        "description": "Donnez à votre équipe des données de retour structurées."
+      },
+      {
+        "name": "Tableaux de Bord BI",
+        "description": "Alimentez vos rapports avec des signaux d'avis en temps réel."
+      },
+      {
+        "name": "Pipelines de Données",
+        "description": "Synchronisez les données normalisées vers votre propre entrepôt."
+      },
+      {
+        "name": "Rapports Personnalisés",
+        "description": "Créez des rapports sur mesure pour les besoins de votre entreprise."
+      }
+    ],
+    "apiAccess": {
+      "title": "ACCÈS API",
+      "subtitle": "Conçu pour les développeurs et les équipes axées sur les données",
+      "showLess": "Afficher moins",
+      "viewDetails": "Voir les détails de l'API",
+      "description": "Utilisez le SDK Proofio ou l'API pour accéder aux avis, agrégations et intelligence directement dans vos propres applications et systèmes. Le SDK officiel simplifie l'intégration avec un support TypeScript complet.",
+      "fullControl": {
+        "title": "Contrôle total",
+        "description": "Authentifiez-vous en toute sécurité avec des clés API et contrôlez l'accès entre les projets et les équipes.",
+        "quote": "Utilisez Proofio comme une couche d'intelligence des avis dans les tableaux de bord, rapports, produits et outils internes."
+      },
+      "accessItems": [
+        "Avis et agrégations",
+        "Données de tendances",
+        "Répartitions par source",
+        "Insights de sentiment",
+        "Comparaisons concurrentielles"
+      ],
+      "exampleCode": "Exemple de code",
+      "copyToClipboard": "Copier dans le presse-papiers"
+    },
+    "reviewSources": {
+      "title": "Sources d'avis",
+      "subtitle": "Toutes les principales plateformes d'avis en un seul endroit",
+      "description": "Proofio agrège les avis de plusieurs plateformes et les unifie en une seule couche d'intelligence. Connectez les sources qui comptent pour votre entreprise et analysez les retours clients sans fragmentation."
+    }
+  },
+  "useCases": {
+    "title": "Conçu pour les équipes qui ont besoin de plus que des avis",
+    "description": "Découvrez comment Proofio aide différentes équipes à transformer les retours en actions.",
+    "readCaseStudy": "Lire l'étude de cas",
+    "caseStudy": {
+      "keySuccessMetric": "Métrique de Succès Clé",
+      "challengeSolution": "Le Défi & La Solution",
+      "keyResults": "Résultats Clés",
+      "privacyNote": "Pour protéger l'avantage concurrentiel et la vie privée de nos clients, les noms et détails sensibles ont été anonymisés."
+    },
+    "items": [
+      {
+        "id": "saas",
+        "title": "Applications et équipes SaaS",
+        "description": "Suivez la perception du produit, l'impact des versions et les signaux de fiabilité sur les app stores et plateformes d'avis. Transformez les retours clients en insights produits et croissance structurés."
+      },
+      {
+        "id": "ecommerce",
+        "title": "E-commerce et marques",
+        "description": "Comprenez comment les produits et marques se comportent sur les places de marché et plateformes d'avis. Identifiez les forces, faiblesses et écarts de confiance avec clarté."
+      },
+      {
+        "id": "product",
+        "title": "Équipes produit et expérience",
+        "description": "Utilisez l'intelligence des avis pour prioriser les fonctionnalités, réduire les frictions et améliorer la satisfaction client."
+      },
+      {
+        "id": "analytics",
+        "title": "Outils internes et analyses",
+        "description": "Alimentez les tableaux de bord, rapports et systèmes de décision avec l'intelligence des avis structurée via API. Obtenez l'intelligence des avis directement dans vos propres applications et systèmes."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "TARIFICATION",
+    "title": "Tarification simple et transparente",
+    "description": "Choisissez le plan qui correspond à vos besoins. Tous les plans incluent nos fonctionnalités principales.",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "save": "Économiser",
+    "cta": "Commencer",
+    "popular": "Le Plus Populaire",
+    "free": "Gratuit",
+    "includesTrial": "Inclut un essai Growth de 7 jours",
+    "perMonth": "/ mois",
+    "billedAnnually": "Facturé annuellement",
+    "savePercent": "Économisez {percent}%",
+    "allPricesNote": "Tous les prix sont facturés mensuellement. Des taxes peuvent s'appliquer.",
+    "viewDetailedPricing": "Voir la comparaison détaillée des prix",
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Solutions personnalisées pour les grandes organisations avec support dédié et garanties SLA.",
+      "cta": "Contacter les ventes"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Pour explorer Proofio",
+        "features": [
+          "1 projet",
+          "2 sources par projet",
+          "500 avis par mois",
+          "1 000 requêtes API",
+          "Widget de confiance Proofio-Verified",
+          "Rapports hebdomadaires",
+          "Support email de base"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "description": "Pour les équipes en croissance",
+        "features": [
+          "5 projets",
+          "20 sources par projet",
+          "10 000 avis par mois",
+          "50 000 requêtes API",
+          "Widget de confiance Proofio-Verified",
+          "Collaboration d'équipe",
+          "Insights avancés",
+          "Signaux d'avis automatisés",
+          "Rapports hebdomadaires",
+          "Sans publicité",
+          "Support email avancé"
+        ]
+      },
+      "scale": {
+        "name": "Scale",
+        "description": "Pour les entreprises en expansion",
+        "features": [
+          "Projets illimités",
+          "Sources illimitées",
+          "100 000 avis par mois",
+          "Requêtes API illimitées",
+          "Widget de confiance Proofio-Verified",
+          "Collaboration d'équipe",
+          "Insights avancés",
+          "Signaux d'avis automatisés",
+          "Rapports hebdomadaires",
+          "Sans publicité",
+          "Support prioritaire"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions fréquemment posées",
+    "description": "Tout ce que vous devez savoir sur Proofio.",
+    "items": [
+      {
+        "question": "Qu'est-ce que Proofio ?",
+        "answer": "Proofio est une plateforme d'intelligence des avis qui aide les équipes à comprendre les retours clients sur toutes les plateformes. Il transforme les avis en insights structurés, tendances et comparaisons concurrentielles pour de meilleures décisions commerciales."
+      },
+      {
+        "question": "Quelles sources d'avis sont supportées ?",
+        "answer": "Proofio supporte actuellement Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify et Amazon. Des sources supplémentaires sont continuellement ajoutées en fonction de la couverture des plateformes et de la demande des clients."
+      },
+      {
+        "question": "À quelle fréquence les données d'avis sont-elles mises à jour ?",
+        "answer": "Les données d'avis sont synchronisées quotidiennement pour toutes les sources actives. Les plans supérieurs peuvent bénéficier de mises à jour plus fréquentes selon la disponibilité des sources."
+      },
+      {
+        "question": "Proofio utilise-t-il l'IA ?",
+        "answer": "Oui. Proofio utilise l'IA pour générer des résumés, détecter les tendances, analyser le sentiment, comparer les concurrents et mettre en évidence les risques et opportunités à partir des retours clients."
+      },
+      {
+        "question": "Puis-je analyser les concurrents également ?",
+        "answer": "Oui. Vous pouvez ajouter des concurrents en utilisant des identifiants publics tels que les ID App Store ou les profils d'entreprise et comparer les performances, le sentiment et les sujets directement avec votre propre produit."
+      },
+      {
+        "question": "Y a-t-il une API disponible ?",
+        "answer": "Oui. Proofio fournit une API REST complète pour accéder aux avis, agrégats, tendances, insights et données concurrentielles pour une utilisation dans les tableaux de bord, rapports et systèmes internes."
+      },
+      {
+        "question": "Pour qui Proofio est-il conçu ?",
+        "answer": "Proofio est conçu pour les équipes produit, les entreprises SaaS, les marques e-commerce, les équipes de croissance et les décideurs qui s'appuient sur les retours clients pour améliorer les produits et la stratégie."
+      },
+      {
+        "question": "Mes données m'appartiennent-elles ?",
+        "answer": "Oui. Toutes les données d'avis collectées et traitées vous appartiennent. Proofio agit uniquement comme une couche de traitement et d'intelligence."
+      },
+      {
+        "question": "Proofio est-il conforme aux réglementations des plateformes et des données ?",
+        "answer": "Proofio ne traite que les données d'avis publiquement disponibles et suit des normes strictes de sécurité et de confidentialité pour garantir une gestion responsable et conforme des données."
+      },
+      {
+        "question": "Puis-je exporter mes données ?",
+        "answer": "Oui. Vous pouvez exporter les données d'avis, insights et rapports via l'API ou les formats d'export pris en charge selon votre plan."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Prêt à passer des avis aux insights ?",
+    "title": "Prêt à passer des avis aux insights ?",
+    "description": "Proofio aide les équipes à transformer les retours clients en tendances, comparaisons et décisions.",
+    "ctaPrimary": "Commencer aujourd'hui !",
+    "ctaSecondary": "Voir la démo"
+  },
+  "footer": {
+    "product": "Produit",
+    "company": "Entreprise",
+    "legal": "Légal",
+    "resources": "Ressources"
+  }
+}

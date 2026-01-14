@@ -1,0 +1,316 @@
+{
+  "nav": {
+    "features": "Funktionen",
+    "integration": "Integration",
+    "useCases": "Anwendungsfälle",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "login": "Login"
+
+  },
+  "hero": {
+    "badge": "Review Intelligence Platform",
+    "title": "Kundenfeedback,",
+    "titleHighlight": "klar nutzbar.",
+    "description": "Proofio sammelt, vereinheitlicht und analysiert Bewertungen aus allen relevanten Plattformen und verwandelt sie in klare Insights, Trends und Wettbewerbsvergleiche.",
+    "ctaPrimary": "Bewertungen analysieren",
+    "ctaSecondary": "Live-Demo ansehen"
+  },
+  "features": {
+    "title": "Alles, was Sie brauchen, um Bewertungen in echte Insights zu verwandeln",
+    "description": "Von der Datensammlung bis zur Analyse bietet Proofio die komplette Infrastruktur für Review Intelligence."
+  },
+  "integration": {
+    "badge": "Integration",
+    "title": "In Minuten integrieren, nicht in Tagen",
+    "description": "Greifen Sie auf Ihre Bewertungsdaten über die API zu oder integrieren Sie unsere Widgets direkt in Ihre Website.",
+    "whatYouCanAccess": "Was Sie zugreifen können",
+    "sdkTitle": "Offizielles npm SDK (proofio-sdk)",
+    "sdkDescription": "Der einfachste Weg, Proofio in Ihre Anwendung zu integrieren.",
+    "introTitle": "Einfache Integration. Funktioniert überall.",
+    "introDescription": "Nutzen Sie Proofio über API oder Dashboard. Einmal integrieren und über Produkte, Anwendungen und interne Tools hinweg wiederverwenden.",
+    "swipeToExplore": "Wischen zum Erkunden",
+    "environments": [
+      {
+        "name": "Proofio WebApp",
+        "description": "Natives Dashboard für tiefgreifende Analysen und Visualisierungen."
+      },
+      {
+        "name": "Web-Anwendungen",
+        "description": "Integrieren Sie Intelligence direkt in Ihre Benutzererfahrung."
+      },
+      {
+        "name": "Interne Tools",
+        "description": "Stärken Sie Ihr Team mit strukturierten Feedback-Daten."
+      },
+      {
+        "name": "BI-Dashboards",
+        "description": "Stärken Sie Ihre Reports mit Echtzeit-Review-Signalen."
+      },
+      {
+        "name": "Datenpipelines",
+        "description": "Synchronisieren Sie normalisierte Daten in Ihr eigenes Warehouse."
+      },
+      {
+        "name": "Individuelle Berichte",
+        "description": "Erstellen Sie maßgeschneiderte Berichte für Ihre Geschäftsanforderungen."
+      }
+    ],
+    "apiAccess": {
+      "title": "API-ZUGRIFF",
+      "subtitle": "Gebaut für Entwickler und datengetriebene Teams",
+      "showLess": "Weniger anzeigen",
+      "viewDetails": "API-Details anzeigen",
+      "description": "Nutzen Sie das Proofio SDK oder die API, um auf Bewertungen, Aggregationen und Intelligence direkt in Ihren eigenen Anwendungen und Systemen zuzugreifen. Das offizielle SDK macht die Integration einfach mit vollständiger TypeScript-Unterstützung.",
+      "fullControl": {
+        "title": "Vollständige Kontrolle",
+        "description": "Authentifizieren Sie sich sicher mit API-Schlüsseln und kontrollieren Sie den Zugriff über Projekte und Teams hinweg.",
+        "quote": "Nutzen Sie Proofio als Review-Intelligence-Schicht in Dashboards, Reports, Produkten und internen Tools."
+      },
+      "accessItems": [
+        "Bewertungen und Aggregationen",
+        "Trenddaten",
+        "Quellenaufschlüsselungen",
+        "Sentiment-Insights",
+        "Wettbewerbsvergleiche"
+      ],
+      "exampleCode": "Beispielcode",
+      "copyToClipboard": "In Zwischenablage kopieren"
+    },
+    "reviewSources": {
+      "title": "Bewertungsquellen",
+      "subtitle": "Alle wichtigen Bewertungsplattformen an einem Ort",
+      "description": "Proofio sammelt Bewertungen von mehreren Plattformen und vereint sie in einer einzigen Intelligence-Schicht. Verbinden Sie die Quellen, die für Ihr Geschäft wichtig sind, und analysieren Sie Kundenfeedback ohne Fragmentierung."
+    }
+  },
+  "useCases": {
+    "title": "Für Teams, die mehr als nur Bewertungen wollen",
+    "description": "Sehen Sie, wie Proofio verschiedenen Teams hilft, Feedback in Aktionen umzuwandeln."
+  },
+  "pricing": {
+    "title": "Einfache, transparente Preise",
+    "description": "Wählen Sie den Plan, der zu Ihren Bedürfnissen passt. Alle Pläne enthalten unsere Kernfunktionen."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Alles, was Sie über Proofio wissen müssen."
+  },
+  "cta": {
+    "badge": "Bereit, von Bewertungen zu Insights zu wechseln?",
+    "title": "Bereit, von Bewertungen zu Insights zu wechseln?",
+    "description": "Proofio hilft Teams dabei, Kundenfeedback in Trends, Vergleiche und Entscheidungen zu verwandeln.",
+    "ctaPrimary": "Jetzt starten!",
+    "ctaSecondary": "Live-Demo ansehen"
+  },
+  "features": {
+    "badge": "KERNWERT",
+    "title": "Review Intelligence auf einen Blick",
+    "description": "Proofio ist ein einheitliches Review-Intelligence-System, das Bewertungen in klare und umsetzbare Geschäftseinblicke für moderne Produkte und Teams verwandelt.",
+    "verified": {
+      "title": "Proofio Verified",
+      "description": "Zeigen Sie verifizierte Bewertungen mit unserem einbettbaren Vertrauens-Widget. Stärken Sie das Kundenvertrauen mit echten, verifizierten Feedbacks direkt auf Ihrer Website."
+    },
+    "items": [
+      {
+        "title": "Multi-Source-Abdeckung",
+        "description": "Verbinden Sie alle wichtigen Bewertungsplattformen und analysieren Sie die gesamte Kundenstimme an einem Ort."
+      },
+      {
+        "title": "Intelligente Analysen",
+        "description": "Verfolgen Sie Trends, Sentiment-Verschiebungen und Bewertungsbewegungen über Plattformen hinweg im Zeitverlauf."
+      },
+      {
+        "title": "Daten-Normalisierung",
+        "description": "Alle Bewertungen und Reviews sind standardisiert für genaue Vergleiche und zuverlässige Einblicke."
+      },
+      {
+        "title": "KI-Zusammenfassungen und Insights",
+        "description": "Verwandeln Sie Tausende von Bewertungen in strukturierte Zusammenfassungen, Risiken und Chancen."
+      },
+      {
+        "title": "Wettbewerbsvergleich",
+        "description": "Sehen Sie, wie Ihr Produkt im Vergleich zu Wettbewerbern direkt aus Kundenfeedback abschneidet."
+      },
+      {
+        "title": "Automatische Synchronisierung",
+        "description": "Bewertungen werden täglich aktualisiert und bleiben vollständig synchronisiert, ohne manuelle Arbeit."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Gebaut für Teams, die mehr als nur Bewertungen brauchen",
+    "description": "Sehen Sie, wie Proofio verschiedenen Teams hilft, Feedback in Aktionen umzuwandeln.",
+    "readCaseStudy": "Fallstudie lesen",
+    "caseStudy": {
+      "keySuccessMetric": "Wichtige Erfolgsmetrik",
+      "challengeSolution": "Die Herausforderung & Lösung",
+      "keyResults": "Wichtige Ergebnisse",
+      "privacyNote": "Um den Wettbewerbsvorteil und die Privatsphäre unserer Kunden zu schützen, wurden Namen und sensible Details anonymisiert."
+    },
+    "items": [
+      {
+        "id": "saas",
+        "title": "Apps und SaaS-Teams",
+        "description": "Verfolgen Sie Produktwahrnehmung, Release-Auswirkungen und Zuverlässigkeitssignale über App Stores und Bewertungsplattformen hinweg. Verwandeln Sie Kundenfeedback in strukturierte Produkt- und Wachstumsinsights."
+      },
+      {
+        "id": "ecommerce",
+        "title": "E-Commerce und Marken",
+        "description": "Verstehen Sie, wie Produkte und Marken auf Marktplätzen und Bewertungsplattformen abschneiden. Identifizieren Sie Stärken, Schwächen und Vertrauenslücken mit Klarheit."
+      },
+      {
+        "id": "product",
+        "title": "Produkt- und Experience-Teams",
+        "description": "Nutzen Sie Review-Intelligence, um Features zu priorisieren, Reibung zu reduzieren und Kundenzufriedenheit zu verbessern."
+      },
+      {
+        "id": "analytics",
+        "title": "Interne Tools und Analysen",
+        "description": "Stärken Sie Dashboards, Reports und Entscheidungssysteme mit strukturierter Review-Intelligence über die API. Erhalten Sie Review-Intelligence direkt in Ihren eigenen Anwendungen und Systemen."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "PREISE",
+    "title": "Einfache, transparente Preise",
+    "description": "Wählen Sie den Plan, der zu Ihren Bedürfnissen passt. Alle Pläne enthalten unsere Kernfunktionen.",
+    "monthly": "Monatlich",
+    "yearly": "Jährlich",
+    "save": "Sparen",
+    "cta": "Loslegen",
+    "popular": "Beliebtester",
+    "free": "Kostenlos",
+    "includesTrial": "Enthält 7-tägige Growth-Testversion",
+    "perMonth": "/ Monat",
+    "billedAnnually": "Jährlich abgerechnet",
+    "savePercent": "{percent}% sparen",
+    "allPricesNote": "Alle Preise werden monatlich abgerechnet. Steuern können anfallen.",
+    "viewDetailedPricing": "Detaillierten Preisvergleich anzeigen",
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Maßgeschneiderte Lösungen für große Organisationen mit dediziertem Support und SLA-Garantien.",
+      "cta": "Vertrieb kontaktieren"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Zum Erkunden von Proofio",
+        "features": [
+          "1 Projekt",
+          "2 Quellen pro Projekt",
+          "500 Bewertungen pro Monat",
+          "1.000 API-Anfragen",
+          "Proofio-Verified Trust Widget",
+          "Wöchentliche Berichte",
+          "Basis-E-Mail-Support"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "description": "Für wachsende Teams",
+        "features": [
+          "5 Projekte",
+          "20 Quellen pro Projekt",
+          "10.000 Bewertungen pro Monat",
+          "50.000 API-Anfragen",
+          "Proofio-Verified Trust Widget",
+          "Team-Zusammenarbeit",
+          "Erweiterte Insights",
+          "Automatisierte Review-Signale",
+          "Wöchentliche Berichte",
+          "Keine Werbung",
+          "Erweiterter E-Mail-Support"
+        ]
+      },
+      "scale": {
+        "name": "Scale",
+        "description": "Für wachsende Unternehmen",
+        "features": [
+          "Unbegrenzte Projekte",
+          "Unbegrenzte Quellen",
+          "100.000 Bewertungen pro Monat",
+          "Unbegrenzte API-Anfragen",
+          "Proofio-Verified Trust Widget",
+          "Team-Zusammenarbeit",
+          "Erweiterte Insights",
+          "Automatisierte Review-Signale",
+          "Wöchentliche Berichte",
+          "Keine Werbung",
+          "Prioritäts-Support"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Häufig gestellte Fragen",
+    "description": "Alles, was Sie über Proofio wissen müssen.",
+    "items": [
+      {
+        "question": "Was ist Proofio?",
+        "answer": "Proofio ist eine Review-Intelligence-Plattform, die Teams hilft, Kundenfeedback über Plattformen hinweg zu verstehen. Sie verwandelt Bewertungen in strukturierte Insights, Trends und Wettbewerbsvergleiche für bessere Geschäftsentscheidungen."
+      },
+      {
+        "question": "Welche Bewertungsquellen werden unterstützt?",
+        "answer": "Proofio unterstützt derzeit Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify und Amazon. Zusätzliche Quellen werden kontinuierlich basierend auf Plattformabdeckung und Kundennachfrage hinzugefügt."
+      },
+      {
+        "question": "Wie oft werden Bewertungsdaten aktualisiert?",
+        "answer": "Bewertungsdaten werden täglich für alle aktiven Quellen synchronisiert. Höhere Pläne können von häufigeren Updates profitieren, abhängig von der Verfügbarkeit der Quelle."
+      },
+      {
+        "question": "Verwendet Proofio KI?",
+        "answer": "Ja. Proofio verwendet KI, um Zusammenfassungen zu generieren, Trends zu erkennen, Sentiment zu analysieren, Wettbewerber zu vergleichen und Risiken und Chancen aus Kundenfeedback hervorzuheben."
+      },
+      {
+        "question": "Kann ich auch Wettbewerber analysieren?",
+        "answer": "Ja. Sie können Wettbewerber mit öffentlichen Identifikatoren wie App Store-IDs oder Geschäftsprofilen hinzufügen und Leistung, Sentiment und Themen direkt mit Ihrem eigenen Produkt vergleichen."
+      },
+      {
+        "question": "Gibt es eine API?",
+        "answer": "Ja. Proofio bietet eine vollständige REST-API, um auf Bewertungen, Aggregationen, Trends, Insights und Wettbewerbsdaten für die Verwendung in Dashboards, Reports und internen Systemen zuzugreifen."
+      },
+      {
+        "question": "Für wen ist Proofio gemacht?",
+        "answer": "Proofio ist für Produktteams, SaaS-Unternehmen, E-Commerce-Marken, Growth-Teams und Entscheidungsträger gemacht, die sich auf Kundenfeedback verlassen, um Produkte und Strategie zu verbessern."
+      },
+      {
+        "question": "Gehören mir meine Daten?",
+        "answer": "Ja. Alle gesammelten und verarbeiteten Bewertungsdaten gehören Ihnen. Proofio fungiert nur als Verarbeitungs- und Intelligence-Schicht."
+      },
+      {
+        "question": "Ist Proofio mit Plattform- und Datenschutzbestimmungen konform?",
+        "answer": "Proofio verarbeitet nur öffentlich verfügbare Bewertungsdaten und folgt strengen Sicherheits- und Datenschutzstandards, um verantwortungsvolle und konforme Datenverarbeitung sicherzustellen."
+      },
+      {
+        "question": "Kann ich meine Daten exportieren?",
+        "answer": "Ja. Sie können Bewertungsdaten, Insights und Berichte über die API oder unterstützte Exportformate je nach Ihrem Plan exportieren."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Proofio ermöglicht es Teams, Bewertungen von mehreren Plattformen in klare und umsetzbare Insights zu verwandeln und macht Kundenfeedback leichter verständlich und umsetzbar.",
+    "product": "Produkt",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "resources": "Ressourcen",
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "integrations": "Integrationen",
+    "documentation": "Dokumentation",
+    "blog": "Blog",
+    "support": "Support",
+    "status": "Status",
+    "changelog": "Changelog",
+    "about": "Über uns",
+    "careers": "Karriere",
+    "partners": "Partner",
+    "copyright": "© 2026 Proofio. Alle Rechte vorbehalten.",
+    "imprint": "Impressum",
+    "privacyPolicy": "Datenschutzerklärung",
+    "termsOfService": "Nutzungsbedingungen",
+    "cookiesSettings": "Cookie-Einstellungen",
+    "legalInquiries": "Rechtliche Anfragen"
+  }
+}

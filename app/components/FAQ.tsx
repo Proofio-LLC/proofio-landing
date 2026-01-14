@@ -57,7 +57,14 @@ const faqs = [
   }
 ];
 
-export default function FAQ() {
+interface FAQProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function FAQ({ locale, messages }: FAQProps) {
+  const t = messages?.faq || {};
+  const faqItems = t.items || faqs;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
@@ -125,11 +132,11 @@ export default function FAQ() {
   }, [activeIndex, isMobile]);
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % faqs.length);
+    setActiveIndex((prev) => (prev + 1) % faqItems.length);
   };
 
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + faqs.length) % faqs.length);
+    setActiveIndex((prev) => (prev - 1 + faqItems.length) % faqItems.length);
   };
 
   return (
@@ -146,17 +153,13 @@ export default function FAQ() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium uppercase tracking-wider">FAQ</span>
+              <span className="text-sm font-medium uppercase tracking-wider">{t.badge || "FAQ"}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-base-content leading-tight mb-4">
-              Commonly asked <br />questions
+              {t.title || "Frequently asked questions"}
             </h2>
             <p className="text-xl text-base-content/70">
-              Everything you need to know about Proofio and how it can help you manage your online reputation.<br />
-              Can&apos;t find what you&apos;re looking for? Visit our{" "}
-              <a href="/help" className="text-primary font-bold hover:underline">
-                Help Center
-              </a>.
+              {t.description || "Everything you need to know about Proofio."}
             </p>
           </div>
           <div className="flex gap-3">
@@ -196,8 +199,11 @@ export default function FAQ() {
             layout
             className="relative flex items-end gap-6 overflow-visible pb-4"
           >
-          {faqs.map((faq, index) => {
+          {faqItems.map((faq: any, index: number) => {
             const isActive = index === activeIndex;
+            // Use original faq for icon if available
+            const originalFaq = faqs.find(f => f.question === faq.question) || faqs[index];
+            const Icon = originalFaq?.icon || Activity;
 
             return (
               <motion.div
@@ -231,7 +237,7 @@ export default function FAQ() {
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         className="absolute -top-10 -right-10 text-white pointer-events-none z-0"
                       >
-                        <faq.icon size={300} strokeWidth={1} />
+                        <Icon size={300} strokeWidth={1} />
                       </motion.div>
                     )}
                   </AnimatePresence>

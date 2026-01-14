@@ -1,0 +1,311 @@
+{
+  "nav": {
+    "features": "Features",
+    "integration": "Integration",
+    "useCases": "Use Cases",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "login": "Login"
+  },
+  "hero": {
+    "badge": "Review Intelligence Platform",
+    "title": "Customer feedback,",
+    "titleHighlight": "made useful.",
+    "description": "Proofio collects, normalizes, and analyzes reviews from every platform and turns them into clear insights, trends, and competitive comparisons.",
+    "ctaPrimary": "Start analyzing reviews",
+    "ctaSecondary": "View live demo"
+  },
+  "features": {
+    "title": "Everything you need to turn reviews into insights",
+    "description": "From collection to analysis, Proofio provides the complete infrastructure for your review data."
+  },
+  "integration": {
+    "badge": "Integration",
+    "title": "Integrate in minutes, not days",
+    "description": "Access your review data via API or embed our widgets directly into your website.",
+    "whatYouCanAccess": "What you can access",
+    "sdkTitle": "Official npm SDK (proofio-sdk)",
+    "sdkDescription": "The easiest way to integrate Proofio into your application.",
+    "introTitle": "Simple integration. Works everywhere.",
+    "introDescription": "Use Proofio via API or dashboard. Integrate once and reuse across products, applications and internal tools.",
+    "swipeToExplore": "Swipe to explore",
+    "environments": [
+      {
+        "name": "Proofio WebApp",
+        "description": "Native dashboard for deep analysis and visualization."
+      },
+      {
+        "name": "Web Applications",
+        "description": "Integrate intelligence directly into your user experience."
+      },
+      {
+        "name": "Internal Tools",
+        "description": "Empower your team with structured feedback data."
+      },
+      {
+        "name": "BI Dashboards",
+        "description": "Power your reports with real-time review signals."
+      },
+      {
+        "name": "Data Pipelines",
+        "description": "Sync normalized data to your own warehouse."
+      },
+      {
+        "name": "Custom Reporting",
+        "description": "Build tailored reports for your business needs."
+      }
+    ],
+    "apiAccess": {
+      "title": "API ACCESS",
+      "subtitle": "Built for developers and data driven teams",
+      "showLess": "Show less",
+      "viewDetails": "View API details",
+      "description": "Use the Proofio SDK or API to access reviews, aggregates and intelligence directly inside your own applications and systems. The official SDK makes integration simple with full TypeScript support.",
+      "fullControl": {
+        "title": "Full control",
+        "description": "Authenticate securely with API keys and control access across projects and teams.",
+        "quote": "Use Proofio as a review intelligence layer inside dashboards, reports, products and internal tools."
+      },
+      "accessItems": [
+        "Reviews and aggregates",
+        "Trend data",
+        "Source breakdowns",
+        "Sentiment insights",
+        "Competitive comparisons"
+      ],
+      "exampleCode": "Example code",
+      "copyToClipboard": "Copy to clipboard"
+    },
+    "reviewSources": {
+      "title": "Review sources",
+      "subtitle": "All major review platforms in one place",
+      "description": "Proofio aggregates reviews from multiple platforms and unifies them into a single intelligence layer. Connect the sources that matter to your business and analyze customer feedback without fragmentation."
+    }
+  },
+  "useCases": {
+    "title": "Built for teams that need more than just reviews",
+    "description": "See how Proofio helps different teams turn feedback into action."
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "description": "Choose the plan that fits your needs. All plans include our core features."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Everything you need to know about Proofio."
+  },
+  "cta": {
+    "badge": "Ready to move from reviews to insights?",
+    "title": "Ready to move from reviews to insights?",
+    "description": "Proofio helps teams transform customer feedback into trends, comparisons and decisions.",
+    "ctaPrimary": "Start today!",
+    "ctaSecondary": "View live demo"
+  },
+  "features": {
+    "badge": "CORE VALUE",
+    "title": "Review intelligence at a glance",
+    "description": "Proofio is a unified review intelligence system that transforms reviews into clear and actionable business insights built for modern products and teams.",
+    "verified": {
+      "title": "Proofio Verified",
+      "description": "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."
+    },
+    "items": [
+      {
+        "title": "Multi source coverage",
+        "description": "Connect all major review platforms and analyze your entire customer voice in one place."
+      },
+      {
+        "title": "Smart analytics",
+        "description": "Track trends, sentiment shifts and rating movements across platforms over time."
+      },
+      {
+        "title": "Data normalization",
+        "description": "All ratings and reviews are standardized for accurate comparison and reliable insights."
+      },
+      {
+        "title": "AI summaries and insights",
+        "description": "Turn thousands of reviews into structured summaries, risks and opportunities."
+      },
+      {
+        "title": "Competitive comparison",
+        "description": "See how your product performs against competitors directly from customer feedback."
+      },
+      {
+        "title": "Automatic synchronization",
+        "description": "Reviews are updated daily and kept fully in sync with no manual work required."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Built for teams that need more than just reviews",
+    "description": "See how Proofio helps different teams turn feedback into action.",
+    "readCaseStudy": "Read case study",
+    "caseStudy": {
+      "keySuccessMetric": "Key Success Metric",
+      "challengeSolution": "The Challenge & Solution",
+      "keyResults": "Key Results",
+      "privacyNote": "To protect our customers' competitive advantage and privacy, names and sensitive details have been anonymized."
+    },
+    "items": [
+      {
+        "title": "Apps and SaaS teams",
+        "description": "Track product perception, release impact and reliability signals across app stores and review platforms. Turn customer feedback into structured product and growth insights."
+      },
+      {
+        "title": "Ecommerce and brands",
+        "description": "Understand how products and brands perform across marketplaces and review platforms. Identify strengths, weaknesses and trust gaps with clarity."
+      },
+      {
+        "title": "Product and experience teams",
+        "description": "Use review intelligence to prioritize features, reduce friction and improve customer satisfaction."
+      },
+      {
+        "title": "Internal tools and analytics",
+        "description": "Power dashboards, reports and decision systems with structured review intelligence via API. Get review intelligence directly inside your own applications and systems."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "PRICING",
+    "title": "Simple, transparent pricing",
+    "description": "Choose the plan that fits your needs. All plans include our core features.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save",
+    "cta": "Get Started",
+    "popular": "Most Popular",
+    "free": "Free",
+    "includesTrial": "Includes 7-day Growth Trial",
+    "perMonth": "/ month",
+    "billedAnnually": "Billed annually",
+    "savePercent": "Save {percent}%",
+    "allPricesNote": "All prices are billed monthly. Taxes may apply.",
+    "viewDetailedPricing": "View detailed pricing comparison",
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Custom solutions for large organizations with dedicated support and SLA guarantees.",
+      "cta": "Contact Sales"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "For exploring Proofio",
+        "features": [
+          "1 project",
+          "2 sources per project",
+          "500 reviews per month",
+          "1,000 API requests",
+          "Proofio-Verified Trust Widget",
+          "Weekly reports",
+          "Basic email support"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "description": "For growing teams",
+        "features": [
+          "5 projects",
+          "20 sources per project",
+          "10,000 reviews per month",
+          "50,000 API requests",
+          "Proofio-Verified Trust Widget",
+          "Team collaboration",
+          "Advanced insights",
+          "Automated review signals",
+          "Weekly reports",
+          "No ads",
+          "Advanced email support"
+        ]
+      },
+      "scale": {
+        "name": "Scale",
+        "description": "For scaling businesses",
+        "features": [
+          "Unlimited projects",
+          "Unlimited sources",
+          "100,000 reviews per month",
+          "Unlimited API requests",
+          "Proofio-Verified Trust Widget",
+          "Team collaboration",
+          "Advanced insights",
+          "Automated review signals",
+          "Weekly reports",
+          "No ads",
+          "Priority support"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently asked questions",
+    "description": "Everything you need to know about Proofio.",
+    "items": [
+      {
+        "question": "What is Proofio?",
+        "answer": "Proofio is a review intelligence platform that helps teams understand customer feedback across platforms. It transforms reviews into structured insights, trends, and competitive comparisons for better business decisions."
+      },
+      {
+        "question": "Which review sources are supported?",
+        "answer": "Proofio currently supports Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify and Amazon. Additional sources are continuously added based on platform coverage and customer demand."
+      },
+      {
+        "question": "How often is review data updated?",
+        "answer": "Review data is synchronized daily for all active sources. Higher plans may benefit from more frequent updates depending on source availability."
+      },
+      {
+        "question": "Does Proofio use AI?",
+        "answer": "Yes. Proofio uses AI to generate summaries, detect trends, analyze sentiment, compare competitors and highlight risks and opportunities from customer feedback."
+      },
+      {
+        "question": "Can I analyze competitors as well?",
+        "answer": "Yes. You can add competitors using public identifiers such as App Store IDs or business profiles and compare performance, sentiment and topics directly against your own product."
+      },
+      {
+        "question": "Is there an API available?",
+        "answer": "Yes. Proofio provides a full REST API to access reviews, aggregates, trends, insights and competitive data for use in dashboards, reports and internal systems."
+      },
+      {
+        "question": "Who is Proofio built for?",
+        "answer": "Proofio is built for product teams, SaaS companies, ecommerce brands, growth teams and decision makers who rely on customer feedback to improve products and strategy."
+      },
+      {
+        "question": "Do I own my data?",
+        "answer": "Yes. All collected and processed review data belongs to you. Proofio only acts as a processing and intelligence layer."
+      },
+      {
+        "question": "Is Proofio compliant with platform and data regulations?",
+        "answer": "Proofio only processes publicly available review data and follows strict security and privacy standards to ensure responsible and compliant data handling."
+      },
+      {
+        "question": "Can I export my data?",
+        "answer": "Yes. You can export review data, insights and reports via API or supported export formats depending on your plan."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Proofio empowers teams to transform reviews from multiple platforms into clear and actionable insights, making customer feedback easier to understand and act on.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "resources": "Resources",
+    "features": "Features",
+    "pricing": "Pricing",
+    "integrations": "Integrations",
+    "documentation": "Documentation",
+    "blog": "Blog",
+    "support": "Support",
+    "status": "Status",
+    "changelog": "Changelog",
+    "about": "About",
+    "careers": "Careers",
+    "partners": "Partners",
+    "copyright": "© 2026 Proofio. All rights reserved.",
+    "imprint": "Imprint",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiesSettings": "Cookies Settings",
+    "legalInquiries": "Legal Inquiries"
+  }
+}

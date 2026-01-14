@@ -117,7 +117,15 @@ const features = [
   },
 ];
 
-export default function Features() {
+interface FeaturesProps {
+  locale?: string;
+  messages?: any;
+}
+
+export default function Features({ locale, messages }: FeaturesProps) {
+  const t = messages?.features || {};
+  const featureItems = t.items || features;
+
   return (
     <section id="features" className="py-20 bg-base-100">
       <div className="container mx-auto px-4">
@@ -130,18 +138,18 @@ export default function Features() {
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">CORE VALUE</span>
+            <span className="text-sm font-medium">{t.badge || "CORE VALUE"}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Review intelligence at a glance
+          {t.title || "Review intelligence at a glance"}
           </h2>
           <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
-            Proofio is a unified review intelligence system that transforms reviews into clear and actionable business insights built for modern products and teams.
+            {t.description || "Proofio is a unified review intelligence system that transforms reviews into clear and actionable business insights built for modern products and teams."}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-          {features.map((feature, index) => {
+          {featureItems.map((feature: any, index: number) => {
             // All features span 2 columns in a 6-column grid (making it 3 columns on desktop)
             const colSpan = "lg:col-span-2";
             
@@ -158,11 +166,13 @@ export default function Features() {
                   className="bg-white rounded-[2rem] shadow-md p-6 h-full flex flex-col group aspect-square"
                 >
                   {/* Image - 16:9 ratio inside the card */}
-                  <FeatureImage 
-                    staticImage={feature.staticImage} 
-                    animatedImage={feature.animatedImage} 
-                    alt={feature.title} 
-                  />
+                  {features[index] && (
+                    <FeatureImage 
+                      staticImage={features[index].staticImage} 
+                      animatedImage={features[index].animatedImage} 
+                      alt={feature.title} 
+                    />
+                  )}
                   {/* Title */}
                   <h3 className="text-xl font-bold text-base-content mb-2">
                     {feature.title}
@@ -200,10 +210,10 @@ export default function Features() {
                   {/* Text Content */}
                   <div className="flex-1">
                     <h3 className="text-xl lg:text-2xl font-bold text-base-content mb-2">
-                      Proofio Verified
+                      {t.verified?.title || "Proofio Verified"}
                     </h3>
                     <p className="text-base-content/70 text-sm leading-relaxed">
-                      Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website.
+                      {t.verified?.description || "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."}
                     </p>
                   </div>
                 </div>

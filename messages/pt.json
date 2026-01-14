@@ -1,0 +1,281 @@
+{
+  "nav": {
+    "features": "Recursos",
+    "integration": "Integração",
+    "useCases": "Casos de uso",
+    "pricing": "Preços",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "login": "Entrar"
+  },
+  "hero": {
+    "badge": "Plataforma de Inteligência de Avaliações",
+    "title": "Feedback do cliente,",
+    "titleHighlight": "tornado útil.",
+    "description": "O Proofio coleta, normaliza e analisa avaliações de todas as plataformas e as transforma em insights claros, tendências e comparações competitivas.",
+    "ctaPrimary": "Começar a analisar avaliações",
+    "ctaSecondary": "Ver demonstração ao vivo"
+  },
+  "features": {
+    "badge": "VALOR CENTRAL",
+    "title": "Inteligência de avaliações de relance",
+    "description": "O Proofio é um sistema unificado de inteligência de avaliações que transforma avaliações em insights comerciais claros e acionáveis construídos para produtos e equipes modernos.",
+    "verified": {
+      "title": "Proofio Verificado",
+      "description": "Exiba avaliações verificadas com nosso widget de confiança integrado. Construa confiança do cliente com feedback real e verificado diretamente em seu site."
+    },
+    "items": [
+      {
+        "title": "Cobertura multi-fonte",
+        "description": "Conecte todas as principais plataformas de avaliações e analise toda a voz do seu cliente em um só lugar."
+      },
+      {
+        "title": "Análises inteligentes",
+        "description": "Acompanhe tendências, mudanças de sentimento e movimentos de classificação nas plataformas ao longo do tempo."
+      },
+      {
+        "title": "Normalização de dados",
+        "description": "Todas as classificações e avaliações são padronizadas para comparações precisas e insights confiáveis."
+      },
+      {
+        "title": "Resumos e insights de IA",
+        "description": "Transforme milhares de avaliações em resumos estruturados, riscos e oportunidades."
+      },
+      {
+        "title": "Comparação competitiva",
+        "description": "Veja como seu produto se desempenha contra concorrentes diretamente do feedback do cliente."
+      },
+      {
+        "title": "Sincronização automática",
+        "description": "As avaliações são atualizadas diariamente e mantidas totalmente sincronizadas sem trabalho manual."
+      }
+    ]
+  },
+  "integration": {
+    "badge": "Integração",
+    "title": "Integre em minutos, não em dias",
+    "description": "Acesse seus dados de avaliações via API ou integre nossos widgets diretamente em seu site.",
+    "whatYouCanAccess": "O que você pode acessar",
+    "sdkTitle": "SDK npm oficial (proofio-sdk)",
+    "sdkDescription": "A maneira mais fácil de integrar o Proofio em sua aplicação.",
+    "introTitle": "Integração simples. Funciona em qualquer lugar.",
+    "introDescription": "Use o Proofio via API ou painel. Integre uma vez e reutilize em produtos, aplicações e ferramentas internas.",
+    "swipeToExplore": "Deslize para explorar",
+    "environments": [
+      {
+        "name": "Aplicativo Web Proofio",
+        "description": "Painel nativo para análise profunda e visualização."
+      },
+      {
+        "name": "Aplicações Web",
+        "description": "Integre inteligência diretamente na sua experiência do usuário."
+      },
+      {
+        "name": "Ferramentas Internas",
+        "description": "Capacite sua equipe com dados de feedback estruturados."
+      },
+      {
+        "name": "Painéis BI",
+        "description": "Alimente seus relatórios com sinais de avaliações em tempo real."
+      },
+      {
+        "name": "Pipelines de Dados",
+        "description": "Sincronize dados normalizados para seu próprio armazém."
+      },
+      {
+        "name": "Relatórios Personalizados",
+        "description": "Crie relatórios sob medida para as necessidades do seu negócio."
+      }
+    ],
+    "apiAccess": {
+      "title": "ACESSO API",
+      "subtitle": "Construído para desenvolvedores e equipes orientadas a dados",
+      "showLess": "Mostrar menos",
+      "viewDetails": "Ver detalhes da API",
+      "description": "Use o SDK do Proofio ou a API para acessar avaliações, agregações e inteligência diretamente dentro de suas próprias aplicações e sistemas. O SDK oficial torna a integração simples com suporte completo ao TypeScript.",
+      "fullControl": {
+        "title": "Controle total",
+        "description": "Autentique-se com segurança usando chaves de API e controle o acesso entre projetos e equipes.",
+        "quote": "Use o Proofio como uma camada de inteligência de avaliações dentro de painéis, relatórios, produtos e ferramentas internas."
+      },
+      "accessItems": [
+        "Avaliações e agregações",
+        "Dados de tendências",
+        "Desagregações por fonte",
+        "Insights de sentimento",
+        "Comparações competitivas"
+      ],
+      "exampleCode": "Código de exemplo",
+      "copyToClipboard": "Copiar para área de transferência"
+    },
+    "reviewSources": {
+      "title": "Fontes de avaliações",
+      "subtitle": "Todas as principais plataformas de avaliações em um só lugar",
+      "description": "O Proofio agrega avaliações de múltiplas plataformas e as unifica em uma única camada de inteligência. Conecte as fontes que importam para seu negócio e analise o feedback do cliente sem fragmentação."
+    }
+  },
+  "useCases": {
+    "title": "Construído para equipes que precisam de mais do que apenas avaliações",
+    "description": "Veja como o Proofio ajuda diferentes equipes a transformar feedback em ação.",
+    "readCaseStudy": "Ler estudo de caso",
+    "caseStudy": {
+      "keySuccessMetric": "Métrica de Sucesso Chave",
+      "challengeSolution": "O Desafio e a Solução",
+      "keyResults": "Resultados Chave",
+      "privacyNote": "Para proteger a vantagem competitiva e a privacidade de nossos clientes, nomes e detalhes sensíveis foram anonimizados."
+    },
+    "items": [
+      {
+        "id": "saas",
+        "title": "Aplicativos e equipes SaaS",
+        "description": "Acompanhe a percepção do produto, o impacto das versões e sinais de confiabilidade nas lojas de aplicativos e plataformas de avaliações. Transforme o feedback do cliente em insights de produto e crescimento estruturados."
+      },
+      {
+        "id": "ecommerce",
+        "title": "E-commerce e marcas",
+        "description": "Entenda como produtos e marcas se desempenham em marketplaces e plataformas de avaliações. Identifique pontos fortes, fracos e lacunas de confiança com clareza."
+      },
+      {
+        "id": "product",
+        "title": "Equipes de produto e experiência",
+        "description": "Use inteligência de avaliações para priorizar recursos, reduzir atrito e melhorar a satisfação do cliente."
+      },
+      {
+        "id": "analytics",
+        "title": "Ferramentas internas e análises",
+        "description": "Alimente painéis, relatórios e sistemas de decisão com inteligência de avaliações estruturada via API. Obtenha inteligência de avaliações diretamente dentro de suas próprias aplicações e sistemas."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "PREÇOS",
+    "title": "Preços simples e transparentes",
+    "description": "Escolha o plano que se adapta às suas necessidades. Todos os planos incluem nossos recursos principais.",
+    "monthly": "Mensal",
+    "yearly": "Anual",
+    "save": "Economizar",
+    "cta": "Começar",
+    "popular": "Mais Popular",
+    "free": "Grátis",
+    "includesTrial": "Inclui teste Growth de 7 dias",
+    "perMonth": "/ mês",
+    "billedAnnually": "Cobrado anualmente",
+    "savePercent": "Economize {percent}%",
+    "allPricesNote": "Todos os preços são cobrados mensalmente. Impostos podem se aplicar.",
+    "viewDetailedPricing": "Ver comparação detalhada de preços",
+    "enterprise": {
+      "title": "Enterprise",
+      "description": "Soluções personalizadas para grandes organizações com suporte dedicado e garantias SLA.",
+      "cta": "Contatar vendas"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Para explorar o Proofio",
+        "features": [
+          "1 projeto",
+          "2 fontes por projeto",
+          "500 avaliações por mês",
+          "1.000 solicitações API",
+          "Widget de confiança Proofio-Verified",
+          "Relatórios semanais",
+          "Suporte por email básico"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "description": "Para equipes em crescimento",
+        "features": [
+          "5 projetos",
+          "20 fontes por projeto",
+          "10.000 avaliações por mês",
+          "50.000 solicitações API",
+          "Widget de confiança Proofio-Verified",
+          "Colaboração em equipe",
+          "Insights avançados",
+          "Sinais de avaliações automatizados",
+          "Relatórios semanais",
+          "Sem anúncios",
+          "Suporte por email avançado"
+        ]
+      },
+      "scale": {
+        "name": "Scale",
+        "description": "Para empresas em expansão",
+        "features": [
+          "Projetos ilimitados",
+          "Fontes ilimitadas",
+          "100.000 avaliações por mês",
+          "Solicitações API ilimitadas",
+          "Widget de confiança Proofio-Verified",
+          "Colaboração em equipe",
+          "Insights avançados",
+          "Sinais de avaliações automatizados",
+          "Relatórios semanais",
+          "Sem anúncios",
+          "Suporte prioritário"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Perguntas frequentes",
+    "description": "Tudo o que você precisa saber sobre o Proofio.",
+    "items": [
+      {
+        "question": "O que é Proofio?",
+        "answer": "Proofio é uma plataforma de inteligência de avaliações que ajuda equipes a entender o feedback do cliente em todas as plataformas. Transforma avaliações em insights estruturados, tendências e comparações competitivas para melhores decisões comerciais."
+      },
+      {
+        "question": "Quais fontes de avaliações são suportadas?",
+        "answer": "Proofio atualmente suporta Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify e Amazon. Fontes adicionais são continuamente adicionadas com base na cobertura da plataforma e demanda do cliente."
+      },
+      {
+        "question": "Com que frequência os dados de avaliações são atualizados?",
+        "answer": "Os dados de avaliações são sincronizados diariamente para todas as fontes ativas. Planos superiores podem se beneficiar de atualizações mais frequentes dependendo da disponibilidade da fonte."
+      },
+      {
+        "question": "O Proofio usa IA?",
+        "answer": "Sim. O Proofio usa IA para gerar resumos, detectar tendências, analisar sentimento, comparar concorrentes e destacar riscos e oportunidades do feedback do cliente."
+      },
+      {
+        "question": "Posso analisar concorrentes também?",
+        "answer": "Sim. Você pode adicionar concorrentes usando identificadores públicos como IDs da App Store ou perfis de negócios e comparar desempenho, sentimento e tópicos diretamente contra seu próprio produto."
+      },
+      {
+        "question": "Há uma API disponível?",
+        "answer": "Sim. O Proofio fornece uma API REST completa para acessar avaliações, agregados, tendências, insights e dados competitivos para uso em painéis, relatórios e sistemas internos."
+      },
+      {
+        "question": "Para quem o Proofio é construído?",
+        "answer": "O Proofio é construído para equipes de produto, empresas SaaS, marcas de e-commerce, equipes de crescimento e tomadores de decisão que dependem do feedback do cliente para melhorar produtos e estratégia."
+      },
+      {
+        "question": "Eu possuo meus dados?",
+        "answer": "Sim. Todos os dados de avaliações coletados e processados pertencem a você. O Proofio atua apenas como uma camada de processamento e inteligência."
+      },
+      {
+        "question": "O Proofio está em conformidade com regulamentações de plataformas e dados?",
+        "answer": "O Proofio processa apenas dados de avaliações publicamente disponíveis e segue padrões rigorosos de segurança e privacidade para garantir o manuseio responsável e conforme de dados."
+      },
+      {
+        "question": "Posso exportar meus dados?",
+        "answer": "Sim. Você pode exportar dados de avaliações, insights e relatórios via API ou formatos de exportação suportados dependendo do seu plano."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Pronto para passar de avaliações para insights?",
+    "title": "Pronto para passar de avaliações para insights?",
+    "description": "O Proofio ajuda equipes a transformar feedback do cliente em tendências, comparações e decisões.",
+    "ctaPrimary": "Começar hoje!",
+    "ctaSecondary": "Ver demonstração ao vivo"
+  },
+  "footer": {
+    "product": "Produto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "resources": "Recursos"
+  }
+}
