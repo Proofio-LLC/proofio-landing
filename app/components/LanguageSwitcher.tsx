@@ -5,7 +5,6 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Locale, locales, getLocalizedPath } from "@/lib/i18n";
 import Link from "next/link";
-import { GB, DE, FR, ES, PT } from "country-flag-icons/react/3x2";
 import { motion } from "framer-motion";
 
 const localeNames: Record<Locale, string> = {
@@ -16,12 +15,12 @@ const localeNames: Record<Locale, string> = {
   pt: "Português",
 };
 
-const localeFlags: Record<Locale, typeof GB> = {
-  en: GB,
-  de: DE,
-  fr: FR,
-  es: ES,
-  pt: PT,
+const localeFlags: Record<Locale, string> = {
+  en: "/flags/en.svg",
+  de: "/flags/de.svg",
+  fr: "/flags/fr.svg",
+  es: "/flags/es.svg",
+  pt: "/flags/pt.svg",
 };
 
 export default function LanguageSwitcher() {
@@ -49,7 +48,7 @@ export default function LanguageSwitcher() {
     };
   }, [isOpen]);
 
-  const CurrentFlag = localeFlags[validLocale];
+  const currentFlagPath = localeFlags[validLocale];
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -58,7 +57,11 @@ export default function LanguageSwitcher() {
         className="flex items-center gap-2 px-2 py-2 rounded-xl text-sm font-medium text-base-content/70 hover:text-primary hover:bg-base-200/50 transition-all"
         aria-label="Change language"
       >
-        <CurrentFlag className="w-5 h-4 rounded-md flex-shrink-0 overflow-hidden" />
+        <img 
+          src={currentFlagPath} 
+          alt="" 
+          className="w-5 h-4 rounded-sm flex-shrink-0 object-cover"
+        />
         <ChevronDown className={`w-4 h-4 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
@@ -73,7 +76,7 @@ export default function LanguageSwitcher() {
           {locales.map((locale) => {
             const localizedPath = getLocalizedPath(pathname || '/', locale);
             const isActive = locale === validLocale;
-            const Flag = localeFlags[locale];
+            const flagPath = localeFlags[locale];
 
             return (
               <Link
@@ -92,7 +95,11 @@ export default function LanguageSwitcher() {
                   setIsOpen(false);
                 }}
               >
-                <Flag className="w-5 h-4 rounded-md flex-shrink-0 overflow-hidden" />
+                <img 
+                  src={flagPath} 
+                  alt="" 
+                  className="w-5 h-4 rounded-sm flex-shrink-0 object-cover"
+                />
                 <span className="flex-1">{localeNames[locale]}</span>
                 {isActive && (
                   <span className="text-primary text-lg">✓</span>
