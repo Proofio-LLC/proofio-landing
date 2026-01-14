@@ -18,7 +18,7 @@ export function StructuredData() {
             "name": "Proofio",
             "url": "https://proofio.app",
             "logo": "https://proofio.app/logo.svg",
-            "description": "Review Intelligence Platform for automated review aggregation and analysis",
+            "description": "Review Intelligence Platform. Collect, update, and present reviews via API and platform-independent widgets.",
             "sameAs": [
               // Add social media links if available
             ],

@@ -26,7 +26,7 @@ const ogLocaleMap: Record<Locale, string> = {
 
 const metadataByLocale: Record<Locale, Omit<Metadata, 'alternates' | 'openGraph'>> = {
   en: {
-    title: "Proofio - Review Intelligence Platform | Automated Review Aggregation",
+    title: "Proofio - Review Intelligence Platform",
     description: "Proofio aggregates reviews from App Store, Google Play, Trustpilot, Google Reviews and more. Gain deep insights with AI-powered review intelligence, competitive analysis, and embeddable widgets.",
   },
   de: {

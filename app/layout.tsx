@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://proofio.app',
     siteName: 'Proofio',
-    title: "Proofio - Automated Review Aggregation for Your Business",
+    title: "Proofio - Review Intelligence Platform",
     description: "Automatically aggregate reviews from multiple platforms. Proofio collects, updates, and presents reviews via API and platform-independent widgets.",
     images: [
       {
