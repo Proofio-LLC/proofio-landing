@@ -13,7 +13,6 @@ import HreflangTags from "./components/HreflangTags";
 export const metadata: Metadata = {
   title: {
     default: "Proofio - Review Intelligence Platform",
-    template: "%s | Proofio"
   },
   description: "Automatically aggregate reviews from App Store, Google Play, Trustpilot, Google Reviews and more. AI-powered review intelligence, competitive analysis, and embeddable widgets. Enterprise-ready review management platform.",
   keywords: [

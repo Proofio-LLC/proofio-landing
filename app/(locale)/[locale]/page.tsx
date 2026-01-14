@@ -30,19 +30,19 @@ const metadataByLocale: Record<Locale, Omit<Metadata, 'alternates' | 'openGraph'
     description: "Proofio aggregates reviews from App Store, Google Play, Trustpilot, Google Reviews and more. Gain deep insights with AI-powered review intelligence, competitive analysis, and embeddable widgets.",
   },
   de: {
-    title: "Proofio - Review Intelligence Plattform | Automatisierte Bewertungsaggregation",
+    title: "Proofio - Review Intelligence Plattform",
     description: "Proofio sammelt Bewertungen von App Store, Google Play, Trustpilot, Google Reviews und mehr. Gewinnen Sie tiefe Einblicke mit KI-gestützter Review-Intelligence, Wettbewerbsanalyse und einbettbaren Widgets.",
   },
   fr: {
-    title: "Proofio - Plateforme d'Intelligence des Avis | Agrégation Automatique d'Avis",
+    title: "Proofio - Plateforme d'Intelligence des Avis",
     description: "Proofio agrège les avis de l'App Store, Google Play, Trustpilot, Google Reviews et plus encore. Obtenez des insights approfondis avec l'intelligence des avis alimentée par l'IA, l'analyse concurrentielle et les widgets intégrables.",
   },
   es: {
-    title: "Proofio - Plataforma de Inteligencia de Reseñas | Agregación Automatizada de Reseñas",
+    title: "Proofio - Plataforma de Inteligencia de Reseñas",
     description: "Proofio agrega reseñas de App Store, Google Play, Trustpilot, Google Reviews y más. Obtenga insights profundos con inteligencia de reseñas impulsada por IA, análisis competitivo y widgets integrables.",
   },
   pt: {
-    title: "Proofio - Plataforma de Inteligência de Avaliações | Agregação Automatizada de Avaliações",
+    title: "Proofio - Plataforma de Inteligência de Avaliações",
     description: "O Proofio agrega avaliações da App Store, Google Play, Trustpilot, Google Reviews e mais. Obtenha insights profundos com inteligência de avaliações alimentada por IA, análise competitiva e widgets integrados.",
   },
 };
