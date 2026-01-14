@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText } from "lucide-react";
+import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText, Copy, Check } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
@@ -10,6 +10,7 @@ import IntegrationWidget from "./IntegrationWidget";
 export default function Integration() {
   const [isApiExpanded, setIsApiExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [npmCopied, setNpmCopied] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
 
@@ -166,7 +167,7 @@ export default function Integration() {
                     {/* Left Side: Content */}
                     <div className="space-y-10">
                       <p className="text-xl text-base-content/80 leading-relaxed">
-                        Use the Proofio API to access reviews, aggregates and intelligence directly inside your own applications and systems.
+                        Use the Proofio SDK or API to access reviews, aggregates and intelligence directly inside your own applications and systems. The official SDK makes integration simple with full TypeScript support.
                       </p>
 
                       <div className="grid sm:grid-cols-2 gap-10">
@@ -177,6 +178,7 @@ export default function Integration() {
                           </h4>
                           <ul className="space-y-3">
                             {[
+                              "Official npm SDK (proofio-sdk)",
                               "Reviews and aggregates",
                               "Trend data",
                               "Source breakdowns",
@@ -213,41 +215,66 @@ export default function Integration() {
                     {/* Right Side: Code Example */}
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
-                        <p className="text-xs font-bold text-base-content/40 uppercase tracking-[0.2em]">Example request</p>
+                        <p className="text-xs font-bold text-base-content/40 uppercase tracking-[0.2em]">Example code</p>
                         <div className="flex gap-1.5">
                           <div className="w-2.5 h-2.5 rounded-full bg-red-400/20" />
                           <div className="w-2.5 h-2.5 rounded-full bg-amber-400/20" />
                           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/20" />
                         </div>
                       </div>
+                      
+                      {/* npm install command */}
+                      <div className="bg-[#0f172a] rounded-2xl p-4 shadow-xl relative group overflow-hidden">
+                        <button
+                          onClick={async () => {
+                            await navigator.clipboard.writeText('npm install proofio-sdk');
+                            setNpmCopied(true);
+                            setTimeout(() => setNpmCopied(false), 2000);
+                          }}
+                          className="absolute top-3 right-3 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors text-slate-400 hover:text-white"
+                          title="Copy to clipboard"
+                        >
+                          {npmCopied ? (
+                            <Check className="w-4 h-4" />
+                          ) : (
+                            <Copy className="w-4 h-4" />
+                          )}
+                        </button>
+                        <div className="overflow-x-auto no-scrollbar pr-12">
+                          <pre className="text-sm">
+                            <code className="text-emerald-400 font-mono leading-relaxed whitespace-pre">
+{`npm install proofio-sdk`}
+                            </code>
+                          </pre>
+                        </div>
+                      </div>
+
+                      {/* TypeScript code */}
                       <div className="bg-[#0f172a] rounded-[2rem] p-6 md:p-8 shadow-2xl relative group overflow-hidden">
-                        <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">JSON</div>
+                        <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">TypeScript</div>
                         <div className="overflow-x-auto no-scrollbar">
                           <pre className="text-sm">
                             <code className="text-blue-300 font-mono leading-relaxed whitespace-pre">
-{`GET /api/v1/public/aggregations
+{`import { Proofio } from 'proofio-sdk';
 
-{
-  "totalReviews": 1234,
-  "averageRating": 4.8,
-  "ratingDistribution": {
-    "1": 12, "2": 24, "3": 84, "4": 240, "5": 874
-  },
-  "sources": [
-    {
-      "name": "Google Play",
-      "type": "GOOGLE_PLAY",
-      "total": 456,
-      "averageRating": 4.9
-    },
-    {
-      "name": "App Store",
-      "type": "APP_STORE",
-      "total": 778,
-      "averageRating": 4.7
-    }
-  ]
-}`}
+const proofio = new Proofio({ 
+  apiKey: 'your-api-key' 
+});
+
+// Get insights summary
+const summary = await proofio.insights.summary();
+
+console.log(\`Total Reviews: \${summary.totalReviews}\`);
+console.log(\`Average Rating: \${summary.averageRating}\`);
+
+// List reviews
+const reviews = await proofio.reviews.list({
+  limit: 50,
+  minRating: 4
+});
+
+// Get trends
+const trends = await proofio.insights.trends();`}
                             </code>
                           </pre>
                         </div>
