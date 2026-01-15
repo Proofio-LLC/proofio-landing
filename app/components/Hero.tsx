@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import BackgroundPaths from "./FloatingPaths";
+import InfiniteGrid from "./InfiniteGrid";
 
 interface HeroProps {
   locale?: string;
@@ -14,8 +14,8 @@ export default function Hero({ locale, messages }: HeroProps) {
 
   return (
     <section className="min-h-screen flex items-start justify-center bg-gradient-to-br from-base-100 via-base-100 to-base-200 relative overflow-hidden pt-32">
-      <BackgroundPaths />
-      <div className="container mx-auto px-4 pb-20 relative z-10">
+      <InfiniteGrid />
+      <div className="container mx-auto px-4 pb-20 relative z-20">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ export default function Hero({ locale, messages }: HeroProps) {
                 </div>
                 {/* Optional: Browser URL bar simulation */}
                 <div className="flex-1 mx-2 sm:mx-4 h-5 sm:h-6 bg-white dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 flex items-center px-2 sm:px-3">
-                  <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">proofio.app</span>
+                  <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">dash.proofio.app</span>
                 </div>
               </div>
               

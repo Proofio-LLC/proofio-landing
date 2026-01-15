@@ -117,7 +117,7 @@ export default function UseCases({ locale, messages }: UseCasesProps) {
               >
                 <div 
                   onClick={() => setSelectedCase(mergedCase)}
-                  className="relative h-full bg-base-200/50 hover:bg-base-200 transition-all duration-500 rounded-[2.5rem] p-10 border border-base-300/50 hover:border-primary/20 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/5 cursor-pointer"
+                  className="relative h-full bg-base-200/50 hover:bg-base-200 transition-all duration-500 rounded-[2.5rem] p-10 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 cursor-pointer"
                 >
                   {/* Background Glow */}
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500" />

@@ -22,6 +22,7 @@ const ogLocaleMap: Record<Locale, string> = {
   fr: 'fr_FR',
   es: 'es_ES',
   pt: 'pt_PT',
+  it: 'it_IT',
 };
 
 const metadataByLocale: Record<Locale, Omit<Metadata, 'alternates' | 'openGraph'>> = {
@@ -44,6 +45,10 @@ const metadataByLocale: Record<Locale, Omit<Metadata, 'alternates' | 'openGraph'
   pt: {
     title: "Proofio - Plataforma de Inteligência de Avaliações",
     description: "O Proofio agrega avaliações da App Store, Google Play, Trustpilot, Google Reviews e mais. Obtenha insights profundos com inteligência de avaliações alimentada por IA, análise competitiva e widgets integrados.",
+  },
+  it: {
+    title: "Proofio - Piattaforma di Intelligence delle Recensioni",
+    description: "Proofio aggrega recensioni da App Store, Google Play, Trustpilot, Google Reviews e altro ancora. Ottieni approfondimenti con intelligence delle recensioni alimentata dall'IA, analisi competitiva e widget integrabili.",
   },
 };
 

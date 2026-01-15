@@ -13,6 +13,7 @@ const localeNames: Record<Locale, string> = {
   fr: "Français",
   es: "Español",
   pt: "Português",
+  it: "Italiano",
 };
 
 const localeFlags: Record<Locale, string> = {
@@ -21,6 +22,7 @@ const localeFlags: Record<Locale, string> = {
   fr: "/flags/fr.svg",
   es: "/flags/es.svg",
   pt: "/flags/pt.svg",
+  it: "/flags/it.svg",
 };
 
 export default function LanguageSwitcher() {

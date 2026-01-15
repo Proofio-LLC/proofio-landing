@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const locales = ['en', 'de', 'fr', 'es', 'pt'];
+const locales = ['en', 'de', 'fr', 'es', 'pt', 'it'];
 const defaultLocale = 'en';
 
 // Paths that should not be localized (API routes, static files, etc.)
