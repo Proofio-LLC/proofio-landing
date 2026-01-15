@@ -93,10 +93,10 @@ export default function ChangelogPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex bg-base-200/50 backdrop-blur-md p-1.5 rounded-[2rem] border border-base-300 shadow-inner"
+              className="flex bg-base-200/50 backdrop-blur-md p-1 md:p-1.5 rounded-[1.5rem] md:rounded-[2rem] border border-base-300 shadow-inner w-full md:w-auto"
             >
-              <Link href="/status" className="px-8 py-3 text-base-content/40 font-bold hover:text-primary transition-all duration-300">Status</Link>
-              <Link href="/changelog" className="px-8 py-3 bg-white text-primary font-bold rounded-2xl shadow-lg shadow-primary/5 border border-primary/5">Changelog</Link>
+              <Link href="/status" className="flex-1 md:flex-none px-4 py-2 md:px-8 md:py-3 text-base-content/40 text-sm md:text-base font-bold hover:text-primary transition-all duration-300 text-center">Status</Link>
+              <Link href="/changelog" className="flex-1 md:flex-none px-4 py-2 md:px-8 md:py-3 bg-white text-primary text-sm md:text-base font-bold rounded-xl md:rounded-2xl shadow-lg shadow-primary/5 border border-primary/5 text-center">Changelog</Link>
             </motion.div>
           </div>
 
