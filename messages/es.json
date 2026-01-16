@@ -166,7 +166,7 @@
     "viewDetailedPricing": "Ver comparación detallada de precios",
     "enterprise": {
       "title": "Enterprise",
-      "description": "Soluciones personalizadas para grandes organizaciones con soporte dedicado y garantías SLA.",
+      "description": "Planes personalizados para equipos de alta volumen y empresas con soporte dedicado y garantías SLA.",
       "cta": "Contactar ventas"
     },
     "plans": {
@@ -176,8 +176,8 @@
         "features": [
           "1 proyecto",
           "2 fuentes por proyecto",
-          "500 reseñas por mes",
-          "1,000 solicitudes API",
+          "100 reseñas por mes",
+          "300 solicitudes API",
           "Widget de confianza Proofio-Verified",
           "Informes semanales",
           "Soporte por email básico"
@@ -188,9 +188,9 @@
         "description": "Para equipos en crecimiento",
         "features": [
           "5 proyectos",
-          "20 fuentes por proyecto",
-          "10,000 reseñas por mes",
-          "50,000 solicitudes API",
+          "5 fuentes por proyecto",
+          "5,000 reseñas por mes",
+          "10,000 solicitudes API",
           "Widget de confianza Proofio-Verified",
           "Colaboración en equipo",
           "Insights avanzados",
@@ -204,10 +204,10 @@
         "name": "Scale",
         "description": "Para empresas en expansión",
         "features": [
-          "Proyectos ilimitados",
-          "Fuentes ilimitadas",
-          "100,000 reseñas por mes",
-          "Solicitudes API ilimitadas",
+          "15 proyectos",
+          "15 fuentes",
+          "25,000 reseñas por mes",
+          "50,000 solicitudes API",
           "Widget de confianza Proofio-Verified",
           "Colaboración en equipo",
           "Insights avanzados",

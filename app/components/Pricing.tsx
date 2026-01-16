@@ -14,8 +14,8 @@ const plans = [
     features: [
       "1 project",
       "2 sources per project",
-      "500 reviews per month",
-      "1,000 API requests",
+      "100 reviews per month",
+      "300 API requests",
       "Proofio-Verified Trust Widget",
       "Weekly reports",
       "Basic email support",
@@ -27,15 +27,15 @@ const plans = [
   {
     id: "growth",
     name: "Growth",
-    monthlyPrice: 29,
-    yearlyPrice: 24,
-    yearlySavings: 17,
+    monthlyPrice: 39,
+    yearlyPrice: 33,
+    yearlySavings: 15,
     description: "For growing teams",
     features: [
       "5 projects",
-      "20 sources per project",
-      "10,000 reviews per month",
-      "50,000 API requests",
+      "5 sources per project",
+      "5,000 reviews per month",
+      "10,000 API requests",
       "Proofio-Verified Trust Widget",
       "Team collaboration",
       "Advanced insights",
@@ -50,15 +50,15 @@ const plans = [
   {
     id: "scale",
     name: "Scale",
-    monthlyPrice: 99,
-    yearlyPrice: 79,
-    yearlySavings: 20,
-    description: "For scaling businesses",
+    monthlyPrice: 199,
+    yearlyPrice: 165,
+    yearlySavings: 16,
+    description: "For data-driven businesses",
     features: [
-      "Unlimited projects",
-      "Unlimited sources",
-      "100,000 reviews per month",
-      "Unlimited API requests",
+      "15 projects",
+      "15 sources",
+      "25,000 reviews per month",
+      "50,000 API requests",
       "Proofio-Verified Trust Widget",
       "Team collaboration",
       "Advanced insights",
@@ -266,27 +266,64 @@ export default function Pricing({ locale, messages }: PricingProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="max-w-2xl mx-auto mt-12"
+          className="max-w-4xl mx-auto mt-12"
         >
-          <div className="bg-base-100 rounded-[2rem] shadow-lg border border-base-300 p-6 text-center">
+          <div className="relative bg-base-100 rounded-[2rem] shadow-lg border border-base-300 p-8 text-center overflow-hidden">
+            {/* Background Icon (Favicon) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: -15 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="absolute -bottom-16 -right-16 pointer-events-none z-0"
+            >
+              <img 
+                src="/favicon.png" 
+                alt="" 
+                className="w-[300px] h-[300px] object-contain"
+                style={{ 
+                  opacity: 0.15,
+                  filter: 'brightness(0) saturate(100%) invert(33%) sepia(93%) saturate(1415%) hue-rotate(126deg) brightness(100%) contrast(101%)'
+                }}
+              />
+            </motion.div>
+            <div className="relative z-10">
             <h3 className="text-xl font-semibold text-base-content mb-2">
               {t.enterprise?.title || "Enterprise"}
             </h3>
-            <p className="text-base-content/70 text-sm mb-4">
-              {t.enterprise?.description || "Custom solutions for large organizations with dedicated support and SLA guarantees."}
+            <p className="text-base-content/70 text-sm mb-6">
+              {t.enterprise?.description || "Custom plans for high-volume and enterprise teams with dedicated support and SLA guarantees."}
             </p>
+            
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-8 text-sm">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                <span>Unlimited projects & sources</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                <span>Custom limits & pricing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                <span>Dedicated support & SLA</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                <span>API access & custom integrations</span>
+              </div>
+            </div>
+
             <a
               href="mailto:sales@proofio.app"
               className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-medium text-sm"
             >
               {t.enterprise?.cta || "Contact Sales"}
             </a>
+            </div>
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
-
-
-
