@@ -282,8 +282,8 @@ export default function Pricing({ locale, messages }: PricingProps) {
                 alt="" 
                 className="w-[300px] h-[300px] object-contain"
                 style={{ 
-                  opacity: 0.15,
-                  filter: 'brightness(0) saturate(100%) invert(33%) sepia(93%) saturate(1415%) hue-rotate(126deg) brightness(100%) contrast(101%)'
+                  opacity: 0.1,
+                  
                 }}
               />
             </motion.div>
