@@ -46,6 +46,10 @@ const plans = [
     ],
     cta: "Get Started",
     popular: true,
+    overage: {
+      apiCalls: { price: 5, unit: 1000 },
+      reviews: { price: 5, unit: 1000 },
+    },
   },
   {
     id: "scale",
@@ -69,6 +73,10 @@ const plans = [
     ],
     cta: "Get Started",
     popular: false,
+    overage: {
+      apiCalls: { price: 10, unit: 5000 },
+      reviews: { price: 10, unit: 5000 },
+    },
   },
 ];
 
@@ -228,6 +236,11 @@ export default function Pricing({ locale, messages }: PricingProps) {
                   >
                     {t.cta || plan.cta}
                   </a>
+                  {plan.overage && (
+                    <p className={`text-[10px] text-center mt-3 ${plan.popular ? "text-white/60" : "text-base-content/50"}`}>
+                      Overage: +${plan.overage.apiCalls.price}/{plan.overage.apiCalls.unit.toLocaleString()} API Calls, +${plan.overage.reviews.price}/{plan.overage.reviews.unit.toLocaleString()} Reviews
+                    </p>
+                  )}
                 </div>
               </div>
             </motion.div>

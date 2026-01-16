@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
-import { Sparkles, Check, X, Infinity, Zap, Info, Shield, BarChart3, Database, Globe, Smartphone, Users, Code, Mail, ArrowRight } from "lucide-react";
+import { Sparkles, Check, X, Infinity, Zap, Shield, BarChart3, Database, Globe, Smartphone, Users, Code, Mail, ArrowRight, Rocket, TrendingUp, Layers } from "lucide-react";
 import Link from "next/link";
 
 const plans = [
@@ -14,17 +14,28 @@ const plans = [
     popular: false,
     isFree: true,
     trial: "Includes 7 days of Growth for free",
+    icon: Rocket,
   },
   {
     name: "Growth",
     monthlyPrice: 39,
     popular: true,
     trial: "7-day free trial (no card required)",
+    overage: {
+      apiCalls: { price: 5, unit: 1000 },
+      reviews: { price: 5, unit: 1000 },
+    },
+    icon: TrendingUp,
   },
   {
     name: "Scale",
     monthlyPrice: 199,
     popular: false,
+    overage: {
+      apiCalls: { price: 10, unit: 5000 },
+      reviews: { price: 10, unit: 5000 },
+    },
+    icon: Layers,
   },
 ];
 
@@ -512,13 +523,28 @@ export default function PricingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className={`card rounded-[2.5rem] shadow-2xl border-2 ${
+                className={`card rounded-[2.5rem] shadow-2xl border-2 relative overflow-hidden ${
                   plan.popular
                     ? "bg-primary text-white border-primary"
                     : "bg-white text-base-content border-base-200"
                 }`}
               >
-                <div className="card-body p-8 md:p-10">
+                {/* Background Icon */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                  animate={{ opacity: 1, scale: 1, rotate: -15 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.5 + index * 0.1 }}
+                  className="absolute -bottom-12 -right-12 pointer-events-none z-0"
+                >
+                  <plan.icon 
+                    className={`w-64 h-64 ${
+                      plan.popular 
+                        ? "text-white/10" 
+                        : "text-primary/10"
+                    }`}
+                  />
+                </motion.div>
+                <div className="card-body p-8 md:p-10 relative z-10">
                   {plan.popular && (
                     <div className="badge bg-white text-primary border-none font-bold py-3 mb-4">Most Popular</div>
                   )}
@@ -566,6 +592,11 @@ export default function PricingPage() {
                   >
                     Get Started
                   </Link>
+                  {plan.overage && (
+                    <p className={`text-[10px] text-center mt-3 ${plan.popular ? "text-white/60" : "text-base-content/50"}`}>
+                      Overage: +${plan.overage.apiCalls.price}/{plan.overage.apiCalls.unit.toLocaleString()} API Calls, +${plan.overage.reviews.price}/{plan.overage.reviews.unit.toLocaleString()} Reviews
+                    </p>
+                  )}
                 </div>
               </motion.div>
             ))}
