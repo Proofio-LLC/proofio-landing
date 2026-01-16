@@ -53,7 +53,7 @@ export default function HelpContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-base-content/70 mb-12 max-w-2xl mx-auto"
             >
-              Whether it&apos;s a technical issue, a billing question, or feedback – our team is here for you.
+              Whether it&apos;s a technical issue, a billing question, or feedback - our team is here for you.
             </motion.p>
           </div>
         </div>

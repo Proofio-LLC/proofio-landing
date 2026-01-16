@@ -97,7 +97,7 @@ export default function PartnersPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Customer-friendly</h3>
                 <p className="text-base-content/60 leading-relaxed">
-                  Your customers receive 10% discount on their first payment. A win-win situation for everyone – you earn, your customers save.
+                  Your customers receive 10% discount on their first payment. A win-win situation for everyone - you earn, your customers save.
                 </p>
               </div>
             </div>
