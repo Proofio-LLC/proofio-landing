@@ -17,13 +17,13 @@ const plans = [
   },
   {
     name: "Growth",
-    monthlyPrice: 29,
+    monthlyPrice: 39,
     popular: true,
     trial: "7-day free trial (no card required)",
   },
   {
     name: "Scale",
-    monthlyPrice: 99,
+    monthlyPrice: 199,
     popular: false,
   },
 ];
@@ -45,28 +45,28 @@ const features: FeatureRow[] = [
     feature: "Projects",
     starter: "1",
     growth: "5",
-    scale: "Unlimited",
+    scale: "15",
   },
   {
     category: "Limits",
     feature: "Sources per project",
     starter: "2",
-    growth: "20",
-    scale: "Unlimited",
+    growth: "5",
+    scale: "15",
   },
   {
     category: "Limits",
     feature: "Reviews per month",
-    starter: "500",
-    growth: "10,000",
+    starter: "100",
+    growth: "5,000",
     scale: "100,000",
   },
   {
     category: "Limits",
     feature: "API requests per month",
-    starter: "1,000",
-    growth: "50,000",
-    scale: "100,000",
+    starter: "300",
+    growth: "10,000",
+    scale: "50,000",
   },
 
   // Dashboard and analytics
