@@ -252,7 +252,7 @@
       },
       {
         "question": "Quali fonti di recensioni sono supportate?",
-        "answer": "Proofio supporta attualmente Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify e Amazon. Fonti aggiuntive vengono continuamente aggiunte in base alla copertura della piattaforma e alla domanda dei clienti."
+        "answer": "Proofio supporta fonti Standard (Apple App Store, Google Play Store, Trustpilot, Importazione CSV) per tutti i piani. Fonti Avanzate (Google Reviews, Yelp, G2, Facebook, Amazon) sono disponibili per i piani Growth e Scale. Amazon richiede importazione manuale e non è automatizzato."
       },
       {
         "question": "Quanto spesso vengono aggiornati i dati delle recensioni?",
@@ -285,6 +285,14 @@
       {
         "question": "Posso esportare i miei dati?",
         "answer": "Sì. Puoi esportare dati di recensioni, insight e report tramite API o formati di esportazione supportati a seconda del tuo piano."
+      },
+      {
+        "question": "Cosa succede se supero i limiti del mio piano?",
+        "answer": "Piano Growth: Si applicano addebiti aggiuntivi per eccedenze (+$5 per 1.000 chiamate API o 1.000 recensioni). Piano Scale: Si applicano addebiti aggiuntivi per eccedenze (+$10 per 5.000 chiamate API o 5.000 recensioni). Sarai notificato prima che gli addebiti si applichino."
+      },
+      {
+        "question": "Cosa è incluso nel piano Starter gratuito?",
+        "answer": "Il piano Starter include 1 progetto, 2 fonti per progetto, 100 recensioni al mese, 300 richieste API, fonti Standard (App Store, Google Play, Trustpilot, CSV) e supporto email di base. Include anche una prova Growth di 7 giorni."
       }
     ]
   },

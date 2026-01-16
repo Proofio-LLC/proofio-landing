@@ -188,41 +188,80 @@ const features: FeatureRow[] = [
     isAi: true,
   },
 
-  // Supported sources
+  // Standard sources
   {
-    category: "Supported sources",
+    category: "Standard sources",
     feature: "Apple App Store",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Supported sources",
+    category: "Standard sources",
     feature: "Google Play Store",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Supported sources",
+    category: "Standard sources",
     feature: "Trustpilot",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    category: "Supported sources",
-    feature: "Google Reviews",
+    category: "Standard sources",
+    feature: "CSV Import",
     starter: true,
     growth: true,
     scale: true,
+    description: "Import your own review data via CSV",
   },
   {
-    category: "Supported sources",
+    category: "Standard sources",
     feature: "Automatic daily synchronization",
     starter: true,
     growth: true,
     scale: true,
+  },
+
+  // Advanced sources
+  {
+    category: "Advanced sources",
+    feature: "Google Reviews",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Advanced sources",
+    feature: "Yelp",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Advanced sources",
+    feature: "G2",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Advanced sources",
+    feature: "Facebook",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Advanced sources",
+    feature: "Amazon",
+    starter: false,
+    growth: true,
+    scale: true,
+    description: "Not automated (manual import)",
   },
 
   // Notifications and reports

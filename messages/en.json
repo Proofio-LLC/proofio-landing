@@ -252,7 +252,7 @@
       },
       {
         "question": "Which review sources are supported?",
-        "answer": "Proofio currently supports Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify and Amazon. Additional sources are continuously added based on platform coverage and customer demand."
+        "answer": "Proofio supports Standard sources (Apple App Store, Google Play Store, Trustpilot, CSV Import) for all plans. Advanced sources (Google Reviews, Yelp, G2, Facebook, Amazon) are available for Growth and Scale plans. Amazon requires manual import and is not automated."
       },
       {
         "question": "How often is review data updated?",
@@ -285,6 +285,14 @@
       {
         "question": "Can I export my data?",
         "answer": "Yes. You can export review data, insights and reports via API or supported export formats depending on your plan."
+      },
+      {
+        "question": "What happens if I exceed my plan limits?",
+        "answer": "Growth plan: Additional charges apply for overages (+$5 per 1,000 API calls or 1,000 reviews). Scale plan: Additional charges apply for overages (+$10 per 5,000 API calls or 5,000 reviews). You'll be notified before charges apply."
+      },
+      {
+        "question": "What's included in the free Starter plan?",
+        "answer": "The Starter plan includes 1 project, 2 sources per project, 100 reviews per month, 300 API requests, Standard sources (App Store, Google Play, Trustpilot, CSV), and basic email support. It also includes a 7-day Growth trial."
       }
     ]
   },

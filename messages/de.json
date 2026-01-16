@@ -254,7 +254,7 @@
       },
       {
         "question": "Welche Bewertungsquellen werden unterstützt?",
-        "answer": "Proofio unterstützt derzeit Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify und Amazon. Zusätzliche Quellen werden kontinuierlich basierend auf Plattformabdeckung und Kundennachfrage hinzugefügt."
+        "answer": "Proofio unterstützt Standard-Quellen (Apple App Store, Google Play Store, Trustpilot, CSV-Import) für alle Pläne. Erweiterte Quellen (Google Reviews, Yelp, G2, Facebook, Amazon) sind für Growth- und Scale-Pläne verfügbar. Amazon erfordert manuellen Import und ist nicht automatisiert."
       },
       {
         "question": "Wie oft werden Bewertungsdaten aktualisiert?",
@@ -287,6 +287,14 @@
       {
         "question": "Kann ich meine Daten exportieren?",
         "answer": "Ja. Sie können Bewertungsdaten, Insights und Berichte über die API oder unterstützte Exportformate je nach Ihrem Plan exportieren."
+      },
+      {
+        "question": "Was passiert, wenn ich meine Planlimits überschreite?",
+        "answer": "Growth-Plan: Zusätzliche Gebühren gelten für Überschreitungen (+5$ pro 1.000 API-Aufrufe oder 1.000 Bewertungen). Scale-Plan: Zusätzliche Gebühren gelten für Überschreitungen (+10$ pro 5.000 API-Aufrufe oder 5.000 Bewertungen). Sie werden benachrichtigt, bevor Gebühren anfallen."
+      },
+      {
+        "question": "Was ist im kostenlosen Starter-Plan enthalten?",
+        "answer": "Der Starter-Plan umfasst 1 Projekt, 2 Quellen pro Projekt, 100 Bewertungen pro Monat, 300 API-Anfragen, Standard-Quellen (App Store, Google Play, Trustpilot, CSV) und grundlegenden E-Mail-Support. Er beinhaltet auch eine 7-tägige Growth-Testversion."
       }
     ]
   },

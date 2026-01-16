@@ -11,6 +11,9 @@ const integrations = [
   { name: "G2", icon: "/g2.png" },
   { name: "App Store", icon: "/appstore.png" },
   { name: "Google Play", icon: "/googleplay.png" },
+  { name: "Yelp", icon: "/yelp.png" },
+  { name: "Amazon", icon: "/amazon.png" },
+  { name: "CSV", icon: "/csv.png" },
 ];
 
 export default function IntegrationRadial() {
@@ -58,12 +61,12 @@ export default function IntegrationRadial() {
           <div className="z-20 relative">
             <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full" />
             <motion.div 
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               className="relative bg-base-100 p-4 md:p-8 rounded-[2rem] shadow-xl border border-base-200 flex flex-col items-center justify-center w-24 h-24 md:w-40 md:h-40"
             >
               <Image src="/logo.svg" alt="Proofio" width={80} height={24} className="w-12 md:w-20 h-auto mb-1 md:mb-2" />
               <div className="h-px w-4 md:w-8 bg-primary/20 mb-1 md:mb-2" />
-              <p className="text-[6px] md:text-[8px] font-black uppercase tracking-[0.3em] text-primary/60">Engine</p>
+              <p className="text-[6px] md:text-[8px] font-black uppercase tracking-[0.3em] text-primary/60">System</p>
             </motion.div>
           </div>
 

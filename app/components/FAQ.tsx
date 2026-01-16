@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Sparkles, Activity, Layers, RefreshCcw, Layout, Code, BarChart3, Users, Shield, Download, Lock } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles, Activity, Layers, RefreshCcw, Layout, Code, BarChart3, Users, Shield, Download, Lock, DollarSign, Zap } from "lucide-react";
 
 const faqs = [
   {
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "Which review sources are supported?",
-    answer: "Proofio currently supports Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify and Amazon. Additional sources are continuously added based on platform coverage and customer demand.",
+    answer: "Proofio supports Standard sources (Apple App Store, Google Play Store, Trustpilot, CSV Import) for all plans. Advanced sources (Google Reviews, Yelp, G2, Facebook, Amazon) are available for Growth and Scale plans. Amazon requires manual import and is not automated.",
     icon: Layers
   },
   {
@@ -54,6 +54,16 @@ const faqs = [
     question: "Can I export my data?",
     answer: "Yes. You can export review data, insights and reports via API or supported export formats depending on your plan.",
     icon: Download
+  },
+  {
+    question: "What happens if I exceed my plan limits?",
+    answer: "Growth plan: Additional charges apply for overages (+$5 per 1,000 API calls or 1,000 reviews). Scale plan: Additional charges apply for overages (+$10 per 5,000 API calls or 5,000 reviews). You'll be notified before charges apply.",
+    icon: DollarSign
+  },
+  {
+    question: "What's included in the free Starter plan?",
+    answer: "The Starter plan includes 1 project, 2 sources per project, 100 reviews per month, 300 API requests, Standard sources (App Store, Google Play, Trustpilot, CSV), and basic email support. It also includes a 7-day Growth trial.",
+    icon: Zap
   }
 ];
 
@@ -85,8 +95,19 @@ export default function FAQ({ locale, messages }: FAQProps) {
     if (rowRef.current && containerRef.current) {
       const rowWidth = rowRef.current.scrollWidth;
       const containerWidth = containerRef.current.offsetWidth;
+      const padding = 48; // px-4 sm:px-6 lg:px-8
+      const gap = 24;
+      const inactiveWidth = isMobile ? 220 : 350;
+      const activeWidth = isMobile ? 300 : 600;
+      
+      // Calculate total width needed for all cards
+      const totalCardsWidth = (faqItems.length - 1) * (inactiveWidth + gap) + activeWidth;
+      
+      // Max scroll should allow the last card to be fully visible
+      const maxScroll = Math.min(0, -(totalCardsWidth - containerWidth + padding));
+      
       setDragConstraints({ 
-        left: -(rowWidth - containerWidth + 48),
+        left: maxScroll,
         right: 0 
       });
     }
@@ -99,14 +120,34 @@ export default function FAQ({ locale, messages }: FAQProps) {
     const inactiveWidth = isMobile ? 220 : 350;
     const activeWidth = isMobile ? 300 : 600;
     const containerWidth = containerRef.current.offsetWidth;
+    const padding = 48;
 
-    // Calculate the X position to center the active card
-    // Position of active card = (index * (inactiveWidth + gap))
-    let targetX = (containerWidth / 2) - (activeWidth / 2) - (index * (inactiveWidth + gap));
+    // Calculate cumulative positions of cards
+    let cardPosition = 0;
+    for (let i = 0; i < index; i++) {
+      cardPosition += inactiveWidth + gap;
+    }
+
+    // For the last card, align it to the right edge instead of centering
+    const isLastCard = index === faqItems.length - 1;
+    
+    let targetX;
+    if (isLastCard) {
+      // Position last card so it's fully visible on the right
+      const totalWidth = cardPosition + activeWidth;
+      targetX = containerWidth - totalWidth - padding;
+    } else {
+      // Center other cards
+      targetX = (containerWidth / 2) - (activeWidth / 2) - cardPosition;
+    }
 
     // Keep within constraints
     if (targetX > 0) targetX = 0;
-    const maxScroll = -(rowRef.current.scrollWidth - containerWidth + 48);
+    
+    // Calculate max scroll to show the last card fully
+    const totalCardsWidth = (faqItems.length - 1) * (inactiveWidth + gap) + activeWidth;
+    const maxScroll = Math.min(0, -(totalCardsWidth - containerWidth + padding));
+    
     if (targetX < maxScroll) targetX = maxScroll;
 
     controls.start({

@@ -233,7 +233,7 @@
       },
       {
         "question": "Quelles sources d'avis sont supportées ?",
-        "answer": "Proofio supporte actuellement Google, Trustpilot, G2, Capterra, Apple App Store, Google Play, Shopify et Amazon. Des sources supplémentaires sont continuellement ajoutées en fonction de la couverture des plateformes et de la demande des clients."
+        "answer": "Proofio supporte les sources Standard (Apple App Store, Google Play Store, Trustpilot, Import CSV) pour tous les plans. Les sources Avancées (Google Reviews, Yelp, G2, Facebook, Amazon) sont disponibles pour les plans Growth et Scale. Amazon nécessite un import manuel et n'est pas automatisé."
       },
       {
         "question": "À quelle fréquence les données d'avis sont-elles mises à jour ?",
@@ -266,6 +266,14 @@
       {
         "question": "Puis-je exporter mes données ?",
         "answer": "Oui. Vous pouvez exporter les données d'avis, insights et rapports via l'API ou les formats d'export pris en charge selon votre plan."
+      },
+      {
+        "question": "Que se passe-t-il si je dépasse les limites de mon plan ?",
+        "answer": "Plan Growth : Des frais supplémentaires s'appliquent pour les dépassements (+5$ par 1 000 appels API ou 1 000 avis). Plan Scale : Des frais supplémentaires s'appliquent pour les dépassements (+10$ par 5 000 appels API ou 5 000 avis). Vous serez notifié avant que les frais ne s'appliquent."
+      },
+      {
+        "question": "Qu'est-ce qui est inclus dans le plan Starter gratuit ?",
+        "answer": "Le plan Starter comprend 1 projet, 2 sources par projet, 100 avis par mois, 300 requêtes API, les sources Standard (App Store, Google Play, Trustpilot, CSV) et le support email de base. Il comprend également un essai Growth de 7 jours."
       }
     ]
   },
