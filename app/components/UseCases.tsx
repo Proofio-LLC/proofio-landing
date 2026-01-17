@@ -98,14 +98,14 @@ export default function UseCases({ locale, messages }: UseCasesProps) {
             // Use original useCase for icon and caseStudy if available
             const originalCase = useCases.find(uc => uc.id === useCase.id) || useCases[index];
             const Icon = originalCase?.icon || Smartphone;
-            
+
             // Merge translated useCase with original data (icon, caseStudy)
             const mergedCase = {
               ...useCase,
               icon: Icon,
               caseStudy: originalCase?.caseStudy || useCase.caseStudy
             };
-            
+
             return (
               <motion.div
                 key={useCase.title}
@@ -115,22 +115,22 @@ export default function UseCases({ locale, messages }: UseCasesProps) {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div 
+                <div
                   onClick={() => setSelectedCase(mergedCase)}
                   className="relative h-full bg-base-200/50 hover:bg-base-200 transition-all duration-500 rounded-[2.5rem] p-10 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 cursor-pointer"
                 >
                   {/* Background Glow */}
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500" />
-                  
+
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
-                    
+
                     <h3 className="text-2xl md:text-3xl font-bold mb-6 text-base-content group-hover:text-primary transition-colors duration-300">
                       {useCase.title}
                     </h3>
-                    
+
                     <div className="space-y-4 flex-grow">
                       <p className="text-lg text-base-content/70 leading-relaxed font-medium">
                         {useCase.description}
@@ -160,7 +160,7 @@ export default function UseCases({ locale, messages }: UseCasesProps) {
               onClick={() => setSelectedCase(null)}
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}

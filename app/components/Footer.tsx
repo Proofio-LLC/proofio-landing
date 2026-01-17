@@ -39,7 +39,7 @@ export default function Footer({ locale, messages }: FooterProps) {
                 </Link>
                 <Link href="https://www.linkedin.com/company/proofio-app" className="text-base-content/60 hover:text-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
-                </Link> 
+                </Link>
               </div>
             </div>
 
@@ -89,11 +89,11 @@ export default function Footer({ locale, messages }: FooterProps) {
                       {t.status || "Status"}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/changelog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       {t.changelog || "Changelog"}
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
 
@@ -126,21 +126,21 @@ export default function Footer({ locale, messages }: FooterProps) {
               {t.copyright || "© 2026 Proofio. All rights reserved."}
             </p>
             <div className="flex flex-wrap gap-6">
-            <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              {t.imprint || "Imprint"}
-            </Link>
-            <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              {t.privacyPolicy || "Privacy Policy"}
-            </Link>
-            <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              {t.termsOfService || "Terms of Service"}
-            </Link>
-            <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              {t.cookiesSettings || "Cookies Settings"}
-            </Link>
-            <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
-              {t.legalInquiries || "Legal Inquiries"}
-            </a>
+              <Link href="/imprint" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                {t.imprint || "Imprint"}
+              </Link>
+              <Link href="/privacy-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                {t.privacyPolicy || "Privacy Policy"}
+              </Link>
+              <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                {t.termsOfService || "Terms of Service"}
+              </Link>
+              <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                {t.cookiesSettings || "Cookies Settings"}
+              </Link>
+              <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                {t.legalInquiries || "Legal Inquiries"}
+              </a>
             </div>
           </div>
         </div>
