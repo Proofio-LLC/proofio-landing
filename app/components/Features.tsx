@@ -7,12 +7,12 @@ import Script from "next/script";
 
 function FeatureImage({ staticImage, animatedImage, alt, small }: { staticImage: string; animatedImage: string; alt: string; small?: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
-  const [animatedSrc, setAnimatedSrc] = useState<string | null>(null);
+  const [gifKey, setGifKey] = useState(0);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    // Load animated GIF with timestamp to restart animation
-    setAnimatedSrc(animatedImage + '?t=' + Date.now());
+    // Restart animation by changing key
+    setGifKey(prev => prev + 1);
   };
 
   const filterStyle = {
@@ -31,20 +31,21 @@ function FeatureImage({ staticImage, animatedImage, alt, small }: { staticImage:
           src={staticImage}
           alt={alt}
           className={`w-full h-full object-contain transition-opacity duration-300 ${
-            isHovered && animatedSrc ? 'opacity-0' : 'opacity-100'
+            isHovered ? 'opacity-0' : 'opacity-100'
           }`}
           style={filterStyle}
         />
-        {/* Animated GIF - overlays on hover */}
-        {animatedSrc && isHovered && (
-          <img
-            key={animatedSrc}
-            src={animatedSrc}
-            alt={alt}
-            className="absolute inset-0 w-full h-full object-contain opacity-100"
-            style={filterStyle}
-          />
-        )}
+        {/* Animated GIF - preloaded but hidden, shown on hover */}
+        <img
+          key={gifKey}
+          src={animatedImage}
+          alt={alt}
+          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={filterStyle}
+          loading="eager"
+        />
       </div>
     );
   }
@@ -60,20 +61,21 @@ function FeatureImage({ staticImage, animatedImage, alt, small }: { staticImage:
         src={staticImage}
         alt={alt}
         className={`absolute inset-0 w-3/4 h-3/4 m-auto object-contain transition-opacity duration-300 ${
-          isHovered && animatedSrc ? 'opacity-0' : 'opacity-100'
+          isHovered ? 'opacity-0' : 'opacity-100'
         }`}
         style={filterStyle}
       />
-      {/* Animated GIF - overlays on hover */}
-      {animatedSrc && isHovered && (
-        <img
-          key={animatedSrc}
-          src={animatedSrc}
-          alt={alt}
-          className="absolute inset-0 w-full h-full object-contain opacity-100"
-          style={filterStyle}
-        />
-      )}
+      {/* Animated GIF - preloaded but hidden, shown on hover */}
+      <img
+        key={gifKey}
+        src={animatedImage}
+        alt={alt}
+        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={filterStyle}
+        loading="eager"
+      />
     </div>
   );
 }
