@@ -249,13 +249,13 @@ export default function Features({ locale, messages }: FeaturesProps) {
                 {/* Right Side: Widget */}
                 <div className="order-1 lg:order-2 flex flex-col items-center justify-center">
                   <div className="w-full flex items-center justify-center bg-gray-50 rounded-xl p-6 min-h-[150px]">
-                    <div 
-                      data-proofio-widget 
-                      data-api-key={"pk_2526c80e1b78a8c0c2b62ced0b877fb2e613b84fadecb79f79f5222a71bf23b8"}
+                    <div
+                      data-proofio-widget
+                      data-demo
                     />
                   </div>
                   <p className="text-xs text-base-content/50 mt-4 text-center max-w-md">
-                    {t.verified?.demoNotice || "Note: This is a linked demo project. The displayed reviews do not reflect real reviews from Proofio or any of our customers."}
+                    {t.verified?.demoNotice || "Note: This is a demo widget showcasing the Proofio Verified feature. Real widgets display actual verified review data."}
                   </p>
                 </div>
               </div>
