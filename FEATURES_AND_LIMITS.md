@@ -150,7 +150,7 @@ Diese Dokumentation listet alle Features, Limits und Unterschiede zwischen den v
 
 **Technische Details:**
 
-- Model: `gpt-4.1-nano-2025-04-14`
+- Model: `stepfun/step-3.5-flash:free` (OpenRouter)
 - Batch-Job: Täglich um 9 Uhr (kombiniert mit Review Sync)
 - Review-Filter: Letzte 30 Tage, max. 100 Reviews
 - Sprache: Englisch
