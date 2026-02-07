@@ -48,16 +48,19 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">2. Description of Service</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio provides a software platform that aggregates, normalizes, analyzes, and displays publicly available reviews and feedback from third-party sources, including but not limited to app stores, e-commerce platforms, and review providers.
+                  Proofio provides a software platform that aggregates, normalizes, analyzes, and displays publicly available reviews and feedback from third-party sources, including but not limited to app stores, review platforms, and e-commerce platforms.
                 </p>
                 <p className="text-base-content/80 mb-4">
                   The Service may include:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>API access to aggregated review data</li>
-                  <li>Widgets for displaying reviews</li>
-                  <li>Data synchronization and normalization</li>
-                  <li>Analytics, summaries, and reporting features</li>
+                  <li>Widgets for displaying reviews on your website</li>
+                  <li>Data synchronization and normalization from multiple sources</li>
+                  <li>AI-powered analytics, sentiment analysis, and reporting features</li>
+                  <li>Review intelligence including trust scores, risk analysis, and topic insights</li>
+                  <li>Competitor analysis and benchmarking (Beta)</li>
+                  <li>Official SDK and client libraries</li>
                 </ul>
               </section>
 
@@ -131,10 +134,24 @@ export default function TermsOfServicePage() {
                   <li>Review content belongs to the original authors or platforms</li>
                   <li>Data availability and accuracy depend on third-party sources</li>
                   <li>Changes to external platforms may affect the Service</li>
+                  <li>Certain integrations (e.g., Trustpilot, Google Reviews, Yelp) may require you to provide your own API keys, which you are responsible for obtaining and managing in compliance with the respective platform's terms</li>
                 </ul>
                 <p className="text-base-content/80">
                   You are responsible for complying with applicable third-party terms.
                 </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-3xl font-bold text-base-content mb-4">7a. AI-Powered Features</h2>
+                <p className="text-base-content/80 mb-4">
+                  The Service uses artificial intelligence to analyze reviews, generate summaries, detect sentiment, and provide business insights. You acknowledge that:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
+                  <li>AI-generated insights are provided for informational purposes and may not be fully accurate</li>
+                  <li>Trust scores, risk analyses, and sentiment classifications are estimates based on available data</li>
+                  <li>AI features including competitor analysis are in continuous development and may change</li>
+                  <li>You should not rely solely on AI-generated insights for critical business decisions without independent verification</li>
+                </ul>
               </section>
 
               <section className="mb-8">

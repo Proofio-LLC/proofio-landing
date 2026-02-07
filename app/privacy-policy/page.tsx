@@ -105,7 +105,7 @@ export default function PrivacyPolicyPage() {
                   We do not sell your personal data. We may share your information with:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
-                  <li><strong>Service Providers:</strong> Trusted third-party providers such as hosting, analytics, email delivery, authentication, and payment processors (e.g. Firebase, Stripe, MailerLite, Resend, Zoho, Vercel Analytics).</li>
+                  <li><strong>Service Providers:</strong> Trusted third-party providers such as hosting, analytics, email delivery, authentication, payment processors, and AI analysis services (e.g. Firebase, Stripe, MailerLite, Resend, Zoho, Vercel Analytics, OpenRouter).</li>
                   <li><strong>Legal Requirements:</strong> When required by law or in response to valid legal processes.</li>
                   <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
                   <li><strong>With Your Consent</strong></li>
