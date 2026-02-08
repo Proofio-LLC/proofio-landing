@@ -111,8 +111,8 @@ export default function Navigation({ locale, messages }: NavigationProps) {
 
           {/* Desktop Actions */}
           <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-4' : 'gap-6'} ${isSubPage ? 'absolute right-6 lg:right-10' : ''}`}>
-            <a href="https://dash.proofio.app" className="btn btn-ghost rounded-xl">{t.login || "Sign In"}</a>
-            <a href="https://dash.proofio.app" className="btn rounded-xl shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
+            <a href="https://dash.proofio.app/login" className="btn btn-ghost rounded-xl">{t.login || "Sign In"}</a>
+            <a href="https://dash.proofio.app/register" className="btn rounded-xl shadow-md hover:shadow-lg transition-all px-6 bg-primary text-white hover:bg-primary/90">
               Get Started
             </a>
             {!isSubPage && <LanguageSwitcher />}

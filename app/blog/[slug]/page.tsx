@@ -297,7 +297,7 @@ export default async function BlogPostPage({
                   </div>
                   {post.author && (
                     <div className="flex items-center gap-2">
-                      <span className="text-sm md:text-base">von {post.author.name}</span>
+                      <span className="text-sm md:text-base">from {post.author.name}</span>
                     </div>
                   )}
                 </div>
