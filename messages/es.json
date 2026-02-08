@@ -14,7 +14,7 @@
     "titleHighlight": "hecho útil.",
     "description": "Proofio recopila, normaliza y analiza reseñas de todas las plataformas y las convierte en insights claros, tendencias y comparaciones competitivas.",
     "ctaPrimary": "Comenzar a analizar reseñas",
-    "ctaSecondary": "Ver demo en vivo"
+    "ctaSecondary": "Descargar app iOS"
   },
   "features": {
     "badge": "VALOR CENTRAL",
@@ -274,6 +274,10 @@
       {
         "question": "¿Qué está incluido en el plan Starter gratuito?",
         "answer": "El plan Starter incluye 1 proyecto, 2 fuentes por proyecto, 100 reseñas por mes, 300 solicitudes API, fuentes Estándar (App Store, Google Play, Trustpilot, CSV) y soporte por email básico. También incluye una prueba de Growth de 7 días."
+      },
+      {
+        "question": "¿Hay una aplicación iOS para Proofio?",
+        "answer": "Sí. La aplicación iOS de Proofio es una compañera de la plataforma web. Puedes ver rápidamente reseñas, tendencias y métricas clave sobre la marcha. La aplicación es de solo lectura para revisar insights: toda la creación de proyectos y la gestión de suscripciones permanece en la plataforma web."
       }
     ]
   },
@@ -282,7 +286,7 @@
     "title": "¿Listo para pasar de reseñas a insights?",
     "description": "Proofio ayuda a los equipos a transformar el feedback del cliente en tendencias, comparaciones y decisiones.",
     "ctaPrimary": "¡Comenzar hoy!",
-    "ctaSecondary": "Ver demo en vivo"
+    "ctaSecondary": "Descargar app iOS"
   },
   "footer": {
     "product": "Producto",

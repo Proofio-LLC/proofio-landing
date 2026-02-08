@@ -64,6 +64,11 @@ const faqs = [
     question: "What's included in the free Starter plan?",
     answer: "The Starter plan includes 1 project, 2 sources per project, 100 reviews per month, 300 API requests, Standard sources (App Store, Google Play, Trustpilot, CSV), and basic email support. It also includes a 7-day Growth trial.",
     icon: Zap
+  },
+  {
+    question: "Is there an iOS app for Proofio?",
+    answer: "Yes. The Proofio iOS app is a companion to the web platform. You can quickly view reviews, trends and key metrics on the go. The app is read-only for reviewing insights—all project creation and subscription management remains on the web platform.",
+    icon: Download
   }
 ];
 

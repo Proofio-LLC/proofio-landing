@@ -14,7 +14,7 @@
     "titleHighlight": "made useful.",
     "description": "Proofio collects, normalizes, and analyzes reviews from every platform and turns them into clear insights, trends, and competitive comparisons.",
     "ctaPrimary": "Start analyzing reviews",
-    "ctaSecondary": "View live demo"
+    "ctaSecondary": "Download iOS App"
   },
   "features": {
     "title": "Everything you need to turn reviews into insights",
@@ -100,7 +100,7 @@
     "title": "Ready to move from reviews to insights?",
     "description": "Proofio helps teams transform customer feedback into trends, comparisons and decisions.",
     "ctaPrimary": "Start today!",
-    "ctaSecondary": "View live demo"
+    "ctaSecondary": "Download iOS App"
   },
   "features": {
     "badge": "CORE VALUE",
@@ -293,6 +293,10 @@
       {
         "question": "What's included in the free Starter plan?",
         "answer": "The Starter plan includes 1 project, 2 sources per project, 100 reviews per month, 300 API requests, Standard sources (App Store, Google Play, Trustpilot, CSV), and basic email support. It also includes a 7-day Growth trial."
+      },
+      {
+        "question": "Is there an iOS app for Proofio?",
+        "answer": "Yes. The Proofio iOS app is a companion to the web platform. You can quickly view reviews, trends and key metrics on the go. The app is read-only for reviewing insights—all project creation and subscription management remains on the web platform."
       }
     ]
   },
@@ -307,6 +311,7 @@
     "integrations": "Integrations",
     "documentation": "Documentation",
     "blog": "Blog",
+    "iosApp": "iOS App",
     "support": "Support",
     "status": "Status",
     "changelog": "Changelog",

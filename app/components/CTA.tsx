@@ -82,10 +82,10 @@ export default function CTA({ locale, messages }: CTAProps) {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
-                href="https://dash.proofio.app/demo" 
+                href="https://apps.apple.com/app/proofio/id6656574889" 
                 className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm"
               >
-                {t.ctaSecondary || "View live demo"}
+                {t.ctaSecondary || "Download iOS App"}
               </a>
             </motion.div>
           </div>

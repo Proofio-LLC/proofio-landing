@@ -14,7 +14,7 @@
     "titleHighlight": "resa utile.",
     "description": "Proofio raccoglie, normalizza e analizza le recensioni da ogni piattaforma e le trasforma in insight chiari, trend e confronti competitivi.",
     "ctaPrimary": "Inizia ad analizzare le recensioni",
-    "ctaSecondary": "Visualizza demo live"
+    "ctaSecondary": "Scarica app iOS"
   },
   "features": {
     "title": "Tutto ciò che ti serve per trasformare le recensioni in insight",
@@ -100,7 +100,7 @@
     "title": "Pronto a passare dalle recensioni agli insight?",
     "description": "Proofio aiuta i team a trasformare il feedback dei clienti in trend, confronti e decisioni.",
     "ctaPrimary": "Inizia oggi!",
-    "ctaSecondary": "Visualizza demo live"
+    "ctaSecondary": "Scarica app iOS"
   },
   "features": {
     "badge": "VALORE CENTRALE",
@@ -292,8 +292,10 @@
       },
       {
         "question": "Cosa è incluso nel piano Starter gratuito?",
-        "answer": "Il piano Starter include 1 progetto, 2 fonti per progetto, 100 recensioni al mese, 300 richieste API, fonti Standard (App Store, Google Play, Trustpilot, CSV) e supporto email di base. Include anche una prova Growth di 7 giorni."
-      }
+        "answer": "Il piano Starter include 1 progetto, 2 fonti per progetto, 100 recensioni al mese, 300 richieste API, fonti Standard (App Store, Google Play, Trustpilot, CSV) e supporto email di base. Include anche una prova Growth di 7 giorni."      },
+      {
+        "question": "C'è un'app iOS per Proofio?",
+        "answer": "Sì. L'app iOS di Proofio è un complemento della piattaforma web. Puoi visualizzare rapidamente recensioni, tendenze e metriche chiave in movimento. L'app è di sola lettura per rivedere gli insight – la creazione di progetti e la gestione degli abbonamenti rimangono sulla piattaforma web."      }
     ]
   },
   "footer": {
@@ -307,6 +309,7 @@
     "integrations": "Integrazioni",
     "documentation": "Documentazione",
     "blog": "Blog",
+    "iosApp": "App iOS",
     "support": "Supporto",
     "status": "Stato",
     "changelog": "Changelog",

@@ -14,7 +14,7 @@
     "titleHighlight": "rendus utiles.",
     "description": "Proofio collecte, normalise et analyse les avis de toutes les plateformes et les transforme en insights clairs, tendances et comparaisons concurrentielles.",
     "ctaPrimary": "Commencer l'analyse",
-    "ctaSecondary": "Voir la démo"
+    "ctaSecondary": "Télécharger l'app iOS"
   },
   "features": {
     "badge": "VALEUR CENTRALE",
@@ -274,6 +274,10 @@
       {
         "question": "Qu'est-ce qui est inclus dans le plan Starter gratuit ?",
         "answer": "Le plan Starter comprend 1 projet, 2 sources par projet, 100 avis par mois, 300 requêtes API, les sources Standard (App Store, Google Play, Trustpilot, CSV) et le support email de base. Il comprend également un essai Growth de 7 jours."
+      },
+      {
+        "question": "Y a-t-il une application iOS pour Proofio ?",
+        "answer": "Oui. L'application iOS Proofio est un compagnon de la plateforme web. Vous pouvez rapidement consulter les avis, les tendances et les mesures clés en déplacement. L'application est en lecture seule pour examiner les insights – toute la création de projets et la gestion des abonnements reste sur la plateforme web."
       }
     ]
   },

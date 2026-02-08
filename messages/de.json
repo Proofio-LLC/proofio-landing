@@ -15,7 +15,7 @@
     "titleHighlight": "klar nutzbar.",
     "description": "Proofio sammelt, vereinheitlicht und analysiert Bewertungen aus allen relevanten Plattformen und verwandelt sie in klare Insights, Trends und Wettbewerbsvergleiche.",
     "ctaPrimary": "Bewertungen analysieren",
-    "ctaSecondary": "Live-Demo ansehen"
+    "ctaSecondary": "iOS App laden"
   },
   "features": {
     "title": "Alles, was Sie brauchen, um Bewertungen in echte Insights zu verwandeln",
@@ -101,7 +101,7 @@
     "title": "Bereit, von Bewertungen zu Insights zu wechseln?",
     "description": "Proofio hilft Teams dabei, Kundenfeedback in Trends, Vergleiche und Entscheidungen zu verwandeln.",
     "ctaPrimary": "Jetzt starten!",
-    "ctaSecondary": "Live-Demo ansehen"
+    "ctaSecondary": "iOS App laden"
   },
   "features": {
     "badge": "KERNWERT",
@@ -295,6 +295,10 @@
       {
         "question": "Was ist im kostenlosen Starter-Plan enthalten?",
         "answer": "Der Starter-Plan umfasst 1 Projekt, 2 Quellen pro Projekt, 100 Bewertungen pro Monat, 300 API-Anfragen, Standard-Quellen (App Store, Google Play, Trustpilot, CSV) und grundlegenden E-Mail-Support. Er beinhaltet auch eine 7-tägige Growth-Testversion."
+      },
+      {
+        "question": "Gibt es eine iOS-App für Proofio?",
+        "answer": "Ja. Die Proofio iOS-App ist ein Begleiter zur Web-Plattform. Sie können Bewertungen, Trends und wichtige Kennzahlen unterwegs schnell ansehen. Die App ist schreibgeschützt für die Überprüfung von Insights – die gesamte Projekterstellung und Abonnementverwaltung verbleibt auf der Web-Plattform."
       }
     ]
   },
@@ -309,6 +313,7 @@
     "integrations": "Integrationen",
     "documentation": "Dokumentation",
     "blog": "Blog",
+    "iosApp": "iOS App",
     "support": "Support",
     "status": "Status",
     "changelog": "Changelog",

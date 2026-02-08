@@ -57,8 +57,8 @@ export default function Hero({ locale, messages }: HeroProps) {
               {t.ctaPrimary || "Start analyzing reviews"}
               <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="https://dash.proofio.app/demo" className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
-              {t.ctaSecondary || "View live demo"}
+            <a href="https://apps.apple.com/app/proofio/id6656574889" className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
+              {t.ctaSecondary || "Download iOS App"}
             </a>
           </motion.div>
 

@@ -63,6 +63,11 @@ export default function Footer({ locale, messages }: FooterProps) {
                       {t.integrations || "Integrations"}
                     </Link>
                   </li>
+                  <li>
+                    <a href="https://apps.apple.com/app/proofio/id6656574889" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                      {t.iosApp || "iOS App"}
+                    </a>
+                  </li>
                 </ul>
               </div>
 

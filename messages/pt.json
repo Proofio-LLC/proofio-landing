@@ -14,7 +14,7 @@
     "titleHighlight": "tornado útil.",
     "description": "O Proofio coleta, normaliza e analisa avaliações de todas as plataformas e as transforma em insights claros, tendências e comparações competitivas.",
     "ctaPrimary": "Começar a analisar avaliações",
-    "ctaSecondary": "Ver demonstração ao vivo"
+    "ctaSecondary": "Baixar app iOS"
   },
   "features": {
     "badge": "VALOR CENTRAL",
@@ -273,8 +273,10 @@
       },
       {
         "question": "O que está incluído no plano Starter gratuito?",
-        "answer": "O plano Starter inclui 1 projeto, 2 fontes por projeto, 100 avaliações por mês, 300 solicitações de API, fontes Padrão (App Store, Google Play, Trustpilot, CSV) e suporte por email básico. Também inclui um teste de Growth de 7 dias."
-      }
+        "answer": "O plano Starter inclui 1 projeto, 2 fontes por projeto, 100 avaliações por mês, 300 solicitações de API, fontes Padrão (App Store, Google Play, Trustpilot, CSV) e suporte por email básico. Também inclui um teste de Growth de 7 dias."      },
+      {
+        "question": "Existe um aplicativo iOS para o Proofio?",
+        "answer": "Sim. O aplicativo iOS do Proofio é um complemento da plataforma web. Você pode ver rapidamente avaliações, tendências e métricas-chave em movimento. O aplicativo é somente para leitura para revisar insights – toda a criação de projetos e gerenciamento de assinatura permanece na plataforma web."      }
     ]
   },
   "cta": {
@@ -282,7 +284,7 @@
     "title": "Pronto para passar de avaliações para insights?",
     "description": "O Proofio ajuda equipes a transformar feedback do cliente em tendências, comparações e decisões.",
     "ctaPrimary": "Começar hoje!",
-    "ctaSecondary": "Ver demonstração ao vivo"
+    "ctaSecondary": "Baixar app iOS"
   },
   "footer": {
     "product": "Produto",
