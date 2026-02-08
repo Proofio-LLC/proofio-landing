@@ -8,6 +8,7 @@ export async function generateStaticParams() {
     { locale: 'fr' },
     { locale: 'es' },
     { locale: 'pt' },
+    { locale: 'it' },
   ];
 }
 

@@ -57,6 +57,19 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proofio.app" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://proofio.app/blog" }
+            ]
+          })
+        }}
+      />
       
       {/* Blog Header */}
       <section className="pt-32 pb-12 bg-gradient-to-b from-base-100 to-base-200">

@@ -44,7 +44,7 @@ export default function Hero({ locale, messages }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-base-content/80 mb-4 max-w-3xl mx-auto"
           >
-            {t.description || "Proofio collects, normalizes, and analyzes reviews from every platform and turns them into clear insights, trends, and competitive comparisons."}
+            {t.description || "Proofio is a review-intelligence platform that automatically collects, normalizes, and analyzes reviews from App Store, Google Play, Trustpilot and other sources using AI."}
           </motion.p>
 
           <motion.div

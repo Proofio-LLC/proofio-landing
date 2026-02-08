@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import localFont from 'next/font/local'
 import CookieBanner from "./components/CookieBanner";
 import ProofyFloatingButton from "./components/ProofyFloatingButton";
 import AffiliateTracking from "./components/AffiliateTracking";
@@ -9,6 +10,18 @@ import { cookies, headers } from "next/headers";
 import { StructuredData } from "./components/StructuredData";
 import { isValidLocale } from "@/lib/i18n";
 import HreflangTags from "./components/HreflangTags";
+
+const sfPro = localFont({
+  src: [
+    // Use WOFF2 files from the existing featureicons folder (these files exist).
+    { path: '../public/featureicons/sf-pro-display/SFPRODISPLAYREGULAR.woff2', weight: '400', style: 'normal' },
+    { path: '../public/featureicons/sf-pro-display/SFPRODISPLAYMEDIUM.woff2', weight: '500', style: 'normal' },
+    { path: '../public/featureicons/sf-pro-display/SFPRODISPLAYBOLD.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-sfpro',
+  display: 'swap',
+  preload: true,
+})
 
 export const metadata: Metadata = {
   title: "Proofio - Review Intelligence Platform",
@@ -118,7 +131,7 @@ export default async function RootLayout({
         <StructuredData />
         <HreflangTags pathname={finalPathname} />
       </head>
-      <body className="antialiased" suppressHydrationWarning>
+      <body className={`${sfPro.className} antialiased`} suppressHydrationWarning>
         {children}
         <AffiliateTracking />
         <CookieBanner />
@@ -128,3 +141,4 @@ export default async function RootLayout({
     </html>
   );
 }
+

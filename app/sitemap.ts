@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
 import { locales, defaultLocale } from '@/lib/i18n'
+import { sanityClient } from '@/lib/sanity/client'
+import { allBlogPostsQuery } from '@/lib/sanity/queries'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://proofio.app'
   const now = new Date()
   
@@ -52,6 +54,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })
     }
   })
+
+  // Add blog posts dynamically from Sanity (if configured)
+  try {
+    if (sanityClient) {
+      const posts = await sanityClient.fetch<any[]>(allBlogPostsQuery);
+      posts.forEach((post) => {
+        if (post?.slug?.current) {
+          sitemapEntries.push({
+            url: `${baseUrl}/blog/${post.slug.current}`,
+            lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+            changeFrequency: 'monthly',
+            priority: 0.7,
+          })
+        }
+      })
+    }
+  } catch (e) {
+    // silently ignore Sanity errors to not break sitemap generation
+    console.warn('Failed to fetch blog posts for sitemap', e)
+  }
 
   return sitemapEntries
 }

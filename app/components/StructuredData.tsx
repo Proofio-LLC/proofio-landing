@@ -20,7 +20,9 @@ export function StructuredData() {
             "logo": "https://proofio.app/logo.svg",
             "description": "Review Intelligence Platform. Collect, update, and present reviews via API and platform-independent widgets.",
             "sameAs": [
-              // Add social media links if available
+              "https://x.com/proofioapp",
+              "https://www.linkedin.com/company/proofio-app",
+              "https://instagram.com/proofio.app"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -46,7 +48,7 @@ export function StructuredData() {
               "@type": "Offer",
               "price": "0",
               "priceCurrency": "USD",
-              "priceValidUntil": "2025-12-31"
+              "priceValidUntil": "2026-12-31"
             },
             "aggregateRating": {
               "@type": "AggregateRating",

@@ -256,10 +256,58 @@ export default async function BlogPostPage({
 
   const imageUrl = getImageUrl(post.mainImage);
 
+  // Build BlogPosting and Breadcrumb JSON-LD
+  const canonicalUrl = `https://proofio.app/blog/${post.slug?.current || slug}`;
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "headline": post.title,
+    "description": post.excerpt || post.title,
+    "image": imageUrl ? [imageUrl] : [],
+    "author": post.author ? { "@type": "Person", "name": post.author.name } : { "@type": "Organization", "name": "Proofio" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Proofio",
+      "logo": { "@type": "ImageObject", "url": "https://proofio.app/logo.svg" }
+    },
+    "datePublished": post.publishedAt,
+    "dateModified": post.publishedAt
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proofio.app" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://proofio.app/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-base-100">
       <Navigation />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
+      <nav aria-label="Breadcrumb" className="container mx-auto px-4 pt-24 max-w-4xl text-sm text-base-content/70">
+        <ol className="flex items-center gap-2">
+          <li>
+            <Link href="/" className="hover:underline">Home</Link>
+          </li>
+          <li>/</li>
+          <li>
+            <Link href="/blog" className="hover:underline">Blog</Link>
+          </li>
+          <li>/</li>
+          <li className="font-medium truncate max-w-[35ch]">{post.title}</li>
+        </ol>
+      </nav>
+
       <article>
         {/* Hero Image with Title Overlay */}
         <div className="container mx-auto px-4 pt-24 pb-12 max-w-4xl">

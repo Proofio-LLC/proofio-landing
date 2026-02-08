@@ -13,7 +13,7 @@
     "badge": "Review Intelligence Platform",
     "title": "Kundenfeedback,",
     "titleHighlight": "klar nutzbar.",
-    "description": "Proofio sammelt, vereinheitlicht und analysiert Bewertungen aus allen relevanten Plattformen und verwandelt sie in klare Insights, Trends und Wettbewerbsvergleiche.",
+    "description": "Proofio ist eine Review-Intelligence-Plattform, die automatisch Bewertungen von App Store, Google Play, Trustpilot und anderen Quellen mit KI sammelt, normalisiert und analysiert.",
     "ctaPrimary": "Bewertungen analysieren",
     "ctaSecondary": "iOS App laden"
   },
@@ -104,7 +104,7 @@
     "ctaSecondary": "iOS App laden"
   },
   "features": {
-    "badge": "KERNWERT",
+    "badge": "FUNKTIONEN",
     "title": "Review Intelligence auf einen Blick",
     "description": "Proofio ist ein einheitliches Review-Intelligence-System, das Bewertungen in klare und umsetzbare Geschäftseinblicke für moderne Produkte und Teams verwandelt.",
     "verified": {
