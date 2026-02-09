@@ -1,12 +1,5 @@
 import * as admin from "firebase-admin";
 
-// Configuration for the main Firebase project
-const mainFirebaseConfig = {
-  projectId: process.env.FIREBASE_ADMIN_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
-  privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-};
-
 function initializeAdmin() {
   if (admin.apps.length > 0) {
     return admin.apps[0]!;
@@ -30,30 +23,26 @@ function initializeAdmin() {
     }
   }
 
-  // 2. Try environment variables
-  if (mainFirebaseConfig.projectId && mainFirebaseConfig.clientEmail && mainFirebaseConfig.privateKey) {
+  // 2. Try environment variables (same strict config as proofio-de)
+  const projectId = process.env.FIREBASE_ADMIN_PROJECT_ID;
+  const clientEmail = process.env.FIREBASE_ADMIN_CLIENT_EMAIL;
+  const privateKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, "\n");
+
+  if (projectId && clientEmail && privateKey) {
     return admin.initializeApp({
-      credential: admin.credential.cert(mainFirebaseConfig as any),
+      credential: admin.credential.cert({
+        projectId,
+        clientEmail,
+        privateKey,
+      }),
     });
   }
 
-  // If we are in production and reach here, it means variables are missing
-  if (process.env.NODE_ENV === 'production') {
-    const missing = [];
-    if (!mainFirebaseConfig.projectId) missing.push("FIREBASE_ADMIN_PROJECT_ID");
-    if (!mainFirebaseConfig.clientEmail) missing.push("FIREBASE_ADMIN_CLIENT_EMAIL");
-    if (!mainFirebaseConfig.privateKey) missing.push("FIREBASE_ADMIN_PRIVATE_KEY");
-    
-    throw new Error(`Firebase Admin could not be initialized. Missing variables: ${missing.join(", ")}`);
-  }
-
-  // 3. Last resort: Automatic discovery (works on Google Cloud/Vercel with integration)
-  try {
-    return admin.initializeApp();
-  } catch (error) {
-    console.error("Firebase Admin could not be initialized automatically. Please set environment variables.");
-    throw error;
-  }
+  const missing = [];
+  if (!projectId) missing.push("FIREBASE_ADMIN_PROJECT_ID");
+  if (!clientEmail) missing.push("FIREBASE_ADMIN_CLIENT_EMAIL");
+  if (!privateKey) missing.push("FIREBASE_ADMIN_PRIVATE_KEY");
+  throw new Error(`Firebase Admin could not be initialized. Missing variables: ${missing.join(", ")}`);
 }
 
 // Lazy initialization of Firestore
@@ -67,8 +56,8 @@ export const getDb = () => {
   return _db;
 };
 
-// Export Proxy for supportDb to ensure lazy initialization
-export const supportDb = new Proxy({} as admin.firestore.Firestore, {
+// Export Proxy for adminDb to ensure lazy initialization
+export const adminDb = new Proxy({} as admin.firestore.Firestore, {
   get(_target, prop) {
     const instance = getDb();
     const value = (instance as any)[prop];
@@ -76,5 +65,5 @@ export const supportDb = new Proxy({} as admin.firestore.Firestore, {
   }
 });
 
-export const db = supportDb;
+export const db = adminDb;
 export { admin as adminSdk };

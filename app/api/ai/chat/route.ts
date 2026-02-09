@@ -300,7 +300,7 @@ create_support_ticket
 
 After the tool returns, tell the user:
 
-"Your support ticket has been created. Reference number: #XXXXXXX"
+"Your support ticket has been created. Reference number: PRF-10234"
 
 ---
 

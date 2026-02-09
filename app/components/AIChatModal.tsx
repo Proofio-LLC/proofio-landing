@@ -121,11 +121,15 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
           const ticketData = await ticketResponse.json();
 
           if (ticketResponse.ok) {
+            const referenceNumber =
+              ticketData.ticketNumber ||
+              (ticketData.ticketId ? ticketData.ticketId.substring(0, 8).toUpperCase() : "N/A");
+
             // 3. Success message
             const successMsg: Message = {
               id: "ticket-success-" + Date.now(),
               role: "assistant",
-              content: `Great! I've created a support ticket for you. \n\n**Reference Number: #${ticketData.ticketId.substring(0, 8).toUpperCase()}**\n\nOur team will contact you at **${args.email}** as soon as possible. Is there anything else I can help you with?`,
+              content: `Great! I've created a support ticket for you. \n\n**Reference Number: ${referenceNumber}**\n\nOur team will contact you at **${args.email}** as soon as possible. Is there anything else I can help you with?`,
             };
             setMessages(prev => [...prev.filter(m => !m.id.startsWith("ticket-loading")), successMsg]);
           } else {

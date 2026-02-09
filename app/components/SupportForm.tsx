@@ -7,7 +7,7 @@ import { Check, Loader2, Send, MessageSquare, User, Mail, HelpCircle } from "luc
 export default function SupportForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [ticketId, setTicketId] = useState("");
+  const [ticketReference, setTicketReference] = useState("");
   
   const [formData, setFormData] = useState({
     name: "",
@@ -39,7 +39,10 @@ export default function SupportForm() {
         throw new Error(result.error || "Failed to submit support ticket");
       }
 
-      setTicketId(result.ticketId);
+      const referenceNumber =
+        result.ticketNumber ||
+        (result.ticketId ? result.ticketId.substring(0, 8).toUpperCase() : "N/A");
+      setTicketReference(referenceNumber);
       setIsSuccess(true);
     } catch (error) {
       console.error("Error submitting support ticket:", error);
@@ -66,7 +69,7 @@ export default function SupportForm() {
               <h2 className="text-4xl font-bold text-base-content mb-4">Ticket created!</h2>
               <div className="bg-base-200 rounded-2xl p-6 mb-8 max-w-sm mx-auto border border-base-300">
                 <p className="text-sm text-base-content/50 uppercase tracking-widest font-bold mb-1">Your Reference Number</p>
-                <p className="text-3xl font-mono font-bold text-primary">#{ticketId.substring(0, 8).toUpperCase()}</p>
+                <p className="text-3xl font-mono font-bold text-primary">{ticketReference}</p>
               </div>
               <p className="text-lg text-base-content/60 mb-10 max-w-md mx-auto">
                 Thank you for your message. Our support team will get back to you as soon as possible.
@@ -74,7 +77,7 @@ export default function SupportForm() {
               <button
                 onClick={() => {
                   setIsSuccess(false);
-                  setTicketId("");
+                  setTicketReference("");
                   setFormData({ name: "", email: "", subject: "", message: "" });
                 }}
                 className="btn btn-primary rounded-xl px-12 h-14 text-lg font-bold shadow-xl shadow-primary/20"
