@@ -2,11 +2,14 @@ import { MetadataRoute } from 'next'
 import { locales, defaultLocale } from '@/lib/i18n'
 import { sanityClient } from '@/lib/sanity/client'
 import { allBlogPostsQuery } from '@/lib/sanity/queries'
+import { getCompetitorSlugs } from '@/lib/data/comparisons'
+import { getIntegrationSlugs } from '@/lib/data/integrations'
+import { getFeatureSlugs } from '@/lib/data/features'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://proofio.app'
   const now = new Date()
-  
+
   // Standard pages with optimized priorities and frequencies
   const pages: Array<{
     path: string
@@ -27,9 +30,39 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // and set to noindex in their individual metadata
   ]
 
+  // Comparison pages (localized)
+  const comparisonSlugs = getCompetitorSlugs()
+  const comparisonPages = comparisonSlugs.map((slug) => ({
+    path: `/compare/proofio-vs-${slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    localized: true,
+  }))
+
+  // Integration pages (localized)
+  const integrationSlugs = getIntegrationSlugs()
+  const integrationPages = integrationSlugs.map((slug) => ({
+    path: `/integrations/${slug}`,
+    priority: 0.85,
+    changeFrequency: 'monthly' as const,
+    localized: true,
+  }))
+
+  // Feature pages (localized)
+  const featureSlugs = getFeatureSlugs()
+  const featurePages = featureSlugs.map((slug) => ({
+    path: `/features/${slug}`,
+    priority: 0.75,
+    changeFrequency: 'monthly' as const,
+    localized: true,
+  }))
+
+  // Combine all pages
+  const allPages = [...pages, ...comparisonPages, ...integrationPages, ...featurePages]
+
   const sitemapEntries: MetadataRoute.Sitemap = []
 
-  pages.forEach((page) => {
+  allPages.forEach((page) => {
     if (page.localized) {
       // Add localized versions for the landing page
       locales.forEach((locale) => {
