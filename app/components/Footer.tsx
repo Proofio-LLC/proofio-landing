@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { comparisons } from "@/lib/data/comparisons";
 
 interface FooterProps {
   locale?: string;
@@ -11,6 +12,8 @@ interface FooterProps {
 
 export default function Footer({ locale, messages }: FooterProps) {
   const t = messages?.footer || {};
+  const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
+
   return (
     <footer className="py-20 bg-base-200">
       <div className="container mx-auto px-4">
@@ -44,7 +47,7 @@ export default function Footer({ locale, messages }: FooterProps) {
             </div>
 
             {/* Right Side - Navigation Links */}
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-4 gap-8">
               <div>
                 <h3 className="font-semibold text-base-content mb-4">{t.product || "Product"}</h3>
                 <ul className="space-y-3">
@@ -120,6 +123,22 @@ export default function Footer({ locale, messages }: FooterProps) {
                       {t.partners || "Partners"}
                     </Link>
                   </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-base-content mb-4">Compare</h3>
+                <ul className="space-y-3">
+                  {comparisons.map((competitor) => (
+                    <li key={competitor.slug}>
+                      <Link
+                        href={`${localePrefix}/compare/proofio-vs-${competitor.slug}`}
+                        className="text-sm text-base-content/70 hover:text-primary transition-colors"
+                      >
+                        vs {competitor.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

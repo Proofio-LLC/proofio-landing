@@ -19,7 +19,6 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   const t = messages?.nav || {};
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [featuresDropdownOpen, setFeaturesDropdownOpen] = useState(false);
-  const [comparisonsDropdownOpen, setComparisonsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
   const pathname = usePathname();
@@ -116,11 +115,13 @@ export default function Navigation({ locale, messages }: NavigationProps) {
           {!isSubPage && (
             <div className={`hidden lg:flex items-center transition-all ${isScrolled ? 'gap-0.5' : 'gap-1'}`}>
               {/* Features Dropdown */}
-              <div className="relative group">
+              <div
+                className="relative"
+                onMouseEnter={() => setFeaturesDropdownOpen(true)}
+                onMouseLeave={() => setFeaturesDropdownOpen(false)}
+              >
                 <button
                   className={`py-2 text-sm font-medium text-base-content/70 hover:text-primary transition-colors rounded-xl hover:bg-base-200/50 flex items-center gap-1 ${isScrolled ? 'px-3' : 'px-4'}`}
-                  onMouseEnter={() => setFeaturesDropdownOpen(true)}
-                  onMouseLeave={() => setFeaturesDropdownOpen(false)}
                 >
                   {t.features || "Features"}
                   <ChevronDown className={`w-3 h-3 transition-transform ${featuresDropdownOpen ? 'rotate-180' : ''}`} />
@@ -133,53 +134,14 @@ export default function Navigation({ locale, messages }: NavigationProps) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-base-100 rounded-xl shadow-xl border border-base-300 p-2 z-50"
-                    onMouseEnter={() => setFeaturesDropdownOpen(true)}
-                    onMouseLeave={() => setFeaturesDropdownOpen(false)}
+                    className="absolute top-full left-0 mt-2 w-72 bg-base-100 rounded-xl shadow-xl border border-base-300 p-3 z-50"
                   >
-                    <div className="space-y-1">
+                    <div className="grid grid-cols-2 gap-2">
                       {featuresDropdownItems.map((item) => (
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="block px-4 py-2 text-sm text-base-content/80 hover:text-primary hover:bg-base-200/50 rounded-lg transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </div>
-
-              {/* Comparisons Dropdown */}
-              <div className="relative group">
-                <button
-                  className={`py-2 text-sm font-medium text-base-content/70 hover:text-primary transition-colors rounded-xl hover:bg-base-200/50 flex items-center gap-1 ${isScrolled ? 'px-3' : 'px-4'}`}
-                  onMouseEnter={() => setComparisonsDropdownOpen(true)}
-                  onMouseLeave={() => setComparisonsDropdownOpen(false)}
-                >
-                  Compare
-                  <ChevronDown className={`w-3 h-3 transition-transform ${comparisonsDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {/* Comparisons Dropdown Menu */}
-                {comparisonsDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-56 bg-base-100 rounded-xl shadow-xl border border-base-300 p-2 z-50"
-                    onMouseEnter={() => setComparisonsDropdownOpen(true)}
-                    onMouseLeave={() => setComparisonsDropdownOpen(false)}
-                  >
-                    <div className="space-y-1">
-                      {comparisonsDropdownItems.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-base-content/80 hover:text-primary hover:bg-base-200/50 rounded-lg transition-colors"
+                          className="block px-3 py-2 text-sm text-base-content/80 hover:text-primary hover:bg-base-200/50 rounded-lg transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -247,28 +209,6 @@ export default function Navigation({ locale, messages }: NavigationProps) {
                   </summary>
                   <ul className="bg-base-100 rounded-lg ml-4 mt-2 space-y-1">
                     {featuresDropdownItems.map((item) => (
-                      <li key={item.label}>
-                        <Link
-                          href={item.href}
-                          className="text-base-content/70 hover:text-primary transition-colors text-sm"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              </li>
-
-              {/* Comparisons Mobile Dropdown */}
-              <li>
-                <details>
-                  <summary className="text-base-content/80 hover:text-primary transition-colors">
-                    Compare
-                  </summary>
-                  <ul className="bg-base-100 rounded-lg ml-4 mt-2 space-y-1">
-                    {comparisonsDropdownItems.map((item) => (
                       <li key={item.label}>
                         <Link
                           href={item.href}
