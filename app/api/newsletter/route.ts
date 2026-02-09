@@ -20,11 +20,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const API_KEY = process.env.MAILEROO_NEWSLETTER_SEND_KEY;
+    const API_KEY = process.env.MAILEROO_API_KEY;
     const LIST_ID = process.env.MAILEROO_NEWSLETTER_LIST_ID || '2576';
 
     if (!API_KEY) {
-      console.error("MAILEROO_NEWSLETTER_SEND_KEY is not defined");
+      console.error("MAILEROO_API_KEY is not defined");
       return NextResponse.json(
         { error: "Newsletter service is currently unavailable" },
         { status: 500 }
