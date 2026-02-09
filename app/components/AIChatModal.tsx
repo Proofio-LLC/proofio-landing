@@ -113,6 +113,7 @@ export default function AIChatModal({ isOpen, onClose }: AIChatModalProps) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               ...args,
+              language: args.language || (typeof navigator !== "undefined" ? navigator.language.split("-")[0] : "unknown"),
               source: "chatbot",
               name: "User via Chatbot"
             }),

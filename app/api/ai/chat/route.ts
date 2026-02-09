@@ -292,11 +292,16 @@ To create a ticket, you MUST have:
 1. Explicit user consent
 2. User email address
 3. Problem summary
+4. User language (ISO code like de, en, fr)
 
 If any are missing, ask politely.
 
 Once you have them, call the tool:
 create_support_ticket
+
+Tool requirements:
+- The "message" field must be a concise internal summary of the issue (2-4 sentences).
+- The "language" field must match the user's conversation language.
 
 After the tool returns, tell the user:
 
@@ -369,9 +374,13 @@ Your goal is to:
                 message: {
                   type: "string",
                   description: "The full details of the user's request or problem."
+                },
+                language: {
+                  type: "string",
+                  description: "User language code of the conversation (e.g. de, en, fr)."
                 }
               },
-              required: ["email", "subject", "message"]
+              required: ["email", "subject", "message", "language"]
             }
           }
         }

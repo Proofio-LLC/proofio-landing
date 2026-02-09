@@ -21,7 +21,7 @@ function getSupportCounterDoc() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message, source = "direct" } = body;
+    const { name, email, subject, message, source = "direct", language } = body;
 
     // 0. Profanity Check
     if (filter.check(message || "") || filter.check(subject || "") || filter.check(name || "")) {
@@ -47,15 +47,27 @@ export async function POST(request: Request) {
       );
     }
 
+    const normalizedLanguage =
+      typeof language === "string" && language.trim().length > 0
+        ? language.trim().toLowerCase().slice(0, 20)
+        : "unknown";
+    const rawMessage = message || "No Content";
+    const intakePrefix =
+      source === "chatbot"
+        ? `[Proofy Intake]\nLanguage: ${normalizedLanguage}\nSummary: ${rawMessage}\n\n---\nOriginal Message:\n`
+        : "";
+    const ticketBody = `${intakePrefix}${rawMessage}`;
+
     // 2. Map to the required structure for the helpdesk system
     const ticketData = {
       projectId: "proofio", // Filtered in the admin panel
       from: email,
       fromName: name || "Unknown User",
       subject: subject || "No Subject",
-      body: message || "No Content",
+      body: ticketBody,
       status: "open", // Initial status
       source,
+      language: normalizedLanguage,
       createdAt: adminSdk.firestore.FieldValue.serverTimestamp(),
       attachments: [], // Optional, empty for now
     };
