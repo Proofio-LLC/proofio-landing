@@ -20,11 +20,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const API_KEY = process.env.MAILEROO_NEWSLETTER_API_KEY;
-    const LIST_ID = process.env.MAILEROO_NEWSLETTER_LIST_ID;
+    const API_KEY = process.env.MAILEROO_SEND_KEY || process.env.MAILEROO_NEWSLETTER_API_KEY;
+    const LIST_ID = process.env.MAILEROO_NEWSLETTER_LIST_ID || '2576';
 
     if (!API_KEY) {
-      console.error("MAILEROO_NEWSLETTER_API_KEY is not defined");
+      console.error("MAILEROO_SEND_KEY is not defined");
       return NextResponse.json(
         { error: "Newsletter service is currently unavailable" },
         { status: 500 }
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     }
 
     if (!LIST_ID) {
-      console.error("MAILEROO_NEWSLETTER_LIST_ID is not defined");
+      console.error("MAILEROO_NEWSLETTER_LIST_ID is not defined and default list 2576 was not applied");
       return NextResponse.json(
         { error: "Newsletter service is currently unavailable" },
         { status: 500 }
