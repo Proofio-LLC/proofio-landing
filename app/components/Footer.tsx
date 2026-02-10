@@ -47,7 +47,7 @@ export default function Footer({ locale, messages }: FooterProps) {
             </div>
 
             {/* Right Side - Navigation Links */}
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid grid-cols-3 md:grid-cols-4 gap-8">
               <div>
                 <h3 className="font-semibold text-base-content mb-4">{t.product || "Product"}</h3>
                 <ul className="space-y-3">
@@ -126,7 +126,7 @@ export default function Footer({ locale, messages }: FooterProps) {
                 </ul>
               </div>
 
-              <div>
+              <div className="hidden md:block">
                 <h3 className="font-semibold text-base-content mb-4">Compare</h3>
                 <ul className="space-y-3">
                   {comparisons.map((competitor) => (
@@ -172,6 +172,5 @@ export default function Footer({ locale, messages }: FooterProps) {
     </footer>
   );
 }
-
 
 
