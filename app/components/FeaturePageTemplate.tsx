@@ -2,20 +2,22 @@
 
 import Footer from '@/app/components/Footer';
 import Navigation from '@/app/components/Navigation';
+import CTA from '@/app/components/CTA';
 import { useLocaleContext } from '@/app/components/LocaleProvider';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 import {
   BadgeCheck,
   BarChart3,
   Bell,
   Brain,
   CheckCircle2,
+  ChevronDown,
   Compass,
   Layers3,
   LucideIcon,
   Radar,
-  Sparkles,
   Target,
   Users,
   Zap,
@@ -72,81 +74,87 @@ function getText(locale: SupportedLocale) {
       phase: 'Phase',
       ctaTitle: 'Start with clear review workflows',
       ctaText: 'Connect your sources and move from raw feedback to measurable team decisions.',
+      startForFree: 'Start for free',
     },
     de: {
       feature: 'Funktion',
       inputs: 'Eingaben',
-      outputs: 'Ausgaben',
-      keyBenefits: 'Wichtige Vorteile',
-      workflow: 'Workflow Blaupause',
+      outputs: 'Ergebnisse',
+      keyBenefits: 'Vorteile',
+      workflow: 'Workflow',
       workflowIntro:
-        'Der groesste Nutzen entsteht, wenn Teams einen wiederholbaren Rhythmus definieren und konsequent umsetzen.',
-      notes: 'Operative Hinweise',
-      scenarios: 'Einsatzszenarien',
-      faq: 'FAQ',
+        'Der größte Nutzen entsteht, wenn Teams einen wiederholbaren Prozess etablieren und konsequent verfolgen.',
+      notes: 'Hinweise zur Umsetzung',
+      scenarios: 'Anwendungsfälle',
+      faq: 'Häufige Fragen',
       phase: 'Phase',
-      ctaTitle: 'Mit klaren Review-Workflows starten',
-      ctaText: 'Quellen verbinden und Feedback in messbare Team-Entscheidungen ueberfuehren.',
+      ctaTitle: 'Jetzt mit strukturierten Review-Workflows starten',
+      ctaText: 'Verbinde deine Quellen und verwandle Feedback in datenbasierte Entscheidungen.',
+      startForFree: 'Kostenlos starten',
     },
     fr: {
-      feature: 'Fonctionnalite',
-      inputs: 'Entrees',
-      outputs: 'Sorties',
-      keyBenefits: 'Benefices cles',
-      workflow: 'Blueprint workflow',
+      feature: 'Fonctionnalité',
+      inputs: 'Entrées',
+      outputs: 'Résultats',
+      keyBenefits: 'Avantages',
+      workflow: 'Workflow',
       workflowIntro:
-        'L adoption est meilleure quand les equipes suivent un cycle operationnel stable et repetable.',
-      notes: 'Notes operationnelles',
-      scenarios: 'Scenarios d usage',
-      faq: 'FAQ',
+        'L\'adoption est optimale quand les équipes établissent un processus répétable et le suivent rigoureusement.',
+      notes: 'Conseils de mise en œuvre',
+      scenarios: 'Cas d\'usage',
+      faq: 'Questions fréquentes',
       phase: 'Phase',
-      ctaTitle: 'Demarrez avec un workflow clair',
-      ctaText: 'Connectez vos sources et transformez le feedback en decisions mesurables.',
+      ctaTitle: 'Démarrez avec des workflows structurés',
+      ctaText: 'Connectez vos sources et transformez les retours en décisions basées sur les données.',
+      startForFree: 'Commencer gratuitement',
     },
     es: {
       feature: 'Funcionalidad',
       inputs: 'Entradas',
-      outputs: 'Salidas',
-      keyBenefits: 'Beneficios clave',
-      workflow: 'Blueprint de workflow',
+      outputs: 'Resultados',
+      keyBenefits: 'Ventajas',
+      workflow: 'Workflow',
       workflowIntro:
-        'La adopcion mejora cuando el equipo usa un ciclo estable y repetible de analisis y accion.',
-      notes: 'Notas operativas',
-      scenarios: 'Escenarios de uso',
-      faq: 'FAQ',
+        'La adopción mejora cuando el equipo establece un proceso repetible y lo sigue de forma consistente.',
+      notes: 'Consejos de implementación',
+      scenarios: 'Casos de uso',
+      faq: 'Preguntas frecuentes',
       phase: 'Fase',
-      ctaTitle: 'Empieza con workflows claros',
-      ctaText: 'Conecta tus fuentes y convierte feedback en decisiones medibles.',
+      ctaTitle: 'Empieza con workflows estructurados',
+      ctaText: 'Conecta tus fuentes y transforma el feedback en decisiones basadas en datos.',
+      startForFree: 'Empezar gratis',
     },
     pt: {
-      feature: 'Recurso',
+      feature: 'Funcionalidade',
       inputs: 'Entradas',
-      outputs: 'Saidas',
-      keyBenefits: 'Beneficios principais',
-      workflow: 'Blueprint de workflow',
+      outputs: 'Resultados',
+      keyBenefits: 'Vantagens',
+      workflow: 'Workflow',
       workflowIntro:
-        'A adocao melhora quando a equipe segue um ciclo operacional repetivel e consistente.',
-      notes: 'Notas operacionais',
-      scenarios: 'Cenarios de uso',
-      faq: 'FAQ',
+        'A adoção melhora quando a equipe estabelece um processo repetível e o segue consistentemente.',
+      notes: 'Conselhos de implementação',
+      scenarios: 'Casos de uso',
+      faq: 'Perguntas frequentes',
       phase: 'Fase',
-      ctaTitle: 'Comece com workflows claros',
-      ctaText: 'Conecte fontes e transforme feedback em decisoes mensuraveis.',
+      ctaTitle: 'Comece com workflows estruturados',
+      ctaText: 'Conecte suas fontes e transforme feedback em decisões baseadas em dados.',
+      startForFree: 'Começar grátis',
     },
     it: {
-      feature: 'Funzionalita',
+      feature: 'Funzionalità',
       inputs: 'Input',
-      outputs: 'Output',
-      keyBenefits: 'Vantaggi principali',
-      workflow: 'Blueprint workflow',
+      outputs: 'Risultati',
+      keyBenefits: 'Vantaggi',
+      workflow: 'Workflow',
       workflowIntro:
-        'L adozione cresce quando il team usa un ciclo operativo stabile e ripetibile.',
-      notes: 'Note operative',
-      scenarios: 'Scenari di utilizzo',
-      faq: 'FAQ',
+        'L\'adozione migliora quando il team stabilisce un processo ripetibile e lo segue con coerenza.',
+      notes: 'Consigli per l\'implementazione',
+      scenarios: 'Casi d\'uso',
+      faq: 'Domande frequenti',
       phase: 'Fase',
-      ctaTitle: 'Parti con workflow chiari',
-      ctaText: 'Collega le fonti e trasforma il feedback in decisioni misurabili.',
+      ctaTitle: 'Inizia con workflow strutturati',
+      ctaText: 'Collega le tue fonti e trasforma il feedback in decisioni basate sui dati.',
+      startForFree: 'Inizia gratis',
     },
   } as const;
 
@@ -160,19 +168,19 @@ function getFeatureDeepContent(name: string, description: string, locale: Suppor
     return {
       inputs: [
         `${name} Signale aus verbundenen Quellen mit Zeit- und Bewertungsbezug.`,
-        'Team-Regeln fuer Prioritaet, Benachrichtigung und Eskalation.',
+        'Team-Regeln für Priorität, Benachrichtigung und Eskalation.',
         'Kontextfelder wie Produktbereich, Segment und Verantwortlicher.',
       ],
       outputs: [
-        `${name} Insights fuer Produkt, Support und Wachstum in einem gemeinsamen Format.`,
-        'Priorisierte Signal-Cluster mit klarer Verantwortung und naechsten Schritten.',
-        'Wiederverwendbare Wochen- und Monatsberichte fuer Entscheidungen.',
+        `${name} Insights für Produkt, Support und Wachstum in einem gemeinsamen Format.`,
+        'Priorisierte Signal-Cluster mit klarer Verantwortung und nächsten Schritten.',
+        'Wiederverwendbare Wochen- und Monatsberichte für Entscheidungen.',
       ],
       workflow: [
         {
           phase: `${t.phase} 1`,
           title: 'Signalaufnahme und Normalisierung',
-          detail: 'Feedback wird ueber Quellen hinweg strukturiert, damit Teams auf einer konsistenten Datengrundlage arbeiten.',
+          detail: 'Feedback wird über Quellen hinweg strukturiert, damit Teams auf einer konsistenten Datengrundlage arbeiten.',
         },
         {
           phase: `${t.phase} 2`,
@@ -181,25 +189,25 @@ function getFeatureDeepContent(name: string, description: string, locale: Suppor
         },
         {
           phase: `${t.phase} 3`,
-          title: 'Umsetzung und Rueckmessung',
-          detail: 'Nach Aktionen werden Trend- und Sentimentveraenderungen gemessen, um den Effekt nachvollziehbar zu machen.',
+          title: 'Umsetzung und Rückmessung',
+          detail: 'Nach Aktionen werden Trend- und Sentimentveränderungen gemessen, um den Effekt nachvollziehbar zu machen.',
         },
       ] as WorkflowStep[],
       operationalNotes: [
         `${description}`,
-        'Definiert zu Beginn klare Owner fuer Triage, Umsetzung und Reporting.',
+        'Definiert zu Beginn klare Owner für Triage, Umsetzung und Reporting.',
         'Startet mit wenigen Kategorien und erweitert erst nach stabilen Review-Zyklen.',
         'Koppelt jede Entscheidung an eine Metrik und ein Review-Intervall.',
       ],
       localizedBenefits: [
-        { title: 'Schnelle Signal-Sichtbarkeit', description: 'Wichtige Veraenderungen werden frueh erkannt.' },
+        { title: 'Schnelle Signal-Sichtbarkeit', description: 'Wichtige Veränderungen werden früh erkannt.' },
         { title: 'Bessere Team-Abstimmung', description: 'Produkt, Support und Growth nutzen dieselbe Signallage.' },
         { title: 'Weniger manuelle Analyse', description: 'Wiederholbare Workflows ersetzen ad hoc Auswertungen.' },
       ],
       localizedUseCases: [
-        `${name} zur fruehen Erkennung kritischer Trends nutzen.`,
+        `${name} zur frühen Erkennung kritischer Trends nutzen.`,
         'Support- und Produkt-Entscheidungen mit derselben Datensicht abstimmen.',
-        'Regelmaessige Reports fuer operative und strategische Reviews erstellen.',
+        'Regelmäßige Reports für operative und strategische Reviews erstellen.',
       ],
       faq: [
         {
@@ -290,6 +298,8 @@ export default function FeaturePageTemplate({
   const t = getText(locale);
   const deep = getFeatureDeepContent(name, description, locale);
   const benefitIcons: LucideIcon[] = [Brain, BarChart3, Bell, Target, Layers3, Users, Compass, Radar, BadgeCheck, Zap];
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const messages = { cta: localeContext.messages?.cta };
 
   const displayOverview = locale === 'en' ? overviewParagraphs : [description, t.ctaText];
   const displayOverviewTitle = locale === 'en' ? overviewTitle : name;
@@ -314,17 +324,6 @@ export default function FeaturePageTemplate({
               <p className="text-xl text-base-content/65 max-w-2xl mx-auto">{description}</p>
             </motion.div>
 
-            <div className="relative mb-16">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-[2.5rem] blur opacity-40" />
-              <div className="relative bg-white rounded-[2.2rem] p-8 md:p-14 border border-base-200 shadow-2xl overflow-hidden">
-                <h2 className="relative z-10 text-4xl md:text-5xl font-black mb-6 tracking-tight text-base-content">{displayOverviewTitle}</h2>
-                <div className="relative z-10 space-y-4">
-                  {displayOverview.map((paragraph) => (
-                    <p key={paragraph} className="text-lg text-base-content/70 leading-relaxed">{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             <section className="mb-16">
               <div className="grid md:grid-cols-2 gap-6">
@@ -399,26 +398,30 @@ export default function FeaturePageTemplate({
             <section className="mb-16">
               <h2 className="text-4xl font-black mb-8 text-base-content">{t.faq}</h2>
               <div className="grid gap-4">
-                {deep.faq.map((item) => (
-                  <div key={item.question} className="bg-white rounded-3xl p-6 border border-base-200">
-                    <h3 className="text-lg font-bold text-base-content mb-2">{item.question}</h3>
-                    <p className="text-base-content/70 leading-relaxed">{item.answer}</p>
-                  </div>
-                ))}
+                {deep.faq.map((item, index) => {
+                  const isOpen = openFaqIndex === index;
+                  return (
+                    <div key={item.question} className="bg-white rounded-3xl border border-base-200">
+                      <button
+                        type="button"
+                        onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                        className="w-full flex items-center justify-between gap-4 p-6 text-left"
+                      >
+                        <h3 className="text-lg font-bold text-base-content">{item.question}</h3>
+                        <ChevronDown className={`w-5 h-5 text-primary transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      {isOpen && (
+                        <div className="px-6 pb-6">
+                          <p className="text-base-content/70 leading-relaxed">{item.answer}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
-            <div className="bg-primary rounded-[2.3rem] p-8 md:p-16 text-white relative overflow-hidden group shadow-2xl shadow-primary/20 border border-white/10">
-              <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none group-hover:scale-150 transition-transform duration-1000" />
-              <div className="relative z-10 text-center">
-                <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">{locale === 'en' ? ctaTitle : t.ctaTitle}</h2>
-                <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">{locale === 'en' ? ctaText : t.ctaText}</p>
-                <Link href="https://dash.proofio.app/register" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-black rounded-2xl hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-black/10">
-                  <Sparkles className="w-5 h-5" />
-                  Start for free
-                </Link>
-              </div>
-            </div>
+            <CTA locale={locale} messages={messages} />
           </div>
         </section>
         <Footer />

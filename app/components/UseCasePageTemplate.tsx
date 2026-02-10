@@ -2,12 +2,12 @@
 
 import Footer from '@/app/components/Footer';
 import Navigation from '@/app/components/Navigation';
+import CTA from '@/app/components/CTA';
 import { UseCasePageContent, UseCaseSlug } from '@/lib/data/use-cases';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 import {
-  ArrowRight,
   CheckCircle2,
   ChevronDown,
   ClipboardList,
@@ -70,7 +70,7 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
 
   const sectionText = isGerman
     ? {
-        whoItsFor: 'Fuer wen ist das',
+        whoItsFor: 'Für wen ist das',
         outcomes: 'Key outcomes',
         deepWorkflow: 'Deep workflow',
         mapping: 'Integrationen und Feature-Mapping',
@@ -111,44 +111,44 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
         agency: [
           { value: '-40%', label: 'Reporting-Aufwand', note: 'Weniger manuelle Report-Erstellung pro Kunde.' },
           { value: '<24h', label: 'Eskalationszeit', note: 'Schnellere Reaktion auf kritische Bewertungsmuster.' },
-          { value: '+', label: 'Kundenbindung', note: 'Staerkere Retention durch klare, messbare Insights.' },
+          { value: '+15%', label: 'Kundenbindung', note: 'Stärkere Retention durch klare, messbare Insights.' },
         ],
         coaches: [
-          { value: '+', label: 'Lead-Qualitaet', note: 'Mehr qualifizierte Anfragen durch verifizierten Social Proof.' },
+          { value: '+25%', label: 'Lead-Qualität', note: 'Mehr qualifizierte Anfragen durch verifizierten Social Proof.' },
           { value: '1x', label: 'Proof-System', note: 'Ein zentraler Ort statt verstreuter Testimonials.' },
-          { value: '<7d', label: 'Go-live', note: 'Schnelle Umsetzung fuer neue Angebote und Launches.' },
+          { value: '<7d', label: 'Go-live', note: 'Schnelle Umsetzung für neue Angebote und Launches.' },
         ],
         services: [
-          { value: '<24h', label: 'Reaktionszeit', note: 'Kritische Signale werden frueh erkannt und bearbeitet.' },
-          { value: '+', label: 'Qualitaetsniveau', note: 'Kontinuierliche Verbesserung statt punktueller Fixes.' },
-          { value: '+', label: 'Vertrauen', note: 'Bessere Bewertungen und mehr wiederkehrende Kunden.' },
+          { value: '<24h', label: 'Reaktionszeit', note: 'Kritische Signale werden früh erkannt und bearbeitet.' },
+          { value: '+20%', label: 'Qualitätsniveau', note: 'Kontinuierliche Verbesserung statt punktueller Fixes.' },
+          { value: '+18%', label: 'Vertrauen', note: 'Bessere Bewertungen und mehr wiederkehrende Kunden.' },
         ],
         'saas-startups': [
           { value: '<1 Sprint', label: 'Issue-Erkennung', note: 'Release-Probleme schneller erkennen und zuordnen.' },
-          { value: '+', label: 'Roadmap-Fit', note: 'Priorisierung mit echten Kundensignalen statt Bauchgefuehl.' },
-          { value: '+', label: 'Retention', note: 'Bessere Kundenbindung durch kuerzere Feedback-Loops.' },
+          { value: '+30%', label: 'Roadmap-Fit', note: 'Priorisierung mit echten Kundensignalen statt Bauchgefühl.' },
+          { value: '+12%', label: 'Retention', note: 'Bessere Kundenbindung durch kürzere Feedback-Loops.' },
         ],
       }
     : {
         agency: [
           { value: '-40%', label: 'Reporting overhead', note: 'Less manual reporting work across client accounts.' },
           { value: '<24h', label: 'Escalation time', note: 'Faster response to critical review trend changes.' },
-          { value: '+', label: 'Client retention', note: 'Stronger retention through measurable trust outcomes.' },
+          { value: '+15%', label: 'Client retention', note: 'Stronger retention through measurable trust outcomes.' },
         ],
         coaches: [
-          { value: '+', label: 'Lead quality', note: 'More qualified inbound leads from verified proof.' },
+          { value: '+25%', label: 'Lead quality', note: 'More qualified inbound leads from verified proof.' },
           { value: '1x', label: 'Proof system', note: 'One trusted source instead of fragmented testimonials.' },
           { value: '<7d', label: 'Launch speed', note: 'Fast setup for new offers and campaign rollouts.' },
         ],
         services: [
           { value: '<24h', label: 'Response time', note: 'Critical quality issues are surfaced and routed quickly.' },
-          { value: '+', label: 'Quality consistency', note: 'Continuous service improvements across teams and sites.' },
-          { value: '+', label: 'Customer trust', note: 'Better reviews and stronger repeat business signals.' },
+          { value: '+20%', label: 'Quality consistency', note: 'Continuous service improvements across teams and sites.' },
+          { value: '+18%', label: 'Customer trust', note: 'Better reviews and stronger repeat business signals.' },
         ],
         'saas-startups': [
           { value: '<1 sprint', label: 'Issue detection', note: 'Release regressions are spotted and mapped faster.' },
-          { value: '+', label: 'Roadmap fit', note: 'Prioritization tied to measurable customer feedback signals.' },
-          { value: '+', label: 'Retention signal', note: 'Tighter loops between support, product, and growth.' },
+          { value: '+30%', label: 'Roadmap fit', note: 'Prioritization tied to measurable customer feedback signals.' },
+          { value: '+12%', label: 'Retention signal', note: 'Tighter loops between support, product, and growth.' },
         ],
       };
 
@@ -156,50 +156,50 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
     ? {
         agency: [
           {
-            job: 'Client-Feedback aus mehreren Quellen in einen klaren Monatsbericht ueberfuehren.',
+            job: 'Client-Feedback aus mehreren Quellen in einen klaren Monatsbericht überführen.',
             struggle: 'Daten und Verantwortlichkeiten liegen verteilt in verschiedenen Tools.',
             outcome: 'Ein konsistenter Reporting-Prozess mit klaren Aktionspunkten pro Kunde.',
           },
           {
             job: 'Kritische Entwicklungen vor dem Kundenmeeting erkennen.',
-            struggle: 'Negative Muster werden zu spaet sichtbar und fuehren zu Eskalationen.',
-            outcome: 'Fruehwarnsystem mit Prioritaeten und sauberer Eskalationslogik.',
+            struggle: 'Negative Muster werden zu spät sichtbar und führen zu Eskalationen.',
+            outcome: 'Frühwarnsystem mit Prioritäten und sauberer Eskalationslogik.',
           },
         ],
         coaches: [
           {
-            job: 'Vertrauensaufbau fuer neue Angebote mit echten Ergebnissen.',
+            job: 'Vertrauensaufbau für neue Angebote mit echten Ergebnissen.',
             struggle: 'Testimonials sind unstrukturiert und schwer wiederverwendbar.',
             outcome: 'Verifizierte Proof-Bibliothek nach Zielgruppe und Ergebnis.',
           },
           {
-            job: 'Angebots- und Onboarding-Qualitaet anhand von Feedback verbessern.',
+            job: 'Angebots- und Onboarding-Qualität anhand von Feedback verbessern.',
             struggle: 'Feedback landet in Chats und wird nicht systematisch ausgewertet.',
-            outcome: 'Regelmaessiger Verbesserungszyklus fuer Positionierung und Delivery.',
+            outcome: 'Regelmäßiger Verbesserungszyklus für Positionierung und Delivery.',
           },
         ],
         services: [
           {
-            job: 'Servicequalitaet ueber Teams und Standorte hinweg angleichen.',
+            job: 'Servicequalität über Teams und Standorte hinweg angleichen.',
             struggle: 'Unterschiedliche Prozesse erzeugen uneinheitliche Kundenerfahrung.',
-            outcome: 'Standortuebergreifende Qualitaetssteuerung mit gemeinsamen Standards.',
+            outcome: 'Standortübergreifende Qualitätssteuerung mit gemeinsamen Standards.',
           },
           {
             job: 'Negative Signale schneller erkennen und beantworten.',
             struggle: 'Reaktionszeiten sind zu lang und Verantwortlichkeiten unklar.',
-            outcome: 'Klare Zuweisung nach Prioritaet mit messbarer SLA-Erfuellung.',
+            outcome: 'Klare Zuweisung nach Priorität mit messbarer SLA-Erfüllung.',
           },
         ],
         'saas-startups': [
           {
             job: 'Produktpriorisierung mit echten Kundenproblemen steuern.',
-            struggle: 'Feedback ist verteilt und schwer in Roadmap-Entscheidungen zu uebersetzen.',
+            struggle: 'Feedback ist verteilt und schwer in Roadmap-Entscheidungen zu übersetzen.',
             outcome: 'Priorisierung auf Basis wiederkehrender Signalcluster.',
           },
           {
             job: 'Release-Impact in kurzer Zeit bewerten.',
-            struggle: 'Effekte zeigen sich verzerrt und werden zu spaet erkannt.',
-            outcome: 'Schnelleres Release-Lernen ueber Sentiment- und Trend-Deltas.',
+            struggle: 'Effekte zeigen sich verzerrt und werden zu spät erkannt.',
+            outcome: 'Schnelleres Release-Lernen über Sentiment- und Trend-Deltas.',
           },
         ],
       }
@@ -313,8 +313,8 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
         ],
         services: [
           {
-            title: 'Servicequalitaet sichtbar gemacht',
-            body: 'Standortuebergreifende Muster wurden in einem Dashboard sichtbar und sauber priorisiert.',
+            title: 'Servicequalität sichtbar gemacht',
+            body: 'Standortübergreifende Muster wurden in einem Dashboard sichtbar und sauber priorisiert.',
             metric: 'Mehr operative Klarheit',
           },
           {
@@ -390,27 +390,27 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
   const faqBySlug: Record<UseCaseSlug, FaqItem[]> = isGerman
     ? {
         agency: [
-          { question: 'Kann ich mehrere Kunden in einem Setup verwalten?', answer: 'Ja, Agenturen koennen pro Kunde eigene Workspaces und Reports in einem einheitlichen Operating Model verwalten.' },
+          { question: 'Kann ich mehrere Kunden in einem Setup verwalten?', answer: 'Ja, Agenturen können pro Kunde eigene Workspaces und Reports in einem einheitlichen Operating Model verwalten.' },
           { question: 'Kann ich Reports wiederverwenden?', answer: 'Ja, Report-Templates lassen sich standardisieren und pro Kunde mit Benchmarks anpassen.' },
-          { question: 'Wie erkenne ich kritische Entwicklungen schneller?', answer: 'Mit Alerts, Trend-Views und priorisierten Tickets fuer auffaellige Muster.' },
-          { question: 'Wie messe ich den strategischen Mehrwert?', answer: 'Durch Reporting-Zeit, Eskalationsrate, Kundenbindung und sichtbare Qualitaetsverbesserung pro Kunde.' },
+          { question: 'Wie erkenne ich kritische Entwicklungen schneller?', answer: 'Mit Alerts, Trend-Views und priorisierten Tickets für auffällige Muster.' },
+          { question: 'Wie messe ich den strategischen Mehrwert?', answer: 'Durch Reporting-Zeit, Eskalationsrate, Kundenbindung und sichtbare Qualitätsverbesserung pro Kunde.' },
         ],
         coaches: [
           { question: 'Kann ich Testimonials verifizieren und strukturieren?', answer: 'Ja, Feedback kann zentral gesammelt und nach Ergebnis sowie Zielgruppe eingeordnet werden.' },
-          { question: 'Ist das auch fuer kleine Teams sinnvoll?', answer: 'Ja, gerade kleine Teams profitieren von einem klaren Proof-System statt manueller Sammlung.' },
+          { question: 'Ist das auch für kleine Teams sinnvoll?', answer: 'Ja, gerade kleine Teams profitieren von einem klaren Proof-System statt manueller Sammlung.' },
           { question: 'Wie schnell kann ich starten?', answer: 'In der Regel in wenigen Tagen, inklusive erster verwertbarer Proof-Snippets.' },
-          { question: 'Wie halte ich den Proof aktuell?', answer: 'Mit einem woechentlichen Sammel- und Review-Rhythmus sowie klaren Tags pro Angebot.' },
+          { question: 'Wie halte ich den Proof aktuell?', answer: 'Mit einem wöchentlichen Sammel- und Review-Rhythmus sowie klaren Tags pro Angebot.' },
         ],
         services: [
-          { question: 'Funktioniert das fuer mehrere Standorte?', answer: 'Ja, Standort- und Teamvergleiche sind Teil des Workflows.' },
-          { question: 'Wie priorisieren wir Tickets?', answer: 'Mit Status, Prioritaet und klarer Zuweisung an Verantwortliche.' },
-          { question: 'Hilft das auch bei Training und SOPs?', answer: 'Ja, wiederkehrende Feedback-Muster lassen sich direkt in operative Standards ueberfuehren.' },
+          { question: 'Funktioniert das für mehrere Standorte?', answer: 'Ja, Standort- und Teamvergleiche sind Teil des Workflows.' },
+          { question: 'Wie priorisieren wir Tickets?', answer: 'Mit Status, Priorität und klarer Zuweisung an Verantwortliche.' },
+          { question: 'Hilft das auch bei Training und SOPs?', answer: 'Ja, wiederkehrende Feedback-Muster lassen sich direkt in operative Standards überführen.' },
           { question: 'Wie erkenne ich Prozessprobleme schneller?', answer: 'Durch trendbasierte Alerts, Standortvergleich und wiederkehrende Themencluster.' },
         ],
         'saas-startups': [
           { question: 'Wie messen wir Release-Impact?', answer: 'Durch Sentiment-Deltas und Trendanalysen rund um Release-Zeitpunkte.' },
-          { question: 'Ist das nur fuer Support gedacht?', answer: 'Nein, Produkt, Support und Growth nutzen denselben Feedback-Stream fuer Entscheidungen.' },
-          { question: 'Kann ich Quellen kombinieren?', answer: 'Ja, App Stores, Review-Plattformen und weitere Quellen werden zusammengefuehrt.' },
+          { question: 'Ist das nur für Support gedacht?', answer: 'Nein, Produkt, Support und Growth nutzen denselben Feedback-Stream für Entscheidungen.' },
+          { question: 'Kann ich Quellen kombinieren?', answer: 'Ja, App Stores, Review-Plattformen und weitere Quellen werden zusammengeführt.' },
           { question: 'Wie verbessere ich Roadmap-Entscheidungen?', answer: 'Durch priorisierte, wiederkehrende Signalcluster statt Einzelwunsch-Orientierung.' },
         ],
       }
@@ -447,22 +447,22 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
           {
             title: 'Ausgangslage',
             paragraphs: [
-              'Eine Agentur mit mehreren SaaS-Kunden hatte monatliche Reporting-Prozesse, die stark von Einzelpersonen abhaengig waren. Review-Daten wurden manuell gesammelt, kategorisiert und praesentiert. Dadurch war die Qualitaet zwischen Kundenkonten ungleich und strategische Empfehlungen waren schwer vergleichbar.',
-              'Kritische Signalspruenge wurden oft erst im Rueckblick sichtbar. Das fuehrte zu reaktiver Kommunikation statt proaktivem Stakeholder-Management.',
+              'Eine Agentur mit mehreren SaaS-Kunden hatte monatliche Reporting-Prozesse, die stark von Einzelpersonen abhängig waren. Review-Daten wurden manuell gesammelt, kategorisiert und präsentiert. Dadurch war die Qualität zwischen Kundenkonten ungleich und strategische Empfehlungen waren schwer vergleichbar.',
+              'Kritische Signalsprünge wurden oft erst im Rückblick sichtbar. Das führte zu reaktiver Kommunikation statt proaktivem Stakeholder-Management.',
             ],
           },
           {
             title: 'Intervention',
             paragraphs: [
-              'Das Team fuehrte einen standardisierten Workflow ein: taegliche Signalaufnahme, woechentliche Priorisierung, monatliche Executive-Zusammenfassung. Gleichzeitig wurden feste Kategorien und Eskalationsschwellen definiert.',
-              'Pro Kunde gab es einen klaren Owner fuer Triage und Reporting, wodurch Unklarheiten in der Bearbeitung deutlich reduziert wurden.',
+              'Das Team führte einen standardisierten Workflow ein: tägliche Signalaufnahme, wöchentliche Priorisierung, monatliche Executive-Zusammenfassung. Gleichzeitig wurden feste Kategorien und Eskalationsschwellen definiert.',
+              'Pro Kunde gab es einen klaren Owner für Triage und Reporting, wodurch Unklarheiten in der Bearbeitung deutlich reduziert wurden.',
             ],
           },
           {
             title: 'Ergebnis',
             paragraphs: [
-              'Die Reporting-Zeit sank deutlich, waehrend die Qualitaet und Vergleichbarkeit zwischen Kundenkonten stieg. Kritische Trends wurden frueher erkannt und proaktiv adressiert.',
-              'Zusaetzlich verbesserte sich die strategische Tiefe in Kundenmeetings, weil Empfehlungen auf stabilen Signalclustern statt auf Einzelbeispielen basierten.',
+              'Die Reporting-Zeit sank deutlich, während die Qualität und Vergleichbarkeit zwischen Kundenkonten stieg. Kritische Trends wurden früher erkannt und proaktiv adressiert.',
+              'Zusätzlich verbesserte sich die strategische Tiefe in Kundenmeetings, weil Empfehlungen auf stabilen Signalclustern statt auf Einzelbeispielen basierten.',
             ],
           },
         ],
@@ -470,21 +470,21 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
           {
             title: 'Ausgangslage',
             paragraphs: [
-              'Ein Coaching-Business sammelte Kundenergebnisse ueber viele Kanaele, aber ohne einheitliche Struktur. Das erschwerte die Wiederverwendung in Launches und Sales-Assets.',
+              'Ein Coaching-Business sammelte Kundenergebnisse über viele Kanäle, aber ohne einheitliche Struktur. Das erschwerte die Wiederverwendung in Launches und Sales-Assets.',
               'Besonders bei neuen Angeboten fehlte ein schneller Zugriff auf belastbare, segmentierte Proof-Beispiele.',
             ],
           },
           {
             title: 'Intervention',
             paragraphs: [
-              'Feedback wurde in einem zentralen Workflow mit Tags fuer Zielgruppe, Ergebnisart und Angebot gesammelt. Verifizierte Snippets wurden direkt in Landingpages, E-Mail-Sequenzen und Sales-Calls integriert.',
-              'Parallel wurde ein regelmaessiger Review-Rhythmus eingefuehrt, damit neue Ergebnisse kontinuierlich einfliessen.',
+              'Feedback wurde in einem zentralen Workflow mit Tags für Zielgruppe, Ergebnisart und Angebot gesammelt. Verifizierte Snippets wurden direkt in Landingpages, E-Mail-Sequenzen und Sales-Calls integriert.',
+              'Parallel wurde ein regelmäßiger Review-Rhythmus eingeführt, damit neue Ergebnisse kontinuierlich einfließen.',
             ],
           },
           {
             title: 'Ergebnis',
             paragraphs: [
-              'Die Lead-Qualitaet stieg und Einwaende im Sales-Prozess wurden schneller aufgeloest. Das Team konnte Angebote klarer positionieren und schneller iterieren.',
+              'Die Lead-Qualität stieg und Einwände im Sales-Prozess wurden schneller aufgelöst. Das Team konnte Angebote klarer positionieren und schneller iterieren.',
               'Durch die bessere Struktur wurden weniger Testimonials manuell gesucht und mehr direkt operativ genutzt.',
             ],
           },
@@ -493,21 +493,21 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
           {
             title: 'Ausgangslage',
             paragraphs: [
-              'Ein Dienstleistungsunternehmen mit mehreren Standorten hatte stark unterschiedliche Qualitaetswahrnehmung zwischen Teams. Negative Signale wurden nicht zentral priorisiert.',
+              'Ein Dienstleistungsunternehmen mit mehreren Standorten hatte stark unterschiedliche Qualitätswahrnehmung zwischen Teams. Negative Signale wurden nicht zentral priorisiert.',
               'Die Folge waren inkonsistente Reaktionszeiten und wiederkehrende Beschwerden in denselben Kategorien.',
             ],
           },
           {
             title: 'Intervention',
             paragraphs: [
-              'Das Unternehmen etablierte standortbasierte Monitoring-Ansichten, klare Prioritaetsregeln und owner-basierte Ticket-Routen. Wiederkehrende Themen wurden in SOP-Updates ueberfuehrt.',
-              'Ein woechentlicher Review mit Teamleads machte Trends sichtbar und loeste konkrete Verbesserungsaufgaben aus.',
+              'Das Unternehmen etablierte standortbasierte Monitoring-Ansichten, klare Prioritätsregeln und owner-basierte Ticket-Routen. Wiederkehrende Themen wurden in SOP-Updates überführt.',
+              'Ein wöchentlicher Review mit Teamleads machte Trends sichtbar und löste konkrete Verbesserungsaufgaben aus.',
             ],
           },
           {
             title: 'Ergebnis',
             paragraphs: [
-              'Reaktionszeiten wurden kuerzer, Verantwortlichkeiten klarer und die Servicequalitaet konsistenter. Wiederkehrende Fehler konnten schneller reduziert werden.',
+              'Reaktionszeiten wurden kürzer, Verantwortlichkeiten klarer und die Servicequalität konsistenter. Wiederkehrende Fehler konnten schneller reduziert werden.',
               'Dadurch verbesserte sich die Kundenwahrnehmung und die Zahl positiver Signale stieg nachhaltig.',
             ],
           },
@@ -516,22 +516,22 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
           {
             title: 'Ausgangslage',
             paragraphs: [
-              'Ein SaaS-Team hatte viele Feedbackkanaele, aber keine einheitliche Priorisierungslogik. Release-Auswirkungen wurden zu spaet bewertet und Regressionen teilweise erst nach Wochen erkannt.',
+              'Ein SaaS-Team hatte viele Feedbackkanäle, aber keine einheitliche Priorisierungslogik. Release-Auswirkungen wurden zu spät bewertet und Regressionen teilweise erst nach Wochen erkannt.',
               'Produkt, Support und Growth hatten unterschiedliche Sicht auf die wichtigsten Probleme.',
             ],
           },
           {
             title: 'Intervention',
             paragraphs: [
-              'Feedbackquellen wurden aggregiert, Signale normalisiert und in gemeinsame Prioritaetscluster ueberfuehrt. Nach jedem Release wurden Sentiment-Deltas als Standard-Check etabliert.',
+              'Feedbackquellen wurden aggregiert, Signale normalisiert und in gemeinsame Prioritätscluster überführt. Nach jedem Release wurden Sentiment-Deltas als Standard-Check etabliert.',
               'Roadmap-Diskussionen wurden auf wiederkehrende, quantifizierte Muster ausgerichtet.',
             ],
           },
           {
             title: 'Ergebnis',
             paragraphs: [
-              'Regressionen wurden frueher erkannt, Priorisierungsdiskussionen schneller entschieden und Releases datenbasierter bewertet.',
-              'Das Team gewann Geschwindigkeit, ohne Qualitaetseinbussen in der Customer Experience zu riskieren.',
+              'Regressionen wurden früher erkannt, Priorisierungsdiskussionen schneller entschieden und Releases datenbasierter bewertet.',
+              'Das Team gewann Geschwindigkeit, ohne Qualitätseinbußen in der Customer Experience zu riskieren.',
             ],
           },
         ],
@@ -671,17 +671,17 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
           {
             phase: 'Woche 1 bis 2',
             goal: 'Monitoring-Basis',
-            tasks: ['Standort-Views aufsetzen', 'Prioritaetsregeln definieren', 'Owner-Zuweisung klaeren'],
+            tasks: ['Standort-Views aufsetzen', 'Prioritätsregeln definieren', 'Owner-Zuweisung klären'],
           },
           {
             phase: 'Woche 3 bis 4',
-            goal: 'Response-Qualitaet',
-            tasks: ['SLA etablieren', 'Ticket-Routing pruefen', 'Regelmaessige Team-Reviews starten'],
+            goal: 'Response-Qualität',
+            tasks: ['SLA etablieren', 'Ticket-Routing prüfen', 'Regelmäßige Team-Reviews starten'],
           },
           {
             phase: 'Monat 2+',
-            goal: 'Qualitaetssteuerung',
-            tasks: ['SOP-Updates aus Trends', 'Training nach Bedarf', 'Langzeitvergleich ueber Standorte'],
+            goal: 'Qualitätssteuerung',
+            tasks: ['SOP-Updates aus Trends', 'Training nach Bedarf', 'Langzeitvergleich über Standorte'],
           },
         ],
         'saas-startups': [
@@ -1114,32 +1114,7 @@ export default function UseCasePageTemplate({ locale, messages, content }: UseCa
         </div>
       </section>
 
-      <section className="py-16 bg-base-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto bg-primary rounded-[2rem] p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Start collecting proof that converts</h2>
-              <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">Move from fragmented feedback to a clear system your team can act on every week.</p>
-              <Link
-                href="https://dash.proofio.app/register"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-white/90 px-10 py-4 rounded-xl font-bold shadow-xl transition-all"
-              >
-                Start for free
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-            <div
-              className="absolute -bottom-20 -right-20 w-[360px] h-[360px] pointer-events-none opacity-10 rotate-12"
-              style={{
-                backgroundImage: 'url(/favicon.png)',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                filter: 'brightness(0) invert(1)',
-              }}
-            />
-          </div>
-        </div>
-      </section>
+      <CTA locale={locale} messages={messages} />
 
       <Footer locale={locale} messages={messages} />
     </main>
