@@ -1,4 +1,6 @@
 'use client';
+import Navigation from '@/app/components/Navigation';
+import Footer from '@/app/components/Footer';
 
 import Link from 'next/link';
 
@@ -9,7 +11,9 @@ const integration = {
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#FAF8F5] to-[#F5F1EB]">
+    <>
+      <Navigation />
+      <main className="min-h-screen pt-24 bg-gradient-to-br from-[#FAF8F5] to-[#F5F1EB]">
       <div className="px-6 py-12 sm:py-16 lg:py-20 max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-block bg-white px-4 py-2 rounded-full mb-6 shadow-sm">
@@ -28,5 +32,7 @@ export default function Page() {
         </div>
       </div>
     </main>
+      <Footer />
+    </>
   );
 }

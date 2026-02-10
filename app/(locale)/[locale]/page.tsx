@@ -4,6 +4,7 @@ import { Locale, isValidLocale, locales, defaultLocale } from '@/lib/i18n';
 import { getMessages } from '@/lib/get-messages';
 import Navigation from "../../components/Navigation";
 import Hero from "../../components/Hero";
+import SocialProof from "../../components/SocialProof";
 import Features from "../../components/Features";
 import Integration from "../../components/Integration";
 import UseCases from "../../components/UseCases";
@@ -155,6 +156,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Navigation locale={locale} messages={messages} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Hero locale={locale} messages={messages} />
+      {/* <SocialProof /> */}
       <Features locale={locale} messages={messages} />
       <Integration locale={locale} messages={messages} />
       <UseCases locale={locale} messages={messages} />

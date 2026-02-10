@@ -1,3 +1,6 @@
+import Navigation from '@/app/components/Navigation';
+import Footer from '@/app/components/Footer';
+
 export const metadata = {
   title: 'Trustpilot Review Analytics — Proofio',
   description: 'Analyze Trustpilot reviews with Proofio — sentiment analysis, trends, and exportable reports.',
@@ -12,7 +15,9 @@ const jsonLd = {
 
 export default function Page() {
   return (
-    <main className="prose mx-auto p-6">
+    <>
+      <Navigation />
+      <main className="prose mx-auto p-6 pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1>Trustpilot Review Analytics</h1>
       <p>Proofio ingests Trustpilot reviews, matches them to products and locations, and surfaces trends with AI-driven summaries.</p>
@@ -23,5 +28,7 @@ export default function Page() {
         <li>Custom alerting and reporting</li>
       </ul>
     </main>
+      <Footer />
+    </>
   );
 }

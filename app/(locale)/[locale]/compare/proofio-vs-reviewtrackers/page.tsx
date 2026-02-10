@@ -1,3 +1,7 @@
+'use client';
+
+import Navigation from '@/app/components/Navigation';
+import Footer from '@/app/components/Footer';
 import ComparisonLayout from '../../../../components/ComparisonLayout';
 
 const competitor = {
@@ -34,12 +38,16 @@ const jsonLd = {
 
 export default function Page() {
   return (
-    <main className="prose mx-auto p-6">
+    <>
+      <Navigation />
+      <main className="prose mx-auto p-6 pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1>{comparison.title}</h1>
       <p>{comparison.summary}</p>
 
       <ComparisonLayout leftTitle="Proofio" rightTitle={competitor.name} left={comparison.proofio} right={comparison.competitor} />
     </main>
+      <Footer />
+    </>
   );
 }

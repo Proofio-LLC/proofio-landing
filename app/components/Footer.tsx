@@ -135,7 +135,7 @@ export default function Footer({ locale, messages }: FooterProps) {
                         href={`${localePrefix}/compare/proofio-vs-${competitor.slug}`}
                         className="text-sm text-base-content/70 hover:text-primary transition-colors"
                       >
-                        vs {competitor.name}
+                        Proofio vs {competitor.name}
                       </Link>
                     </li>
                   ))}

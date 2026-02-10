@@ -11,6 +11,7 @@ export interface Feature {
   benefits: string[];
   useCases: string[];
   icon?: string;
+  iconComponent?: string;
   relatedFeatures?: string[];
   demoUrl?: string;
 }
@@ -19,6 +20,7 @@ export const features: Feature[] = [
   {
     slug: 'sentiment-analysis',
     name: 'Sentiment Analysis',
+    iconComponent: 'SmilePlus',
     shortDescription:
       'Automatically classify reviews as positive, negative, or neutral with AI-powered sentiment detection.',
     longDescription:
@@ -48,6 +50,7 @@ export const features: Feature[] = [
   {
     slug: 'review-monitoring',
     name: 'Review Monitoring',
+    iconComponent: 'Eye',
     shortDescription:
       'Monitor reviews across all your business locations and platforms in real-time.',
     longDescription:
@@ -77,6 +80,7 @@ export const features: Feature[] = [
   {
     slug: 'competitor-tracking',
     name: 'Competitor Tracking',
+    iconComponent: 'Target',
     shortDescription:
       'Analyze competitor reviews to understand their strengths, weaknesses, and customer pain points.',
     longDescription:
@@ -106,6 +110,7 @@ export const features: Feature[] = [
   {
     slug: 'ai-summaries',
     name: 'AI-Powered Summaries',
+    iconComponent: 'Sparkles',
     shortDescription:
       'Get instant AI-generated summaries of all reviews to quickly understand key themes and insights.',
     longDescription:
@@ -135,6 +140,7 @@ export const features: Feature[] = [
   {
     slug: 'multi-source-aggregation',
     name: 'Multi-Source Aggregation',
+    iconComponent: 'Link',
     shortDescription:
       'Consolidate reviews from all platforms into one unified dashboard for complete visibility.',
     longDescription:
@@ -164,6 +170,7 @@ export const features: Feature[] = [
   {
     slug: 'custom-alerts',
     name: 'Custom Alerts',
+    iconComponent: 'Bell',
     shortDescription:
       'Get notified instantly about reviews that matter most with customizable alert rules.',
     longDescription:
@@ -193,6 +200,7 @@ export const features: Feature[] = [
   {
     slug: 'custom-reports',
     name: 'Custom Reports',
+    iconComponent: 'BarChart3',
     shortDescription:
       'Generate detailed reports on customer feedback with visualizations and exportable data.',
     longDescription:
@@ -222,6 +230,7 @@ export const features: Feature[] = [
   {
     slug: 'team-collaboration',
     name: 'Team Collaboration',
+    iconComponent: 'Users',
     shortDescription:
       'Enable your team to work together on responding to reviews with shared workflows.',
     longDescription:
@@ -248,36 +257,8 @@ export const features: Feature[] = [
       'custom-reports',
     ],
   },
-  {
-    slug: 'api-access',
-    name: 'API Access',
-    shortDescription:
-      'Integrate Proofio with your existing tools using our comprehensive REST API.',
-    longDescription:
-      'Build custom integrations and automate workflows using Proofio\'s powerful API. Full documentation and SDK support included.',
-    benefits: [
-      'Custom integrations',
-      'Workflow automation',
-      'Data access',
-      'Real-time data',
-      'Scalable architecture',
-      'Developer-friendly',
-    ],
-    useCases: [
-      'Custom application development',
-      'Enterprise integration',
-      'Data pipeline automation',
-      'Reporting automation',
-      'Third-party integration',
-      'Advanced workflows',
-    ],
-    relatedFeatures: [
-      'zapier-integration',
-      'make-integration',
-      'custom-reports',
-    ],
-  },
 ];
+
 
 /**
  * Helper function to get a specific feature by slug
