@@ -1,5 +1,6 @@
-import Navigation from '@/app/components/Navigation';
-import Footer from '@/app/components/Footer';
+import IntegrationPageTemplate from '@/app/components/IntegrationPageTemplate';
+import { getIntegration } from '@/lib/data/integrations';
+import { Download } from 'lucide-react';
 
 export const metadata = {
   title: 'App Store Review Monitoring Tool - Proofio',
@@ -14,21 +15,17 @@ const jsonLd = {
 };
 
 export default function Page() {
+  const integration = getIntegration('app-store');
+  if (!integration) return null;
+
   return (
-    <>
-      <Navigation />
-      <main className="prose mx-auto p-6 pt-24">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1>App Store Review Monitoring Tool</h1>
-      <p>Proofio connects to the App Store, imports reviews, normalizes ratings, and applies AI-driven classification and summaries.</p>
-      <h2>Key features</h2>
-      <ul>
-        <li>Real-time or scheduled syncing</li>
-        <li>AI summaries and sentiment</li>
-        <li>Integrations with Slack, Zapier, and webhooks</li>
-      </ul>
-    </main>
-      <Footer />
-    </>
+    <IntegrationPageTemplate
+      integration={integration}
+      icon={Download}
+      overrideName="App Store Review Monitoring Tool"
+      overrideDescription="Monitor App Store reviews with AI summaries, aggregation, and alerting."
+      overrideLongDescription="Proofio connects to the App Store, imports reviews, normalizes ratings, and applies AI-driven classification and summaries so your team can react faster."
+      metadataScript={jsonLd}
+    />
   );
 }

@@ -1,53 +1,53 @@
 'use client';
 
-import Navigation from '@/app/components/Navigation';
-import Footer from '@/app/components/Footer';
-import ComparisonLayout from '../../../../components/ComparisonLayout';
+import ComparePageTemplate from '@/app/components/ComparePageTemplate';
+import { Radar } from 'lucide-react';
 
 const competitor = {
   slug: 'reviewtrackers',
   name: 'ReviewTrackers',
-};
-
-const comparison = {
-  title: 'Proofio vs ReviewTrackers',
-  summary: 'Head-to-head comparison of review aggregation, AI analysis, pricing, and integrations.',
-  proofio: {
-    pros: ['AI summaries', 'App Store & Google Play integrations', 'Embeddable widgets', 'Enterprise features'],
-    cons: ['Newer product than incumbents'],
-  },
-  competitor: {
-    pros: ['Mature reporting', 'Large market presence'],
-    cons: ['Less AI-driven classification'],
-  },
+  description: 'Head-to-head comparison of review aggregation, AI analysis, pricing, and integrations.',
+  pricing: 'Custom enterprise pricing',
+  website: 'https://www.reviewtrackers.com',
+  pros: ['Mature reporting', 'Large market presence'],
+  cons: ['Less AI-driven classification'],
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: comparison.title,
-  description: comparison.summary,
-  mainEntity: {
-    '@type': 'ItemList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Proofio', description: comparison.proofio.pros.join('; ') },
-      { '@type': 'ListItem', position: 2, name: competitor.name, description: comparison.competitor.pros.join('; ') },
-    ],
-  },
+  name: `Proofio vs ${competitor.name}`,
+  description: competitor.description,
 };
 
 export default function Page() {
   return (
-    <>
-      <Navigation />
-      <main className="prose mx-auto p-6 pt-24">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1>{comparison.title}</h1>
-      <p>{comparison.summary}</p>
-
-      <ComparisonLayout leftTitle="Proofio" rightTitle={competitor.name} left={comparison.proofio} right={comparison.competitor} />
-    </main>
-      <Footer />
-    </>
+    <ComparePageTemplate
+      competitorName={competitor.name}
+      competitorDescription={competitor.description}
+      competitorPricing={competitor.pricing}
+      competitorWebsite={competitor.website}
+      badgeLabel="ReviewTrackers Comparison"
+      badgeIcon={Radar}
+      jsonLd={jsonLd}
+      proofioSummary="Modern AI operations layer for review teams."
+      competitorSummary="Established solution with traditional reporting focus."
+      proofioFeatures={[
+        'AI summaries with direct next actions',
+        'App Store and Google Play integrations included',
+        'Embeddable widgets for social proof flows',
+        'Realtime monitoring across channels',
+        'Developer-ready API and automation options',
+        'Enterprise-ready controls without heavy setup',
+      ]}
+      proofioSide={{
+        pros: ['AI summaries', 'App Store & Google Play integrations', 'Embeddable widgets', 'Enterprise features'],
+        cons: ['Newer product than incumbents'],
+      }}
+      competitorSide={{
+        pros: competitor.pros,
+        cons: competitor.cons,
+      }}
+    />
   );
 }

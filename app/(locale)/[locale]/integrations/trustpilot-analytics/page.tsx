@@ -1,5 +1,6 @@
-import Navigation from '@/app/components/Navigation';
-import Footer from '@/app/components/Footer';
+import IntegrationPageTemplate from '@/app/components/IntegrationPageTemplate';
+import { getIntegration } from '@/lib/data/integrations';
+import { Star } from 'lucide-react';
 
 export const metadata = {
   title: 'Trustpilot Review Analytics - Proofio',
@@ -14,21 +15,17 @@ const jsonLd = {
 };
 
 export default function Page() {
+  const integration = getIntegration('trustpilot');
+  if (!integration) return null;
+
   return (
-    <>
-      <Navigation />
-      <main className="prose mx-auto p-6 pt-24">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1>Trustpilot Review Analytics</h1>
-      <p>Proofio ingests Trustpilot reviews, matches them to products and locations, and surfaces trends with AI-driven summaries.</p>
-      <h2>Capabilities</h2>
-      <ul>
-        <li>Auto-matching and normalization</li>
-        <li>Sentiment and topic extraction</li>
-        <li>Custom alerting and reporting</li>
-      </ul>
-    </main>
-      <Footer />
-    </>
+    <IntegrationPageTemplate
+      integration={integration}
+      icon={Star}
+      overrideName="Trustpilot Review Analytics"
+      overrideDescription="Analyze Trustpilot reviews with sentiment trends and actionable reports."
+      overrideLongDescription="Proofio ingests Trustpilot reviews, surfaces sentiment and topic trends, and turns raw feedback into operational insights your team can use immediately."
+      metadataScript={jsonLd}
+    />
   );
 }
