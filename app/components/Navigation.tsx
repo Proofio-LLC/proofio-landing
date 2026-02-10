@@ -10,6 +10,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { features } from '@/lib/data/features';
 import { comparisons } from '@/lib/data/comparisons';
 import { integrations } from '@/lib/data/integrations';
+import { useLocaleContext } from './LocaleProvider';
 
 interface NavigationProps {
   locale?: string;
@@ -17,7 +18,10 @@ interface NavigationProps {
 }
 
 export default function Navigation({ locale, messages }: NavigationProps) {
-  const t = messages?.nav || {};
+  const localeContext = useLocaleContext();
+  const activeLocale = locale || localeContext.locale;
+  const activeMessages = messages || localeContext.messages;
+  const t = activeMessages?.nav || {};
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [featuresDropdownOpen, setFeaturesDropdownOpen] = useState(false);
   const [mobileFeatureDropdownOpen, setMobileFeatureDropdownOpen] = useState(false);
@@ -52,7 +56,7 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   ];
 
   // Determine the locale prefix for URLs
-  const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
+  const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
 
   // Icon map for features
   const iconMap: { [key: string]: any } = {
@@ -373,6 +377,5 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   );
 
 }
-
 
 

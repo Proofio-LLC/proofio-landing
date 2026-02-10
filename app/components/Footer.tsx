@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 import { comparisons } from "@/lib/data/comparisons";
+import { useLocaleContext } from "./LocaleProvider";
 
 interface FooterProps {
   locale?: string;
@@ -11,8 +12,11 @@ interface FooterProps {
 }
 
 export default function Footer({ locale, messages }: FooterProps) {
-  const t = messages?.footer || {};
-  const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
+  const localeContext = useLocaleContext();
+  const activeLocale = locale || localeContext.locale;
+  const activeMessages = messages || localeContext.messages;
+  const t = activeMessages?.footer || {};
+  const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
 
   return (
     <footer className="py-20 bg-base-200">
@@ -172,5 +176,4 @@ export default function Footer({ locale, messages }: FooterProps) {
     </footer>
   );
 }
-
 

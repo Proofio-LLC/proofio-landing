@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Locale, isValidLocale } from '@/lib/i18n';
+import { getMessages } from '@/lib/get-messages';
+import { LocaleProvider } from '@/app/components/LocaleProvider';
 
 export async function generateStaticParams() {
   return [
@@ -25,5 +27,11 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return <>{children}</>;
+  const messages = await getMessages(locale as Locale);
+
+  return (
+    <LocaleProvider locale={locale} messages={messages}>
+      {children}
+    </LocaleProvider>
+  );
 }
