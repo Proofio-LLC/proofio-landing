@@ -2,15 +2,15 @@ import Navigation from '@/app/components/Navigation';
 import Footer from '@/app/components/Footer';
 
 export const metadata = {
-  title: 'Trustpilot Review Analytics — Proofio',
-  description: 'Analyze Trustpilot reviews with Proofio — sentiment analysis, trends, and exportable reports.',
+  title: 'Trustpilot Review Analytics - Proofio',
+  description: 'Analyze Trustpilot reviews with Proofio - sentiment analysis, trends, and exportable reports.',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Trustpilot Review Analytics',
-  description: 'Analyze Trustpilot reviews with Proofio — sentiment analysis, trends, and exportable reports.',
+  description: 'Analyze Trustpilot reviews with Proofio - sentiment analysis, trends, and exportable reports.',
 };
 
 export default function Page() {

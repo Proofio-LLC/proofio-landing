@@ -131,7 +131,7 @@ export const integrations: Integration[] = [
     description:
       'Sync G2 reviews and get actionable insights from your SaaS product reviews.',
     longDescription:
-      'Monitor your G2 reviews, track rating trends, and respond to reviews with AI-suggested responses—all from your Proofio dashboard.',
+      'Monitor your G2 reviews, track rating trends, and respond to reviews with AI-suggested responses-all from your Proofio dashboard.',
     capabilities: [
       'Review monitoring',
       'Rating trend analysis',

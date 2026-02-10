@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     question: "Is there an iOS app for Proofio?",
-    answer: "Yes. The Proofio iOS app is a companion to the web platform. You can quickly view reviews, trends and key metrics on the go. The app is read-only for reviewing insights—all project creation and subscription management remains on the web platform.",
+    answer: "Yes. The Proofio iOS app is a companion to the web platform. You can quickly view reviews, trends and key metrics on the go. The app is read-only for reviewing insights-all project creation and subscription management remains on the web platform.",
     icon: Download
   }
 ];

@@ -2,15 +2,15 @@ import Navigation from '@/app/components/Navigation';
 import Footer from '@/app/components/Footer';
 
 export const metadata = {
-  title: 'App Store Review Monitoring Tool — Proofio',
-  description: 'Monitor App Store reviews with Proofio — automated aggregation, AI summaries, and alerting.',
+  title: 'App Store Review Monitoring Tool - Proofio',
+  description: 'Monitor App Store reviews with Proofio - automated aggregation, AI summaries, and alerting.',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'App Store Review Monitoring Tool',
-  description: 'Monitor App Store reviews with Proofio — automated aggregation, AI summaries, and alerting.',
+  description: 'Monitor App Store reviews with Proofio - automated aggregation, AI summaries, and alerting.',
 };
 
 export default function Page() {

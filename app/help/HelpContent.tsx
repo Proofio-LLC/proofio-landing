@@ -108,7 +108,7 @@ export default function HelpContent() {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Instant Support with Proofy</h3>
                   <p className="opacity-80 mb-6">
-                    Get immediate help with your questions about integrations, API access, or platform features—available 24/7.
+                    Get immediate help with your questions about integrations, API access, or platform features-available 24/7.
                   </p>
                   <button 
                     onClick={() => setIsChatOpen(true)}

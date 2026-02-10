@@ -70,7 +70,7 @@ export default function Page() {
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">What is Multi-Source Aggregation?</h2>
                   <p className="text-lg text-base-content/70 mb-4 leading-relaxed">
-                    Multi-source aggregation brings together customer feedback from every platform your business uses—review sites, social media, booking platforms, and more. Instead of logging into dozens of different accounts, manage all your feedback in one unified location.
+                    Multi-source aggregation brings together customer feedback from every platform your business uses-review sites, social media, booking platforms, and more. Instead of logging into dozens of different accounts, manage all your feedback in one unified location.
                   </p>
                   <p className="text-lg text-base-content/70 leading-relaxed">
                     Proofio's intelligent connectors automatically sync data from your sources in real-time, giving you a complete picture of what customers are saying across all channels.

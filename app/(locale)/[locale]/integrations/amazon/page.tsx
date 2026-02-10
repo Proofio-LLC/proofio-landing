@@ -57,7 +57,7 @@ export default function Page() {
                     {integration.longDescription}
                   </p>
                   <p className="text-lg text-base-content/70 leading-relaxed">
-                    With Proofio's {integration.name} integration, you get instant access to all your reviews with powerful AI-driven insights, automated workflows, and customer intelligence—all from one unified dashboard.
+                    With Proofio's {integration.name} integration, you get instant access to all your reviews with powerful AI-driven insights, automated workflows, and customer intelligence-all from one unified dashboard.
                   </p>
                 </div>
               </div>
