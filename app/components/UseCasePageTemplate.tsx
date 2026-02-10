@@ -294,8 +294,8 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
             metric: 'Schnellerer Delivery-Zyklus',
           },
           {
-            title: 'Fruehe Risiko-Erkennung',
-            body: 'Negative Trends wurden vor dem naechsten Kundenmeeting erkannt und mit klaren Handlungsempfehlungen adressiert.',
+            title: 'Frühe Risiko-Erkennung',
+            body: 'Negative Trends wurden vor dem nächsten Kundenmeeting erkannt und mit klaren Handlungsempfehlungen adressiert.',
             metric: 'Weniger Eskalationen',
           },
         ],
@@ -327,7 +327,7 @@ function getPageSections(locale: string, slug: UseCaseSlug, playbookSteps: strin
           {
             title: 'Release-Impact messbar',
             body: 'Nach Releases wurden Sentiment-Veraenderungen automatisch den betroffenen Produktbereichen zugeordnet.',
-            metric: 'Fruehere Regression-Erkennung',
+            metric: 'Frühere Regression-Erkennung',
           },
           {
             title: 'Roadmap mit Kundensignal',

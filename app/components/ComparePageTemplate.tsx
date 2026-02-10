@@ -226,15 +226,6 @@ export default function ComparePageTemplate({
 
   const rows = comparisonRows || defaultRows;
 
-  const translateFeatures = (features: string[], targetLocale: SupportedLocale): string[] => {
-    if (targetLocale === 'en') return features;
-
-    // Translate each feature individually using translateText
-    return features.map(feature => translateText(feature, targetLocale));
-  };
-
-  const localizedFeatures = translateFeatures(proofioFeatures, locale);
-
   const translateText = (enText: string, targetLocale: SupportedLocale): string => {
     if (targetLocale === 'en') return enText;
 
@@ -1232,6 +1223,15 @@ export default function ComparePageTemplate({
 
     return textMap[enText]?.[targetLocale] || enText;
   };
+
+  const translateFeatures = (features: string[], targetLocale: SupportedLocale): string[] => {
+    if (targetLocale === 'en') return features;
+
+    // Translate each feature individually using translateText
+    return features.map(feature => translateText(feature, targetLocale));
+  };
+
+  const localizedFeatures = translateFeatures(proofioFeatures, locale);
 
   const translateArray = (arr: string[], targetLocale: SupportedLocale): string[] => {
     return arr.map(item => translateText(item, targetLocale));
