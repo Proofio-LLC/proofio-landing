@@ -1,6 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'x-robots-tag',
+            value: 'noindex',
+          },
+        ],
+        has: [
+          {
+            type: 'host',
+            value: 'api.proofio.app',
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
