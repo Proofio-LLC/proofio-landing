@@ -3,6 +3,18 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "regions": ["fra1"]
+  "regions": ["fra1"],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "ios.proofio.app"
+        }
+      ],
+      "destination": "https://apps.apple.com/us/app/proofio/id675873964",
+      "permanent": true
+    }
+  ]
 }
-
