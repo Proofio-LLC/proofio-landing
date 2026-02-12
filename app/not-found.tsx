@@ -21,7 +21,7 @@ export default function NotFound() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm">
               <p className="text-xl font-semibold text-gray-900 dark:text-white">
-                Blog post not found
+                Page not found
               </p>
             </div>
           </div>
@@ -30,25 +30,25 @@ export default function NotFound() {
         {/* Content */}
         <div className="space-y-4">
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Oops! The blog post you're looking for seems to have vanished into the review universe.
+            Oops! The page you're looking for seems to have vanished into the review universe.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link 
-              href="/blog"
+              href="/"
               className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[#02BB7E] hover:bg-[#02a36e] text-white font-bold transition-all shadow-lg shadow-[#02BB7E]/20"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Blog
+              <Home className="w-5 h-5 mr-2" />
+              Back to Home
             </Link>
             
-            <Link 
-              href="/"
+            <button 
+              onClick={() => window.history.back()}
               className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
             >
-              <Home className="w-5 h-5 mr-2" />
-              Home
-            </Link>
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Go Back
+            </button>
           </div>
         </div>
 
