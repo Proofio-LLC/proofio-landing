@@ -115,6 +115,11 @@ export default function Footer({ locale, messages }: FooterProps) {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/developers" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                      {t.developerHub || "Developer Hub"}
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/blog" className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       {t.blog || "Blog"}
                     </Link>
