@@ -82,7 +82,7 @@ export default function IOSAppPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl"
                   >
-                    <Image src="/icons8-mac-os-48.png" alt="Apple" width={32} height={32} className="rounded-md" />
+                    <Image src="/apple.svg" alt="Apple" width={32} height={32} className="rounded-md" />
                     <div className="text-left">
                       <div className="text-[10px] uppercase font-medium leading-none mb-1">{t.appStoreBadgePrefix || "Download on the"}</div>
                       <div className="text-lg leading-none">{t.appStoreBadgeStore || "App Store"}</div>
