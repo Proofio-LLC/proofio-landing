@@ -26,6 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/partners', priority: 0.7, changeFrequency: 'monthly', localized: false },
     { path: '/changelog', priority: 0.6, changeFrequency: 'weekly', localized: false },
     { path: '/status', priority: 0.5, changeFrequency: 'daily', localized: false },
+    { path: '/developers', priority: 0.8, changeFrequency: 'monthly', localized: false },
     // Legal pages (imprint, privacy-policy, terms-of-service, cookies-settings) are excluded from sitemap
     // and set to noindex in their individual metadata
   ]

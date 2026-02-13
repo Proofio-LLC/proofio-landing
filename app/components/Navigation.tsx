@@ -34,21 +34,22 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   });
 
   // List of non-localized sub-pages (English only)
-  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
+  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
   
-  // Check if we're on a sub-page (non-localized)
-  const isSubPage = pathname ? nonLocalizedPaths.some(path => 
-    pathname === path || pathname.startsWith(`${path}/`)
+  // Check if we're on a sub-page (non-localized or explicitly marked as subpage)
+  const isSubPage = pathname ? (
+    nonLocalizedPaths.some(path => pathname === path || pathname.startsWith(`${path}/`)) ||
+    pathname.includes('/ios-app')
   ) : false;
   
   const isBlogPage = pathname?.startsWith("/blog");
   const isBlogPost = pathname?.startsWith("/blog/") && pathname !== "/blog";
 
-  // Determine back button href
-  const backHref = isBlogPost ? "/blog" : "/";
-
   // Determine the locale prefix for URLs
   const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
+
+  // Determine back button href
+  const backHref = isBlogPost ? "/blog" : (pathname?.includes('/ios-app') ? localePrefix || "/" : "/");
 
   const navItems = [
     { label: t.integration || "Integration", href: isSubPage ? "/#integration" : "#integration" },
@@ -72,7 +73,7 @@ export default function Navigation({ locale, messages }: NavigationProps) {
 
   // Features dropdown items
   const featuresDropdownItems = features.map((feature) => ({
-    label: feature.name,
+    label: t.featureNames?.[feature.slug] || feature.name,
     iconComponent: feature.iconComponent || 'Sparkles',
     href: `${localePrefix}/features/${feature.slug}`,
   }));
@@ -189,7 +190,7 @@ export default function Navigation({ locale, messages }: NavigationProps) {
                           }}
                           className="w-full flex items-center justify-between p-3 text-sm font-medium text-primary hover:bg-primary/10 rounded-lg transition-colors"
                         >
-                          <span>All Features</span>
+                          <span>{t.allFeatures || "All Features"}</span>
                           <span className="ml-2">→</span>
                         </button>
                       </div>
@@ -336,7 +337,7 @@ export default function Navigation({ locale, messages }: NavigationProps) {
                       }}
                       className="flex items-center justify-between w-full p-3 rounded-lg text-primary font-bold hover:bg-primary/10 transition-colors mt-2"
                     >
-                      <span>All Features</span>
+                      <span>{t.allFeatures || "All Features"}</span>
                       <span>→</span>
                     </button>
                   </div>

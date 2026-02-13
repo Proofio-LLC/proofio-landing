@@ -53,13 +53,13 @@ export default function Hero({ locale, messages }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center mb-8"
           >
-            <a href="https://dash.proofio.app" className="btn btn-lg rounded-xl px-8 gap-2 shadow-lg hover:shadow-xl transition-all bg-primary text-white hover:bg-primary/90">
+            <a href="https://dash.proofio.app" className="btn btn-md sm:btn-lg rounded-xl px-6 md:px-8 gap-2 shadow-lg hover:shadow-xl transition-all bg-primary text-white hover:bg-primary/90 whitespace-nowrap">
               {t.ctaPrimary || "Start analyzing reviews"}
               <ArrowRight className="w-5 h-5" />
             </a>
-            <a href={`${localePrefix}/ios-app`} className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
+            <a href={`${localePrefix}/ios-app`} className="btn btn-outline btn-md sm:btn-lg rounded-xl px-6 md:px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all whitespace-nowrap">
               {t.ctaSecondary || "Download iOS App"}
             </a>
           </motion.div>
@@ -71,7 +71,7 @@ export default function Hero({ locale, messages }: HeroProps) {
             transition={{ duration: 0.5 }}
             className="relative mt-12"
           >
-            <div className="relative max-w-5xl mx-auto bg-base-200 rounded-t-2xl shadow-2xl overflow-hidden">
+            <div className="relative max-w-5xl mx-auto bg-base-200 rounded-2xl shadow-2xl overflow-hidden">
               {/* macOS Window Bar */}
               <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                 {/* macOS Window Controls */}
@@ -87,7 +87,7 @@ export default function Hero({ locale, messages }: HeroProps) {
               </div>
               
               <div 
-                className="relative overflow-hidden max-h-[300px] sm:max-h-[400px] lg:max-h-[450px]"
+                className="relative overflow-hidden"
               >
                 <Image 
                   src="/hero2.png" 
@@ -100,8 +100,8 @@ export default function Hero({ locale, messages }: HeroProps) {
                 />
               </div>
               
-              {/* Fade overlay for entire window - starts at middle, fades out bottom */}
-              <div className="absolute bottom-0 left-0 right-0 top-1/2 bg-gradient-to-t from-base-100 via-base-100/80 to-transparent pointer-events-none" />
+              {/* Fade overlay for entire window - subtle transition at the bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-base-200 to-transparent pointer-events-none" />
             </div>
           </motion.div>
         </div>

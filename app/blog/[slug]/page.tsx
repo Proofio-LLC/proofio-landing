@@ -3,7 +3,7 @@ import { blogPostBySlugQuery } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import { Calendar, ArrowLeft } from "lucide-react";
+import { Calendar, ArrowLeft, Home, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -68,42 +68,45 @@ const portableTextComponents = {
   },
   block: {
     h1: ({ children }: any) => (
-      <h1 className="text-4xl font-bold mt-8 mb-4 text-base-content">
+      <h1 className="text-3xl md:text-4xl font-black mt-12 mb-6 text-base-content tracking-tight">
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="text-3xl font-bold mt-6 mb-3 text-base-content">
+      <h2 className="text-2xl md:text-3xl font-black mt-10 mb-5 text-base-content tracking-tight">
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-2xl font-bold mt-5 mb-2 text-base-content">
+      <h3 className="text-xl md:text-2xl font-bold mt-8 mb-4 text-base-content tracking-tight">
         {children}
       </h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="text-xl font-bold mt-4 mb-2 text-base-content">
+      <h4 className="text-lg md:text-xl font-bold mt-6 mb-3 text-base-content tracking-tight">
         {children}
       </h4>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-primary pl-4 my-4 italic text-base-content/80">
-        {children}
+      <blockquote className="relative border-l-0 pl-8 md:pl-12 my-10 italic">
+        <div className="absolute left-0 top-0 text-6xl text-primary/20 font-serif leading-none select-none">“</div>
+        <p className="text-xl md:text-2xl text-base-content/80 leading-relaxed font-medium">
+          {children}
+        </p>
       </blockquote>
     ),
     normal: ({ children }: any) => (
-      <p className="mb-4 text-base-content/80 leading-relaxed">{children}</p>
+      <p className="mb-6 text-lg md:text-xl text-base-content/75 leading-[1.7] font-normal">{children}</p>
     ),
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="list-disc list-inside mb-4 space-y-2 text-base-content/80">
+      <ul className="list-disc list-outside ml-6 mb-8 space-y-3 text-lg md:text-xl text-base-content/75 leading-relaxed">
         {children}
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className="list-decimal list-inside mb-4 space-y-2 text-base-content/80">
+      <ol className="list-decimal list-outside ml-6 mb-8 space-y-3 text-lg md:text-xl text-base-content/75 leading-relaxed">
         {children}
       </ol>
     ),
@@ -294,23 +297,34 @@ export default async function BlogPostPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
-      <nav aria-label="Breadcrumb" className="container mx-auto px-4 pt-24 max-w-4xl text-sm text-base-content/70">
-        <ol className="flex items-center gap-2">
-          <li>
-            <Link href="/" className="hover:underline">Home</Link>
-          </li>
-          <li>/</li>
-          <li>
-            <Link href="/blog" className="hover:underline">Blog</Link>
-          </li>
-          <li>/</li>
-          <li className="font-medium truncate max-w-[35ch]">{post.title}</li>
-        </ol>
-      </nav>
-
       <article>
         {/* Hero Image with Title Overlay */}
-        <div className="container mx-auto px-4 pt-24 pb-12 max-w-4xl">
+        <div className="container mx-auto px-4 pt-32 pb-12 max-w-4xl">
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex items-center gap-1 sm:gap-2 text-sm text-base-content/50">
+              <li className="flex items-center">
+                <Link href="/" className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <Home className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Home</span>
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <ChevronRight className="w-4 h-4 opacity-50" />
+              </li>
+              <li className="flex items-center">
+                <Link href="/blog" className="hover:text-primary transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <ChevronRight className="w-4 h-4 opacity-50" />
+              </li>
+              <li className="font-medium text-base-content truncate max-w-[20ch] sm:max-w-[40ch]">
+                {post.title}
+              </li>
+            </ol>
+          </nav>
+
           {imageUrl ? (
             <div className="relative w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden mb-8 shadow-xl">
               <Image
@@ -382,7 +396,7 @@ export default async function BlogPostPage({
 
         {/* Body Content */}
         {post.body && (
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg md:prose-xl max-w-none prose-primary prose-headings:tracking-tight prose-p:leading-relaxed prose-img:rounded-[2rem]">
             <PortableText value={post.body} components={portableTextComponents} />
           </div>
         )}

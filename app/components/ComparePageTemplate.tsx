@@ -1352,12 +1352,12 @@ export default function ComparePageTemplate({
                 ? `Comparação de Proofio e ${competitorName} em termos de workflow, esforço e adequação de equipe.`
                 : `Confronto tra Proofio e ${competitorName} in termini di workflow, sforzo e adattamento del team.`}
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="https://dash.proofio.app/register" className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-8 py-3 rounded-xl font-bold shadow-xl transition-all">
+            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+              <Link href="https://dash.proofio.app/register" className="inline-flex items-center justify-center gap-2 bg-primary text-white hover:bg-primary/90 px-6 md:px-8 py-3 rounded-xl font-bold shadow-xl transition-all whitespace-nowrap">
                 {t.start}
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/pricing" className="inline-flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-xl font-bold transition-all">
+              <Link href="/pricing" className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 md:px-8 py-3 rounded-xl font-bold transition-all whitespace-nowrap">
                 {t.pricing}
               </Link>
             </div>

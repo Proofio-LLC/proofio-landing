@@ -1,10 +1,11 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText, Copy, Check } from "lucide-react";
+import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText, Copy, Check, Terminal } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import IntegrationWidget from "./IntegrationWidget";
 
 interface IntegrationProps {
@@ -78,9 +79,23 @@ export default function Integration({ locale, messages }: IntegrationProps) {
             <h2 className="text-3xl md:text-6xl font-bold mb-6">
               {t.introTitle || "Simple integration. Works everywhere."}
             </h2>
-            <p className="text-lg md:text-xl text-base-content/80 leading-relaxed mb-4">
+            <p className="text-lg md:text-xl text-base-content/80 leading-relaxed mb-8">
               {t.introDescription || "Use Proofio via API or dashboard. Integrate once and reuse across products, applications and internal tools."}
             </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link 
+                href="/developers" 
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-base-100 hover:bg-base-300 text-base-content rounded-2xl text-sm font-bold transition-all border border-base-300 shadow-sm group"
+              >
+                <Terminal className="w-4 h-4 text-primary" />
+                <span>Developer Hub</span>
+              </Link>
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 text-base-content/40 text-xs font-medium">
+                <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                API v1.1.0 stable
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -127,174 +142,6 @@ export default function Integration({ locale, messages }: IntegrationProps) {
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
                 </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-
-        {/* API ACCESS Card */}
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="card bg-base-100 rounded-[2.5rem] shadow-xl overflow-hidden border border-base-300">
-              <div className="card-body p-6 md:p-8 lg:p-12">
-                <button 
-                  onClick={() => setIsApiExpanded(!isApiExpanded)}
-                  className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 w-full text-left group"
-                >
-                  <div className="flex items-center gap-4 md:gap-6">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <Code className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl md:text-4xl font-bold">{t.apiAccess?.title || "API ACCESS"}</h3>
-                      <p className="text-primary font-semibold text-base md:text-lg">{t.apiAccess?.subtitle || "Built for developers and data driven teams"}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 text-base-content/50 group-hover:text-primary transition-colors pr-4">
-                    <span className="text-sm font-bold uppercase tracking-widest">{isApiExpanded ? (t.apiAccess?.showLess || 'Show less') : (t.apiAccess?.viewDetails || 'View API details')}</span>
-                    <div className={`p-2 rounded-full bg-base-200 group-hover:bg-primary group-hover:text-white transition-all duration-300 ${isApiExpanded ? 'rotate-180' : ''}`}>
-                      <ChevronDown className="w-5 h-5" />
-                    </div>
-                  </div>
-                </button>
-                
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: isApiExpanded ? "auto" : 0,
-                    opacity: isApiExpanded ? 1 : 0,
-                    marginTop: isApiExpanded ? 48 : 0
-                  }}
-                  transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid lg:grid-cols-2 gap-16 items-start pt-12 border-t border-base-200">
-                    {/* Left Side: Content */}
-                    <div className="space-y-10">
-                      <p className="text-xl text-base-content/80 leading-relaxed">
-                        {t.apiAccess?.description || "Use the Proofio SDK or API to access reviews, aggregates and intelligence directly inside your own applications and systems. The official SDK makes integration simple with full TypeScript support."}
-                      </p>
-
-                      <div className="grid sm:grid-cols-2 gap-10">
-                        <div>
-                          <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
-                            <span className="w-1.5 h-6 bg-primary rounded-full"></span>
-                            {t.whatYouCanAccess || "What you can access"}
-                          </h4>
-                          <ul className="space-y-3">
-                            {[
-                              t.sdkTitle || "Official npm SDK (proofio-sdk)",
-                              ...(t.apiAccess?.accessItems || [
-                                "Reviews and aggregates",
-                                "Trend data",
-                                "Source breakdowns",
-                                "Sentiment insights",
-                                "Competitive comparisons"
-                              ])
-                            ].map((item) => (
-                              <li key={item} className="flex items-center gap-3 text-base-content/70 font-medium">
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-                              <span className="w-1.5 h-6 bg-primary rounded-full"></span>
-                              {t.apiAccess?.fullControl?.title || "Full control"}
-                            </h4>
-                            <p className="text-base-content/70 font-medium">
-                              {t.apiAccess?.fullControl?.description || "Authenticate securely with API keys and control access across projects and teams."}
-                            </p>
-                          </div>
-                          <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
-                            <p className="text-base-content font-semibold italic text-sm leading-relaxed">
-                              "{t.apiAccess?.fullControl?.quote || "Use Proofio as a review intelligence layer inside dashboards, reports, products and internal tools."}"
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Right Side: Code Example */}
-                    <div className="space-y-6">
-                      <div className="flex items-center justify-between">
-                        <p className="text-xs font-bold text-base-content/40 uppercase tracking-[0.2em]">{t.apiAccess?.exampleCode || "Example code"}</p>
-                        <div className="flex gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-red-400/20" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-amber-400/20" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/20" />
-                        </div>
-                      </div>
-                      
-                      {/* npm install command */}
-                      <div className="bg-[#0f172a] rounded-2xl p-4 shadow-xl relative group overflow-hidden">
-                        <button
-                          onClick={async () => {
-                            await navigator.clipboard.writeText('npm install proofio-sdk');
-                            setNpmCopied(true);
-                            setTimeout(() => setNpmCopied(false), 2000);
-                          }}
-                          className="absolute top-3 right-3 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors text-slate-400 hover:text-white"
-                          title={t.apiAccess?.copyToClipboard || "Copy to clipboard"}
-                        >
-                          {npmCopied ? (
-                            <Check className="w-4 h-4" />
-                          ) : (
-                            <Copy className="w-4 h-4" />
-                          )}
-                        </button>
-                        <div className="overflow-x-auto no-scrollbar pr-12">
-                          <pre className="text-sm">
-                            <code className="text-emerald-400 font-mono leading-relaxed whitespace-pre">
-{`npm install proofio-sdk`}
-                            </code>
-                          </pre>
-                        </div>
-                      </div>
-
-                      {/* TypeScript code */}
-                      <div className="bg-[#0f172a] rounded-[2rem] p-6 md:p-8 shadow-2xl relative group overflow-hidden">
-                        <div className="absolute top-4 right-6 text-xs font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">TypeScript</div>
-                        <div className="overflow-x-auto no-scrollbar">
-                          <pre className="text-sm">
-                            <code className="text-blue-300 font-mono leading-relaxed whitespace-pre">
-{`import { Proofio } from 'proofio-sdk';
-
-const proofio = new Proofio({ 
-  apiKey: 'your-api-key' 
-});
-
-// Get insights summary
-const summary = await proofio.insights.summary();
-
-console.log(\`Total Reviews: \${summary.totalReviews}\`);
-console.log(\`Average Rating: \${summary.averageRating}\`);
-
-// List reviews
-const reviews = await proofio.reviews.list({
-  limit: 50,
-  minRating: 4
-});
-
-// Get trends
-const trends = await proofio.insights.trends();`}
-                            </code>
-                          </pre>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </motion.div>

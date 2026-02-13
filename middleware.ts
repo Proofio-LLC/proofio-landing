@@ -8,7 +8,7 @@ const defaultLocale = 'en';
 const publicFilePattern = /\.(.*)$/;
 const excludedPaths = ['/api', '/_next', '/favicon', '/robots.txt', '/sitemap'];
 // Sub-pages that should remain in English (not localized)
-const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
+const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;

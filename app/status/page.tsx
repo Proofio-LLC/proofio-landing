@@ -213,15 +213,15 @@ export default function StatusPage() {
             className="group relative mb-16"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-success/20 to-primary/20 rounded-[3rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-            <div className="relative bg-white rounded-[2.5rem] p-8 md:p-16 border border-success/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden">
+            <div className="relative bg-white rounded-[2.5rem] p-8 md:p-16 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden">
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-success/5 rounded-full blur-3xl pointer-events-none" />
               
               <div className="relative z-10 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 text-success rounded-full mb-6">
-                  <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 text-success rounded-full mb-6 border-none">
+                  <div className="w-2 h-2 rounded-full bg-success animate-pulse border-none" />
                   <span className="text-sm font-bold uppercase tracking-widest">All Services Live</span>
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black text-success mb-6 tracking-tighter">Operational</h2>
+                <h2 className="text-4xl md:text-6xl font-black text-success mb-6 tracking-tighter border-none">Operational</h2>
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-6 text-base-content/40 font-bold uppercase tracking-widest text-[10px]">
                   <div className="flex items-center gap-2">
                     <Clock className="w-3.5 h-3.5" />
@@ -350,42 +350,50 @@ export default function StatusPage() {
                   </div>
                 )}
               </div>
-
-              {/* Notice Button Card */}
-              <div className="bg-primary rounded-[2.5rem] p-8 md:p-10 text-white relative overflow-hidden group shadow-2xl shadow-primary/20 border border-white/10">
-                {/* Background Decorative Elements */}
-                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none group-hover:scale-150 transition-transform duration-1000" />
-                
-                {/* Background Icon */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  whileInView={{ opacity: 0.1, scale: 1, rotate: -15 }}
-                  viewport={{ once: true }}
-                  className="absolute -bottom-10 -right-10 pointer-events-none z-0"
-                >
-                  <img 
-                    src="/favicon.png" 
-                    alt="" 
-                    className="w-48 h-48 object-contain brightness-0 invert"
-                  />
-                </motion.div>
-
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-black mb-4 tracking-tight">Notice something wrong?</h3>
-                  <p className="text-white/70 text-sm mb-8 leading-relaxed font-medium">
-                    Report an issue directly to our engineers if you notice something unusual that isn't listed here.
-                  </p>
-                  <Link 
-                    href="/help?subject=Issue Report" 
-                    className="inline-flex items-center justify-center gap-2 w-full py-4 bg-white text-primary font-black rounded-2xl hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-black/10"
-                  >
-                    Report issue
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
+
+          {/* Notice Button Card - Moved to full width */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-primary rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden group shadow-2xl shadow-primary/20 border border-white/10 mt-16"
+          >
+            {/* Background Decorative Elements */}
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none group-hover:scale-150 transition-transform duration-1000" />
+            
+            {/* Background Icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              whileInView={{ opacity: 0.1, scale: 1, rotate: -15 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-10 -right-10 pointer-events-none z-0"
+            >
+              <img 
+                src="/favicon.png" 
+                alt="" 
+                className="w-64 h-64 object-contain brightness-0 invert"
+              />
+            </motion.div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="max-w-2xl text-center md:text-left">
+                <h3 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">Notice something wrong?</h3>
+                <p className="text-white/70 text-lg leading-relaxed font-medium">
+                  Report an issue directly to our engineers if you notice something unusual that isn't listed here. We investigate every report immediately.
+                </p>
+              </div>
+              <Link 
+                href="/help?subject=Issue Report" 
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-primary font-black rounded-2xl hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-black/10 shrink-0"
+              >
+                Report issue
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 

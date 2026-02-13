@@ -54,9 +54,6 @@ export default function IOSAppPage() {
       <main className="min-h-screen bg-base-100">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-[520px] h-[520px] bg-primary/10 blur-[130px] rounded-full -translate-y-1/2" />
-          <div className="absolute bottom-0 right-1/4 w-[420px] h-[420px] bg-primary/10 blur-[110px] rounded-full translate-y-1/2" />
-
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <motion.div
@@ -75,14 +72,14 @@ export default function IOSAppPage() {
                   {t.description || "The Proofio iOS App is the perfect companion for on-the-go. Keep an eye on your reviews and insights, no matter where you are."}
                 </p>
                 
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-4 items-stretch sm:items-center">
                   <a 
                     href="https://apps.apple.com/app/proofio/id6656574889"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl"
+                    className="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl whitespace-nowrap"
                   >
-                    <Image src="/apple.svg" alt="Apple" width={32} height={32} className="rounded-md" />
+                    <Image src="/apple.svg" alt="Apple" width={24} height={24} className="rounded-md" />
                     <div className="text-left">
                       <div className="text-[10px] uppercase font-medium leading-none mb-1">{t.appStoreBadgePrefix || "Download on the"}</div>
                       <div className="text-lg leading-none">{t.appStoreBadgeStore || "App Store"}</div>

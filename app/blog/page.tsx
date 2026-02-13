@@ -4,7 +4,7 @@ import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight, Home, ChevronRight } from "lucide-react";
 import { urlFor } from "@/lib/sanity/image";
 import { BlogPost } from "@/app/components/Blog";
 import { Metadata } from "next";
@@ -74,6 +74,23 @@ export default async function BlogPage() {
       {/* Blog Header */}
       <section className="pt-32 pb-12 bg-gradient-to-b from-base-100 to-base-200">
         <div className="container mx-auto px-4">
+          <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto mb-8">
+            <ol className="flex items-center gap-1 sm:gap-2 text-sm text-base-content/50">
+              <li className="flex items-center">
+                <Link href="/" className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <Home className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Home</span>
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <ChevronRight className="w-4 h-4 opacity-50" />
+              </li>
+              <li className="font-medium text-base-content">
+                Blog
+              </li>
+            </ol>
+          </nav>
+          
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-base-content mb-6">
               Blog
@@ -136,7 +153,7 @@ export default async function BlogPage() {
                           <span>{formatDate(post.publishedAt)}</span>
                         </div>
                         <div className="flex items-center gap-2 text-primary group-hover:gap-3 transition-all">
-                          <span className="text-sm font-medium">Lesen</span>
+                          <span className="text-sm font-medium">Read more</span>
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>

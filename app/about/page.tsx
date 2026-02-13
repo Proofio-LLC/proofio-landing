@@ -18,39 +18,26 @@ export default function AboutPage() {
     <main className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section with Background Image */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-base-100 to-base-200">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-[2.5rem] shadow-xl overflow-hidden min-h-[400px] md:min-h-[500px] flex items-center">
-              {/* Background Image */}
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src="/aboutbg.jpg"
-                  alt="About Proofio"
-                  fill
-                  className="object-cover blur-sm scale-105"
-                  priority
-                  quality={90}
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-primary/10 backdrop-blur-[2px]"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              </div>
-              
-              {/* Content */}
-              <div className="relative z-10 w-full px-8 md:px-12 py-12 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/20 text-white rounded-full backdrop-blur-sm border border-white/30">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-bold uppercase tracking-widest">About</span>
-                </div>
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                About Proofio                </h1>
-                <p className="text-xl text-white/90 max-w-2xl font-medium">
-                Turning customer feedback into business intelligence
-                </p>
-              </div>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 -z-10" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/5 blur-[100px] rounded-full translate-y-1/2 -z-10" />
+
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-primary/10 text-primary rounded-full border border-primary/20">
+              <Sparkles className="w-4 h-4" />
+              <span className="text-xs font-black uppercase tracking-[0.2em]">About Proofio</span>
             </div>
+            
+            <h1 className="text-5xl md:text-8xl font-black text-base-content mb-8 tracking-tight leading-[0.9]">
+              Turn reviews into <span className="text-primary">intelligence.</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-base-content/60 max-w-2xl mx-auto font-medium leading-relaxed">
+              We are building the infrastructure to transform fragmented customer feedback into structured, actionable business signals.
+            </p>
           </div>
         </div>
       </section>

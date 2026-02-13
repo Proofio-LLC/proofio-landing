@@ -79,9 +79,10 @@ export default function IntegrationRadial() {
                 key={i}
                 onMouseEnter={() => setHoveredItem(item.name)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className="absolute z-10"
+                className="absolute"
                 style={{
                   transform: `rotate(${angle}deg) translate(${isMobile ? 100 : 180}px) rotate(-${angle}deg)`,
+                  zIndex: hoveredItem === item.name ? 50 : 10
                 }}
               >
                 <div className={`
@@ -100,7 +101,7 @@ export default function IntegrationRadial() {
                   
                   {/* Tooltip-artiges Label (erscheint bei Hover) */}
                   <div className={`
-                    absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-[10px] rounded font-bold whitespace-nowrap transition-opacity
+                    absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-[10px] rounded font-bold whitespace-nowrap transition-opacity pointer-events-none z-[60]
                     ${hoveredItem === item.name ? "opacity-100" : "opacity-0"}
                   `}>
                     {item.name}

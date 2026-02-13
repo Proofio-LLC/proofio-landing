@@ -48,9 +48,9 @@ export default function NewsletterCTA() {
   };
 
   return (
-    <section className="py-20 bg-base-100">
+    <section className="py-12 md:py-20 bg-base-100">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="relative bg-primary rounded-[2rem] p-10 md:p-16 overflow-hidden shadow-2xl">
+        <div className="relative bg-primary rounded-[2rem] px-6 py-12 md:p-16 overflow-hidden shadow-2xl">
           {/* Background Decorative Elements */}
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-64 h-64 bg-black/5 rounded-full blur-3xl pointer-events-none" />
@@ -120,19 +120,19 @@ export default function NewsletterCTA() {
                   onSubmit={handleSubmit}
                   className="space-y-4"
                 >
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
                     <input
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Your work email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-grow px-6 py-4 rounded-xl bg-white text-base-content focus:outline-none focus:ring-2 focus:ring-white/50 transition-all shadow-lg"
+                      className="flex-grow px-6 py-4 rounded-xl border-none focus:ring-2 focus:ring-white outline-none text-base-content shadow-inner"
                     />
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="btn bg-primary text-primary-foreground border-none hover:bg-primary/90 rounded-xl px-8 gap-2 shadow-xl transition-all hover:scale-105 active:scale-95 whitespace-nowrap h-auto py-4"
+                      className="btn btn-md sm:btn-lg bg-black text-white border-none hover:bg-black/80 rounded-xl px-6 md:px-8 gap-2 shadow-xl transition-all hover:scale-105 active:scale-95 disabled:opacity-50 whitespace-nowrap"
                     >
                       {status === "loading" ? "Subscribing..." : "Subscribe"}
                       <Send className="w-4 h-4" />

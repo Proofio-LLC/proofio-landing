@@ -12,9 +12,9 @@ export default function CTA({ locale, messages }: CTAProps) {
   const t = messages?.cta || {};
   const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
   return (
-    <section className="py-20 bg-base-100">
+    <section className="py-12 md:py-20 bg-base-100">
       <div className="container mx-auto px-4">
-        <div className="relative bg-primary rounded-[2rem] p-12 md:p-20 overflow-hidden shadow-2xl">
+        <div className="relative bg-primary rounded-[2rem] px-6 py-12 md:p-20 overflow-hidden shadow-2xl">
           {/* Background Decorative Elements */}
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl pointer-events-none" />
@@ -73,18 +73,18 @@ export default function CTA({ locale, messages }: CTAProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center"
             >
               <a 
                 href="https://dash.proofio.app" 
-                className="btn btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95"
+                className="btn btn-md sm:btn-lg bg-white text-primary border-none hover:bg-white/90 rounded-xl px-6 md:px-10 gap-3 shadow-xl transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
               >
                 {t.ctaPrimary || "Start today!"}
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
                 href={`${localePrefix}/ios-app`} 
-                className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm"
+                className="btn btn-md sm:btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-6 md:px-10 backdrop-blur-sm whitespace-nowrap"
               >
                 {t.ctaSecondary || "Download iOS App"}
               </a>

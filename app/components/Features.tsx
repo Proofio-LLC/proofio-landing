@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, CheckCircle2, X } from "lucide-react";
+import { Sparkles, CheckCircle2, X, Building2, UserCircle2, ShieldCheck } from "lucide-react";
 import { useState, useEffect } from "react";
 import Script from "next/script";
 
@@ -132,10 +132,14 @@ export default function Features({ locale, messages }: FeaturesProps) {
   const modalContent = {
     business: {
       title: "Why Proofio Verified matters for your business",
+      badge: "Business Information",
+      icon: <Building2 className="w-8 h-8 text-primary" />,
       text: "Proofio Verified helps you build trust where it matters most: at the moment of decision.\n\nBy displaying verified, cross-platform review data, you show transparency, credibility, and consistency. Customers see that your ratings are not selected, filtered, or manipulated - they are aggregated and validated across multiple sources.\n\nThis increases confidence, reduces hesitation, and improves conversion rates.\n\nProofio Verified is not a marketing badge. It is a trust signal based on real, structured review data."
     },
     customer: {
       title: "Why you can trust Proofio Verified",
+      badge: "Customer Information",
+      icon: <UserCircle2 className="w-8 h-8 text-primary" />,
       text: "Proofio Verified exists to help you make better decisions.\n\nThe displayed reviews are collected from multiple independent platforms and analyzed using standardized validation and aggregation logic.\n\nThis means you are not seeing selected testimonials, but a transparent overview of real customer feedback.\n\nProofio does not modify, remove, or manipulate reviews. Our goal is not to make companies look better - but to make review data more honest, comparable, and useful."
     }
   };
@@ -229,17 +233,19 @@ export default function Features({ locale, messages }: FeaturesProps) {
                     <p className="text-base-content/70 text-sm leading-relaxed mb-3">
                       {t.verified?.description || "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."}
                     </p>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-4 mt-4">
                       <button
                         onClick={() => setOpenModal('business')}
-                        className="text-primary hover:text-primary/80 text-sm font-medium underline transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 hover:bg-primary/10 text-primary rounded-xl text-sm font-semibold transition-all border border-primary/10 hover:border-primary/20 group"
                       >
+                        <Building2 className="w-4 h-4" />
                         Business Information
                       </button>
                       <button
                         onClick={() => setOpenModal('customer')}
-                        className="text-primary hover:text-primary/80 text-sm font-medium underline transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 hover:bg-primary/10 text-primary rounded-xl text-sm font-semibold transition-all border border-primary/10 hover:border-primary/20 group"
                       >
+                        <UserCircle2 className="w-4 h-4" />
                         Customer Information
                       </button>
                     </div>
@@ -284,31 +290,46 @@ export default function Features({ locale, messages }: FeaturesProps) {
             >
               {/* Modal Content */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                initial={{ opacity: 0, scale: 0.9, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                exit={{ opacity: 0, scale: 0.9, y: 40 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+                className="bg-white rounded-[2.5rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col relative"
               >
-                {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                  <h3 className="text-2xl font-bold text-base-content pr-4">
-                    {modalContent[openModal].title}
-                  </h3>
-                  <button
-                    onClick={() => setOpenModal(null)}
-                    className="flex-shrink-0 p-2 hover:bg-gray-100 rounded-xl transition-colors text-base-content/60 hover:text-base-content"
-                    aria-label="Close modal"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
+                {/* Header Decoration */}
+                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
                 
+                {/* Close Button */}
+                <button
+                  onClick={() => setOpenModal(null)}
+                  className="absolute top-6 right-6 z-10 p-2 hover:bg-base-200 rounded-full transition-all text-base-content/40 hover:text-base-content hover:rotate-90"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+
                 {/* Content */}
-                <div className="p-6 overflow-y-auto flex-1">
-                  <div className="prose prose-lg max-w-none">
+                <div className="p-8 md:p-12 overflow-y-auto relative z-0">
+                  <div className="flex flex-col items-center text-center mb-8">
+                    <div className="w-16 h-16 bg-primary/10 rounded-[1.5rem] flex items-center justify-center mb-6">
+                      {modalContent[openModal].icon}
+                    </div>
+                    
+                    <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/10">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span className="text-[10px] font-black uppercase tracking-widest">
+                        {modalContent[openModal].badge}
+                      </span>
+                    </div>
+
+                    <h3 className="text-3xl md:text-4xl font-black text-base-content tracking-tight leading-[1.1]">
+                      {modalContent[openModal].title}
+                    </h3>
+                  </div>
+
+                  <div className="space-y-6">
                     {modalContent[openModal].text.split('\n\n').map((paragraph, index) => (
-                      <p key={index} className="text-base-content/80 mb-4 last:mb-0 leading-relaxed">
+                      <p key={index} className="text-lg text-base-content/70 leading-relaxed font-medium">
                         {paragraph}
                       </p>
                     ))}

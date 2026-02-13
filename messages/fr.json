@@ -7,7 +7,18 @@
     "faq": "FAQ",
     "blog": "Blog",
     "iosApp": "App iOS",
-    "login": "Connexion"
+    "login": "Connexion",
+    "allFeatures": "Toutes les fonctionnalités",
+    "featureNames": {
+      "sentiment-analysis": "Analyse de sentiment",
+      "review-monitoring": "Suivi des avis",
+      "competitor-tracking": "Suivi des concurrents",
+      "ai-summaries": "Résumés IA",
+      "multi-source-aggregation": "Agrégation multi-sources",
+      "trend-detection": "Détection de tendances",
+      "custom-alerts": "Alertes personnalisées",
+      "team-collaboration": "Collaboration d'équipe"
+    }
   },
   "hero": {
     "badge": "Plateforme d'Intelligence des Avis",

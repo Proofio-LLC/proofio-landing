@@ -7,7 +7,18 @@
     "faq": "FAQ",
     "blog": "Blog",
     "iosApp": "App iOS",
-    "login": "Entrar"
+    "login": "Entrar",
+    "allFeatures": "Todos os recursos",
+    "featureNames": {
+      "sentiment-analysis": "Análise de sentimento",
+      "review-monitoring": "Monitoramento de reviews",
+      "competitor-tracking": "Acompanhamento de concorrentes",
+      "ai-summaries": "Resumos de IA",
+      "multi-source-aggregation": "Agregação multi-fonte",
+      "trend-detection": "Detecção de tendências",
+      "custom-alerts": "Alertas personalizados",
+      "team-collaboration": "Colaboração de equipe"
+    }
   },
   "hero": {
     "badge": "Plataforma de Inteligência de Avaliações",

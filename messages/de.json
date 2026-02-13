@@ -7,8 +7,18 @@
     "faq": "FAQ",
     "blog": "Blog",
     "iosApp": "iOS App",
-    "login": "Anmelden"
-
+    "login": "Anmelden",
+    "allFeatures": "Alle Funktionen",
+    "featureNames": {
+      "sentiment-analysis": "Sentiment-Analyse",
+      "review-monitoring": "Review-Monitoring",
+      "competitor-tracking": "Wettbewerber-Tracking",
+      "ai-summaries": "KI-Zusammenfassungen",
+      "multi-source-aggregation": "Multi-Quellen-Aggregation",
+      "trend-detection": "Trend-Erkennung",
+      "custom-alerts": "Individuelle Alerts",
+      "team-collaboration": "Team-Zusammenarbeit"
+    }
   },
   "hero": {
     "badge": "Review Intelligence Platform",

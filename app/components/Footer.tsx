@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { comparisons } from "@/lib/data/comparisons";
 import { useLocaleContext } from "./LocaleProvider";
 
@@ -16,7 +17,20 @@ export default function Footer({ locale, messages }: FooterProps) {
   const activeLocale = locale || localeContext.locale;
   const activeMessages = messages || localeContext.messages;
   const t = activeMessages?.footer || {};
+  const pathname = usePathname();
   const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
+
+  // Check if we're on a sub-page (non-localized paths or localized versions of them)
+  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service', '/ios-app'];
+  const isSubPage = pathname ? (
+    nonLocalizedPaths.some(path => pathname === path || pathname.startsWith(`${path}/`)) ||
+    (activeLocale !== 'en' && pathname.startsWith(`/${activeLocale}/`))
+  ) : false;
+
+  // Function to get the correct link for anchor tags
+  const getAnchorLink = (anchor: string) => {
+    return isSubPage ? `${localePrefix || "/"}${anchor}` : anchor;
+  };
 
   return (
     <footer className="py-20 bg-base-200">
@@ -70,7 +84,7 @@ export default function Footer({ locale, messages }: FooterProps) {
                 <h3 className="font-semibold text-base-content mb-4">{t.product || "Product"}</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="#features" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href={getAnchorLink("#features")} className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       {t.features || "Features"}
                     </Link>
                   </li>
@@ -80,7 +94,7 @@ export default function Footer({ locale, messages }: FooterProps) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="#integration" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href={getAnchorLink("#integration")} className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       {t.integrations || "Integrations"}
                     </Link>
                   </li>
