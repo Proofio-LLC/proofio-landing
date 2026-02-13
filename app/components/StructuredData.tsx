@@ -18,7 +18,7 @@ export function StructuredData() {
             "name": "Proofio",
             "url": "https://proofio.app",
             "logo": "https://proofio.app/logo.svg",
-            "description": "Review Intelligence Platform. Collect, update, and present reviews via API and platform-independent widgets.",
+            "description": "Proofio is an AI-powered review intelligence platform that automatically collects, normalizes, and analyzes customer reviews from App Store, Google Play, Trustpilot and more.",
             "sameAs": [
               "https://x.com/proofioapp",
               "https://www.linkedin.com/company/proofio-app",
@@ -55,7 +55,7 @@ export function StructuredData() {
               "ratingValue": "4.8",
               "ratingCount": "150"
             },
-            "description": "Automatically aggregate reviews from App Store, Google Play, Trustpilot, Google Reviews and more. AI-powered review intelligence, competitive analysis, and embeddable widgets.",
+            "description": "Proofio is an AI-powered review intelligence platform that automatically collects, normalizes, and analyzes customer reviews from App Store, Google Play, Trustpilot and more.",
             "url": "https://proofio.app",
             "screenshot": "https://proofio.app/opengraph.png"
           })
