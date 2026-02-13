@@ -48,9 +48,6 @@ export const metadata: Metadata = {
   creator: "Proofio",
   publisher: "Proofio",
   metadataBase: new URL('https://proofio.app'),
-  alternates: {
-    canonical: '/',
-  },
   robots: {
     index: true,
     follow: true,
@@ -130,6 +127,7 @@ export default async function RootLayout({
       <head>
         <StructuredData />
         <HreflangTags pathname={finalPathname} />
+        <link rel="canonical" href={`https://proofio.app${finalPathname === '/' ? '' : finalPathname}`} />
       </head>
       <body className={`${sfPro.className} antialiased`} suppressHydrationWarning>
         {children}

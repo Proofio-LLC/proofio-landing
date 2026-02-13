@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 import InfiniteGrid from "./InfiniteGrid";
 
 interface HeroProps {
@@ -65,9 +66,9 @@ export default function Hero({ locale, messages }: HeroProps) {
 
           {/* Hero Image - Harder cut and earlier fade */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5 }}
             className="relative mt-12"
           >
             <div className="relative max-w-5xl mx-auto bg-base-200 rounded-t-2xl shadow-2xl overflow-hidden">
@@ -88,9 +89,13 @@ export default function Hero({ locale, messages }: HeroProps) {
               <div 
                 className="relative overflow-hidden max-h-[300px] sm:max-h-[400px] lg:max-h-[450px]"
               >
-                <img 
+                <Image 
                   src="/hero2.png" 
                   alt="Proofio Review Intelligence Platform" 
+                  width={1200}
+                  height={800}
+                  priority
+                  fetchPriority="high"
                   className="w-full h-auto object-top"
                 />
               </div>

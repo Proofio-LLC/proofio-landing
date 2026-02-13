@@ -3,14 +3,14 @@ import Footer from "@/app/components/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookies Settings | Proofio",
-  description: "Proofio Cookie Policy - Learn about how we use cookies and manage your cookie preferences.",
+  title: "Cookie Settings | Proofio - Manage Your Privacy Preferences",
+  description: "Manage your cookie preferences for Proofio. Learn about the essential, session, and analytics cookies we use to provide a secure and efficient review intelligence service.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
   },
 };

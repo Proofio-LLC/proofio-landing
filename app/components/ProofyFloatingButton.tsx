@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
-import AIChatModal from "./AIChatModal";
+import dynamic from "next/dynamic";
+
+const AIChatModal = dynamic(() => import("./AIChatModal"), {
+  ssr: false,
+});
 
 export default function ProofyFloatingButton() {
   const [isOpen, setIsOpen] = useState(false);
