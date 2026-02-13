@@ -63,41 +63,45 @@ export default function DevelopersPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2" />
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2" />
+        </div>
         
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-24">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
             >
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
                 <Terminal className="w-4 h-4" />
                 <span className="text-xs font-bold uppercase tracking-widest">Developer Hub</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
                 Build with <br />
                 <span className="text-primary text-glow">Review Data</span>
               </h1>
-              <p className="text-xl text-base-content/60 mb-10 leading-relaxed max-w-lg">
+              <p className="text-lg md:text-xl text-base-content/60 mb-10 leading-relaxed max-w-2xl">
                 Access verified review intelligence directly in your apps. Use our robust API or the official SDK to integrate cross-platform feedback.
               </p>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <a 
                   href="https://docs.proofio.app" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary btn-lg rounded-2xl px-8 shadow-lg shadow-primary/20 bg-base-content text-base-100 border-none hover:bg-base-content/90"
+                  className="btn btn-primary btn-lg rounded-2xl px-10 shadow-lg shadow-primary/20 bg-base-content text-base-100 border-none hover:bg-base-content/90 w-full sm:w-auto"
                 >
                   <BookOpen className="w-5 h-5 mr-2" />
                   Documentation
                 </a>
                 <Link 
                   href="/status" 
-                  className="btn btn-ghost btn-lg rounded-2xl px-8 border border-base-300 hover:bg-base-200"
+                  className="btn btn-ghost btn-lg rounded-2xl px-10 border border-base-300 hover:bg-base-200 w-full sm:w-auto"
                 >
                   <Activity className="w-5 h-5 mr-2" />
                   API Status
@@ -106,33 +110,33 @@ export default function DevelopersPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="w-full lg:w-1/2 max-w-2xl"
             >
-              <div className="bg-[#0f172a] rounded-[2.5rem] p-8 shadow-2xl border border-white/5 relative group overflow-hidden">
-                <div className="flex items-center justify-between mb-8">
+              <div className="bg-[#0f172a] rounded-[2rem] md:rounded-[2.5rem] p-5 md:p-8 shadow-2xl border border-white/5 relative group overflow-hidden">
+                <div className="flex items-center justify-between mb-6 md:mb-8">
                   <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400/20" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400/20" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400/20" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/20" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400/20" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/20" />
                   </div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">typescript sdk</div>
+                  <div className="text-[9px] md:text-[10px] font-mono text-slate-500 uppercase tracking-widest">typescript sdk</div>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="bg-slate-800/50 rounded-xl p-4 flex items-center justify-between group/cmd">
-                    <code className="text-emerald-400 font-mono text-sm">npm install proofio-sdk</code>
+                <div className="space-y-4 md:y-6">
+                  <div className="bg-slate-800/50 rounded-xl p-3 md:p-4 flex items-center justify-between group/cmd">
+                    <code className="text-emerald-400 font-mono text-xs md:text-sm truncate mr-2">npm install proofio-sdk</code>
                     <button 
                       onClick={copyNpm}
-                      className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-400 hover:text-white"
+                      className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-400 hover:text-white shrink-0"
                     >
                       {npmCopied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                     </button>
                   </div>
 
-                  <pre className="text-sm md:text-base leading-relaxed overflow-x-auto no-scrollbar">
+                  <pre className="text-xs md:text-base leading-relaxed overflow-x-auto no-scrollbar">
                     <code className="text-blue-300 font-mono">
 {`import { Proofio } from 'proofio-sdk';
 
