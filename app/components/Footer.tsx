@@ -48,6 +48,20 @@ export default function Footer({ locale, messages }: FooterProps) {
                   <Linkedin className="w-5 h-5" />
                 </Link>
               </div>
+              <div className="pt-2">
+                <a 
+                  href="https://www.saashub.com/proofio?utm_source=badge&utm_campaign=badge&utm_content=proofio&badge_variant=color&badge_kind=approved" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block hover:scale-105 transition-transform"
+                >
+                  <img 
+                    src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" 
+                    alt="Proofio badge" 
+                    className="max-w-[140px] h-auto"
+                  />
+                </a>
+              </div>
             </div>
 
             {/* Right Side - Navigation Links */}
