@@ -64,6 +64,11 @@ export default function InfiniteGrid() {
   const speedY = 0.5;
 
   useAnimationFrame(() => {
+    // Performance optimization: skip animation on mobile if it lags
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return;
+    }
+    
     const currentX = gridOffsetX.get();
     const currentY = gridOffsetY.get();
     // Reset offset at pattern width to simulate infinity
@@ -79,17 +84,17 @@ export default function InfiniteGrid() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className={cn(
-        "absolute inset-0 pointer-events-none overflow-hidden"
+        "absolute inset-0 pointer-events-none overflow-hidden select-none"
       )}
     >
       {/* Layer 1: Subtle background grid (always visible) */}
-      <div className="absolute inset-0 z-0 opacity-[0.05]">
+      <div className="absolute inset-0 z-0 opacity-[0.05] will-change-transform">
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} size={gridSize} />
       </div>
 
-      {/* Layer 2: Highlighted grid (revealed by mouse mask) */}
+      {/* Layer 2: Highlighted grid (revealed by mouse mask) - Hidden on mobile for performance */}
       <motion.div 
-        className="absolute inset-0 z-0 opacity-40"
+        className="absolute inset-0 z-0 opacity-40 hidden md:block"
         style={{ maskImage, WebkitMaskImage: maskImage }}
       >
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} size={gridSize} />
