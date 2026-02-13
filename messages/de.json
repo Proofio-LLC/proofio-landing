@@ -6,7 +6,8 @@
     "pricing": "Preise",
     "faq": "FAQ",
     "blog": "Blog",
-    "login": "Login"
+    "iosApp": "iOS App",
+    "login": "Anmelden"
 
   },
   "hero": {
@@ -15,7 +16,7 @@
     "titleHighlight": "klar nutzbar.",
     "description": "Proofio ist eine Review-Intelligence-Plattform, die automatisch Bewertungen von App Store, Google Play, Trustpilot und anderen Quellen mit KI sammelt, normalisiert und analysiert.",
     "ctaPrimary": "Bewertungen analysieren",
-    "ctaSecondary": "iOS App laden"
+    "ctaSecondary": "iOS App entdecken"
   },
   "features": {
     "title": "Alles, was Sie brauchen, um Bewertungen in echte Insights zu verwandeln",
@@ -100,8 +101,8 @@
     "badge": "Bereit, von Bewertungen zu Insights zu wechseln?",
     "title": "Bereit, von Bewertungen zu Insights zu wechseln?",
     "description": "Proofio hilft Teams dabei, Kundenfeedback in Trends, Vergleiche und Entscheidungen zu verwandeln.",
-    "ctaPrimary": "Jetzt starten!",
-    "ctaSecondary": "iOS App laden"
+    "ctaPrimary": "Heute starten!",
+    "ctaSecondary": "iOS App entdecken"
   },
   "features": {
     "badge": "FUNKTIONEN",
@@ -301,6 +302,41 @@
         "answer": "Ja. Die Proofio iOS-App ist ein Begleiter zur Web-Plattform. Sie können Bewertungen, Trends und wichtige Kennzahlen unterwegs schnell ansehen. Die App ist schreibgeschützt für die Überprüfung von Insights – die gesamte Projekterstellung und Abonnementverwaltung verbleibt auf der Web-Plattform."
       }
     ]
+  },
+  "iosApp": {
+    "badge": "iOS APP",
+    "title": "Deine Review Intelligence, immer in der Tasche",
+    "description": "Die Proofio iOS App ist der perfekte Begleiter für unterwegs. Behalte deine Bewertungen und Insights im Blick, egal wo du bist.",
+    "introTitle": "Was ist die Proofio App?",
+    "introDescription": "Die Proofio App ist deine mobile Kommandozentrale für Review Intelligence. Als leistungsstarke Ergänzung zur Desktop-Plattform bringt sie die wichtigsten Erkenntnisse direkt auf dein iPhone – ohne den Ballast komplexer Konfigurationen.",
+    "featuresTitle": "Was sie kann",
+    "featuresDescription": "Leistungsstarke Funktionen, entwickelt für mobile Intelligence.",
+    "features": [
+      {
+        "title": "Echtzeit-Warnungen",
+        "description": "Erhalte Push-Benachrichtigungen für kritische Bewertungen, um sofort reagieren zu können."
+      },
+      {
+        "title": "Mobile Insights",
+        "description": "Ein schneller Überblick über deine Projekte, Sentiment-Trends und wichtige Kennzahlen."
+      },
+      {
+        "title": "Wöchentliche Berichte",
+        "description": "Detaillierte wöchentliche Zusammenfassungen direkt auf dein iPhone geliefert."
+      }
+    ],
+    "harmonyTitle": "Nahtlose Dashboard-Harmonie",
+    "harmonyDescription": "Alles, was du auf deinem Desktop-Dashboard einrichtest, ist sofort auf deinem iPhone verfügbar. Deine Projekte, Quellen und benutzerdefinierten Filter bleiben perfekt synchronisiert, sodass du nahtlos von der tiefen Analyse am Schreibtisch zur schnellen Überwachung unterwegs wechseln kannst.",
+    "readOnlyTitle": "Fokus auf das Wesentliche",
+    "readOnlyDescription": "Die App ist als reines Lese-Tool konzipiert. Keine komplexe Konfiguration, nur die Daten, die du für schnelle Entscheidungen brauchst.",
+    "ctaTitle": "Entdecke das mobile Erlebnis",
+    "ctaButton": "iOS App entdecken",
+    "appStoreBadgePrefix": "Laden im",
+    "appStoreBadgeStore": "App Store",
+    "performanceTitle": "Schnelle Performance",
+    "performanceDesc": "Leichtgewicht und optimiert für schnelle Check-ins.",
+    "securityTitle": "Sicherer Zugriff",
+    "securityDesc": "Ihre Daten sind durch native iOS-Sicherheit geschützt."
   },
   "footer": {
     "description": "Proofio ermöglicht es Teams, Bewertungen von mehreren Plattformen in klare und umsetzbare Insights zu verwandeln und macht Kundenfeedback leichter verständlich und umsetzbar.",

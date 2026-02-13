@@ -47,16 +47,17 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   // Determine back button href
   const backHref = isBlogPost ? "/blog" : "/";
 
+  // Determine the locale prefix for URLs
+  const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
+
   const navItems = [
     { label: t.integration || "Integration", href: isSubPage ? "/#integration" : "#integration" },
     { label: t.useCases || "Use Cases", href: isSubPage ? "/#use-cases" : "#use-cases" },
     { label: t.pricing || "Pricing", href: isSubPage ? "/#pricing" : "#pricing" },
     { label: t.faq || "FAQ", href: isSubPage ? "/#faq" : "#faq" },
+    { label: t.iosApp || "iOS App", href: `${localePrefix}/ios-app` },
     { label: t.blog || "Blog", href: "/blog" },
   ];
-
-  // Determine the locale prefix for URLs
-  const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
 
   // Icon map for features
   const iconMap: { [key: string]: any } = {

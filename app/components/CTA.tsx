@@ -10,6 +10,7 @@ interface CTAProps {
 
 export default function CTA({ locale, messages }: CTAProps) {
   const t = messages?.cta || {};
+  const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
   return (
     <section className="py-20 bg-base-100">
       <div className="container mx-auto px-4">
@@ -82,7 +83,7 @@ export default function CTA({ locale, messages }: CTAProps) {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
-                href="https://apps.apple.com/app/proofio/id6656574889" 
+                href={`${localePrefix}/ios-app`} 
                 className="btn btn-lg btn-ghost text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 rounded-xl px-10 backdrop-blur-sm"
               >
                 {t.ctaSecondary || "Download iOS App"}

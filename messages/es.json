@@ -6,6 +6,7 @@
     "pricing": "Precios",
     "faq": "FAQ",
     "blog": "Blog",
+    "iosApp": "App iOS",
     "login": "Iniciar sesión"
   },
   "hero": {
@@ -14,7 +15,7 @@
     "titleHighlight": "hecho útil.",
     "description": "Proofio es una plataforma de inteligencia de reseñas que recopila, normaliza y analiza automáticamente reseñas de App Store, Google Play, Trustpilot y otras fuentes usando IA.",
     "ctaPrimary": "Comenzar a analizar reseñas",
-    "ctaSecondary": "Descargar app iOS"
+    "ctaSecondary": "Explorar App iOS"
   },
   "features": {
     "badge": "VALOR CENTRAL",
@@ -286,7 +287,42 @@
     "title": "¿Listo para pasar de reseñas a insights?",
     "description": "Proofio ayuda a los equipos a transformar el feedback del cliente en tendencias, comparaciones y decisiones.",
     "ctaPrimary": "¡Comenzar hoy!",
-    "ctaSecondary": "Descargar app iOS"
+    "ctaSecondary": "Explorar App iOS"
+  },
+  "iosApp": {
+    "badge": "APP iOS",
+    "title": "Tu Inteligencia de Reseñas, siempre en tu bolsillo",
+    "description": "La App iOS de Proofio es la compañera perfecta para cuando estás en movimiento. Mantén un ojo en tus reseñas e insights, sin importar dónde estés.",
+    "introTitle": "¿Qué es la App de Proofio?",
+    "introDescription": "La App de Proofio es tu centro de comando móvil para la inteligencia de reseñas. Diseñada como una poderosa compañera de la plataforma de escritorio, lleva los insights más críticos directamente a tu alcance sin el ruido de la configuración.",
+    "featuresTitle": "Lo que puede hacer",
+    "featuresDescription": "Potentes funciones diseñadas para la inteligencia móvil.",
+    "features": [
+      {
+        "title": "Alertas en tiempo real",
+        "description": "Recibe notificaciones push para reseñas críticas para que puedas reaccionar de inmediato."
+      },
+      {
+        "title": "Insights móviles",
+        "description": "Una visión rápida de tus proyectos, tendencias de sentimiento y métricas clave."
+      },
+      {
+        "title": "Informes semanales",
+        "description": "Resúmenes semanales detallados entregados directamente a tu iPhone."
+      }
+    ],
+    "harmonyTitle": "Armonía perfecta con el Dashboard",
+    "harmonyDescription": "Todo lo que configuras en tu dashboard de escritorio está disponible al instante en tu iPhone. Tus proyectos, fuentes y filtros personalizados se mantienen perfectamente sincronizados, permitiéndote pasar de un análisis profundo en tu escritorio a un monitoreo rápido en cualquier lugar.",
+    "readOnlyTitle": "Enfócate en lo que importa",
+    "readOnlyDescription": "La aplicación está diseñada como una herramienta de solo lectura. Sin configuraciones complejas, solo los datos que necesitas para decisiones rápidas.",
+    "ctaTitle": "Explora la experiencia móvil",
+    "ctaButton": "Explorar App iOS",
+    "appStoreBadgePrefix": "Descárgalo en",
+    "appStoreBadgeStore": "App Store",
+    "performanceTitle": "Rendimiento rápido",
+    "performanceDesc": "Ligero y optimizado para revisiones rápidas.",
+    "securityTitle": "Acceso seguro",
+    "securityDesc": "Tus datos están protegidos con la seguridad nativa de iOS."
   },
   "footer": {
     "product": "Producto",

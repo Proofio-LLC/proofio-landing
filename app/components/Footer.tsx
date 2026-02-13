@@ -71,9 +71,9 @@ export default function Footer({ locale, messages }: FooterProps) {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://apps.apple.com/app/proofio/id6656574889" className="text-sm text-base-content/70 hover:text-primary transition-colors">
+                    <Link href={`${localePrefix}/ios-app`} className="text-sm text-base-content/70 hover:text-primary transition-colors">
                       {t.iosApp || "iOS App"}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

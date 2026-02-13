@@ -6,6 +6,7 @@
     "pricing": "Prezzi",
     "faq": "FAQ",
     "blog": "Blog",
+    "iosApp": "App iOS",
     "login": "Accedi"
   },
   "hero": {
@@ -14,7 +15,7 @@
     "titleHighlight": "resa utile.",
     "description": "PProofio è una piattaforma di intelligence delle recensioni che raccoglie, normalizza e analizza automaticamente le recensioni da App Store, Google Play, Trustpilot e altre fonti utilizzando l'IA.",
     "ctaPrimary": "Inizia ad analizzare le recensioni",
-    "ctaSecondary": "Scarica app iOS"
+    "ctaSecondary": "Esplora l'App iOS"
   },
   "features": {
     "title": "Tutto ciò che ti serve per trasformare le recensioni in insight",
@@ -100,7 +101,7 @@
     "title": "Pronto a passare dalle recensioni agli insight?",
     "description": "Proofio aiuta i team a trasformare il feedback dei clienti in trend, confronti e decisioni.",
     "ctaPrimary": "Inizia oggi!",
-    "ctaSecondary": "Scarica app iOS"
+    "ctaSecondary": "Esplora l'App iOS"
   },
   "features": {
     "badge": "VALORE CENTRALE",
@@ -297,6 +298,41 @@
         "question": "C'è un'app iOS per Proofio?",
         "answer": "Sì. L'app iOS di Proofio è un complemento della piattaforma web. Puoi visualizzare rapidamente recensioni, tendenze e metriche chiave in movimento. L'app è di sola lettura per rivedere gli insight – la creazione di progetti e la gestione degli abbonamenti rimangono sulla piattaforma web."      }
     ]
+  },
+  "iosApp": {
+    "badge": "APP iOS",
+    "title": "La tua Review Intelligence, sempre in tasca",
+    "description": "L'app iOS di Proofio è la compagna perfetta per quando sei in movimento. Tieni d'occhio le tue recensioni e i tuoi insight, ovunque tu sia.",
+    "introTitle": "Cos'è l'App Proofio?",
+    "introDescription": "L'App Proofio è il tuo centro di comando mobile per la review intelligence. Progettata come una potente compagna della piattaforma desktop, porta gli insight più critici direttamente a portata di mano senza il rumore della configurazione.",
+    "featuresTitle": "Cosa può fare",
+    "featuresDescription": "Potenti funzionalità progettate per l'intelligence mobile.",
+    "features": [
+      {
+        "title": "Avvisi in tempo reale",
+        "description": "Ricevi notifiche push per le recensioni critiche in modo da poter reagire immediatamente."
+      },
+      {
+        "title": "Insight mobili",
+        "description": "Una panoramica rapida dei tuoi progetti, delle tendenze del sentiment e delle metriche chiave."
+      },
+      {
+        "title": "Report settimanali",
+        "description": "Riepiloghi settimanali dettagliati consegnati direttamente sul tuo iPhone."
+      }
+    ],
+    "harmonyTitle": "Armonia perfetta con la Dashboard",
+    "harmonyDescription": "Tutto ciò che configuri sulla tua dashboard desktop è istantaneamente disponibile sul tuo iPhone. I tuoi progetti, le fonti e i filtri personalizzati rimangono perfettamente sincronizzati, permettendoti di passare da un'analisi approfondita alla scrivania a un monitoraggio rapido in movimento.",
+    "readOnlyTitle": "Concentrati su ciò che conta",
+    "readOnlyDescription": "L'app è progettata come uno strumento di sola lettura. Nessuna configurazione complessa, solo i dati necessari per decisioni rapide.",
+    "ctaTitle": "Esplora l'esperienza mobile",
+    "ctaButton": "Esplora l'App iOS",
+    "appStoreBadgePrefix": "Scarica su",
+    "appStoreBadgeStore": "App Store",
+    "performanceTitle": "Prestazioni veloci",
+    "performanceDesc": "Leggero e ottimizzato per controlli rapidi.",
+    "securityTitle": "Accesso sicuro",
+    "securityDesc": "I tuoi dati sono protetti dalla sicurezza nativa di iOS."
   },
   "footer": {
     "description": "Proofio consente ai team di trasformare le recensioni da più piattaforme in insight chiari e azionabili, rendendo il feedback dei clienti più facile da comprendere e su cui agire.",

@@ -6,6 +6,7 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "blog": "Blog",
+    "iosApp": "iOS App",
     "login": "Login"
   },
   "hero": {
@@ -14,7 +15,7 @@
     "titleHighlight": "made useful.",
     "description": "Proofio is a review-intelligence platform that automatically collects, normalizes, and analyzes reviews from App Store, Google Play, Trustpilot and other sources using AI.",
     "ctaPrimary": "Start analyzing reviews",
-    "ctaSecondary": "Download iOS App"
+    "ctaSecondary": "Explore iOS App"
   },
   "features": {
     "title": "Everything you need to turn reviews into insights",
@@ -100,7 +101,7 @@
     "title": "Ready to move from reviews to insights?",
     "description": "Proofio helps teams transform customer feedback into trends, comparisons and decisions.",
     "ctaPrimary": "Start today!",
-    "ctaSecondary": "Download iOS App"
+    "ctaSecondary": "Explore iOS App"
   },
   "features": {
     "badge": "CORE VALUE",
@@ -299,6 +300,41 @@
         "answer": "Yes. The Proofio iOS app is a companion to the web platform. You can quickly view reviews, trends and key metrics on the go. The app is read-only for reviewing insights-all project creation and subscription management remains on the web platform."
       }
     ]
+  },
+  "iosApp": {
+    "badge": "iOS APP",
+    "title": "Your Review Intelligence, always in your pocket",
+    "description": "The Proofio iOS App is the perfect companion for on-the-go. Keep an eye on your reviews and insights, no matter where you are.",
+    "introTitle": "What is the Proofio App?",
+    "introDescription": "The Proofio App is your mobile command center for review intelligence. Designed as a powerful companion to the desktop platform, it brings the most critical insights directly to your fingertips without the noise of configuration.",
+    "featuresTitle": "What it can do",
+    "featuresDescription": "Powerful features designed for mobile intelligence.",
+    "features": [
+      {
+        "title": "Real-time Alerts",
+        "description": "Receive push notifications for critical reviews so you can react immediately."
+      },
+      {
+        "title": "Mobile Insights",
+        "description": "A quick overview of your projects, sentiment trends, and key metrics."
+      },
+      {
+        "title": "Weekly Reports",
+        "description": "Detailed weekly summaries delivered directly to your iPhone."
+      }
+    ],
+    "harmonyTitle": "Seamless Dashboard Harmony",
+    "harmonyDescription": "Everything you set up on your desktop dashboard is instantly available on your iPhone. Your projects, sources, and custom filters stay perfectly in sync, allowing you to transition from deep analysis at your desk to quick monitoring on the go.",
+    "readOnlyTitle": "Focus on what matters",
+    "readOnlyDescription": "The app is designed as a read-only tool. No complex configuration, just the data you need for quick decisions.",
+    "ctaTitle": "Explore the mobile experience",
+    "ctaButton": "Explore iOS App",
+    "appStoreBadgePrefix": "Download on the",
+    "appStoreBadgeStore": "App Store",
+    "performanceTitle": "Fast Performance",
+    "performanceDesc": "Lightweight and optimized for quick check-ins.",
+    "securityTitle": "Secure Access",
+    "securityDesc": "Your data is protected with native iOS security."
   },
   "footer": {
     "description": "Proofio empowers teams to transform reviews from multiple platforms into clear and actionable insights, making customer feedback easier to understand and act on.",

@@ -11,6 +11,7 @@ interface HeroProps {
 
 export default function Hero({ locale, messages }: HeroProps) {
   const t = messages?.hero || {};
+  const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
 
   return (
     <section className="min-h-screen flex items-start justify-center bg-gradient-to-br from-base-100 via-base-100 to-base-200 relative overflow-hidden pt-32">
@@ -57,7 +58,7 @@ export default function Hero({ locale, messages }: HeroProps) {
               {t.ctaPrimary || "Start analyzing reviews"}
               <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="https://apps.apple.com/app/proofio/id6656574889" className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
+            <a href={`${localePrefix}/ios-app`} className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
               {t.ctaSecondary || "Download iOS App"}
             </a>
           </motion.div>
