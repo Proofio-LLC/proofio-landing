@@ -287,6 +287,43 @@ const features: FeatureRow[] = [
     scale: "Every Monday",
   },
 
+  // Reports
+  {
+    category: "Reports",
+    feature: "PDF Download",
+    starter: true,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Reports",
+    feature: "Manual Email",
+    starter: true,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Reports",
+    feature: "Scheduled Reports",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Reports",
+    feature: "Custom Branding",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+  {
+    category: "Reports",
+    feature: "Competitor Reports",
+    starter: false,
+    growth: true,
+    scale: true,
+  },
+
   // Team features
   {
     category: "Team features",
