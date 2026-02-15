@@ -120,12 +120,43 @@ const features = [
 
 interface FeaturesProps {
   locale?: string;
-  messages?: any;
+  messages?: {
+    features?: FeaturesMessages;
+  };
+}
+
+interface FeatureItem {
+  title: string;
+  description: string;
+}
+
+interface VerifiedInfoContent {
+  badge?: string;
+  title?: string;
+  text?: string;
+}
+
+interface FeaturesMessages {
+  badge?: string;
+  title?: string;
+  description?: string;
+  items?: FeatureItem[];
+  verified?: {
+    title?: string;
+    description?: string;
+    demoNotice?: string;
+    businessInfo?: VerifiedInfoContent;
+    customerInfo?: VerifiedInfoContent;
+  };
 }
 
 export default function Features({ locale, messages }: FeaturesProps) {
   const t = messages?.features || {};
-  const featureItems = t.items || features;
+  const defaultFeatureItems: FeatureItem[] = features.map(({ title, description }) => ({
+    title,
+    description,
+  }));
+  const featureItems: FeatureItem[] = t.items || defaultFeatureItems;
   const verified = t.verified || {};
   const [openModal, setOpenModal] = useState<'business' | 'customer' | null>(null);
   const widgetContainerRef = useRef<HTMLDivElement | null>(null);
@@ -189,7 +220,7 @@ export default function Features({ locale, messages }: FeaturesProps) {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-          {featureItems.map((feature: any, index: number) => {
+          {featureItems.map((feature: FeatureItem, index: number) => {
             // All features span 2 columns in a 6-column grid (making it 3 columns on desktop)
             const colSpan = "lg:col-span-2";
             
