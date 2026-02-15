@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  
+
   // Widget translations
   const translations = {
     de: {
@@ -48,6 +48,10 @@
     }
   };
 
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
   function renderWidget(data, container) {
     const { stats, settings } = data;
     const lang = settings.language || 'en';
@@ -55,31 +59,40 @@
     const tw = translations[lang];
     const colors = themeColors[theme];
     const filterGreen = "brightness(0) saturate(100%) invert(53%) sepia(93%) saturate(1415%) hue-rotate(126deg) brightness(96%) contrast(101%)";
-    
-    // Fix: Use oo.png for the shield icon, not brandingLogo
+    const mobile = isMobile();
+
+    // Mobile vs Desktop styles
+    const containerPadding = mobile ? '12px' : '16px';
+    const containerGap = mobile ? '6px' : '8px';
+    const maxWidth = mobile ? '300px' : 'none';
+    const headerFontSize = mobile ? '11px' : '14px';
+    const reviewFontSize = mobile ? '10px' : '12px';
+    const badgeFontSize = mobile ? '8px' : '10px';
+    const brandingFontSize = mobile ? '8px' : '10px';
+    const iconSize = mobile ? '14px' : '16px';
 
     const widgetHTML = `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: ${colors.bg}; border: 1px solid ${colors.border}; border-radius: 12px; padding: 16px; display: inline-flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
-          <div style="background: ${theme === 'light' ? '#fff' : '#1f2937'}; border: 1px solid ${colors.divider}; border-radius: 6px; padding: 2px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-              <img src="https://proofio.app/oo.png" alt="Proofio" style="width: 16px; height: 16px; object-fit: contain; filter: ${filterGreen};" />
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: ${colors.bg}; border: 1px solid ${colors.border}; border-radius: 12px; padding: ${containerPadding}; display: inline-flex; flex-direction: column; gap: ${containerGap}; box-shadow: 0 1px 3px rgba(0,0,0,0.1); max-width: ${maxWidth};">
+        <div style="display: flex; align-items: center; gap: ${containerGap}; white-space: nowrap;">
+          <div style="background: ${theme === 'light' ? '#fff' : '#1f2937'}; border: 1px solid ${colors.divider}; border-radius: 6px; padding: 2px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); flex-shrink: 0;">
+              <img src="https://proofio.app/oo.png" alt="Proofio" style="width: ${iconSize}; height: ${iconSize}; object-fit: contain; filter: ${filterGreen};" />
           </div>
-          <span style="font-weight: 700; font-size: 14px; color: ${colors.text};">${tw.verifiedFrom(stats.platforms)}</span>
-          <span style="color: ${colors.brandingText}; font-size: 14px;">·</span>
-          <span style="font-weight: 700; font-size: 14px; color: ${colors.text};">${stats.averageRating.toFixed(1)} ★</span>
+          <span style="font-weight: 700; font-size: ${headerFontSize}; color: ${colors.text};">${tw.verifiedFrom(stats.platforms)}</span>
+          <span style="color: ${colors.brandingText}; font-size: ${headerFontSize};">·</span>
+          <span style="font-weight: 700; font-size: ${headerFontSize}; color: ${colors.text};">${stats.averageRating.toFixed(1)} ★</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 12px; font-weight: 500; color: ${colors.textSecondary};">${tw.reviews(stats.totalReviews)}</span>
+        <div style="display: flex; align-items: center; gap: ${containerGap}; flex-wrap: wrap;">
+          <span style="font-size: ${reviewFontSize}; font-weight: 500; color: ${colors.textSecondary};">${tw.reviews(stats.totalReviews)}</span>
           ${settings.showAiBadge ? `
-          <div style="display: flex; align-items: center; gap: 4px; background: ${colors.badgeBg}; color: ${colors.badgeText}; padding: 2px 8px; border-radius: 9999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+          <div style="display: flex; align-items: center; gap: 4px; background: ${colors.badgeBg}; color: ${colors.badgeText}; padding: 2px 8px; border-radius: 9999px; font-size: ${badgeFontSize}; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+            <svg width="${badgeFontSize}" height="${badgeFontSize}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
             ${tw.aiChecked}
           </div>` : ''}
         </div>
         ${settings.showBranding ? `
-        <div style="margin-top: 4px; border-top: 1px solid ${colors.divider}; padding-top: 8px; display: flex; align-items: center; gap: 4px; font-size: 10px; color: ${colors.brandingText};">
+        <div style="margin-top: 4px; border-top: 1px solid ${colors.divider}; padding-top: 8px; display: flex; align-items: center; gap: 4px; font-size: ${brandingFontSize}; color: ${colors.brandingText};">
           <span>${tw.madeWith}</span>
-          <img src="${colors.brandingLogo}" alt="Proofio" style="height: 10px; width: auto;" />
+          <img src="${colors.brandingLogo}" alt="Proofio" style="height: ${brandingFontSize}; width: auto;" />
           <span>-</span>
           <a href="https://proofio.app" target="_blank" style="color: #01bb7e; text-decoration: none; font-weight: 600;">${tw.tryForFree}</a>
         </div>` : ''}
@@ -92,13 +105,48 @@
   function init() {
     // Find all elements with data-proofio-widget attribute
     const containers = document.querySelectorAll('[data-proofio-widget]');
-    
+
     containers.forEach(container => {
+      // Check if this is a demo widget (for landing page)
+      const isDemo = container.hasAttribute('data-demo');
+
+      if (isDemo) {
+        // Demo widget with static data
+        const language = container.getAttribute('data-language') || 'en';
+        const theme = container.getAttribute('data-theme') || 'light';
+        const showAiBadge = container.getAttribute('data-show-ai-badge') !== 'false';
+        const showBranding = container.getAttribute('data-show-branding') !== 'false';
+
+        const demoData = {
+          stats: {
+            platforms: 3,
+            totalReviews: 1247,
+            averageRating: 4.8
+          },
+          settings: {
+            language,
+            theme,
+            showAiBadge,
+            showBranding
+          }
+        };
+
+        renderWidget(demoData, container);
+        return;
+      }
+
+      // Real widget - fetch data from API
       const apiKey = container.getAttribute('data-api-key');
       if (!apiKey) {
         console.error('Proofio Widget: data-api-key attribute is required');
         return;
       }
+
+      // Get settings from data attributes
+      const language = container.getAttribute('data-language') || 'en';
+      const theme = container.getAttribute('data-theme') || 'light';
+      const showAiBadge = container.getAttribute('data-show-ai-badge') !== 'false';
+      const showBranding = container.getAttribute('data-show-branding') !== 'false';
 
       // Fetch widget data
       fetch('https://api.proofio.app/api/v1/public/widget', {
@@ -113,6 +161,13 @@
         return response.json();
       })
       .then(data => {
+        // Override settings with data attributes
+        data.settings = {
+          language,
+          theme,
+          showAiBadge,
+          showBranding
+        };
         renderWidget(data, container);
       })
       .catch(error => {
@@ -121,6 +176,13 @@
       });
     });
   }
+
+  // Re-render on window resize to update mobile/desktop view
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(init, 250);
+  });
 
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
