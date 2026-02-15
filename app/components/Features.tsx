@@ -1,9 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, CheckCircle2, X, Building2, UserCircle2, ShieldCheck } from "lucide-react";
-import { useState, useEffect } from "react";
-import Script from "next/script";
+import { Sparkles, X, Building2, UserCircle2, ShieldCheck } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 function FeatureImage({ staticImage, animatedImage, alt, small }: { staticImage: string; animatedImage: string; alt: string; small?: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -129,6 +128,28 @@ export default function Features({ locale, messages }: FeaturesProps) {
   const featureItems = t.items || features;
   const verified = t.verified || {};
   const [openModal, setOpenModal] = useState<'business' | 'customer' | null>(null);
+  const widgetContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container = widgetContainerRef.current;
+    if (!container || typeof window === "undefined") return;
+
+    container.innerHTML = "";
+
+    const existingScripts = document.querySelectorAll('script[data-proofio-verified-widget="true"]');
+    existingScripts.forEach((script) => script.remove());
+
+    const script = document.createElement("script");
+    script.src = `https://proofio.app/widget.js?lang=${encodeURIComponent(locale || "en")}`;
+    script.async = true;
+    script.defer = true;
+    script.setAttribute("data-proofio-verified-widget", "true");
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, [locale]);
 
   const modalContent = {
     business: {
@@ -257,8 +278,11 @@ export default function Features({ locale, messages }: FeaturesProps) {
                 <div className="order-1 lg:order-2 flex flex-col items-center justify-center">
                   <div className="w-full flex items-center justify-center bg-gray-50 rounded-xl p-6 min-h-[150px]">
                     <div
+                      key={locale || "default"}
+                      ref={widgetContainerRef}
                       data-proofio-widget
                       data-demo
+                      data-language={locale || "en"}
                     />
                   </div>
                   <p className="text-xs text-base-content/50 mt-4 text-center max-w-md">
@@ -270,11 +294,6 @@ export default function Features({ locale, messages }: FeaturesProps) {
           </motion.div>
         </div>
         
-        {/* Load Widget Script */}
-        <Script
-          src="https://proofio.app/widget.js"
-          strategy="lazyOnload"
-        />
       </div>
 
       {/* Modal */}
@@ -344,5 +363,3 @@ export default function Features({ locale, messages }: FeaturesProps) {
     </section>
   );
 }
-
-
