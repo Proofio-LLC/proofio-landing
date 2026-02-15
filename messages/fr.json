@@ -35,7 +35,17 @@
     "verified": {
       "title": "Proofio Vérifié",
       "description": "Affichez des avis vérifiés avec notre widget de confiance intégrable. Renforcez la confiance des clients avec des retours réels et vérifiés directement sur votre site web.",
-      "demoNotice": "Remarque : Il s'agit d'un projet de démonstration lié. Les avis affichés ne reflètent pas de vrais avis de Proofio ou de nos clients."
+      "demoNotice": "Remarque : Il s'agit d'un projet de démonstration lié. Les avis affichés ne reflètent pas de vrais avis de Proofio ou de nos clients.",
+      "businessInfo": {
+        "badge": "Informations entreprise",
+        "title": "Pourquoi Proofio Vérifié est important pour votre entreprise",
+        "text": "Proofio Vérifié vous aide à instaurer la confiance là où elle compte le plus : au moment de la décision.\n\nEn affichant des données d'avis vérifiés multi-plateformes, vous montrez transparence, crédibilité et cohérence. Les clients voient que vos notes ne sont ni sélectionnées, ni filtrées, ni manipulées : elles sont agrégées et validées à partir de plusieurs sources.\n\nCela renforce la confiance, réduit l'hésitation et améliore les taux de conversion.\n\nProofio Vérifié n'est pas un badge marketing. C'est un signal de confiance fondé sur des données d'avis réelles et structurées."
+      },
+      "customerInfo": {
+        "badge": "Informations client",
+        "title": "Pourquoi vous pouvez faire confiance à Proofio Vérifié",
+        "text": "Proofio Vérifié existe pour vous aider à prendre de meilleures décisions.\n\nLes avis affichés sont collectés depuis plusieurs plateformes indépendantes et analysés avec une logique standardisée de validation et d'agrégation.\n\nCela signifie que vous ne voyez pas des témoignages sélectionnés, mais une vue transparente de retours clients réels.\n\nProofio ne modifie, ne supprime ni ne manipule les avis. Notre objectif n'est pas d'améliorer artificiellement l'image des entreprises, mais de rendre les données d'avis plus honnêtes, comparables et utiles."
+      }
     },
     "items": [
       {

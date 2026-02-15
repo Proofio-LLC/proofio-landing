@@ -127,20 +127,21 @@ interface FeaturesProps {
 export default function Features({ locale, messages }: FeaturesProps) {
   const t = messages?.features || {};
   const featureItems = t.items || features;
+  const verified = t.verified || {};
   const [openModal, setOpenModal] = useState<'business' | 'customer' | null>(null);
 
   const modalContent = {
     business: {
-      title: "Why Proofio Verified matters for your business",
-      badge: "Business Information",
+      title: verified.businessInfo?.title || "Why Proofio Verified matters for your business",
+      badge: verified.businessInfo?.badge || "Business Information",
       icon: <Building2 className="w-8 h-8 text-primary" />,
-      text: "Proofio Verified helps you build trust where it matters most: at the moment of decision.\n\nBy displaying verified, cross-platform review data, you show transparency, credibility, and consistency. Customers see that your ratings are not selected, filtered, or manipulated - they are aggregated and validated across multiple sources.\n\nThis increases confidence, reduces hesitation, and improves conversion rates.\n\nProofio Verified is not a marketing badge. It is a trust signal based on real, structured review data."
+      text: verified.businessInfo?.text || "Proofio Verified helps you build trust where it matters most: at the moment of decision.\n\nBy displaying verified, cross-platform review data, you show transparency, credibility, and consistency. Customers see that your ratings are not selected, filtered, or manipulated - they are aggregated and validated across multiple sources.\n\nThis increases confidence, reduces hesitation, and improves conversion rates.\n\nProofio Verified is not a marketing badge. It is a trust signal based on real, structured review data."
     },
     customer: {
-      title: "Why you can trust Proofio Verified",
-      badge: "Customer Information",
+      title: verified.customerInfo?.title || "Why you can trust Proofio Verified",
+      badge: verified.customerInfo?.badge || "Customer Information",
       icon: <UserCircle2 className="w-8 h-8 text-primary" />,
-      text: "Proofio Verified exists to help you make better decisions.\n\nThe displayed reviews are collected from multiple independent platforms and analyzed using standardized validation and aggregation logic.\n\nThis means you are not seeing selected testimonials, but a transparent overview of real customer feedback.\n\nProofio does not modify, remove, or manipulate reviews. Our goal is not to make companies look better - but to make review data more honest, comparable, and useful."
+      text: verified.customerInfo?.text || "Proofio Verified exists to help you make better decisions.\n\nThe displayed reviews are collected from multiple independent platforms and analyzed using standardized validation and aggregation logic.\n\nThis means you are not seeing selected testimonials, but a transparent overview of real customer feedback.\n\nProofio does not modify, remove, or manipulate reviews. Our goal is not to make companies look better - but to make review data more honest, comparable, and useful."
     }
   };
 
@@ -228,10 +229,10 @@ export default function Features({ locale, messages }: FeaturesProps) {
                   {/* Text Content */}
                   <div className="flex-1">
                     <h3 className="text-xl lg:text-2xl font-bold text-base-content mb-2">
-                      {t.verified?.title || "Proofio Verified"}
+                      {verified.title || "Proofio Verified"}
                     </h3>
                     <p className="text-base-content/70 text-sm leading-relaxed mb-3">
-                      {t.verified?.description || "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."}
+                      {verified.description || "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website."}
                     </p>
                     <div className="flex flex-wrap gap-4 mt-4">
                       <button
@@ -239,14 +240,14 @@ export default function Features({ locale, messages }: FeaturesProps) {
                         className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 hover:bg-primary/10 text-primary rounded-xl text-sm font-semibold transition-all border border-primary/10 hover:border-primary/20 group"
                       >
                         <Building2 className="w-4 h-4" />
-                        Business Information
+                        {verified.businessInfo?.badge || "Business Information"}
                       </button>
                       <button
                         onClick={() => setOpenModal('customer')}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 hover:bg-primary/10 text-primary rounded-xl text-sm font-semibold transition-all border border-primary/10 hover:border-primary/20 group"
                       >
                         <UserCircle2 className="w-4 h-4" />
-                        Customer Information
+                        {verified.customerInfo?.badge || "Customer Information"}
                       </button>
                     </div>
                   </div>
@@ -261,7 +262,7 @@ export default function Features({ locale, messages }: FeaturesProps) {
                     />
                   </div>
                   <p className="text-xs text-base-content/50 mt-4 text-center max-w-md">
-                    {t.verified?.demoNotice || "Note: This is a demo widget showcasing the Proofio Verified feature. Real widgets display actual verified review data."}
+                    {verified.demoNotice || "Note: This is a demo widget showcasing the Proofio Verified feature. Real widgets display actual verified review data."}
                   </p>
                 </div>
               </div>
@@ -343,6 +344,5 @@ export default function Features({ locale, messages }: FeaturesProps) {
     </section>
   );
 }
-
 
 

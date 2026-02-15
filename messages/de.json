@@ -121,7 +121,17 @@
     "verified": {
       "title": "Proofio Verified",
       "demoNotice": "Hinweis: Dies ist ein verknüpftes Demo-Projekt. Die angezeigten Bewertungen spiegeln keine realen Bewertungen von Proofio oder unseren Kunden wider.",
-      "description": "Zeigen Sie verifizierte Bewertungen mit unserem einbettbaren Vertrauens-Widget. Stärken Sie das Kundenvertrauen mit echten, verifizierten Feedbacks direkt auf Ihrer Website."
+      "description": "Zeigen Sie verifizierte Bewertungen mit unserem einbettbaren Vertrauens-Widget. Stärken Sie das Kundenvertrauen mit echten, verifizierten Feedbacks direkt auf Ihrer Website.",
+      "businessInfo": {
+        "badge": "Informationen für Unternehmen",
+        "title": "Warum Proofio Verified für Ihr Unternehmen wichtig ist",
+        "text": "Proofio Verified hilft Ihnen, genau dort Vertrauen aufzubauen, wo es am wichtigsten ist: im Moment der Entscheidung.\n\nDurch die Anzeige verifizierter, plattformübergreifender Bewertungsdaten schaffen Sie Transparenz, Glaubwürdigkeit und Konsistenz. Kunden sehen, dass Ihre Bewertungen nicht ausgewählt, gefiltert oder manipuliert sind, sondern aus mehreren Quellen aggregiert und validiert werden.\n\nDas erhöht das Vertrauen, reduziert Zögern und verbessert die Conversion-Rate.\n\nProofio Verified ist kein Marketing-Abzeichen. Es ist ein Vertrauenssignal auf Basis echter, strukturierter Bewertungsdaten."
+      },
+      "customerInfo": {
+        "badge": "Kundeninformationen",
+        "title": "Warum Sie Proofio Verified vertrauen können",
+        "text": "Proofio Verified wurde entwickelt, damit Sie bessere Entscheidungen treffen können.\n\nDie angezeigten Bewertungen werden aus mehreren unabhängigen Plattformen gesammelt und mit standardisierter Validierungs- und Aggregationslogik analysiert.\n\nDas bedeutet: Sie sehen keine ausgewählten Testimonials, sondern einen transparenten Überblick über echtes Kundenfeedback.\n\nProofio verändert, entfernt oder manipuliert keine Bewertungen. Unser Ziel ist nicht, Unternehmen besser aussehen zu lassen, sondern Bewertungsdaten ehrlicher, vergleichbarer und nützlicher zu machen."
+      }
     },
     "items": [
       {

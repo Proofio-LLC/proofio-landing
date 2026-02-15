@@ -35,7 +35,17 @@
     "verified": {
       "title": "Proofio Verificado",
       "description": "Muestra reseñas verificadas con nuestro widget de confianza integrable. Genera confianza en los clientes con feedback real y verificado directamente en tu sitio web.",
-      "demoNotice": "Nota: Este es un proyecto de demostración vinculado. Las reseñas mostradas no reflejan reseñas reales de Proofio o de nuestros clientes."
+      "demoNotice": "Nota: Este es un proyecto de demostración vinculado. Las reseñas mostradas no reflejan reseñas reales de Proofio o de nuestros clientes.",
+      "businessInfo": {
+        "badge": "Información para empresas",
+        "title": "Por qué Proofio Verificado importa para tu empresa",
+        "text": "Proofio Verificado te ayuda a generar confianza donde más importa: en el momento de la decisión.\n\nAl mostrar datos de reseñas verificadas y multiplataforma, demuestras transparencia, credibilidad y consistencia. Los clientes ven que tus valoraciones no están seleccionadas, filtradas ni manipuladas; están agregadas y validadas en múltiples fuentes.\n\nEsto aumenta la confianza, reduce la indecisión y mejora las tasas de conversión.\n\nProofio Verificado no es una insignia de marketing. Es una señal de confianza basada en datos de reseñas reales y estructurados."
+      },
+      "customerInfo": {
+        "badge": "Información para clientes",
+        "title": "Por qué puedes confiar en Proofio Verificado",
+        "text": "Proofio Verificado existe para ayudarte a tomar mejores decisiones.\n\nLas reseñas mostradas se recopilan de múltiples plataformas independientes y se analizan mediante una lógica estandarizada de validación y agregación.\n\nEsto significa que no estás viendo testimonios seleccionados, sino una visión transparente de feedback real de clientes.\n\nProofio no modifica, elimina ni manipula reseñas. Nuestro objetivo no es hacer que las empresas parezcan mejores, sino hacer que los datos de reseñas sean más honestos, comparables y útiles."
+      }
     },
     "items": [
       {

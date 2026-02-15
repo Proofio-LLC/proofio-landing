@@ -35,7 +35,17 @@
     "verified": {
       "title": "Proofio Verificado",
       "description": "Exiba avaliações verificadas com nosso widget de confiança integrado. Construa confiança do cliente com feedback real e verificado diretamente em seu site.",
-      "demoNotice": "Nota: Este é um projeto de demonstração vinculado. As avaliações exibidas não refletem avaliações reais da Proofio ou de nossos clientes."
+      "demoNotice": "Nota: Este é um projeto de demonstração vinculado. As avaliações exibidas não refletem avaliações reais da Proofio ou de nossos clientes.",
+      "businessInfo": {
+        "badge": "Informações para empresas",
+        "title": "Por que o Proofio Verificado é importante para sua empresa",
+        "text": "O Proofio Verificado ajuda você a construir confiança onde isso mais importa: no momento da decisão.\n\nAo exibir dados de avaliações verificadas em múltiplas plataformas, você demonstra transparência, credibilidade e consistência. Os clientes veem que suas avaliações não são selecionadas, filtradas ou manipuladas: elas são agregadas e validadas em várias fontes.\n\nIsso aumenta a confiança, reduz a hesitação e melhora as taxas de conversão.\n\nProofio Verificado não é um selo de marketing. É um sinal de confiança baseado em dados de avaliações reais e estruturados."
+      },
+      "customerInfo": {
+        "badge": "Informações para clientes",
+        "title": "Por que você pode confiar no Proofio Verificado",
+        "text": "O Proofio Verificado existe para ajudar você a tomar melhores decisões.\n\nAs avaliações exibidas são coletadas de múltiplas plataformas independentes e analisadas com lógica padronizada de validação e agregação.\n\nIsso significa que você não está vendo depoimentos selecionados, mas uma visão transparente do feedback real dos clientes.\n\nA Proofio não modifica, remove nem manipula avaliações. Nosso objetivo não é fazer empresas parecerem melhores, mas tornar os dados de avaliações mais honestos, comparáveis e úteis."
+      }
     },
     "items": [
       {

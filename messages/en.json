@@ -121,7 +121,17 @@
     "verified": {
       "title": "Proofio Verified",
       "description": "Display verified reviews with our embeddable trust widget. Build customer confidence with real, verified feedback directly on your website.",
-      "demoNotice": "Note: This is a linked demo project. The displayed reviews do not reflect real reviews from Proofio or any of our customers."
+      "demoNotice": "Note: This is a linked demo project. The displayed reviews do not reflect real reviews from Proofio or any of our customers.",
+      "businessInfo": {
+        "badge": "Business Information",
+        "title": "Why Proofio Verified matters for your business",
+        "text": "Proofio Verified helps you build trust where it matters most: at the moment of decision.\n\nBy displaying verified, cross-platform review data, you show transparency, credibility, and consistency. Customers see that your ratings are not selected, filtered, or manipulated - they are aggregated and validated across multiple sources.\n\nThis increases confidence, reduces hesitation, and improves conversion rates.\n\nProofio Verified is not a marketing badge. It is a trust signal based on real, structured review data."
+      },
+      "customerInfo": {
+        "badge": "Customer Information",
+        "title": "Why you can trust Proofio Verified",
+        "text": "Proofio Verified exists to help you make better decisions.\n\nThe displayed reviews are collected from multiple independent platforms and analyzed using standardized validation and aggregation logic.\n\nThis means you are not seeing selected testimonials, but a transparent overview of real customer feedback.\n\nProofio does not modify, remove, or manipulate reviews. Our goal is not to make companies look better - but to make review data more honest, comparable, and useful."
+      }
     },
     "items": [
       {

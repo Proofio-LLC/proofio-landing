@@ -121,7 +121,17 @@
     "verified": {
       "title": "Proofio Verificato",
       "description": "Visualizza recensioni verificate con il nostro widget di fiducia incorporabile. Costruisci la fiducia dei clienti con feedback reale e verificato direttamente sul tuo sito web.",
-      "demoNotice": "Nota: Questo è un progetto demo collegato. Le recensioni visualizzate non riflettono recensioni reali di Proofio o dei nostri clienti."
+      "demoNotice": "Nota: Questo è un progetto demo collegato. Le recensioni visualizzate non riflettono recensioni reali di Proofio o dei nostri clienti.",
+      "businessInfo": {
+        "badge": "Informazioni per aziende",
+        "title": "Perché Proofio Verificato è importante per la tua azienda",
+        "text": "Proofio Verificato ti aiuta a costruire fiducia dove conta di più: nel momento della decisione.\n\nMostrando dati di recensioni verificate e multipiattaforma, comunichi trasparenza, credibilità e coerenza. I clienti vedono che le valutazioni non sono selezionate, filtrate o manipolate: sono aggregate e validate da più fonti.\n\nQuesto aumenta la fiducia, riduce l'esitazione e migliora i tassi di conversione.\n\nProofio Verificato non è un badge di marketing. È un segnale di fiducia basato su dati di recensioni reali e strutturati."
+      },
+      "customerInfo": {
+        "badge": "Informazioni per clienti",
+        "title": "Perché puoi fidarti di Proofio Verificato",
+        "text": "Proofio Verificato esiste per aiutarti a prendere decisioni migliori.\n\nLe recensioni mostrate vengono raccolte da più piattaforme indipendenti e analizzate con logiche standardizzate di validazione e aggregazione.\n\nQuesto significa che non stai vedendo testimonianze selezionate, ma una panoramica trasparente del feedback reale dei clienti.\n\nProofio non modifica, rimuove o manipola le recensioni. Il nostro obiettivo non è far apparire le aziende migliori, ma rendere i dati delle recensioni più onesti, comparabili e utili."
+      }
     },
     "items": [
       {
