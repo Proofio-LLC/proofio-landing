@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 import { BlogPost } from "./Blog";
 import { urlFor } from "@/lib/sanity/image";
+import { useLocaleContext } from "./LocaleProvider";
 
 interface BlogPostsProps {
   posts: BlogPost[];
@@ -39,6 +40,10 @@ const getImageUrl = (image?: BlogPost["mainImage"]) => {
 };
 
 export default function BlogPosts({ posts }: BlogPostsProps) {
+  const localeContext = useLocaleContext();
+  const activeMessages = localeContext.messages;
+  const navTranslations = activeMessages?.nav || {};
+
   if (!posts || posts.length === 0) {
     return (
       <div className="text-center py-12">
@@ -111,10 +116,9 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
         className="text-center mt-12"
       >
         <Link href="/blog" className="btn btn-outline btn-lg rounded-xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary transition-all">
-          View all articles
+          {navTranslations.viewAllArticles || "View all articles"}
         </Link>
       </motion.div>
     </>
   );
 }
-

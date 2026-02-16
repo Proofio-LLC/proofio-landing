@@ -8,6 +8,8 @@
     "blog": "Blog",
     "iosApp": "App iOS",
     "login": "Connexion",
+    "cta": "Commencer",
+    "viewAllArticles": "Voir tous les articles",
     "allFeatures": "Toutes les fonctionnalités",
     "featureNames": {
       "sentiment-analysis": "Analyse de sentiment",
