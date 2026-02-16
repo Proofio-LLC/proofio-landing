@@ -22,6 +22,11 @@
       "team-collaboration": "Collaborazione team"
     }
   },
+  "blogSection": {
+    "badge": "BLOG",
+    "title": "Ultimi articoli",
+    "description": "Insights su aggregazione recensioni, analytics e segnali di fiducia."
+  },
   "hero": {
     "badge": "Piattaforma di Intelligence delle Recensioni",
     "title": "Feedback dei clienti,",
@@ -382,6 +387,7 @@
     "imprint": "Imprint",
     "privacyPolicy": "Informativa sulla Privacy",
     "termsOfService": "Termini di Servizio",
+    "refundPolicy": "Politica di rimborso",
     "cookiesSettings": "Impostazioni Cookie",
     "legalInquiries": "Richieste Legali"
   }

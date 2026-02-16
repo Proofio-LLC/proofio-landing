@@ -22,6 +22,11 @@
       "team-collaboration": "Collaboration d'équipe"
     }
   },
+  "blogSection": {
+    "badge": "BLOG",
+    "title": "Derniers articles",
+    "description": "Insights sur l'agrégation d'avis, l'analytics et les signaux de confiance."
+  },
   "hero": {
     "badge": "Plateforme d'Intelligence des Avis",
     "title": "Les avis clients,",
@@ -354,6 +359,7 @@
     "product": "Produit",
     "company": "Entreprise",
     "legal": "Légal",
-    "resources": "Ressources"
+    "resources": "Ressources",
+    "refundPolicy": "Politique de remboursement"
   }
 }

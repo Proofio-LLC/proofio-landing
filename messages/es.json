@@ -22,6 +22,11 @@
       "team-collaboration": "Colaboración de equipo"
     }
   },
+  "blogSection": {
+    "badge": "BLOG",
+    "title": "Últimos artículos",
+    "description": "Insights sobre agregación de reseñas, analítica y señales de confianza."
+  },
   "hero": {
     "badge": "Plataforma de Inteligencia de Reseñas",
     "title": "Feedback del cliente,",
@@ -354,6 +359,7 @@
     "product": "Producto",
     "company": "Empresa",
     "legal": "Legal",
-    "resources": "Recursos"
+    "resources": "Recursos",
+    "refundPolicy": "Política de reembolso"
   }
 }

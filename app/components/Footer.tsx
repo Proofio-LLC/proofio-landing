@@ -202,9 +202,9 @@ export default function Footer({ locale, messages }: FooterProps) {
               <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
                 {t.cookiesSettings || "Cookies Settings"}
               </Link>
-              <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+              {/* <a href="mailto:legal@proofio.app" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
                 {t.legalInquiries || "Legal Inquiries"}
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

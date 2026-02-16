@@ -22,6 +22,11 @@
       "team-collaboration": "Team Collaboration"
     }
   },
+  "blogSection": {
+    "badge": "BLOG",
+    "title": "Latest articles",
+    "description": "Insights on review aggregation, analytics, and trust signals."
+  },
   "hero": {
     "badge": "Review Intelligence Platform",
     "title": "Customer feedback,",
@@ -385,6 +390,7 @@
     "imprint": "Imprint",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
+    "refundPolicy": "Refund Policy",
     "cookiesSettings": "Cookies Settings",
     "legalInquiries": "Legal Inquiries"
   }
