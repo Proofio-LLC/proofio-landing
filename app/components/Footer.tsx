@@ -21,7 +21,7 @@ export default function Footer({ locale, messages }: FooterProps) {
   const localePrefix = activeLocale && activeLocale !== 'en' ? `/${activeLocale}` : '';
 
   // Check if we're on a sub-page (non-localized paths or localized versions of them)
-  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service', '/ios-app'];
+  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/refund-policy', '/status', '/terms-of-service', '/ios-app'];
   const isSubPage = pathname ? (
     nonLocalizedPaths.some(path => pathname === path || pathname.startsWith(`${path}/`)) ||
     (activeLocale !== 'en' && pathname.startsWith(`/${activeLocale}/`))
@@ -196,6 +196,9 @@ export default function Footer({ locale, messages }: FooterProps) {
               <Link href="/terms-of-service" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
                 {t.termsOfService || "Terms of Service"}
               </Link>
+              <Link href="/refund-policy" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
+                {t.refundPolicy || "Refund Policy"}
+              </Link>
               <Link href="/cookies-settings" className="text-sm text-base-content/60 hover:text-primary transition-colors underline">
                 {t.cookiesSettings || "Cookies Settings"}
               </Link>
@@ -209,4 +212,3 @@ export default function Footer({ locale, messages }: FooterProps) {
     </footer>
   );
 }
-

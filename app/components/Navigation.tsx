@@ -34,7 +34,7 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   });
 
   // List of non-localized sub-pages (English only)
-  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/status', '/terms-of-service'];
+  const nonLocalizedPaths = ['/about', '/blog', '/careers', '/changelog', '/cookies-settings', '/developers', '/help', '/imprint', '/partners', '/pricing', '/privacy-policy', '/refund-policy', '/status', '/terms-of-service'];
   
   // Check if we're on a sub-page (non-localized or explicitly marked as subpage)
   const isSubPage = pathname ? (
@@ -378,5 +378,4 @@ export default function Navigation({ locale, messages }: NavigationProps) {
   );
 
 }
-
 

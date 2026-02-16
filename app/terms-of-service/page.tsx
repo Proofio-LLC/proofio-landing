@@ -103,12 +103,22 @@ export default function TermsOfServicePage() {
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>Fees are billed in advance on a monthly or annual basis</li>
                   <li>Prices are exclusive of taxes unless stated otherwise</li>
-                  <li>Payments are non-refundable except where required by law</li>
+                  <li>Payments are non-refundable</li>
                   <li>We may change pricing with reasonable prior notice</li>
                   <li>Non-payment may result in suspension or termination</li>
                 </ul>
                 <p className="text-base-content/80">
                   You may cancel your subscription at any time. Cancellation will take effect at the end of the current billing period.
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-3xl font-bold text-base-content mb-4">5a. Refund Policy</h2>
+                <p className="text-base-content/80 mb-4">
+                  Refund handling is governed by our <a href="/refund-policy" className="text-primary hover:underline">Refund Policy</a>, which is incorporated into these Terms by reference.
+                </p>
+                <p className="text-base-content/80">
+                  A 7-day Growth Plan trial is provided so you can evaluate the Service before paid billing starts. By using the Service and purchasing a plan, you acknowledge and agree to the no-refund policy.
                 </p>
               </section>
 
@@ -228,4 +238,3 @@ export default function TermsOfServicePage() {
     </main>
   );
 }
-
