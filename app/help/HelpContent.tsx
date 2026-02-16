@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import BackgroundPaths from "../components/FloatingPaths";
 import SupportForm from "../components/SupportForm";
 import AIChatModal from "../components/AIChatModal";
 import { BookOpen, ArrowRight, ShieldQuestion } from "lucide-react";
@@ -26,7 +25,6 @@ export default function HelpContent() {
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-base-100 via-base-100 to-base-200">
-        <BackgroundPaths />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div 
