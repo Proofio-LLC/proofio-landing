@@ -504,23 +504,23 @@ export default function PricingPage() {
   const getPlanPrice = (plan: typeof plans[0]) => {
     if (plan.monthlyPrice === 0) return 0;
     if (billingInterval === 'yearly') {
-      if (plan.name === 'Growth') return 24; // $24/month billed annually
-      if (plan.name === 'Scale') return 79; // $79/month billed annually
+      if (plan.name === 'Growth') return 33; // $33/month billed annually
+      if (plan.name === 'Scale') return 165; // $165/month billed annually
     }
     return plan.monthlyPrice;
   };
 
   const getYearlySavings = (plan: typeof plans[0]) => {
     if (plan.monthlyPrice === 0) return 0;
-    if (plan.name === 'Growth') return 17; // 17% savings
-    if (plan.name === 'Scale') return 20; // 20% savings
+    if (plan.name === 'Growth') return 15; // 15% savings
+    if (plan.name === 'Scale') return 16; // 16% savings
     return 0;
   };
 
   const getYearlyTotal = (plan: typeof plans[0]) => {
     if (plan.monthlyPrice === 0) return 0;
-    if (plan.name === 'Growth') return 288; // $288/year
-    if (plan.name === 'Scale') return 948; // $948/year
+    if (plan.name === 'Growth') return 396; // $396/year
+    if (plan.name === 'Scale') return 1980; // $1980/year
     return 0;
   };
 
