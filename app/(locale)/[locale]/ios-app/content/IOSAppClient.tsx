@@ -74,7 +74,7 @@ export default function IOSAppPage() {
                 
                 <div className="flex flex-col sm:flex-row justify-center gap-4 items-stretch sm:items-center">
                   <a 
-                    href="https://apps.apple.com/app/proofio/id6656574889"
+                    href="https://ios.proofio.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl whitespace-nowrap"
