@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Briefcase, Rocket, Sparkles, UserRoundCheck, Wrench } from 'lucide-react';
+import { ArrowRight, Briefcase, Rocket, FileText, UserRoundCheck, Wrench } from 'lucide-react';
 import Image from 'next/image';
 import type { ComponentType } from 'react';
 import { Locale } from '@/lib/i18n';
@@ -56,7 +56,7 @@ export default function UseCases({ locale = 'en', messages }: UseCasesProps) {
           className="text-center mb-24"
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
-            <Sparkles className="w-4 h-4" />
+            <Briefcase className="w-4 h-4" />
             <span className="text-sm font-bold uppercase tracking-widest">USE CASES</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-base-content tracking-tight">
@@ -112,8 +112,11 @@ export default function UseCases({ locale = 'en', messages }: UseCasesProps) {
           })}
 
           <div className="md:col-span-2 mt-2">
-            <div className="mb-5">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-primary">{liveCaseStudiesLabel[normalizedLocale]}</p>
+            <div className="mb-5 flex justify-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full">
+                <FileText className="w-4 h-4" />
+                <span className="text-sm font-bold uppercase tracking-widest">{liveCaseStudiesLabel[normalizedLocale]}</span>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {caseStudyItems.map((study, idx) => (

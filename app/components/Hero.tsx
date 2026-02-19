@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import InfiniteGrid from "./InfiniteGrid";
 
@@ -25,7 +25,7 @@ export default function Hero({ locale, messages }: HeroProps) {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full"
           >
-            <Sparkles className="w-4 h-4" />
+            <BarChart3 className="w-4 h-4" />
             <span className="text-sm font-medium">{t.badge || "Review Intelligence Platform"}</span>
           </motion.div>
 

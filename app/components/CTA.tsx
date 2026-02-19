@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 
 interface CTAProps {
   locale?: string;
@@ -42,7 +42,7 @@ export default function CTA({ locale, messages }: CTAProps) {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-white/20 text-white rounded-full backdrop-blur-md border border-white/30"
             >
-              <Sparkles className="w-4 h-4" />
+              <Zap className="w-4 h-4" />
               <span className="text-sm font-medium uppercase tracking-wider">{t.badge || "Ready to move from reviews to insights?"}</span>
             </motion.div>
 
@@ -95,4 +95,3 @@ export default function CTA({ locale, messages }: CTAProps) {
     </section>
   );
 }
-

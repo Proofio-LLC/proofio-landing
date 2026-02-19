@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { Code, Sparkles, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText, Copy, Check, Terminal } from "lucide-react";
+import { Code, MoreHorizontal, ChevronDown, Layout, Globe, Smartphone, Wrench, BarChart3, Database, FileText, Copy, Check, Terminal } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
@@ -73,7 +73,7 @@ export default function Integration({ locale, messages }: IntegrationProps) {
             className="text-left min-w-0"
           >
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
-              <Sparkles className="w-4 h-4" />
+              <Code className="w-4 h-4" />
               <span className="text-sm font-medium uppercase tracking-widest">{t.badge || "Integration"}</span>
             </div>
             <h2 className="text-3xl md:text-6xl font-bold mb-6">

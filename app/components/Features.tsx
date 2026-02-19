@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X, Building2, UserCircle2, ShieldCheck } from "lucide-react";
+import { X, Building2, UserCircle2, ShieldCheck } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 function FeatureImage({ staticImage, animatedImage, alt, small }: { staticImage: string; animatedImage: string; alt: string; small?: boolean }) {
@@ -208,7 +208,7 @@ export default function Features({ locale, messages }: FeaturesProps) {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
-            <Sparkles className="w-4 h-4" />
+            <ShieldCheck className="w-4 h-4" />
             <span className="text-sm font-medium">{t.badge || "CORE VALUE"}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

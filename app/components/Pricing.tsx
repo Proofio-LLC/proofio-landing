@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, ArrowRight, Zap } from "lucide-react";
+import { Check, Sparkles, ArrowRight, Zap, DollarSign } from "lucide-react";
 import Link from "next/link";
 
 const plans = [
@@ -113,7 +113,7 @@ export default function Pricing({ locale, messages }: PricingProps) {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 text-primary rounded-full">
-            <Sparkles className="w-4 h-4" />
+            <DollarSign className="w-4 h-4" />
             <span className="text-sm font-medium">{t.badge || "PRICING"}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
