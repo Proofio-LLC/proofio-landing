@@ -298,8 +298,8 @@ export default async function BlogPostPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       <article>
-        {/* Hero Image with Title Overlay */}
-        <div className="container mx-auto px-4 pt-32 pb-12 max-w-4xl">
+        {/* Hero without overlay text (cover image remains fully visible) */}
+        <div className="container mx-auto px-4 pt-32 pb-12 max-w-5xl">
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex items-center gap-1 sm:gap-2 text-sm text-base-content/50">
               <li className="flex items-center">
@@ -325,59 +325,42 @@ export default async function BlogPostPage({
             </ol>
           </nav>
 
-          {imageUrl ? (
-            <div className="relative w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden mb-8 shadow-xl">
-              <Image
-                src={imageUrl}
-                alt={post.mainImage?.alt || post.title}
-                fill
-                className="object-cover"
-                priority
-                sizes="100vw"
-              />
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
-                {/* Category Badge */}
-                {post.category && (
-                  <div className="mb-4">
-                    <span className="badge badge-outline badge-lg bg-white/20 backdrop-blur-sm border-white/30 text-white">
-                      {post.category}
-                    </span>
-                  </div>
-                )}
-                {/* Title */}
-                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                  {post.title}
-                </h1>
-                {/* Meta Information */}
-                <div className="flex items-center gap-4 text-white/90 drop-shadow-md">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm md:text-base">{formatDate(post.publishedAt)}</span>
-                  </div>
-                  {post.author && (
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm md:text-base">from {post.author.name}</span>
-                    </div>
-                  )}
-                </div>
+          {imageUrl && (
+            <div className="relative w-full rounded-[2rem] overflow-hidden shadow-xl border border-base-300 bg-white mb-6">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src={imageUrl}
+                  alt={post.mainImage?.alt || post.title}
+                  fill
+                  className="object-contain"
+                  priority
+                  sizes="100vw"
+                />
               </div>
             </div>
-          ) : (
-            /* Fallback if no image */
-            <div className="mb-8">
-              {post.category && (
-                <div className="mb-4">
-                  <span className="badge badge-outline badge-lg">{post.category}</span>
+          )}
+
+          <div className="rounded-[2rem] border border-base-300 bg-base-100 p-7 md:p-8 shadow-lg">
+            {post.category && (
+              <div className="mb-4">
+                <span className="badge badge-outline badge-lg">{post.category}</span>
+              </div>
+            )}
+            <h1 className="text-3xl md:text-5xl font-bold text-base-content mb-5 leading-tight">
+              {post.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4 text-base-content/70">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm md:text-base">{formatDate(post.publishedAt)}</span>
+              </div>
+              {post.author && (
+                <div className="flex items-center gap-2">
+                  <span className="text-sm md:text-base">from {post.author.name}</span>
                 </div>
               )}
-              <h1 className="text-4xl md:text-5xl font-bold text-base-content mb-4">
-                {post.title}
-              </h1>
             </div>
-          )}
+          </div>
         </div>
 
       {/* Content */}

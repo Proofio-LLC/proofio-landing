@@ -135,7 +135,7 @@ export default function UseCases({ locale = 'en', messages }: UseCasesProps) {
                       width={220}
                       height={220}
                       aria-hidden="true"
-                      className="absolute -top-10 -right-10 w-44 h-44 opacity-5 group-hover:opacity-15 rotate-[-18deg] transition-opacity pointer-events-none [filter:brightness(0)_saturate(100%)_invert(52%)_sepia(74%)_saturate(488%)_hue-rotate(118deg)_brightness(95%)_contrast(98%)]"
+                      className="absolute -top-10 -right-10 w-44 h-44 opacity-5 group-hover:opacity-15 rotate-[-18deg] transition-opacity pointer-events-none grayscale"
                     />
                     <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500" />
 

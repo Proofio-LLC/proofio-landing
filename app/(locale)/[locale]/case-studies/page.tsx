@@ -83,7 +83,7 @@ export default async function CaseStudiesIndexPage({ params }: { params: Promise
                     width={220}
                     height={220}
                     aria-hidden="true"
-                    className="absolute -top-10 -right-10 w-44 h-44 opacity-5 group-hover:opacity-15 rotate-[-18deg] transition-opacity pointer-events-none [filter:brightness(0)_saturate(100%)_invert(52%)_sepia(74%)_saturate(488%)_hue-rotate(118deg)_brightness(95%)_contrast(98%)]"
+                    className="absolute -top-10 -right-10 w-44 h-44 opacity-5 group-hover:opacity-15 rotate-[-18deg] transition-opacity pointer-events-none grayscale"
                   />
                   <div className="relative z-10">
                     <div className={`w-20 h-20 rounded-2xl bg-white shadow-lg flex items-center justify-center mb-6 ${item.slug === "uber" ? "p-2" : ""}`}>
