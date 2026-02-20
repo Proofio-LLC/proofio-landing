@@ -90,7 +90,7 @@ export default function Hero({ locale, messages }: HeroProps) {
                 className="relative overflow-hidden"
               >
                 <Image 
-                  src="/hero2.png" 
+                  src="/iosapp/dashboard.png" 
                   alt="Proofio Review Intelligence Platform" 
                   width={1200}
                   height={800}

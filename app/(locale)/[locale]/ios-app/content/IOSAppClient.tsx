@@ -199,7 +199,7 @@ export default function IOSAppPage() {
                       alt="Proofio App" 
                       width={400} 
                       height={800} 
-                      className="mx-auto drop-shadow-2xl rounded-[3rem]"
+                      className="mx-auto drop-shadow-2xl"
                     />
                 </motion.div>
               </div>
