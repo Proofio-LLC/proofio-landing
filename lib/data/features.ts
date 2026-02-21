@@ -44,7 +44,7 @@ export const features: Feature[] = [
     relatedFeatures: [
       'ai-summaries',
       'trend-detection',
-      'custom-alerts',
+      'proofio-verified',
     ],
   },
   {
@@ -73,7 +73,7 @@ export const features: Feature[] = [
     ],
     relatedFeatures: [
       'multi-source-aggregation',
-      'custom-alerts',
+      'proofio-verified',
       'team-collaboration',
     ],
   },
@@ -168,33 +168,33 @@ export const features: Feature[] = [
     ],
   },
   {
-    slug: 'custom-alerts',
-    name: 'Custom Alerts',
-    iconComponent: 'Bell',
+    slug: 'proofio-verified',
+    name: 'Proofio Verified',
+    iconComponent: 'ShieldCheck',
     shortDescription:
-      'Get notified instantly about reviews that matter most with customizable alert rules.',
+      'Embed a verified trust badge on your website that displays real review stats and testimonials.',
     longDescription:
-      'Set up intelligent alerts based on sentiment, keywords, rating, or source. Your team gets notified via email or Slack when critical reviews arrive so you can respond quickly.',
+      'Proofio Verified is a lightweight embed widget that shows your aggregated review score, platform count, and optional testimonials – in your language, your theme, your style.',
     benefits: [
-      'Real-time notifications',
-      'Custom alert rules',
-      'Team notifications',
-      'Priority management',
-      'Rapid response',
-      'Better customer relationships',
+      'One-line embed',
+      'Light & dark mode',
+      '18 languages supported',
+      'AI-verified badge',
+      'Testimonial showcase',
+      'Mobile responsive',
     ],
     useCases: [
-      'Crisis management',
-      'Negative review response',
-      'VIP customer tracking',
-      'Competitor mention alerts',
-      'Keyword tracking',
-      'Team accountability',
+      'Landing page social proof',
+      'E-commerce trust signals',
+      'SaaS conversion optimization',
+      'App download pages',
+      'Agency client websites',
+      'Product Hunt launches',
     ],
     relatedFeatures: [
       'review-monitoring',
       'sentiment-analysis',
-      'slack-integration',
+      'multi-source-aggregation',
     ],
   },
   {
@@ -253,7 +253,7 @@ export const features: Feature[] = [
     ],
     relatedFeatures: [
       'review-monitoring',
-      'custom-alerts',
+      'proofio-verified',
       'custom-reports',
     ],
   },

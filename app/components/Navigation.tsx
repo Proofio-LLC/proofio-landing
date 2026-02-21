@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowLeft, ChevronDown, SmilePlus, Eye, Target, Sparkles, Link as LinkIcon, Bell, BarChart3, Users } from "lucide-react";
+import { Menu, X, ArrowLeft, ChevronDown, SmilePlus, Eye, Target, Sparkles, Link as LinkIcon, Bell, BarChart3, Users, ShieldCheck } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { features } from '@/lib/data/features';
 import { comparisons } from '@/lib/data/comparisons';
@@ -69,6 +69,7 @@ export default function Navigation({ locale, messages }: NavigationProps) {
     'Bell': Bell,
     'BarChart3': BarChart3,
     'Users': Users,
+    'ShieldCheck': ShieldCheck,
   };
 
   // Features dropdown items
