@@ -38,7 +38,7 @@ export default function RefundPolicyPage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">1. Scope</h2>
                 <p className="text-base-content/80 mb-4">
-                  This Refund Policy applies to all paid subscriptions for Proofio LLC products and services, including dashboard access, API plans, and related paid features.
+                  This Refund Policy applies to all paid subscriptions for Proofio products and services, including dashboard access, API plans, and related paid features.
                 </p>
               </section>
 
@@ -100,10 +100,16 @@ export default function RefundPolicyPage() {
                 <h2 className="text-3xl font-bold text-base-content mb-4">9. Contact</h2>
                 <div className="text-base-content/80 space-y-2">
                   <p>
-                    <strong>Proofio LLC</strong>
+                    <strong>Proofio</strong>
                   </p>
                   <p>
-                    Delaware, United States
+                    Owner: Tim Krisch
+                  </p>
+                  <p>
+                    c/o MDC Management#6326<br />
+                    Welserstraße 3<br />
+                    87463 Dietmannsried<br />
+                    Germany
                   </p>
                   <p>
                     Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>

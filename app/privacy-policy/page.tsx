@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">1. Introduction</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio LLC ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, applications, APIs, widgets, and related services (collectively, the "Service").
+                  Proofio ("we", "our", or "us") is committed to protecting your privacy. Proofio is a sole proprietorship owned by Tim Krisch. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, applications, APIs, widgets, and related services (collectively, the "Service").
                 </p>
                 <p className="text-base-content/80">
                   By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">6. International Data Transfers</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio LLC is based in the United States. If you access the Service from outside the United States, your information may be transferred to and processed in the United States or other jurisdictions. We take appropriate safeguards to ensure adequate data protection, including standard contractual clauses where required.
+                  Proofio is based in Germany. If you access the Service from outside Germany, your information may be transferred to and processed in Germany or other jurisdictions. We take appropriate safeguards to ensure adequate data protection, including standard contractual clauses where required.
                 </p>
               </section>
 
@@ -176,10 +176,16 @@ export default function PrivacyPolicyPage() {
                 <h2 className="text-3xl font-bold text-base-content mb-4">13. Contact</h2>
                 <div className="text-base-content/80 space-y-2">
                   <p>
-                    <strong>Proofio LLC</strong>
+                    <strong>Proofio</strong>
                   </p>
                   <p>
-                    Delaware, United States
+                    Owner: Tim Krisch
+                  </p>
+                  <p>
+                    c/o MDC Management#6326<br />
+                    Welserstraße 3<br />
+                    87463 Dietmannsried<br />
+                    Germany
                   </p>
                   <p>
                     Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>

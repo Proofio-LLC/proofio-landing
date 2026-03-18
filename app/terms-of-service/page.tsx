@@ -38,10 +38,10 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">1. Agreement to Terms</h2>
                 <p className="text-base-content/80 mb-4">
-                  By accessing or using Proofio LLC’s services, including our website, applications, APIs, widgets, and related services (collectively, the “Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree to these Terms, you may not access or use the Service.
+                  By accessing or using Proofio’s services, including our website, applications, APIs, widgets, and related services (collectively, the “Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree to these Terms, you may not access or use the Service.
                 </p>
                 <p className="text-base-content/80">
-                  These Terms constitute a legally binding agreement between you (“User”, “you”, or “your”) and Proofio LLC (“Company”, “we”, “us”, or “our”).
+                  These Terms constitute a legally binding agreement between you (“User”, “you”, or “your”) and Proofio (“Company”, “we”, “us”, or “our”). Proofio is a sole proprietorship owned by Tim Krisch.
                 </p>
               </section>
 
@@ -125,7 +125,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">6. Intellectual Property</h2>
                 <p className="text-base-content/80 mb-4">
-                  The Service and all related software, design, and functionality are owned by Proofio LLC and protected by applicable intellectual property laws.
+                  The Service and all related software, design, and functionality are owned by Proofio and protected by applicable intellectual property laws.
                 </p>
                 <p className="text-base-content/80">
                   You are granted a limited, non-exclusive, non-transferable license to use the Service for internal business purposes in accordance with these Terms.
@@ -177,7 +177,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">9. Limitation of Liability</h2>
                 <p className="text-base-content/80 mb-4">
-                  To the maximum extent permitted by law, Proofio LLC shall not be liable for indirect, incidental, consequential, or special damages, including loss of data, profits, or business opportunities.
+                  To the maximum extent permitted by law, Proofio shall not be liable for indirect, incidental, consequential, or special damages, including loss of data, profits, or business opportunities.
                 </p>
                 <p className="text-base-content/80">
                   Our total liability shall not exceed the amount paid by you to Proofio in the twelve (12) months preceding the claim.
@@ -187,7 +187,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">10. Indemnification</h2>
                 <p className="text-base-content/80">
-                  You agree to indemnify and hold harmless Proofio LLC and its affiliates from any claims arising out of your use of the Service or violation of these Terms.
+                  You agree to indemnify and hold harmless Proofio and its affiliates from any claims arising out of your use of the Service or violation of these Terms.
                 </p>
               </section>
 
@@ -211,7 +211,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">13. Governing Law</h2>
                 <p className="text-base-content/80 mb-4">
-                  These Terms are governed by the laws of the State of Delaware, United States, without regard to conflict of law principles.
+                  These Terms are governed by the laws of Germany, without regard to conflict of law principles.
                 </p>
               </section>
 
@@ -219,10 +219,16 @@ export default function TermsOfServicePage() {
                 <h2 className="text-3xl font-bold text-base-content mb-4">14. Contact</h2>
                 <div className="text-base-content/80 space-y-2">
                   <p>
-                    <strong>Proofio LLC</strong>
+                    <strong>Proofio</strong>
                   </p>
                   <p>
-                    Delaware, United States
+                    Owner: Tim Krisch
+                  </p>
+                  <p>
+                    c/o MDC Management#6326<br />
+                    Welserstraße 3<br />
+                    87463 Dietmannsried<br />
+                    Germany
                   </p>
                   <p>
                     Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>

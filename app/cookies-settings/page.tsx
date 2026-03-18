@@ -44,7 +44,7 @@ export default function CookiesSettingsPage() {
               <section className="mb-8">
                 <h2 className="text-3xl font-bold text-base-content mb-4">2. How We Use Cookies</h2>
                 <p className="text-base-content/80 mb-4">
-                  Proofio LLC uses cookies and similar technologies to:
+                  Proofio uses cookies and similar technologies to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-base-content/80 mb-4">
                   <li>Store your cookie consent preferences</li>
@@ -72,7 +72,7 @@ export default function CookiesSettingsPage() {
                     <li><strong>Purpose:</strong> Stores your cookie consent preferences</li>
                     <li><strong>Type:</strong> Persistent</li>
                     <li><strong>Duration:</strong> 1 year</li>
-                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Provider:</strong> Proofio</li>
                     <li><strong>Legal basis:</strong> Legitimate interest / legal obligation</li>
                   </ul>
                 </div>
@@ -82,7 +82,7 @@ export default function CookiesSettingsPage() {
                     <li><strong>Purpose:</strong> Stores your language preference for the website</li>
                     <li><strong>Type:</strong> Persistent</li>
                     <li><strong>Duration:</strong> 1 year</li>
-                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Provider:</strong> Proofio</li>
                     <li><strong>Legal basis:</strong> Legitimate interest (user experience)</li>
                   </ul>
                 </div>
@@ -92,7 +92,7 @@ export default function CookiesSettingsPage() {
                     <li><strong>Purpose:</strong> Tracks affiliate referrals for partner attribution</li>
                     <li><strong>Type:</strong> Persistent</li>
                     <li><strong>Duration:</strong> 30 days</li>
-                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Provider:</strong> Proofio</li>
                     <li><strong>Legal basis:</strong> Legitimate interest (business operations)</li>
                   </ul>
                 </div>
@@ -106,7 +106,7 @@ export default function CookiesSettingsPage() {
                     <li><strong>Purpose:</strong> Maintain session state and preferences</li>
                     <li><strong>Type:</strong> Session cookies</li>
                     <li><strong>Duration:</strong> Until browser is closed</li>
-                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Provider:</strong> Proofio</li>
                     <li><strong>Legal basis:</strong> Legitimate interest</li>
                   </ul>
                 </div>
@@ -138,7 +138,7 @@ export default function CookiesSettingsPage() {
                   <ul className="text-sm text-base-content/70 space-y-1 list-disc list-inside">
                     <li><strong>Purpose:</strong> Loading and displaying review widgets</li>
                     <li><strong>Cookies:</strong> Functional cookies for widget performance</li>
-                    <li><strong>Provider:</strong> Proofio LLC</li>
+                    <li><strong>Provider:</strong> Proofio</li>
                   </ul>
                 </div>
                 <p className="text-base-content/70 text-sm">
@@ -183,10 +183,16 @@ export default function CookiesSettingsPage() {
                 <h2 className="text-3xl font-bold text-base-content mb-4">8. Contact</h2>
                 <div className="text-base-content/80 space-y-2">
                   <p>
-                    <strong>Proofio LLC</strong>
+                    <strong>Proofio</strong>
                   </p>
                   <p>
-                    Delaware, United States
+                    Owner: Tim Krisch
+                  </p>
+                  <p>
+                    c/o MDC Management#6326<br />
+                    Welserstraße 3<br />
+                    87463 Dietmannsried<br />
+                    Germany
                   </p>
                   <p>
                     Email: <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Imprint | Proofio",
-  description: "Proofio Imprint - Legal information about Proofio LLC.",
+  description: "Proofio Imprint - Legal information.",
   robots: {
     index: false,
     follow: false,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Imprint - Proofio",
-    description: "Legal disclosure and contact information for Proofio LLC.",
+    description: "Legal disclosure and contact information.",
   },
 };
 
@@ -39,10 +39,16 @@ export default function ImprintPage() {
                 <h2 className="text-3xl font-bold text-base-content mb-4">Company Information</h2>
                 <div className="text-base-content/80 space-y-2">
                   <p>
-                    <strong>Proofio LLC</strong>
+                    <strong>Proofio</strong>
                   </p>
                   <p>
-                    Delaware, United States
+                    Owner: Tim Krisch
+                  </p>
+                  <p>
+                    c/o MDC Management#6326<br />
+                    Welserstraße 3<br />
+                    87463 Dietmannsried<br />
+                    Germany
                   </p>
                 </div>
               </section>
@@ -52,9 +58,6 @@ export default function ImprintPage() {
                 <div className="text-base-content/80 space-y-2">
                   <p>
                     <strong>Email:</strong> <a href="mailto:support@proofio.app" className="text-primary hover:underline">support@proofio.app</a>
-                  </p>
-                  <p>
-                    <strong>Website:</strong> <a href="https://proofio.app" className="text-primary hover:underline">https://proofio.app</a>
                   </p>
                 </div>
               </section>
