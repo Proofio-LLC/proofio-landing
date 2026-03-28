@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     const response = await openai.chat.completions.create({
-      model: "stepfun/step-3.5-flash:free",
+      model: "nvidia/nemotron-3-super-120b-a12b:free",
       messages: [
         {
           role: "system",
